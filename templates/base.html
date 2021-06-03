@@ -71,20 +71,28 @@
         </div>
         
         <!--bottom row-->
-        <div class="row">
+        <div class="row w-100">
+            <!--products-->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <button class="text-center navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="">Products</span>
+                    </button>
+                    {% include 'includes/product-nav.html' %}
             <!--logo-->
-            <div class="col-4 col-lg-2 my-auto py-lg-0">
-                <div class="float-left">
-                <a href="{% url 'home' %}" class="nav-link">
+                <ul>
+                <li class="list-inline-item">
+                <a href="{% url 'home' %}" class="float-left nav-link">
                     <p class="text-black my-0"><strong>SD</strong></p>
                 </a>
-                </div>
-            <!--search form-->
-                <div class="float-right">
-                <a class="text-black nav-link" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div><i class="fas fa-search fa-lg"></i></div>
-                        <p class="my-0">Search</p>
-                </a>
+                <!--search form-->
+                    <a class="text-black nav-link float-right" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="">
+                            <span class="icon float-left">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <p class="float-right ">Search</p>
+                        </div>
+                    </a>
                 <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
                 <form method="GET" action="">
                     <div class="input-group w-100">
@@ -98,24 +106,12 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            </div>
-            </div>
-            <!--products-->
-            <div class="col-4 col-lg-8 my-auto py-lg-0">
-                <!--<div class="d-inline">-->
-                <nav class="navbar navbar-expand-lg navbar-light w-100">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    {% include 'includes/product-nav.html' %}
-                </nav>
-            </div>
-            <!--account-->
-            <div class="col-4 col-lg-2 my-auto py-lg-0"> 
-                <!--<div class="d-inline">-->   
+                </div>
+                </li>
+                <!--account-->
+                <li class="list-inline-item">  
                 <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="text-center">
+                    <div class="">
                         <p class="my-0">My Account</p>
                     </div>
                 </a>
@@ -131,7 +127,9 @@
                         <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                     {% endif %}
                 </div>
-            </div>
+                </li>
+            </ul>
+                </nav>
         </div>
     </header>
 

@@ -11,6 +11,7 @@ html {
     background-size: cover;
     color: rgb(97, 59, 59);
     font-family: 'Lato';
+    width: 100%;
 }
 
 .icon {
@@ -25,9 +26,9 @@ html {
     text-transform: uppercase;
 }
 
-.logo-link {
+/*.logo-link {
     width: fit-content;
-}
+}*/
 
 .enter-button {
     background: rgb(172, 25, 25);
