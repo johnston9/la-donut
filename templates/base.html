@@ -47,6 +47,8 @@
 <body>
 
     <header class="container-fluid fixed-top">
+        <div id="topnav" class="row d-none bg-info d-lg-flex">
+            <div class="col">
         <!--main title-->
         <div class="row">
             <div class="col my-auto py-1 text-center">
@@ -100,7 +102,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-gold font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                        <a class="{% if grand_total %}text-success font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
@@ -116,6 +118,8 @@
                 </ul>
             </div>
         </div>
+            </div>
+    </div>
     </header>
 
     {% if messages %}
