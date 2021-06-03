@@ -3,8 +3,7 @@ html {
 }
 
 .header-container {
-    padding-top: 150px;
-    height: 150px;
+    padding-top: 200px;
 }
 
 .home-container {
@@ -30,15 +29,15 @@ html {
     width: fit-content;
 }
 
-#enter {
+.enter-button {
     background: rgb(172, 25, 25);
-    color: white;
+    color: #fff;
     min-width: 260px;
 }
 
 .btn-black {
     background: rgb(172, 25, 25);
-    color: blueviolet;
+    color: #fff;
     min-width: 260px;
 }
 
