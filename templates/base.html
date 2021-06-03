@@ -48,28 +48,47 @@
 <body>
 
     <header class="container-fluid fixed-top">
-        <!--top nav-->
-        <div id="topnav" class="row d-none bg-info d-lg-flex">
-            <div class="col">
-        <!--main title-->
+        <!--name row-->
         <div class="row">
-            <div class="col my-auto py-1 text-center">
+            <!--name-->
+            <div class="col-8 offset-2 my-auto py-1 text-center">
                 <h2 class="name text-black"><strong>Silver Dollar</strong></h2>
             </div>
+            <!--total-->
+            <div class="col-2">
+                <a class="{% if grand_total %}text-gold font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                    <div class="text-center">
+                        <i class="fas fa-dollar-sign"></i>
+                        <p class="my-0">
+                            {% if grand_total %}
+                                ${{ grand_total|floatformat:2 }}
+                            {% else %}
+                                $0.00
+                            {% endif %}
+                        </p>
+                    </div>
+                </a>
         </div>
         
+        <!--bottom row-->
         <div class="row">
             <!--logo-->
-            <div class="col-lg-4 my-auto py-lg-0 text-left">
-                <a href="{% url 'home' %}" class="nav-link logo-link">
-                    <h5 class="logo-font text-black my-0"><strong>SD</strong></h5>
+            <div class="col-4 col-lg-2 my-auto py-lg-0">
+                <div class="float-left">
+                <a href="{% url 'home' %}" class="nav-link">
+                    <p class="text-black my-0"><strong>SD</strong></p>
                 </a>
-            </div>
+                </div>
             <!--search form-->
-            <div class="col-lg-4 my-auto py-lg-0">
+                <div class="float-right">
+                <a class="text-black nav-link" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div><i class="fas fa-search fa-lg"></i></div>
+                        <p class="my-0">Search</p>
+                </a>
+                <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
                 <form method="GET" action="">
                     <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Find your dream">
+                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Find">
                         <div class="input-group-append">
                             <button class="form-control btn btn-black border border-black rounded-0" type="submit">
                                 <span class="icon">
@@ -80,56 +99,40 @@
                     </div>
                 </form>
             </div>
-            <!--account/total-->
-            <div class="col-lg-4 my-auto py-lg-0">
-                <ul class="list-inline list-unstyled text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="" class="dropdown-item">Manage Site</a>
-                                {% endif %}
-                                <a href="" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-success font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        $0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+            </div>
+            </div>
+            <!--products-->
+            <div class="col-4 col-lg-8 my-auto py-lg-0">
+                <!--<div class="d-inline">-->
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/product-nav.html' %}
+                </nav>
+            </div>
+            <!--account-->
+            <div class="col-4 col-lg-2 my-auto py-lg-0"> 
+                <!--<div class="d-inline">-->   
+                <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                        <p class="my-0">My Account</p>
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="" class="dropdown-item">Manage Site</a>
+                        {% endif %}
+                        <a href="" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
-            </div>
-    </div>
-    <!--bottom nav-->
-    <div class="row bg-white">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
-    </div>
     </header>
 
     {% if messages %}

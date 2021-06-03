@@ -51,6 +51,8 @@ html {
     color: white;
 }
 
+/*--colors--*/
+
 .text-black {
     color: #000 !important;
 }
@@ -58,6 +60,15 @@ html {
 .border-black {
     border: 1px solid black !important;
 }
+
+.text-gold {
+    color: rgb(255,215,0);
+}
+
+.bg-gold {
+    background-color: rgb(255,215,0);
+}
+
 
 /* -------------------------------- Media Queries */
 
