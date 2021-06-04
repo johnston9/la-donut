@@ -1,5 +1,9 @@
 /*----------------------General----------------------*/
 
+html {
+    height: 100%;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -56,10 +60,6 @@ hr.grey100 {
     border-top: 2px solid #666666;
 	margin: 5px auto 0px;
 	width: 100%;
-}
-
-html {
-    height: 100%;
 }
 
 .header-container {
@@ -132,16 +132,32 @@ html {
     border: 1px solid black !important;
 }
 
-.text-gold {
+.text-lightgold {
     color: rgb(255,215,0);
+}
+
+.text-gold3 {
+    color: rgb(114, 99, 16);
+}
+
+.text-gold {
+    color: rgba(209, 161, 16, 0.993);
+}
+
+.text-gold2 {
+    color: rgb(206, 176, 12);
 }
 
 .bg-gold {
     background-color: rgb(255,215,0);
 }
 
+.text-lightgrey {
+    color: #777777;
+}
+
 .text-grey {
-    color: #999999;
+    color: rgba(0,0,0,.6);
 }
 
 /*--home page--*/
@@ -163,3 +179,13 @@ html {
     max-width: 80%;
   }
 }
+
+/* nav links */
+@media (max-width: 600px) {
+    .nav-link {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+  }

@@ -51,7 +51,7 @@
     <header class="container-fluid fixed-top">
         <!--name row-->
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 px-0 mx-0">
                 <!--search form large-->
                 <!--<div class="d-none d-lg-flex my-auto py-1 py-lg-0">
                 <form method="GET" action="">
@@ -102,23 +102,23 @@
                 <h2 class="name text-black"><strong>Silver Dollar</strong></h2>
             </div>
             <!--total-->
-            <div class="col-3">
+            <div class="col-3 pr-0 pl-0">
                 <a class="{% if grand_total %}text-gold font-weight-bold{% else %}text-gold{% endif %} nav-link" href="">
                     <div class="">
                         <span class="icon float-left">
-                            <i class="fas fa-dollar-sign"></i>
+                            <i class="fas fa-euro-sign"></i>
                         </span>
                         <p class="my-1 ">
                             {% if grand_total %}
-                                ${{ grand_total|floatformat:2 }}
+                                {{ grand_total|floatformat:2 }}
                             {% else %}
-                                $0.00
+                                0.00
                             {% endif %}
                         </p>
                     </div>
                 </a>
         </div>
-        <hr class="gold70" />
+        <hr class="grey100" />
         
         <!--bottom row-->
         <div class="row w-100">
