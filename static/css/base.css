@@ -39,7 +39,6 @@ html {
 .btn-black {
     background: rgb(172, 25, 25);
     color: #fff;
-    min-width: 260px;
 }
 
 .enter-button:hover,

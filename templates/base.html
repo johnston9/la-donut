@@ -51,7 +51,23 @@
         <!--name row-->
         <div class="row">
             <div class="col-3">
-            <!--search form-->
+            <!--search form large-->
+            <div class="d-none d-lg-flex my-auto py-1 py-lg-0">
+                <form method="GET" action="">
+                    <div class="input-group">
+                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--search form mobile-->
+            <div class="d-block d-lg-none my-auto py-1 py-lg-0">
             <a class="text-black nav-link float-right" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="">
                     <span class="icon float-left">
@@ -74,6 +90,8 @@
             </div>
         </form>
         </div>
+            </div>
+
             </div>
             <!--name-->
             <div class="col-6 my-auto py-1 text-center">
