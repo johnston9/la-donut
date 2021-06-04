@@ -160,6 +160,16 @@ hr.grey100 {
     color: rgba(0,0,0,.6);
 }
 
+#account-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+
+.navbar-light .navbar-toggler {
+    border-color: #fff;
+}
+
 /*--home page--*/
 
 .home-container {
