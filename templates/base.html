@@ -70,7 +70,7 @@
             <div class="d-block d-lg-none my-auto py-1 py-lg-0">-->
                 <!--search form mobile and large-->
                 <div class="">
-                    <a class="text-grey float-right nav-link" href="#" id="mobile-search" data-toggle="dropdown"
+                    <a class="text-grey float-right topnav-link" href="#" id="mobile-search" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <div class="">
                             <span class="icon float-left">
@@ -103,7 +103,7 @@
             </div>
             <!--total-->
             <div class="col-3 pr-0 pl-0">
-                <a class="{% if grand_total %}text-gold font-weight-bold{% else %}text-gold{% endif %} nav-link" href="">
+                <a class="{% if grand_total %}text-gold font-weight-bold{% else %}text-gold{% endif %} topnav-link" href="">
                     <div class="">
                         <span class="icon float-left">
                             <i class="fas fa-shopping-bag"></i>
@@ -126,11 +126,8 @@
             <!--logo-->
             <!--products-->
                 <nav class="navbar navbar-expand-lg navbar-light w-100">
-                    <button class="text-center ml-5 my-auto py-1 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="font-weight-bold text-grey">Products</span>
-                    </button>
                     <!--account-->
-                <li class="list-inline-item">  
+                <li class="list-inline-item my-auto py-1">  
                     <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="mr-5">
                             <p id="account-text" class="text-grey my-0">My Account</p>
@@ -149,6 +146,9 @@
                         {% endif %}
                     </div>
                     </li>
+                    <button class="text-center my-auto py-1 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="font-weight-bold text-grey">Products</span>
+                    </button>
                     {% include 'includes/product-nav.html' %}
                 </nav>
         </div>

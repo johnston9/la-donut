@@ -34,6 +34,15 @@ body {
 	align-items: center;
 }
 
+.topnav-link {
+    display: block;
+    padding: .5rem 1rem;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 50px; 
+    padding-left: 50px; 
+}
 
 /*-----line breaks------*/
 
@@ -81,7 +90,9 @@ hr.grey100 {
 .enter-button {
     background: #fff;
     color: rgba(0,0,0,.5);
-    min-width: 260px;
+    min-width: 120px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .btn-black {
@@ -180,22 +191,26 @@ hr.grey100 {
     background-size: cover;
     color: rgb(97, 59, 59);
     font-family: 'Lato';
-    width: 100%;
 }
 
 
 /* -------------------------------- Media Queries */
 
-/* larger container on xl screens */
+/*larger container on xl screens*/ 
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
   }
 }
+@media (max-width: 1000px) {
+    .home-container {
+      max-width: 100%;
+    }
+  }
 
 /* nav links */
 @media (max-width: 600px) {
-    .nav-link {
+    .topnav-link {
         padding-right: 0px !important;
         padding-left: 0px !important;
         margin-right: 0px !important;
