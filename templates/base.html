@@ -106,13 +106,14 @@
                 <a class="{% if grand_total %}text-gold font-weight-bold{% else %}text-gold{% endif %} nav-link" href="">
                     <div class="">
                         <span class="icon float-left">
-                            <i class="fas fa-euro-sign"></i>
+                            <i class="fas fa-shopping-bag"></i>
+                            &nbsp;
                         </span>
                         <p class="my-1 ">
-                            {% if grand_total %}
-                                {{ grand_total|floatformat:2 }}
+                            {% if grand_total %}                               	
+                                &#8364; {{ grand_total|floatformat:2 }}
                             {% else %}
-                                0.00
+                                &#8364; 0.00
                             {% endif %}
                         </p>
                     </div>
@@ -128,27 +129,27 @@
                     <button class="text-center ml-5 my-auto py-1 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="font-weight-bold text-grey">Products</span>
                     </button>
-                    {% include 'includes/product-nav.html' %}
-                <!--account-->
+                    <!--account-->
                 <li class="list-inline-item">  
-                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="mr-5">
-                        <p id="account-text" class="text-grey my-0">My Account</p>
-                    </div>
-                </a>
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                    {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                            <a href="" class="dropdown-item">Manage Site</a>
+                    <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="mr-5">
+                            <p id="account-text" class="text-grey my-0">My Account</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <a href="" class="dropdown-item">Manage Site</a>
+                            {% endif %}
+                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                         {% endif %}
-                        <a href="" class="dropdown-item">My Profile</a>
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                    {% else %}
-                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                    {% endif %}
-                </div>
-                </li>
+                    </div>
+                    </li>
+                    {% include 'includes/product-nav.html' %}
                 </nav>
         </div>
     </header>

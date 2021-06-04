@@ -165,9 +165,12 @@ hr.grey100 {
     font-weight: 700;
 }
 
-
 .navbar-light .navbar-toggler {
     border-color: #fff;
+}
+
+#main-nav {
+    background-color: #fff;
 }
 
 /*--home page--*/
