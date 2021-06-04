@@ -1,17 +1,69 @@
+/*----------------------General----------------------*/
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.row {
+    margin: 0;
+	padding-right: 0;
+    padding-left: 0;
+	border: 0;
+}
+
+body {
+	color: #777777;
+	font-family: 'Roboto', sans-serif;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/*-----line breaks------*/
+
+hr.gold50 {
+	border-top: 2px solid gold;
+	margin: 10px auto 0px;
+	width: 50%;
+}
+
+hr.gold70 {
+	border-top: 2px solid gold;
+	margin: 5px auto 5px;
+	width: 70%;
+}
+
+hr.gold100 {
+	border-top: 2px solid gold;
+	margin: 5px auto 5px;
+	width: 100%;
+}
+
+
+hr.grey100 {
+    border-top: 2px solid #666666;
+	margin: 5px auto 0px;
+	width: 100%;
+}
+
 html {
     height: 100%;
 }
 
 .header-container {
-    padding-top: 120px;
-}
-
-.home-container {
-    background: url('/media/digi1.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: rgb(97, 59, 59);
-    font-family: 'Lato';
-    width: 100%;
+    padding-top: 150px;
 }
 
 .icon {
@@ -26,19 +78,15 @@ html {
     text-transform: uppercase;
 }
 
-/*.logo-link {
-    width: fit-content;
-}*/
-
 .enter-button {
-    background: rgb(172, 25, 25);
-    color: #fff;
+    background: #fff;
+    color: rgba(0,0,0,.5);
     min-width: 260px;
 }
 
 .btn-black {
-    background: rgb(172, 25, 25);
-    color: #fff;
+    background: #fff;
+    color: rgba(0,0,0,.5);
 }
 
 .enter-button:hover,
@@ -47,8 +95,31 @@ html {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
+    background: rgb(71, 68, 68);
     color: white;
+}
+
+/*return to top button*/
+#topbut {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 50px;
+	z-index: 99;
+	height: 34px;
+	width: 90px;
+	background-color: rgba(209, 161, 16, 0.993);
+	border: none;
+	font-weight: bold;
+	border-radius: 5px;
+	outline: none;
+	color: #fafafa;
+	cursor: pointer;
+	font-size: 24px;
+}
+
+#topbut:hover {
+	background-color: #666666;
 }
 
 /*--colors--*/
@@ -67,6 +138,20 @@ html {
 
 .bg-gold {
     background-color: rgb(255,215,0);
+}
+
+.text-grey {
+    color: #999999;
+}
+
+/*--home page--*/
+
+.home-container {
+    background: url('/media/digi1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: rgb(97, 59, 59);
+    font-family: 'Lato';
+    width: 100%;
 }
 
 
