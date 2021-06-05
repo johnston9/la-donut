@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container shop-container w-100 h-100">
+
+        <div class="row">
+            <div class="col-lg-4">
+                  
+                <form method="GET" action="">
+                    <div class="">
+                        <div class="select-label text-grey upper">
+                            <p>type</p>
+                            <hr class="grey70"/>
+                        </div>
+                        <select class="selectpicker mt-2" name="type" aria-label="type select picker" data-style="select-btn" >    
+                                    <option value="">bun</option>
+                                    <option value="">cake</option>
+                                    <option value="">desert</option>
+                                    <option value="">croissant</option>
+                        </select>
+                    </div>
+                    <div class="mt-5">
+                        <button class="btn px-5 bg-info text-black" type="submit" aria-label="Submit Button">Find</button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/top.js' %}"></script>
+    <!--<script src="/js/Bootstrap/Select/bootstrap-select.js"></script>-->
+
+    <!--<script type="text/javascript">
+        $('.selectpicker').selectpicker({
+        });
+    </script>-->
+    {% endblock %}

@@ -19,7 +19,11 @@ html {
 
 body {
 	color: #777777;
-	font-family: 'Roboto', sans-serif;
+	/*font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Playball', cursive;*/
+    font-family: "Playfair Display", serif;
+    
 }
 
 .center {
@@ -216,6 +220,13 @@ hr.grey100 {
 
 .header-container {
     padding-top: 180px;
+}
+
+/*--shop page--*/
+.select-btn {
+    color: #353d46;
+    background-color: #e8ecf0;
+    border-color: #e8ecf0;
 }
 /* -------------------------------- Media Queries */
 
