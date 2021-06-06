@@ -10,17 +10,23 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container shop-container w-100 h-100">
-
+    <div class="container-fluid shop-container w-100 h-100">
+        <!--menu button-->
         <div class="row">
             <div class="col">
                 <a href="{% url 'shop' %}">Shop without side menu</a>
             </div>
         </div>
-
+        <!--title-->
         <div class="row">
-            <div class="col-lg-4">
-                  
+            <div class="col text-center mt-1">
+                <h2 class="">The Goodies</h2>
+                <hr class="gold50 mb-1">
+            </div>
+        </div>
+        <!--menu product selector-->
+        <div class="row">
+            <div class="col-lg-4">                 
                 <form method="GET" action="">
                     <div class="">
                         <div class="select-label text-grey upper">
@@ -43,6 +49,7 @@
                     </div>
                 </form>
             </div>    
+            <!--products-->
             <div class="col-lg-8">
                 {{ products }}
             </div>

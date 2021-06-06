@@ -223,11 +223,16 @@ hr.grey100 {
 }
 
 /*--shop page--*/
+
+.product-container {
+    width: 100%;
+}
 .select-btn {
     color: #353d46;
     background-color: #e8ecf0;
     border-color: #e8ecf0;
 }
+
 /* -------------------------------- Media Queries */
 
 /*larger container on xl screens*/ 

@@ -10,22 +10,69 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container shop-container w-100 h-100">
-
+    <div class="container-fluid shop-container w-100 h-100">
+        <!--menu button-->
         <div class="row">
             <div class="col">
                 <a href="{% url 'shop_menu' %}">Shop with side menu</a>
             </div>
         </div>
-
+        <!--title-->
         <div class="row">
-            <div class="col">
-                {{ products }}
+            <div class="col text-center mt-1">
+                <h2 class="">The Goodies</h2>
+                <hr class="gold50 mb-1">
             </div>
         </div>
-
-
+        <!--products-->
+            <div class="product-container">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                {% if product.image %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                </a>
+                                {% else %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.png" alt="{{ product.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="card-body">
+                                    <p class="">{{ product.name }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col">
+                                            {% if product.shop_price %}
+                                            <p class="lead mb-0 text-left font-weight-bold">Shop Price E{{ product.shop_price }}</p>
+                                            {% endif %}
+                                            {% if product.web_price %}
+                                            <p class="lead mb-0 text-left font-weight-bold">Online Price E{{ product.web_price }}</p>
+                                            {% endif %}
+                                            {% if product.web_for_6_price %}
+                                            <p class="lead mb-0 text-left font-weight-bold">Online Price for 6 E{{ product.price }}</p>
+                                            {% endif %}
+                                            {% if product.rating %}
+                                                <p class="">{{ product.rating }} <i class="fas fa-star"></i></p>
+                                            {% else %}
+                                                <p class="">No Rating</p>
+                                            {% endif %}
+                                            <div class="div">
+                                                <button>Add to Cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="gold50 mt-2 mb-3">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
     </div>
+
 {% endblock %}
 
 {% block postloadjs %}
