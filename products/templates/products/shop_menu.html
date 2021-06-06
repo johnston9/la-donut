@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container shop-container w-100 h-100">
+
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'shop' %}">Shop without side menu</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                  
+                <form method="GET" action="">
+                    <div class="">
+                        <div class="select-label text-grey upper">
+                            <p>type</p>
+                            <hr class="grey70"/>
+                        </div>
+                        <select id="type_picker" class="selectpicker mt-5" multiple name="type" aria-label="type select picker" data-style="select-btn" >    
+                                    <option value="">bun</option>
+                                    <option value="">cake</option>
+                                    <option value="">desert</option>
+                                    <option value="">croissant</option>
+                        </select>
+                    </div>
+                    <div class="mt-5">
+                        <button class="btn px-5 bg-info text-black" type="submit" aria-label="Submit Button">Find</button>
+                    </div>
+                    <!--refresh button-->
+                    <div class="mt-5">
+                        <button id="refresh-type" class="btn px-5 bg-info text-black"  aria-label="Refresh Button">Refresh</button>
+                    </div>
+                </form>
+            </div>    
+            <div class="col-lg-8">
+                {{ products }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+<!--<script>    
+$('#refresh-type').on("click", function(){
+  $("#type_picker").selectpicker('deselectAll');
+});
+</script>-->
+<script>    
+    $('#refresh-type').on("click", function(){
+      $("#type_picker").selectpicker('val', '');
+    });
+    </script>
+{% endblock %}
+
+<!--$('.selectpicker').selectpicker();-->
