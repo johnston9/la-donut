@@ -21,7 +21,7 @@
                             <p>type</p>
                             <hr class="grey70"/>
                         </div>
-                        <select class="selectpicker mt-5" multiple name="type" aria-label="type select picker" data-style="select-btn" >    
+                        <select id="type_picker" class="selectpicker mt-5" multiple name="type" aria-label="type select picker" data-style="select-btn" >    
                                     <option value="">bun</option>
                                     <option value="">cake</option>
                                     <option value="">desert</option>
@@ -31,6 +31,10 @@
                     <div class="mt-5">
                         <button class="btn px-5 bg-info text-black" type="submit" aria-label="Submit Button">Find</button>
                     </div>
+                    <!--refresh button-->
+                    <div class="mt-5">
+                        <button class="btn px-5 bg-info text-black"  aria-label="Refresh Button">Refresh</button>
+                    </div>
                 </form>
             </div>    
         </div>
@@ -38,4 +42,8 @@
 {% endblock %}
 
 {% block postloadjs %}
+<script>
+    $("#type_picker").val('default');
+$("#type_picker").selectpicker("refresh");
+</script>
 {% endblock %}
