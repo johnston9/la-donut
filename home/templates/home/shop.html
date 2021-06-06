@@ -42,12 +42,16 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script>
-    
+<!--<script>    
 $('#refresh-type').on("click", function(){
   $("#type_picker").selectpicker('deselectAll');
 });
-</script>
+</script>-->
+<script>    
+    $('#refresh-type').on("click", function(){
+      $("#type_picker").selectpicker('val', '');
+    });
+    </script>
 {% endblock %}
 
 <!--$('.selectpicker').selectpicker();-->
