@@ -9,7 +9,7 @@ def index(request):
     return render(request, 'home/index.html')
 
 
-def shop(request):
-    """ A view to return the shop page """
+def home(request):
+    """ A view to return the home page """
 
-    return render(request, 'home/shop.html')
+    return render(request, 'home/home.html')
