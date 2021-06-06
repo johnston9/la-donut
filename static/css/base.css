@@ -227,6 +227,13 @@ hr.grey100 {
 .product-container {
     width: 100%;
 }
+
+#card {
+    border: 0;
+    border-bottom: 2px solid red;
+    padding-top: 30px;
+}
+
 .select-btn {
     color: #353d46;
     background-color: #e8ecf0;
