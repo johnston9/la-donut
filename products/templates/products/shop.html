@@ -25,52 +25,51 @@
             </div>
         </div>
         <!--products-->
-            <div class="product-container">
-                <div class="row">
-                    {% for product in products %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div id="card" class="card h-100 mt-2 mb-5">
-                                {% if product.image %}
-                                <a href="">
-                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                </a>
-                                {% else %}
-                                <a href="">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.png" alt="{{ product.name }}">
-                                </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="text-center mb-0">{{ product.name }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 mt-0 border-0">
-                                    <div class="row">
-                                        <div class="col">
-                                            {% if product.shop_price %}
-                                            <p class="lead mb-0 text-left font-weight-bold">Shop Price E{{ product.shop_price }}</p>
-                                            {% endif %}
-                                            {% if product.web_price %}
-                                            <p class="lead mb-0 text-left font-weight-bold">Online Price E{{ product.web_price }}</p>
-                                            {% endif %}
-                                            {% if product.web_for_6_price %}
-                                            <p class="lead mb-0 text-left font-weight-bold">Online Price for 6 E{{ product.price }}</p>
-                                            {% endif %}
-                                            {% if product.rating %}
-                                                <p class="">{{ product.rating }} <i class="fas fa-star"></i></p>
-                                            {% else %}
-                                                <p class="">No Rating</p>
-                                            {% endif %}
-                                            <div class="div">
-                                                <button>Add to Cart</button>
-                                            </div>
+        <div class="product-container">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div id="card" class="card h-100 mt-3 mb-2">
+                            {% if product.image %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                            {% else %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.png" alt="{{ product.name }}">
+                            </a>
+                            {% endif %}
+                            <!--<div class="card-body pb-0 mb-0">
+                                <p class="text-center pb-0 mb-0">{{ product.name }}</p>
+                            </div>-->
+                            <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
+                                <div class="row">
+                                    <div class="col mx-0 px-0">
+                                        <p class="lead mx-0 px-0 mb-2 text-black font-weight-bold text-center pb-0 mb-1">{{ product.name }}</p>
+                                        <!--{% if product.shop_price %}
+                                        <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
+                                        {% endif %}-->
+                                        {% if product.web_price %}
+                                        <p class="text-black font-weight-bold mb-0 text-left">E {{ product.web_price }}</p>
+                                        {% else %}                                
+                                        <p class="text-black font-weight-bold mb-0 text-left"> E{{ product.product.web_for_6_price }}</p>
+                                        {% endif %}
+                                        {% if product.rating %}
+                                            <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>
+                                        {% else %}
+                                            <p class="">No Rating</p>
+                                        {% endif %}
+                                        <div class="div">
+                                            <button>Add to Cart</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr class="gold50 mt-2 mb-3">
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
+        </div>
     </div>
 
 {% endblock %}
