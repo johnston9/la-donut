@@ -19,8 +19,11 @@
         </div>
         <!--title-->
         <div class="row">
-            <div class="col text-center mt-3">
+            <div class="col text-center mt-1">
                 <h2 class="">The Goodies</h2>
+                {% for item in current_categories %}
+                    <p class="playball" >{{ item.friendly_name }}</p>
+                {% endfor %}
                 <hr class="gold50 mb-1">
             </div>
         </div>

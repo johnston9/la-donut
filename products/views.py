@@ -18,6 +18,8 @@ def shop(request):
     if request.GET:
         if 'sort' in request.GET:
             sort = request.GET['sort']
+            if sort == 'category':
+                sort = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':

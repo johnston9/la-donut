@@ -11,6 +11,16 @@
 
 {% block content %}
     <div class="container-fluid">
+        <!--title-->
+        <div class="row">
+            <div class="col text-center mt-1">
+                <h2 class="">The Goodies</h2>
+                {% for item in current_categories %}
+                    <p class="playball" >{{ item.friendly_name }}</p>
+                {% endfor %}
+                <hr class="gold50 mb-1">
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-box my-4">
@@ -47,7 +57,16 @@
                 <p>Add Rating</p>
                 <div class="mt-5">
                 <button>Add</button>
-            </div>
+                </div>
+                <!--find similiar-->
+                {% if product.category %}
+                <p class="small mt-1">
+                    <a class="" href="{% url 'products' %}?category={{ product.category.name }}">
+                        Find similiar products in the {{ product.category.friendly_name }} range.
+                    </a>
+                </p>
+            {% endif %}
+
                 </div>
                 
         
