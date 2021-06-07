@@ -36,7 +36,7 @@
                             </a>
                             {% else %}
                             <a href="{% url 'view_item' product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.png" alt="{{ product.name }}">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.jpg" alt="{{ product.name }}">
                             </a>
                             {% endif %}
                             <!--<div class="card-body pb-0 mb-0">
@@ -49,10 +49,10 @@
                                         <!--{% if product.shop_price %}
                                         <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
                                         {% endif %}-->
-                                        {% if product.web_price %}
-                                        <p class="text-black font-weight-bold mb-0 text-left">E{{ product.web_price }}</p>
+                                        {% if product.is_for_six %}
+                                        <p class="lato text-black font-weight-bold mb-0 text-left">E {{ product.web_price }} for six</p>
                                         {% else %}                                
-                                        <p class="text-black font-weight-bold mb-0 text-left"> E{{ product.product.web_for_6_price }}</p>
+                                        <p class="lato text-black font-weight-bold mb-0 text-left"> E {{ product.web_price }}</p>
                                         {% endif %}
                                         {% if product.rating %}
                                             <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>

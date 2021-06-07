@@ -1,5 +1,5 @@
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav w-auto mx-auto">
+    <ul class="navbar-nav lato w-auto mx-auto">
         <li class="nav-item dropdown">
             <a class="upper font-weight-bold nav-link text-grey mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
@@ -8,7 +8,7 @@
                 <a href="" class="dropdown-item">By Price</a>
                 <a href="" class="dropdown-item ">By Rating</a>
                 <a href="" class="dropdown-item ">By Category</a>
-                <a href="{% url 'shop_menu' %}" class="dropdown-item">All Products</a>
+                <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
 
@@ -17,10 +17,10 @@
                 Selection Boxes
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Buns and Creamy Treats</a>
-                <a href="" class="dropdown-item">Breakfast</a>
-                <a href="" class="dropdown-item">Office</a>
-                <a href="" class="dropdown-item">All Selection Boxes</a>
+                <a href="{% url 'shop' %}?category=creamcake_selection" class="dropdown-item">Buns and Creamy Treats</a>
+                <a href="{% url 'shop' %}?category=breakfast_selection" class="dropdown-item">Breakfast</a>
+                <a href="{% url 'shop' %}?category=office_selection" class="dropdown-item">Office</a>
+                <a href="{% url 'shop' %}?category=creamcake_selection,breakfast_selection,office_selection" class="dropdown-item">All Selection Boxes</a>
             </div>
         </li>
 
@@ -29,10 +29,11 @@
                 Cakes and Deserts
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Cakes</a>
-                <a href="" class="dropdown-item">Cheesecakes</a>
-                <a href="" class="dropdown-item">Deserts</a>
-                <a href="" class="dropdown-item">All Cakes and Deserts</a>
+                <a href="{% url 'shop' %}?category=cakes" class="dropdown-item">Cakes</a>
+                <a href="{% url 'shop' %}?category=cheese_cakes" class="dropdown-item">Cheesecakes</a>
+                <a href="{% url 'shop' %}?category=deserts" class="dropdown-item">Deserts</a>
+                <a href="{% url 'shop' %}?category=occasion_cakes" class="dropdown-item">Occasion Cakes</a>
+                <a href="{% url 'shop' %}?category=cheese_cakes,deserts,occasion_cakes" class="dropdown-item">All Cakes and Deserts</a>
             </div>
         </li>
 
@@ -41,11 +42,11 @@
                 Buns and Creamy Treats
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Donuts</a>
-                <a href="" class="dropdown-item">Cookies</a>
-                <a href="" class="dropdown-item">Creamy Treats</a>
-                <a href="" class="dropdown-item">Muffins</a>
-                <a href="" class="dropdown-item">All Buns and Creamy Treats</a>
+                <a href="{% url 'shop' %}?category=eclairs_creamcakes_treats" class="dropdown-item">Creamy Treats</a>
+                <a href="{% url 'shop' %}?category=donuts" class="dropdown-item">Donuts</a>
+                <a href="{% url 'shop' %}?category=cookies" class="dropdown-item">Cookies</a>
+                <a href="{% url 'shop' %}?category=muffins" class="dropdown-item">Muffins</a>
+                <a href="{% url 'shop' %}?category=eclairs_creamcakes_treats,muffins,donuts,cookies" class="dropdown-item">All Buns and Creamy Treats</a>
             </div>
         </li>
 
@@ -54,7 +55,7 @@
                 Specials
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">Vegan</a>
+                <a href="{% url 'shop' %}?category=vegan" class="dropdown-item">Vegan</a>
                 <a href="" class="dropdown-item">Office Deals</a>
                 <a href="" class="dropdown-item">Catering</a>
                 <a href="" class="dropdown-item">All Specials</a>

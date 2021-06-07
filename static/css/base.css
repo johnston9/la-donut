@@ -26,6 +26,10 @@ body {
     
 }
 
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
 .center {
 	display: block;
 	margin-left: auto;

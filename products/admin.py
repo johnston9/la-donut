@@ -10,7 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'shop_price',
         'web_price',
-        'web_for_6_price',
+        'is_for_six',
         'rating',
         'image',
     )
