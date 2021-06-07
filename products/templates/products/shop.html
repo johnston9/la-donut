@@ -31,11 +31,11 @@
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div id="card" class="card h-100 mt-3 mb-2">
                             {% if product.image %}
-                            <a href="">
+                            <a href="{% url 'view_item' product.id %}">
                                 <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             {% else %}
-                            <a href="">
+                            <a href="{% url 'view_item' product.id %}">
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.png" alt="{{ product.name }}">
                             </a>
                             {% endif %}
@@ -50,7 +50,7 @@
                                         <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
                                         {% endif %}-->
                                         {% if product.web_price %}
-                                        <p class="text-black font-weight-bold mb-0 text-left">E {{ product.web_price }}</p>
+                                        <p class="text-black font-weight-bold mb-0 text-left">E{{ product.web_price }}</p>
                                         {% else %}                                
                                         <p class="text-black font-weight-bold mb-0 text-left"> E{{ product.product.web_for_6_price }}</p>
                                         {% endif %}
@@ -60,8 +60,12 @@
                                             <p class="">No Rating</p>
                                         {% endif %}
                                         <div class="div">
-                                            <button>Add to Cart</button>
+                                            <button>Add</button>
                                         </div>
+                                        <a href="{% url 'view_item' product.id %}">
+                                        <div class="div">
+                                            <button>View</button>
+                                        </div></a>
                                     </div>
                                 </div>
                             </div>

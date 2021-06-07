@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <div class="image-box my-4">
+                    {% if product.image %}
+                        <a href="{{ product.image.url }}" target="_blank">
+                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="item-box mb-4 mt-5">
+                    <h3 class="">{{ product.name }}</h3>
+                <p class="lead mx-0 px-0 mb-2 text-black font-weight-bold text-center pb-0 mb-1">{{ product.name }}</p>
+                <!--{% if product.shop_price %}
+                <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
+                {% endif %}-->
+                {% if product.web_price %}
+                <h4 class="mb-0 text-left font-weight-bold">${{ product.web_price }}</h4>
+                <p class="text-black font-weight-bold mb-0 text-left">E{{ product.web_price }}</p>
+                {% else %}                                
+                <p class="text-black font-weight-bold mb-0 text-left"> E{{ product.product.web_for_6_price }}</p>
+                {% endif %}
+                {% if product.rating %}
+                    <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>
+                {% else %}
+                    <p class="">No Rating Yet</p>
+                {% endif %}
+                <p>Add Rating</p>
+                <div class="mt-5">
+                <button>Add</button>
+            </div>
+                </div>
+                
+        
+                </div>
+            </div>
+    </div>
+{% endblock %}
