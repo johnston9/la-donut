@@ -52,7 +52,7 @@
 <body>
     <button id="topbut" title="Return to top">Top</button>
 
-    <header class="container-fluid fixed-top bg-info">
+    <header class="container-fluid fixed-top bg-white">
         <!--name row-->
         <div class="row">
             <div class="col-3 px-0 mx-0">
@@ -74,22 +74,22 @@
             <div class="d-block d-lg-none my-auto py-1 py-lg-0">-->
                 <!--search form mobile and large-->
                 <div class="">
-                    <a class="text-grey float-right topnav-link" href="#" id="mobile-search" data-toggle="dropdown"
+                    <a class="text-grey float-right topnav-link" href="#" id="" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <div class="">
-                            <span class="icon float-left">
+                            <p class="float-left ">Search</p>
+                            <span class="icon float-right">
                                 <i class="fas fa-search"></i>
                             </span>
-                            <p class="float-right ">Search</p>
                         </div>
                     </a>
                     <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-                        <form method="GET" action="">
+                        <form method="GET" action="{% url 'shop' %}">
                             <div class="input-group w-100">
-                                <input class="form-control border border-black rounded-0" type="text" name="q"
+                                <input class="form-control" type="text" name="q"
                                     placeholder="Find">
                                 <div class="input-group-append">
-                                    <button class="form-control btn btn-black border border-black rounded-0"
+                                    <button class="form-control btn btn-black border"
                                         type="submit">
                                         <span class="icon">
                                             <i class="fas fa-search"></i>
