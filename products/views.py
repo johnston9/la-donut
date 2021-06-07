@@ -12,8 +12,18 @@ def shop(request):
     products = Product.objects.all()
     query = None
     categories = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sort = f'-{sort}'
+            products = products.order_by(sort)
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -28,11 +38,14 @@ def shop(request):
             queries = Q(
                 name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+    
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_words': query,
         'categories_selected': categories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/shop.html', context)
