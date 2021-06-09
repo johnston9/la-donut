@@ -10,84 +10,203 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid shop-container w-100 h-100">
-        <!--menu button-->
-        <div class="row">
-            <div class="col">
-                <a href="{% url 'shop_menu' %}">Shop with side menu</a>
-            </div>
-        </div>
+    <div class="container-fluid shop-container w-100 h-100">       
         <!--title-->
         <div class="row">
             <div class="col text-center mt-1">
                 <h2 class="">The Goodies</h2>
                 {% for item in categories_selected %}
-                    <p class="playball" >{{ item.friendly_name }}</p><span>{{ products|length }} Products</span>
+                    <p class="playball" >{{ item.friendly_name }}</p>
                 {% endfor %}
                 <hr class="gold50 mb-1">
             </div>
         </div>
-        <!--products-->
-        <div class="product-container">
-            <div class="row">
-                {% for product in products %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div id="card" class="card h-100 mt-3 mb-2">
-                            {% if product.image %}
-                            <a href="{% url 'view_item' product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'view_item' product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.jpg" alt="{{ product.name }}">
-                            </a>
-                            {% endif %}
-                            <!--<div class="card-body pb-0 mb-0">
-                                <p class="text-center pb-0 mb-0">{{ product.name }}</p>
-                            </div>-->
-                            <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
-                                <div class="row">
-                                    <div class="col mx-0 px-0">
-                                        <p class="lead mx-0 px-0 mb-2 text-black font-weight-bold text-center pb-0 mb-1">{{ product.name }}</p>
-                                        <!--{% if product.shop_price %}
-                                        <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
-                                        {% endif %}-->
-                                        {% if product.is_for_six %}
-                                        <p class="lato text-black font-weight-bold mb-0 text-left">E {{ product.web_price }} for six</p>
-                                        {% else %}                                
-                                        <p class="lato text-black font-weight-bold mb-0 text-left"> E {{ product.web_price }}</p>
-                                        {% endif %}
-                                        {% if product.rating %}
-                                            <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>
-                                        {% else %}
-                                            <p class="">No Rating</p>
-                                        {% endif %}
-                                        <div class="div">
-                                            <button>Add</button>
-                                        </div>
-                                        <a href="{% url 'view_item' product.id %}">
-                                        <div class="div">
-                                            <button>View</button>
-                                        </div></a>
-                                        <!--find similiar-->
+        <!--menu button-->
+        <div class="row">
+            <div class="col">
+                <!--<a href="{% url 'shop' %}">Shop without side menu</a>-->
+                <button id="hide-menu-button" >Shop without side menu</button>
+                <button id="show-menu-button" >Shop with side menu</button>
+            </div>
+        </div>
+        <!--product container with menu-->
+        <!--menu product selector-->
+        <div id="menu-con" class="menu-product-container">
+        <div class="row">
+            <div class="col-lg-3">                 
+                <form method="GET" action="">
+                    <div class="">
+                        <div class="select-label text-grey upper">
+                            <p>type</p>
+                            <hr class="grey70"/>
+                        </div>
+                        <select id="type_picker" class="selectpicker mt-5" multiple name="type" aria-label="type select picker" data-style="select-btn" >    
+                                    <option value="">bun</option>
+                                    <option value="">cake</option>
+                                    <option value="">desert</option>
+                                    <option value="">croissant</option>
+                        </select>
+                    </div>
+                    <div class="mt-5">
+                        <button class="btn px-5 bg-info text-black" type="submit" aria-label="Submit Button">Find</button>
+                    </div>
+                    <!--refresh button-->
+                    <div class="mt-5">
+                        <button id="refresh-type" class="btn px-5 bg-info text-black"  aria-label="Refresh Button">Refresh</button>
+                    </div>
+                </form>
+            </div>    
+            <!--products-->
+            <div class="col-lg-9">
+                <!--products-->
+            <div class="product-container">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div id="card" class="card h-100 mt-3 mb-2">
+                                {% if product.image %}
+                                <a href="{% url 'view_item' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'view_item' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.jpg" alt="{{ product.name }}">
+                                </a>
+                                {% endif %}
+                                <!--<div class="card-body pb-0 mb-0">
+                                    <p class="text-center pb-0 mb-0">{{ product.name }}</p>
+                                </div>-->
+                                <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
+                                    <div class="row">
+                                        <div class="col mx-0 px-0">
+                                            <p class="text-black lead mb-2 mx-0 px-0 font-weight-bold text-center pb-0 mb-1">{{ product.name }}</p>
+                                            <!--{% if product.shop_price %}
+                                            <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
+                                            {% endif %}-->
+                                            {% if product.is_for_six %}
+                                                <p class="lato text-black font-weight-bold mb-0 text-left">E {{ product.web_price }} for six</p>
+                                                {% else %}                                
+                                                <p class="lato text-black font-weight-bold mb-0 text-left"> E {{ product.web_price }}</p>
+                                                {% endif %}
+                                            {% if product.rating %}
+                                                <p class="">{{ product.rating }} <i class="fas fa-star"></i></p>
+                                            {% else %}
+                                                <p class="">No Ratings Yet</p>
+                                            {% endif %}
+                                            <div class="div">
+                                                <button>Add</button>
+                                            </div>
+                                            <a href="{% url 'view_item' product.id %}">
+                                                <div class="div">
+                                                    <button>View</button>
+                                                </div></a>
+                                                <!--find similiar-->
                                         {% if product.category %}
+                                        <p class="small mt-1">
+                                            <a class="" href="{% url 'shop' %}?category={{ product.category.name }}">
+                                                Find similiar products in the {{ product.category.friendly_name }} range.
+                                            </a>
+                                        </p>
+                                    {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div id="no-menu-con" class="no-menu-product-container">
+            <div class="row">    
+                <!--products-->
+                <div class="product-container">
+                    <div class="row">
+                        {% for product in products %}
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <div id="card" class="card h-100 mt-3 mb-2">
+                                    {% if product.image %}
+                                    <a href="{% url 'view_item' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'view_item' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.jpg" alt="{{ product.name }}">
+                                    </a>
+                                    {% endif %}
+                                    <!--<div class="card-body pb-0 mb-0">
+                                        <p class="text-center pb-0 mb-0">{{ product.name }}</p>
+                                    </div>-->
+                                    <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
+                                        <div class="row">
+                                            <div class="col mx-0 px-0">
+                                                <p class="text-black lead mb-2 mx-0 px-0 font-weight-bold text-center pb-0 mb-1">{{ product.name }}</p>
+                                                <!--{% if product.shop_price %}
+                                                <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
+                                                {% endif %}-->
+                                                {% if product.is_for_six %}
+                                                    <p class="lato text-black font-weight-bold mb-0 text-left">E {{ product.web_price }} for six</p>
+                                                    {% else %}                                
+                                                    <p class="lato text-black font-weight-bold mb-0 text-left"> E {{ product.web_price }}</p>
+                                                    {% endif %}
+                                                {% if product.rating %}
+                                                    <p class="">{{ product.rating }} <i class="fas fa-star"></i></p>
+                                                {% else %}
+                                                    <p class="">No Ratings Yet</p>
+                                                {% endif %}
+                                                <div class="div">
+                                                    <button>Add</button>
+                                                </div>
+                                                <a href="{% url 'view_item' product.id %}">
+                                                    <div class="div">
+                                                        <button>View</button>
+                                                    </div></a>
+                                                    <!--find similiar-->
+                                            {% if product.category %}
                                             <p class="small mt-1">
                                                 <a class="" href="{% url 'shop' %}?category={{ product.category.name }}">
                                                     Find similiar products in the {{ product.category.friendly_name }} range.
                                                 </a>
                                             </p>
                                         {% endif %}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                </div>
+                </div>
             </div>
-        </div>
+            </div>
     </div>
-
 {% endblock %}
 
 {% block postloadjs %}
+<!--<script>    
+$('#refresh-type').on("click", function(){
+  $("#type_picker").selectpicker('deselectAll');
+});
+</script>-->
+<!--$('.selectpicker').selectpicker();-->
+<script>
+    $(document).ready(function(){
+      $("#hide-menu-button").click(function(){
+        $("#menu-con").hide();
+        $("#no-menu-con").show();
+      });
+      $("#show-menu-button").click(function(){
+        $("#no-menu-con").hide();
+        $("#menu-con").show();
+    });
+    })
+    </script>
+<script>    
+    $('#refresh-type').on("click", function(){
+      $("#type_picker").selectpicker('val', '');
+    });
+    </script>
 {% endblock %}
