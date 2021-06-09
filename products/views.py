@@ -53,9 +53,7 @@ def shop(request):
     return render(request, 'products/shop.html', context)
 
 
-def shop_menu(request):
-    """ A view to render the shop page which includes a selector
-        menu"""
+"""def shop_menu(request):
 
     products = Product.objects.all()
 
@@ -63,7 +61,7 @@ def shop_menu(request):
         'products': products,
     }
 
-    return render(request, 'products/shop_menu.html', context)
+    return render(request, 'products/shop_menu.html', context)"""
 
 
 def view_item(request, product_id):
