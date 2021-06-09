@@ -25,16 +25,21 @@
                 <hr class="gold50 mb-1">
             </div>
         </div>
-        <!--menu button-->
+        <!--menu button
         <div class="row">
             <div class="col">
-                <!--<a href="{% url 'shop' %}">Shop without side menu</a>-->
-                <button id="hide-menu-button" >Shop without side menu</button>
-                <button id="show-menu-button" >Shop with side menu</button>
+                <button id="hide-menu-button" >Close Menu</button>
+                <button id="show-menu-button" >Open Menu</button>
             </div>
-        </div>
+        </div>-->
         <!--product container with menu-->    
         <div id="menu-con" class="menu-product-container">
+            <!--menu button-->
+        <div class="row mb-1">
+            <div class="col">
+                <button id="hide-menu-button" >Close Menu</button>
+            </div>
+        </div>
         <div class="row">
             <!--menu-->
             <div class="col-lg-3">                 
@@ -143,7 +148,14 @@
         </div>
         </div>
         <div id="no-menu-con" class="d-none no-menu-product-container">
-            <div class="row">    
+            <!--menu button-->
+            <div class="row mb-1">
+            <div class="col">
+                <button id="show-menu-button" >Open Menu</button>
+            </div>
+        </div>
+        <div class="row">    
+            <div class="col">
                 <!--products-->
                 <div class="product-container">
                     <div class="row">
@@ -224,10 +236,12 @@
                 </div>
                 </div>
             </div>
+        </div>
     </div>
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
 <!--<script>    
 $('#refresh-type').on("click", function(){
   $("#type_picker").selectpicker('deselectAll');
@@ -236,15 +250,16 @@ $('#refresh-type').on("click", function(){
 <!--$('.selectpicker').selectpicker();-->
 <script>
     $(document).ready(function(){
+        var menu = true
       $("#hide-menu-button").click(function(){
         $("#menu-con").toggleClass("d-none");
         $("#no-menu-con").toggleClass("d-none");
+        var menu = false
       });
       $("#show-menu-button").click(function(){
         $("#no-menu-con").toggleClass("d-none");
         $("#menu-con").toggleClass("d-none");
-      });
-    
+      });    
     })
 </script>
 <!--<script>
