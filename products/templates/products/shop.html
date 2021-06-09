@@ -14,10 +14,14 @@
         <!--title-->
         <div class="row">
             <div class="col text-center mt-1">
-                <h2 class="">The Goodies</h2>
-                {% for item in categories_selected %}
-                    <p class="playball" >{{ item.friendly_name }}</p>
+                <h2 class="playball">The Goodies</h2>
+                <ul class="list-inline">
+                {% for item in categories_selected %}                   
+                    <li class="list-inline-item"> 
+                    <h4 class=" playball" >{{ item.friendly_name }}</h4>
+                    </li>
                 {% endfor %}
+                </ul>
                 <hr class="gold50 mb-1">
             </div>
         </div>
@@ -30,9 +34,10 @@
             </div>
         </div>
         <!--product container with menu-->
-        <!--menu product selector-->
+    
         <div id="menu-con" class="menu-product-container">
         <div class="row">
+            <!--menu-->
             <div class="col-lg-3">                 
                 <form method="GET" action="">
                     <div class="">
@@ -58,8 +63,12 @@
             </div>    
             <!--products-->
             <div class="col-lg-9">
-                <!--products-->
             <div class="product-container">
+                <div class="row">
+                    <div class="col">
+                        <small class="float-right">{{ products|length }} Products</small>
+                    </div>
+                </div>
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -119,10 +128,15 @@
             </div>
         </div>
         </div>
-        <div id="no-menu-con" class="no-menu-product-container">
+        <div id="no-menu-con" class="d-none no-menu-product-container">
             <div class="row">    
                 <!--products-->
                 <div class="product-container">
+                    <div class="row">
+                        <div class="col">
+                            <small class="float-right">{{ products|length }} Products</small>
+                        </div>
+                    </div>
                     <div class="row">
                         {% for product in products %}
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -181,7 +195,6 @@
                 </div>
                 </div>
             </div>
-            </div>
     </div>
 {% endblock %}
 
@@ -195,15 +208,29 @@ $('#refresh-type').on("click", function(){
 <script>
     $(document).ready(function(){
       $("#hide-menu-button").click(function(){
+        $("#menu-con").toggleClass("d-none");
+        $("#no-menu-con").toggleClass("d-none");
+      });
+      $("#show-menu-button").click(function(){
+        $("#no-menu-con").toggleClass("d-none");
+        $("#menu-con").toggleClass("d-none");
+      });
+    
+    })
+</script>
+<!--<script>
+    $(document).ready(function(){
+      $("#hide-menu-button").click(function(){
         $("#menu-con").hide();
         $("#no-menu-con").show();
       });
       $("#show-menu-button").click(function(){
         $("#no-menu-con").hide();
         $("#menu-con").show();
-    });
+      });
+    
     })
-    </script>
+</script>-->
 <script>    
     $('#refresh-type').on("click", function(){
       $("#type_picker").selectpicker('val', '');
