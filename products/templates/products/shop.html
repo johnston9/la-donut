@@ -33,8 +33,7 @@
                 <button id="show-menu-button" >Shop with side menu</button>
             </div>
         </div>
-        <!--product container with menu-->
-    
+        <!--product container with menu-->    
         <div id="menu-con" class="menu-product-container">
         <div class="row">
             <!--menu-->
@@ -66,12 +65,22 @@
             <div class="product-container">
                 <div class="row">
                     <div class="col">
-                        <div>
                         {% if search_words %}
                         <small class="float-left">Results for <strong>{{ search_words }}</strong></small>
                         {% endif %}
+                        {% if current_sorting == 'web_price_asc' %}
+                            <p class="float-left"><strong>Price - Low to High</strong></p>
+                        {% endif %}
+                        {% if current_sorting == '-web_price_desc' %}
+                            <p class="float-left"><strong>Price - High to Low</strong></p>
+                        {% endif %}
+                        {% if current_sorting == '-rating_desc' %}
+                            <p class="float-left"><strong>Rating - High to Low</strong></p>
+                        {% endif %}
+                        {% if current_sorting == 'category__name_asc' %}
+                            <p class="float-left"><strong>Category - A-Z</strong></p>
+                        {% endif %}
                         <small class="float-right">{{ products|length }} Products</small>
-                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -139,12 +148,22 @@
                 <div class="product-container">
                     <div class="row">
                         <div class="col">
-                            <div>
                             {% if search_words %}
                             <small class="float-left">Results for <strong>{{ search_words }}</strong></small>
                             {% endif %}
+                            {% if current_sorting == 'web_price_asc' %}
+                                <p class="float-left"><strong>Price - Low to High</strong></p>
+                            {% endif %}
+                            {% if current_sorting == '-web_price_desc' %}
+                                <p class="float-left"><strong>Price - High to Low</strong></p>
+                            {% endif %}
+                            {% if current_sorting == '-rating_desc' %}
+                                <p class="float-left"><strong>Rating - High to Low</strong></p>
+                            {% endif %}
+                            {% if current_sorting == 'category__name_asc' %}
+                                <p class="float-left"><strong>Category - A-Z</strong></p>
+                            {% endif %}
                             <small class="float-right">{{ products|length }} Products</small>
-                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -194,7 +213,7 @@
                                                     Find similiar products in the {{ product.category.friendly_name }} range.
                                                 </a>
                                             </p>
-                                        {% endif %}
+                                            {% endif %}
                                             </div>
                                         </div>
                                     </div>
