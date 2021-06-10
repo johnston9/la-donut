@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # for Allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
             ],
         },
     },
@@ -160,3 +161,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+FREE_DELIVERY_TOTAL = 50
+DELIVERY_CHARGE = 10
