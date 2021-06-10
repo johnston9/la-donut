@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid bag-container w-100 h-100">
+    <!--title-->
+    <div class="row">
+        <div class="col text-center mt-1">
+            <h2 class="playball">The Goodies</h2>
+            <ul class="list-inline">
+            {% for item in categories_selected %}                   
+                <li class="list-inline-item"> 
+                <h4 class=" playball" >{{ item.friendly_name }}</h4>
+                </li>
+            {% endfor %}
+            </ul>
+            <hr class="gold50 mb-1">
+        </div>
+    </div>
+        <div class="row">
+            <div class="col">
+                {% if bag_items %}
+                    <div class=""></div>
+                {% else %}
+                <div class="text-center">
+                    <h3 class="playball my-5">No goodies yet <i class="fas fa-grin-tears"></i><i class="far fa-grin-tears"></i></h3>
+                    <a href="{% url 'shop' %}" class="btn bg-gold">
+                        <span class="text-black">Take another look.</span>
+                        <span class="icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
