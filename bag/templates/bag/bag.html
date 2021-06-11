@@ -51,7 +51,7 @@
                                     </td>
                                     {% if item.product.is_sizes %}
                                     <td class="py-3">
-                                        <p class="my-0">size ${{ item.product__sizes }}</p>
+                                        <p class="my-0">size ${{ item.product.web_price }}</p>
                                     </td>
                                     {% elif item.product.is_for_six %}
                                     <td class="py-3">

@@ -12,12 +12,14 @@ def bag_contents(request):
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
+        sizes = Size.objects.filter(product__name=product.name)
         total += quantity * product.web_price
         product_count += quantity
         bag_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
+            'sizes': sizes,
         })
 
     if total != 0 and total < settings.FREE_DELIVERY_TOTAL:
