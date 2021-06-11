@@ -21,6 +21,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     flavour = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
+    # size = models.ForeignKey('Sizes', null=True, blank=True, on_delete=models.SET_NULL)
     shop_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     web_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     is_for_six = models.BooleanField(default=False, null=True, blank=True)
@@ -39,7 +40,7 @@ class Size(models.Model):
 
     name = models.CharField(max_length=254)
 
-    product_id = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
+    product = models.OneToOneField('Product', null=True, blank=True, on_delete=models.SET_NULL, related_name='sizes')
     small = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     medium = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     large = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
