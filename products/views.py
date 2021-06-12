@@ -10,6 +10,8 @@ def shop(request):
     """ A view to render the shop page without the selector menu"""
 
     products = Product.objects.all()
+    sizes = Size.objects.all()
+    forsixs = Forsix.objects.all()
     query = None
     categories = None
     sort = None
@@ -46,6 +48,8 @@ def shop(request):
 
     context = {
         'products': products,
+        'forsixs': forsixs,
+        'sizes': sizes,
         'search_words': query,
         'categories_selected': categories,
         'current_sorting': current_sorting,
@@ -68,8 +72,8 @@ def shop(request):
 def view_item(request, product_id):
     """ A view to display each product's details """
 
-    sizes = 1
-    forsixes = 1
+    sizes = None
+    forsixes = None
 
     product = get_object_or_404(Product, pk=product_id)
     if product.is_sizes:
@@ -82,8 +86,5 @@ def view_item(request, product_id):
         'sizes': sizes,
         'forsixes': forsixes
     }
-    print(sizes)
-    print(product)
-    print(forsixes)
 
     return render(request, 'products/view_item.html', context)

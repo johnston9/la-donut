@@ -43,31 +43,33 @@
 
                             {% for item in bag_items %}
                                 <tr>
+                                    <!--image-->
                                     <td class="p-3 w-25">
                                         <img class="img-fluid rounded" src="{{ item.product.image.url }}">
                                     </td>
+                                    <!--name-->
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                     </td>
+                                    <!--size - price-->
                                     {% if item.product.is_sizes %}
                                     <td class="py-3">
-                                        <p class="my-0">size ${{ item.product.web_price }}</p>
+                                        <p class="my-0">size - ${{ item.product.web_price }}</p>
                                     </td>
                                     {% elif item.product.is_for_six %}
                                     <td class="py-3">
-                                        <p class="my-0">for6 ${{ item.product.web_price }}</p>
+                                        <p class="my-0">for6 - ${{ item.product.web_price }}</p>
                                     </td>
                                     {% else %}
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.web_price }}</p>
                                     </td>
                                     {% endif %}
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.product.web_price }}</p>
-                                    </td>
+                                    <!--quantity-->
                                     <td class="py-3 w-25">
                                         <p class="my-0">{{ item.quantity }}</p>
                                     </td>
+                                    <!--subtotal-->
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.web_price }}</p>
                                     </td>
