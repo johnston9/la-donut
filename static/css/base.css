@@ -263,6 +263,29 @@ hr.grey100 {
     border-color: #e8ecf0;
 }
 
+.quickpick {
+    width: 90%;
+    height: 90%;
+    border: 2px solid red;
+}
+
+.input-group>.custom-file, 
+.input-group>.custom-select, 
+.input-group>.form-control, 
+.input-group>.form-control-plaintext {
+    height: 20px;
+    width: 70px;
+}
+
+#input-quickquan {
+    width: 70px;
+}
+
+#quicksub-but {
+    width: 70px;
+    height: 20px;
+    padding: 0;
+}
 /* -------------------------------- Media Queries */
 
 /*larger container on xl screens*/ 
