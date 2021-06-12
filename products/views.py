@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Size
+from .models import Product, Category, Size, Forsix
 
 # Create your views here.
 
@@ -68,16 +68,22 @@ def shop(request):
 def view_item(request, product_id):
     """ A view to display each product's details """
 
-    product = get_object_or_404(Product, pk=product_id)
-    sizes = get_object_or_404(Size, name=product.name)
+    sizes = 1
+    forsixes = 1
 
-    # sizes2 = Size.objects.filter(product__name=product.name)
+    product = get_object_or_404(Product, pk=product_id)
+    if product.is_sizes:
+        sizes = get_object_or_404(Size, name=product.name)
+    else:
+        forsixes = get_object_or_404(Forsix, name=product.name)
 
     context = {
         'product': product,
-        'sizes': sizes
+        'sizes': sizes,
+        'forsixes': forsixes
     }
     print(sizes)
     print(product)
+    print(forsixes)
 
     return render(request, 'products/view_item.html', context)

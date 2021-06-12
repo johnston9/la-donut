@@ -53,7 +53,7 @@ class Forsix(models.Model):
 
     name = models.CharField(max_length=254)
 
-    product_id = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
+    product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
     for6 = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     for12 = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     for24 = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
