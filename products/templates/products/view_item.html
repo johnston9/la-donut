@@ -2,49 +2,49 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <!--title-->
-        <div class="row">
-            <div class="col text-center mt-1">
-                <h2 class="">The Goodies</h2>
-                {% for item in categories_selected %}
-                    <p class="playball" >{{ item.friendly_name }}</p>
-                {% endfor %}
-                <hr class="gold50 mb-1">
+<div class="container-fluid">
+    <!--title-->
+    <div class="row">
+        <div class="col text-center mt-1">
+            <h2 class="">The Goodies</h2>
+            {% for item in categories_selected %}
+            <p class="playball">{{ item.friendly_name }}</p>
+            {% endfor %}
+            <hr class="gold50 mb-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-box my-4">
+                {% if product.image %}
+                <a href="{{ product.image.url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-box my-4">
-                    {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="item-box mb-4 mt-3">
-                    <h3 class="">{{ product.name }}</h3>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="item-box mb-4 mt-3">
+                <h3 class="">{{ product.name }}</h3>
                 <p class="mt-3">{{ product.description }}</p>
                 {% if product.rating %}
-                    <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>
+                <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>
                 {% else %}
-                    <p class="">No Rating Yet</p>
-                {% endif %}           
-                
+                <p class="">No Rating Yet</p>
+                {% endif %}
+
                 <!--form-->
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
@@ -54,62 +54,66 @@
                             {% if product.is_sizes %}
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio1">
-                                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="{{ sizes.small }}" checked>
-                                  Small - E{{ sizes.small }}
+                                    <input type="radio" class="form-check-input" id="radio1" name="optradio"
+                                        value="{{ sizes.small }}" checked>
+                                    Small - E{{ sizes.small }}
                                 </label>
-                              </div>
+                            </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ sizes.medium }}">
-                                  Medium - E{{ sizes.medium }}
+                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                        value="{{ sizes.medium }}">
+                                    Medium - E{{ sizes.medium }}
                                 </label>
-                              </div>
+                            </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ sizes.large }}">
-                                  Large - E{{ sizes.large }}
+                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                        value="{{ sizes.large }}">
+                                    Large - E{{ sizes.large }}
                                 </label>
-                              </div>
-                              {% endif %}    
+                            </div>
+                            {% endif %}
                             <!--prices for 6-->
-                            {% if product.is_for_six %} 
+                            {% if product.is_for_six %}
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio1">
-                                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="{{ forsixes.for6}}" checked>
-                                  For 6 - E{{ forsixes.for6}}
+                                    <input type="radio" class="form-check-input" id="radio1" name="optradio"
+                                        value="{{ forsixes.for6}}" checked>
+                                    For 6 - E{{ forsixes.for6}}
                                 </label>
-                              </div>
+                            </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ forsixes.for12 }}">
-                                  For 12 - E{{ forsixes.for12 }}
+                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                        value="{{ forsixes.for12 }}">
+                                    For 12 - E{{ forsixes.for12 }}
                                 </label>
-                              </div>
+                            </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ forsixes.for24}}">
-                                  For 24 - E{{ forsixes.for24}}
+                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                        value="{{ forsixes.for24}}">
+                                    For 24 - E{{ forsixes.for24}}
                                 </label>
-                              </div>
-                            {% endif %} 
+                            </div>
+                            {% endif %}
                             <!--Quantity-->
                             <p class="mt-2"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
                                 <div class="input-group">
-                                    <input class="form-control qty_input" 
-                                    type="number" name="quantity" value="1" 
-                                    min="1" max="99" data-item_id="{{ product.id }}" 
-                                    id="id_qty_{{ product.id }}">
+                                    <input class="form-control qty_input" type="number" name="quantity" value="1"
+                                        min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">                           
+                        <div class="col-12">
                             <input type="submit" class="btn bg-gold text-black" value="Add to Bag">
                             <a href="{% url 'shop' %}" class="btn gg-gold text-black my-2">
                                 <span class="upper">Back to Shop</span>
                                 <span class="icon">
                                     <i class="fas fa-chevron-right"></i>
-                                </span>                            
+                                </span>
                             </a>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
@@ -123,12 +127,9 @@
                         Find similiar products in the {{ product.category.friendly_name }} range.
                     </a>
                 </p>
-            {% endif %}
-
-                </div>
-                
-        
-                </div>
+                {% endif %}
             </div>
+        </div>
     </div>
+</div>
 {% endblock %}

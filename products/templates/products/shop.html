@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -70,29 +70,29 @@
             </div>
             <!--products-->
             <div class="col-lg-9">
-            <div class="product-container">
-                <div class="row">
-                    <div class="col">
-                        {% if search_words %}
-                        <small class="float-left">Results for <strong>{{ search_words }}</strong></small>
-                        {% endif %}
-                        {% if current_sorting == 'web_price_asc' %}
-                        <p class="float-left"><strong>Price - Low to High</strong></p>
-                        {% endif %}
-                        {% if current_sorting == '-web_price_desc' %}
-                        <p class="float-left"><strong>Price - High to Low</strong></p>
-                        {% endif %}
-                        {% if current_sorting == '-rating_desc' %}
-                        <p class="float-left"><strong>Rating - High to Low</strong></p>
-                        {% endif %}
-                        {% if current_sorting == 'category__name_asc' %}
-                        <p class="float-left"><strong>Category - A-Z</strong></p>
-                        {% endif %}
-                        <small class="float-right">{{ products|length }} Products</small>
+                <div class="product-container">
+                    <div class="row">
+                        <div class="col">
+                            {% if search_words %}
+                            <small class="float-left">Results for <strong>{{ search_words }}</strong></small>
+                            {% endif %}
+                            {% if current_sorting == 'web_price_asc' %}
+                            <p class="float-left"><strong>Price - Low to High</strong></p>
+                            {% endif %}
+                            {% if current_sorting == '-web_price_desc' %}
+                            <p class="float-left"><strong>Price - High to Low</strong></p>
+                            {% endif %}
+                            {% if current_sorting == '-rating_desc' %}
+                            <p class="float-left"><strong>Rating - High to Low</strong></p>
+                            {% endif %}
+                            {% if current_sorting == 'category__name_asc' %}
+                            <p class="float-left"><strong>Category - A-Z</strong></p>
+                            {% endif %}
+                            <small class="float-right">{{ products|length }} Products</small>
+                        </div>
                     </div>
-                </div>
-                <div class="row">   
-                    {% for product in products %}
+                    <div class="row">
+                        {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div id="card" class="card mt-3">
                                 {% if product.image %}
@@ -106,6 +106,7 @@
                                         alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
+                                <!--footer-->
                                 <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
                                     <div class="row">
                                         <div class="col mx-0 px-0">
@@ -178,11 +179,14 @@
                                                                 For 24 - E{{ forsixes.for24}}
                                                             </label>
                                                         </div>
+
+                                                        {% endif %}
                                                     </div>
-                                                    {% endif %}
-                                                    <!--Quantity-->
+                                                </div>
+                                                <!--Quantity-->
+                                                <div class="form-row">
                                                     <div class="col-4">
-                                                        <div class="form-group w-30">
+                                                        <div class="form-group">
                                                             <div class="input-group">
                                                                 <input class="form-control qty_input" type="number"
                                                                     name="quantity" value="1" min="1" max="99"
@@ -191,31 +195,32 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-4 offset-1">
-                                                            <input id="quicksub-but" type="submit"
-                                                                class="bg-gold btn w-100 text-black" value="Add">
-                                                            <input type="hidden" name="redirect_url"
-                                                                value="{{ request.path }}">
-                                                        </div>
-
-                                                        <div class="col-4 offset-1">
-                                                            <a href="{% url 'view_item' product.id %}">
-                                                                <div class="div">
-                                                                    <button class="bg-gold w-100 my-auto"> View</button>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
+                                                <!--buttons-->
+                                                <div class="form-row">
+                                                    <div class="col-4 offset-1">
+                                                        <input type="submit" class="btn w-100 bg-gold p-0 text-black"
+                                                            value="Add">
+                                                        <input type="hidden" name="redirect_url"
+                                                            value="{{ request.path }}">
+                                                    </div>
+                                                    <div class="col-4 offset-2">
+                                                        <a href="{% url 'view_item' product.id %}">
+                                                            <button class="w-100 bg-gold"> View</button>
+                                                        </a>
+                                                    </div>
+                                                    <!--end but-->
+                                                </div>
+                                                <!--end col-12-->
+                                            </form>
                                         </div>
-                                        </form>
                                     </div>
                                 </div>
+                                <!--end footer-->
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -267,6 +272,7 @@
                                         alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
+                                <!--footer-->
                                 <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
                                     <div class="row">
                                         <div class="col mx-0 px-0">
@@ -339,11 +345,14 @@
                                                                 For 24 - E{{ forsixes.for24}}
                                                             </label>
                                                         </div>
+
+                                                        {% endif %}
                                                     </div>
-                                                    {% endif %}
-                                                    <!--Quantity-->
+                                                </div>
+                                                <!--Quantity-->
+                                                <div class="form-row">
                                                     <div class="col-4">
-                                                        <div class="form-group w-30">
+                                                        <div class="form-group">
                                                             <div class="input-group">
                                                                 <input class="form-control qty_input" type="number"
                                                                     name="quantity" value="1" min="1" max="99"
@@ -352,61 +361,62 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-4 offset-1">
-                                                            <input id="quicksub-but" type="submit"
-                                                                class="bg-gold btn w-100 text-black" value="Add">
-                                                            <input type="hidden" name="redirect_url"
-                                                                value="{{ request.path }}">
-                                                        </div>
-
-                                                        <div class="col-4 offset-1">
-                                                            <a href="{% url 'view_item' product.id %}">
-                                                                <div class="div">
-                                                                    <button class="bg-gold w-100 my-auto"> View</button>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
+                                                <!--buttons-->
+                                                <div class="form-row">
+                                                    <div class="col-4 offset-1">
+                                                        <input type="submit" class="btn w-100 bg-gold p-0 text-black"
+                                                            value="Add">
+                                                        <input type="hidden" name="redirect_url"
+                                                            value="{{ request.path }}">
+                                                    </div>
+                                                    <div class="col-4 offset-2">
+                                                        <a href="{% url 'view_item' product.id %}">
+                                                            <button class="w-100 bg-gold"> View</button>
+                                                        </a>
+                                                    </div>
+                                                    <!--end but-->
+                                                </div>
+                                                <!--end col-12-->
+                                            </form>
                                         </div>
-                                        </form>
                                     </div>
                                 </div>
+                                <!--end footer-->
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
+                    <!--end row-->
                 </div>
             </div>
         </div>
     </div>
-    </div>
-{% endblock %}
+    {% endblock %}
 
-{% block postloadjs %}
-{{ block.super }}
-<!--<script>    
+    {% block postloadjs %}
+    {{ block.super }}
+    <!--<script>    
 $('#refresh-type').on("click", function(){
   $("#type_picker").selectpicker('deselectAll');
 });
 </script>-->
-<!--$('.selectpicker').selectpicker();-->
-<script>
-    $(document).ready(function(){
-        var menu = true
-      $("#hide-menu-button").click(function(){
-        $("#menu-con").toggleClass("d-none");
-        $("#no-menu-con").toggleClass("d-none");
-        var menu = false
-      });
-      $("#show-menu-button").click(function(){
-        $("#no-menu-con").toggleClass("d-none");
-        $("#menu-con").toggleClass("d-none");
-      });    
-    })
-</script>
-<!--<script>
+    <!--$('.selectpicker').selectpicker();-->
+    <script>
+        $(document).ready(function () {
+            var menu = true
+            $("#hide-menu-button").click(function () {
+                $("#menu-con").toggleClass("d-none");
+                $("#no-menu-con").toggleClass("d-none");
+                var menu = false
+            });
+            $("#show-menu-button").click(function () {
+                $("#no-menu-con").toggleClass("d-none");
+                $("#menu-con").toggleClass("d-none");
+            });
+        })
+    </script>
+    <!--<script>
     $(document).ready(function(){
       $("#hide-menu-button").click(function(){
         $("#menu-con").hide();
@@ -419,9 +429,9 @@ $('#refresh-type').on("click", function(){
     
     })
 </script>-->
-<script>    
-    $('#refresh-type').on("click", function(){
-      $("#type_picker").selectpicker('val', '');
-    });
+    <script>
+        $('#refresh-type').on("click", function () {
+            $("#type_picker").selectpicker('val', '');
+        });
     </script>
-{% endblock %}
+    {% endblock %}

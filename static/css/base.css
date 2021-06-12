@@ -273,12 +273,7 @@ hr.grey100 {
 .input-group>.custom-select, 
 .input-group>.form-control, 
 .input-group>.form-control-plaintext {
-    height: 20px;
-    width: 70px;
-}
-
-#input-quickquan {
-    width: 70px;
+    height: 20px !important;
 }
 
 #quicksub-but {
