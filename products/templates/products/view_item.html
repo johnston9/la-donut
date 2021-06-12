@@ -36,34 +36,63 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="item-box mb-4 mt-5">
+                <div class="item-box mb-4 mt-3">
                     <h3 class="">{{ product.name }}</h3>
-                <p class="lead mx-0 px-0 mb-2 text-black font-weight-bold text-center pb-0 mb-1">{{ product.name }}</p>
-                <!--{% if product.shop_price %}
-                <small class="mb-0 text-left">Shop Price E{{ product.shop_price }}</small>
-                {% endif %}-->
-                {% if product.is_sizes %}
-                <h4 class="mb-0 text-left font-weight-bold">Small - E{{ sizes.small }}</h4>
-                <p class="text-black font-weight-bold mb-0 text-left">Medium - E{{ sizes.medium }}</p>
-                <h4 class="mb-0 text-left font-weight-bold">Large - E{{ sizes.large }}</h4>
-                {% endif %}    
-                {% if product.is_for_six %}                           
-                <p class="text-black font-weight-bold mb-0 text-left">For 6 - E{{ forsixes.for6}}</p>
-                <p class="text-black font-weight-bold mb-0 text-left">For 12 - E{{ forsixes.for12 }}</p>
-                <p class="text-black font-weight-bold mb-0 text-left">For 24 - E{{ forsixes.for24}}</p>
-                {% endif %}
                 <p class="mt-3">{{ product.description }}</p>
                 {% if product.rating %}
                     <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>
                 {% else %}
                     <p class="">No Rating Yet</p>
-                {% endif %}
+                {% endif %}           
                 
                 <!--form-->
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="col-12">
+                            <!--prices for sizes-->
+                            {% if product.is_sizes %}
+                            <div class="form-check text-black font-weight-bold">
+                                <label class="form-check-label" for="radio1">
+                                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="{{ sizes.small }}" checked>
+                                  Small - E{{ sizes.small }}
+                                </label>
+                              </div>
+                            <div class="form-check text-black font-weight-bold">
+                                <label class="form-check-label" for="radio2">
+                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ sizes.medium }}">
+                                  Medium - E{{ sizes.medium }}
+                                </label>
+                              </div>
+                            <div class="form-check text-black font-weight-bold">
+                                <label class="form-check-label" for="radio2">
+                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ sizes.large }}">
+                                  Large - E{{ sizes.large }}
+                                </label>
+                              </div>
+                              {% endif %}    
+                            <!--prices for 6-->
+                            {% if product.is_for_six %} 
+                            <div class="form-check text-black font-weight-bold">
+                                <label class="form-check-label" for="radio1">
+                                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="{{ forsixes.for6}}" checked>
+                                  For 6 - E{{ forsixes.for6}}
+                                </label>
+                              </div>
+                            <div class="form-check text-black font-weight-bold">
+                                <label class="form-check-label" for="radio2">
+                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ forsixes.for12 }}">
+                                  For 12 - E{{ forsixes.for12 }}
+                                </label>
+                              </div>
+                            <div class="form-check text-black font-weight-bold">
+                                <label class="form-check-label" for="radio2">
+                                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="{{ forsixes.for24}}">
+                                  For 24 - E{{ forsixes.for24}}
+                                </label>
+                              </div>
+                            {% endif %} 
+                            <!--Quantity-->
                             <p class="mt-2"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
                                 <div class="input-group">
@@ -86,12 +115,7 @@
                         </div>
                     </div>
                 </form>
-
-
                 <p>Add Rating</p>
-                <div class="mt-5">
-                <button>Add</button>
-                </div>
                 <!--find similiar-->
                 {% if product.category %}
                 <p class="small mt-1">
