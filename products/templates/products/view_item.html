@@ -54,22 +54,22 @@
                             {% if product.is_sizes %}
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio1">
-                                    <input type="radio" class="form-check-input" id="radio1" name="optradio"
-                                        value="{{ sizes.small }}" checked>
+                                    <input type="radio" class="form-check-input" id="id_for_{{ product.id }}" name="product_size"
+                                        value="sm_{{ sizes.small }}" checked>
                                     Small - E{{ sizes.small }}
                                 </label>
                             </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
-                                        value="{{ sizes.medium }}">
+                                    <input type="radio" class="form-check-input" id="id_for_{{ product.id }}" name="product_size"
+                                        value="md_{{ sizes.medium }}">
                                     Medium - E{{ sizes.medium }}
                                 </label>
                             </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
-                                        value="{{ sizes.large }}">
+                                    <input type="radio" class="form-check-input" id="id_for_{{ product.id }}" name="product_size"
+                                        value="lg_{{ sizes.large }}">
                                     Large - E{{ sizes.large }}
                                 </label>
                             </div>
@@ -78,22 +78,22 @@
                             {% if product.is_for_six %}
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio1">
-                                    <input type="radio" class="form-check-input" id="radio1" name="optradio"
-                                        value="{{ forsixes.for6}}" checked>
+                                    <input type="radio" class="form-check-input" id="id_for_{{ product.id }}" name="product_forsix"
+                                        value="for6_{{ forsixes.for6}}" checked>
                                     For 6 - E{{ forsixes.for6}}
                                 </label>
                             </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
-                                        value="{{ forsixes.for12 }}">
+                                    <input type="radio" class="form-check-input" id="id_for_{{ product.id }}" name="product_forsix"
+                                        value="for12_{{ forsixes.for12 }}">
                                     For 12 - E{{ forsixes.for12 }}
                                 </label>
                             </div>
                             <div class="form-check text-black font-weight-bold">
                                 <label class="form-check-label" for="radio2">
-                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
-                                        value="{{ forsixes.for24}}">
+                                    <input type="radio" class="form-check-input" id="id_for_{{ product.id }}" name="product_forsix"
+                                        value="for24_{{ forsixes.for24}}">
                                     For 24 - E{{ forsixes.for24}}
                                 </label>
                             </div>

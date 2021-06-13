@@ -11,6 +11,16 @@ def add_to_bag(request, item_id):
     """ Add product to the shopping bag """
 
     quantity = int(request.POST.get('quantity'))
+    size = None
+    forsix = None
+    price = None
+    if 'product_size' in request.POST:
+        size = request.post['product_size'].split('_')[0]
+        price = request.post['product_size'].split('_')[1]
+
+    if 'product_forsix' in request.POST:
+            forsix = request.post['product_forsix'].split('_')[0]
+            price = request.post['product_forsix'].split('_')[1]
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
