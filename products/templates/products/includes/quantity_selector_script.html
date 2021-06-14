@@ -1,6 +1,20 @@
 <script type="text/javascript">
 
-/*--Increment quantity--*/ 
+/*--Function to show an alert if the user has accidentally 
+    deleted the input number. This works with a value of 1 
+    being added as a default in the view to prevent an error--*/ 
+$('#quantity_but').click(function() {
+      var itemId = $(this).data('item_id');
+      var currentValue = parseInt($(`#id_qty_${itemId}`).val());
+      if(isNaN(currentValue)) {
+        alert("You accidentally deleted the quantity number and a \
+        quantity of 1 has been automatically added")
+      }            
+  });
+
+
+/*--Function to increment quantity selector only if value
+    is less than 98--*/ 
 $('.increment-qty').click(function(e) {
  e.preventDefault();
  var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
@@ -11,7 +25,8 @@ $('.increment-qty').click(function(e) {
      
 });
 
-/*--Decrement quantity--*/ 
+/*--Function to decrement quantity selector only if value
+    is greater than 2--*/
 $('.decrement-qty').click(function(e) {
  e.preventDefault();
  var closestInput = $(this).closest('.input-group').find('.qty_input')[0];

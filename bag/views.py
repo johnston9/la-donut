@@ -10,7 +10,7 @@ def bag(request):
 def add_to_bag(request, item_id):
     """ Add product to the shopping bag """
 
-    quantity = int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity') or 1)
     size = None
     forsix = None
 
