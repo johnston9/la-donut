@@ -14,7 +14,6 @@ def bag_contents(request):
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
-            print(item_data)
             total += item_data * product.web_price
             product_count += item_data
             bag_items.append({
@@ -29,9 +28,10 @@ def bag_contents(request):
             sizes = get_object_or_404(Size, name=product.name)
             for size1, quantity in item_data['items_with_size'].items():
                 sizlist = [siz for siz in size1.split("_")]
+                print(size1)
                 print(sizlist)
                 size = sizlist[0]
-                price = int(sizlist[1])
+                # price = int(float(sizlist[1].strip()))
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
@@ -48,9 +48,9 @@ def bag_contents(request):
             forsixes = get_object_or_404(Forsix, name=product.name)
             for forsix1, quantity in item_data['items_with_forsix'].items():
                 six = [six for six in forsix1.split("_")]
-                print(six) 
+                print(six)
                 forsix = six[0]
-                price = int(six[1])
+                # price = int(float(six[1].strip()))
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
