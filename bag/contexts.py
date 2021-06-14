@@ -14,6 +14,7 @@ def bag_contents(request):
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
+            print(item_data)
             total += item_data * product.web_price
             product_count += item_data
             bag_items.append({
@@ -28,8 +29,9 @@ def bag_contents(request):
             sizes = get_object_or_404(Size, name=product.name)
             for size1, quantity in item_data['items_with_size'].items():
                 sizlist = [siz for siz in size1.split("_")]
+                print(sizlist)
                 size = sizlist[0]
-                # price = sizlist[1]
+                price = int(float(sizlist[1]))
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
@@ -48,7 +50,7 @@ def bag_contents(request):
                 six = [six for six in forsix1.split("_")]
                 print(six) 
                 forsix = six[0]
-                # price = six[1]
+                price = int(float(six[1]))
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
@@ -58,7 +60,7 @@ def bag_contents(request):
                     'quantity': quantity,
                     'product': product,
                     'forsixes': forsixes
-            })
+                })
 
     if total != 0 and total < settings.FREE_DELIVERY_TOTAL:
         delivery = 10
