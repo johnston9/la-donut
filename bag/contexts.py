@@ -31,7 +31,7 @@ def bag_contents(request):
                 sizlist = [siz for siz in size1.split("_")]
                 print(sizlist)
                 size = sizlist[0]
-                price = int(float(sizlist[1]))
+                price = int(sizlist[1])
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
@@ -50,7 +50,7 @@ def bag_contents(request):
                 six = [six for six in forsix1.split("_")]
                 print(six) 
                 forsix = six[0]
-                price = int(float(six[1]))
+                price = int(six[1])
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
