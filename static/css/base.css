@@ -106,6 +106,8 @@ hr.grey100 {
     text-transform: uppercase;
 }
 
+/*--buttons--*/
+
 .enter-button {
     background: #fff;
     color: #696666;
@@ -114,18 +116,42 @@ hr.grey100 {
     padding-bottom: 5px;
 }
 
-.btn-black {
+.btn-light {
     background: #fff;
     color: #696666;
 }
 
-.enter-button:hover,
-.enter-button:active,
-.enter-button:focus,
+.btn-black {
+    background: black;
+    color: white;
+}
+
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.enter-button:hover,
+.enter-button:active,
+.enter-button:focus {
     background: rgb(71, 68, 68);
+    color: white;
+}
+
+.btn-quantity {
+    background: black;
+    color: white;
+    height: 26px !important;
+    padding: 0rem .75rem;
+    background: #3e3434;
+}
+
+.btn-quantity:hover,
+.btn-quantity:active,
+.btn-quantity:focus {
+    background: #222;
     color: white;
 }
 
@@ -160,6 +186,10 @@ hr.grey100 {
 
 .text-black {
     color: #000 !important;
+}
+
+.text-softblack {
+    color: #3e3434;
 }
 
 .bg-black {
@@ -273,7 +303,7 @@ hr.grey100 {
 .input-group>.custom-select, 
 .input-group>.form-control, 
 .input-group>.form-control-plaintext {
-    height: 20px !important;
+    height: 26px !important;
 }
 
 #quicksub-but {
