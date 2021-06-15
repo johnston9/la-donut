@@ -76,7 +76,30 @@
                                     </td>
                                     <!--quantity-->
                                     <td class="py-3 w-25">
-                                        <p class="my-0">{{ item.quantity }}</p>
+                                        <form class="form update-item-form" method="POST" action="{% url 'update_bag' item.item_id %}">
+                                            {% csrf_token %}
+                                            <div class="form-group pl-0">
+                                                <div class="input-group pl-0">
+                                                    <div class="input-group-prepend">
+                                                        <button class="pr-1 decrement-qty btn btn-quantity rounded-0" 
+                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                            <span class="icon-sm plus font-weight-bold mx-auto my-auto">-</span>
+                                                        </button>
+                                                    </div>
+                                                    <input class="form-control qty_input text-gold " type="number"
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                        data-item_id="{{ item.item_id }}"
+                                                        id="id_qty_{{ item.item_id }}">
+                                                    <div class="input-group-append">
+                                                        <button class="increment-qty btn btn-quantity rounded-0"
+                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                            <span class="icon-sm plus font-weight-bold mx-auto my-auto">+</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <input data-item_id="{{ item.item_id }}" id="quantity_but" type="submit" class="btn rounded-0 upper" value="Update">
+                                            </div>
+                                        </form>
                                     </td>
                                     <!--subtotal-->
                                     <td class="py-3">
@@ -126,6 +149,11 @@
                 </div>
                 {% endif %}
             </div>
-        </div>
+        </div> 
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_selector_script.html' %}
 {% endblock %}

@@ -183,12 +183,34 @@ hr.grey100 {
     background-color: black;
 }
 
+.form-check-input[type=checkbox], input[type=radio] {
+    color: black;
+    background-color: black;
+    border-color: black;
+}
+input[type=checkbox], input[type=radio] {
+    color: black;
+    background-color: black;
+    border-color: black;
+}
+
+.form-check-input[type=checkbox], input[type=radio]:checked {
+    color: black;
+    background-color: black;
+    border-color: black;
+}
 .form-check-input:hover,
 .form-check-input:active,
 .form-check-input:focus,
 .form-check-input:checked {
     background: #996565;
     color: rgba(255, 255, 255, 0.89);
+    background-color: black;
+}
+
+.form-check-input[type='radio']:checked:after {
+    color: black;
+    border: 2px solid white;
 }
 
 /*.btn-quantity-sm span {
@@ -358,7 +380,7 @@ hr.grey100 {
 .input-group>.form-control-plaintext.small-input {
     height: 20px !important;
     border-color: white;
-    padding-left: 20px !important;
+    padding-left: 10px !important;
 }
 
 #quicksub-but {
@@ -368,7 +390,7 @@ hr.grey100 {
 } 
 
 .view {
-    height: 23px;
+    height: 26px;
 }
 /* -------------------------------- Media Queries */
 
