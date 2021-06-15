@@ -191,15 +191,25 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                <!--Quantity-->
-                                                <div class="form-row">
-                                                    <div class="col-4">
-                                                        <div class="form-group">
-                                                            <div class="input-group">
-                                                                <input class="form-control qty_input" type="number"
-                                                                    name="quantity" value="1" min="1" max="99"
-                                                                    data-item_id="{{ product.id }}"
-                                                                    id="id_qty_{{ product.id }}">
+                                                <!--quan new-->
+                                                <div class="col-6 pl-0 ml-0 mt-2">
+                                                    <div class="form-group pl-0 ml-0">
+                                                        <div class="input-group pl-0 ml-0">
+                                                            <div class="input-group-prepend">
+                                                                <button class="decrement-qty btn btn-quantity-sm rounded-0" 
+                                                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                                    <span class="text-black font-weight-bold mr-1">-</span>
+                                                                </button>
+                                                            </div>
+                                                            <input class="form-control small-input qty_input" type="number"
+                                                                name="quantity" value="1" min="1" max="99"
+                                                                data-item_id="{{ product.id }}"
+                                                                id="id_qty_{{ product.id }}">
+                                                            <div class="input-group-append">
+                                                                <button class="increment-qty btn btn-quantity-sm rounded-0"
+                                                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                                    <span class="text-black font-weight-bold mr-1">+</span>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -207,7 +217,7 @@
                                                 <!--buttons-->
                                                 <div class="form-row">
                                                     <div class="col-4 offset-1">
-                                                        <input type="submit" class="btn w-100 bg-gold p-0 text-black"
+                                                        <input type="submit" id="quantity_but" class="btn w-100 bg-gold p-0 text-black"
                                                             value="Add">
                                                         <input type="hidden" name="redirect_url"
                                                             value="{{ request.path }}">
@@ -366,24 +376,35 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                
-                                                <!--Quantity-->
-                                                <div class="form-row">
-                                                    <div class="col-4">
-                                                        <div class="form-group">
-                                                            <div class="input-group">
-                                                                <input class="form-control qty_input" type="number"
-                                                                    name="quantity" value="1" min="1" max="99"
-                                                                    data-item_id="{{ product.id }}"
-                                                                    id="id_qty_{{ product.id }}">
+                                                <!--quan new-->   
+                                                <div class="form-row">                                            
+                                                <div class="col-4 pl-0">
+                                                    <div class="form-group pl-0">
+                                                        <div class="input-group pl-0">
+                                                            <div class="input-group-prepend">
+                                                                <button class="pr-1 decrement-qty btn btn-quantity-sm rounded-0" 
+                                                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                                    <span class="text-black font-weight-bold mr-1 pr-1">-</span>
+                                                                </button>
+                                                            </div>
+                                                            <input class="form-control small-input qty_input" type="number"
+                                                                name="quantity" value="1" min="1" max="99"
+                                                                data-item_id="{{ product.id }}"
+                                                                id="id_qty_{{ product.id }}">
+                                                            <div class="input-group-append">
+                                                                <button class="increment-qty btn btn-quantity-sm rounded-0"
+                                                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                                    <span class="text-black font-weight-bold mr-1 pr-1">+</span>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
                                                 <!--buttons-->
                                                 <div class="form-row">
                                                     <div class="col-4 offset-1">
-                                                        <input type="submit" class="btn w-100 bg-gold p-0 text-black"
+                                                        <input type="submit" id="quantity_but" class="btn w-100 bg-gold p-0 text-black"
                                                             value="Add">
                                                         <input type="hidden" name="redirect_url"
                                                             value="{{ request.path }}">
@@ -414,6 +435,7 @@
 
     {% block postloadjs %}
     {{ block.super }}
+    {% include 'products/includes/quantity_selector_script.html' %}
     <!--<script>    
 $('#refresh-type').on("click", function(){
   $("#type_picker").selectpicker('deselectAll');

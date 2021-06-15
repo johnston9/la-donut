@@ -155,6 +155,24 @@ hr.grey100 {
     color: white;
 }
 
+.btn-quantity-sm {
+    background: white;
+    color: #3e3434;
+    height: 20px !important;
+    padding: 0rem .50rem;
+    font-size: 1rem !important;
+    line-height: 1rem !important;
+    border: 1px solid #3e3434;
+    width: 20px;
+}
+
+.btn-quantity-sm:hover,
+.btn-quantity-sm:active,
+.btn-quantity-sm:focus {
+    background: #222;
+    color: white;
+}
+
 /*return to top button*/
 #topbut {
 	display: none;
@@ -304,6 +322,13 @@ hr.grey100 {
 .input-group>.form-control, 
 .input-group>.form-control-plaintext {
     height: 26px !important;
+}
+
+.input-group>.custom-file.small-input, 
+.input-group>.custom-select.small-input, 
+.input-group>.form-control.small-input, 
+.input-group>.form-control-plaintext.small-input {
+    height: 20px !important;
 }
 
 #quicksub-but {
