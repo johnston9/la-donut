@@ -54,15 +54,17 @@ def update_bag(request, item_id):
     """Update the quantity of a product to the new value"""
 
     quantity = int(request.POST.get('quantity'))
-    price = int(request.POST.get('product_price'))
+    price = request.POST.get('product_price')
     size = None
     forsix = None
     if 'product_size' in request.POST:
         size1 = request.POST['product_size']
         size = size1 + "_" + price
+        print(size)
     if 'product_forsix' in request.POST:
         forsix1 = request.POST['product_forsix']
         forsix = forsix1 + "_" + price
+        print(forsix)
     bag = request.session.get('bag', {})
 
     if size:
@@ -86,4 +88,4 @@ def update_bag(request, item_id):
             bag.pop(item_id)
 
     request.session['bag'] = bag
-    return redirect(reverse('view_bag'))
+    return redirect(reverse('bag'))
