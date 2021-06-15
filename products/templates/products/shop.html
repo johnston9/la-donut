@@ -194,13 +194,12 @@
                                                 <!--quan new-->
                                                 <div class="row">
                                                 <div class="col-6 pl-0 ml-0 mt-2 mb-0">
-                                                    <p class="mb-0">Quantity</p>
-                                                    <div class="form-group pl-0 ml-0 mt-0">
+                                                    <div class="form-group pl-0 ml-0">
                                                         <div class="input-group pl-0 ml-0">
                                                             <div class="input-group-prepend">
                                                                 <button class="decrement-qty btn btn-quantity-sm rounded-0" 
                                                                     data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                                                    <span class="plus font-weight-bold mr-1">-</span>
+                                                                    <span class="plus font-weight-bold mx-0 my-0">-</span>
                                                                 </button>
                                                             </div>
                                                             <input class="form-control small-input qty_input" type="number"
@@ -210,7 +209,7 @@
                                                             <div class="input-group-append">
                                                                 <button class="increment-qty btn btn-quantity-sm rounded-0"
                                                                     data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                                                    <span class="plus font-weight-bold mr-1">+</span>
+                                                                    <span class="plus font-weight-bold mx-0 my-0">+</span>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -220,15 +219,17 @@
                                                 <!--buttons-->
                                                 <div class="form-row">
                                                     <div class="col-4 offset-1">
-                                                        <input type="submit" id="quantity_but" class="btn w-100 bg-gold p-0 text-black"
+                                                        <input type="submit" id="quantity_but" class="btn w-100 bg-gold p-0 text-black rounded-0"
                                                             value="Add">
                                                         <input type="hidden" name="redirect_url"
                                                             value="{{ request.path }}">
                                                     </div>
                                                     <div class="col-4 offset-2">
+                                                        <div class="view w-100 bg-gold">
                                                         <a href="{% url 'view_item' product.id %}">
-                                                            <button class="w-100 bg-gold"> View</button>
+                                                            <spam class="text-black mx-0 my-0"> View</spam>
                                                         </a>
+                                                    </div>
                                                     </div>
                                                     <!--end but-->
                                                 </div>
@@ -382,29 +383,28 @@
                                                 <!--quan new-->   
                                                 <div class="form-row mt-2">                                            
                                                 <div class="col-6 pl-0">
-                                                    <p class="mb-0">Quantity</p>
-                                                    <div class="form-group pl-0 mt-0">
+                                                    <div class="form-group pl-0">
                                                         <div class="input-group pl-0">
                                                             <div class="input-group-prepend">
                                                                 <button class="pr-1 decrement-qty btn btn-quantity-sm rounded-0" 
                                                                     data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                                                    <!--<span class="plus font-weight-bold mr-1 pr-1">-</span>-->
-                                                                    <span class="icon">
+                                                                    <span class="icon-sm plus font-weight-bold mx-auto my-auto">-</span>
+                                                                    <!--<span class="icon">
                                                                         <i class="fas fa-minus fa-xs"></i>
-                                                                    </span>
+                                                                    </span>-->
                                                                 </button>
                                                             </div>
-                                                            <input class="form-control small-input qty_input" type="number"
+                                                            <input class="form-control small-input qty_input text-gold " type="number"
                                                                 name="quantity" value="1" min="1" max="99"
                                                                 data-item_id="{{ product.id }}"
                                                                 id="id_qty_{{ product.id }}">
                                                             <div class="input-group-append">
                                                                 <button class="increment-qty btn btn-quantity-sm rounded-0"
                                                                     data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                                                    <!--<span class="plus font-weight-bold">+</span>-->
-                                                                    <span class="icon">
+                                                                    <span class="icon-sm plus font-weight-bold mx-auto my-auto">+</span>
+                                                                    <!--<span class="icon">
                                                                         <i class="fas fa-plus fa-xs"></i>
-                                                                    </span>
+                                                                    </span>-->
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -414,15 +414,15 @@
                                                 <!--buttons-->
                                                 <div class="form-row">
                                                     <div class="col-4 offset-1">
-                                                        <input type="submit" id="quantity_but" class="btn w-100 bg-gold p-0 text-black"
+                                                        <input type="submit" id="quantity_but" class="btn w-100 bg-gold p-0 text-black rounded-0"
                                                             value="Add">
                                                         <input type="hidden" name="redirect_url"
                                                             value="{{ request.path }}">
                                                     </div>
                                                     <div class="col-4 offset-2">
-                                                        <div class="view w-100 bg-gold">
+                                                        <div class="view w-100 my-0 text-center bg-gold">
                                                         <a href="{% url 'view_item' product.id %}">
-                                                            <spam class=""> View</spam>
+                                                            <spam class="text-black"> View</spam>
                                                         </a>
                                                     </div>
                                                     </div>
