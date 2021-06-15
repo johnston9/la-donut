@@ -28,7 +28,6 @@ def bag_contents(request):
             sizes = get_object_or_404(Size, name=product.name)
             for size1, quantity in item_data['items_with_size'].items():
                 sizlist = [siz for siz in size1.split("_")]
-                print(sizlist)
                 size = sizlist[0]
                 price = int(float(sizlist[1]))
                 # price = int(float(sizlist[1].strip()))
@@ -48,7 +47,6 @@ def bag_contents(request):
             forsixes = get_object_or_404(Forsix, name=product.name)
             for forsix1, quantity in item_data['items_with_forsix'].items():
                 six = [six for six in forsix1.split("_")]
-                print(six)
                 forsix = six[0]
                 price = int(float(six[1].strip()))
                 total += quantity * price

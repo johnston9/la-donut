@@ -55,12 +55,14 @@ def update_bag(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     price = request.POST.get('product_price')
+    print(price)
+    # price1 = round(int(request.POST.get('product_price')), 2)
+    # price = str(price1)
     size = None
     forsix = None
     if 'product_size' in request.POST:
         size1 = request.POST['product_size']
         size = size1 + "_" + price
-        print(size)
     if 'product_forsix' in request.POST:
         forsix1 = request.POST['product_forsix']
         forsix = forsix1 + "_" + price
