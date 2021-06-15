@@ -74,9 +74,9 @@ def update_bag(request, item_id):
                 bag.pop(item_id)
     if forsix:
         if quantity > 0:
-            bag[item_id]['items_with_forsix'][size] = quantity
+            bag[item_id]['items_with_forsix'][forsix] = quantity
         else:
-            del bag[item_id]['items_with_forsix'][size]
+            del bag[item_id]['items_with_forsix'][forsix]
             if not bag[item_id]['items_with_forsix']:
                 bag.pop(item_id)
     else:
