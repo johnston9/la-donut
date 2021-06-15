@@ -141,7 +141,6 @@ hr.grey100 {
 }
 
 .btn-quantity {
-    background: black;
     color: white;
     height: 26px !important;
     padding: 0rem .75rem;
@@ -156,21 +155,29 @@ hr.grey100 {
 }
 
 .btn-quantity-sm {
-    background: white;
-    color: #3e3434;
+    background: #3e3434;
+    color: #fff;
     height: 20px !important;
     padding: 0rem .50rem;
     font-size: 1rem !important;
     line-height: 1rem !important;
-    border: 1px solid #3e3434;
-    width: 20px;
 }
 
 .btn-quantity-sm:hover,
 .btn-quantity-sm:active,
 .btn-quantity-sm:focus {
     background: #222;
-    color: white;
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.btn-quantity-sm span {
+    color: #3e3434;
+}
+
+.btn-quantity-sm>span:hover,
+.btn-quantity-sm>span:active,
+.btn-quantity-sm>span:focus {
+    color: rgba(255, 255, 255, 0.89);
 }
 
 /*return to top button*/
@@ -329,12 +336,18 @@ hr.grey100 {
 .input-group>.form-control.small-input, 
 .input-group>.form-control-plaintext.small-input {
     height: 20px !important;
+    border-color: white;
+    padding-left: 20px !important;
 }
 
 #quicksub-but {
     width: 70px;
     height: 20px;
     padding: 0;
+} 
+
+.view {
+    height: 23px;
 }
 /* -------------------------------- Media Queries */
 
