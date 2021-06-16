@@ -88,3 +88,40 @@ def update_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(reverse('bag'))
+
+
+def remove_from_bag_sizes(request, item_id, item_size):
+    """Remove the item from the shopping bag"""
+
+    bag = request.session.get('bag', {})
+
+    del bag[item_id]['items_with_size'][item_size]
+    if not bag[item_id]['items_with_size']:
+        bag.pop(item_id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('bag'))
+
+
+def remove_from_bag_six(request, item_id, item_forsix):
+    """Remove the item from the shopping bag"""
+
+    bag = request.session.get('bag', {})
+
+    del bag[item_id]['items_with_forsix'][item_forsix]
+    if not bag[item_id]['items_with_forsix']:
+        bag.pop(item_id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('bag'))
+
+
+def remove_from_bag(request, item_id):
+    """Remove the item from the shopping bag"""
+
+    bag = request.session.get('bag', {})
+
+    bag.pop(item_id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('bag'))

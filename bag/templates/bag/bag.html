@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bagtools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -106,11 +107,25 @@
                                                     <input type="hidden" name="product_forsix" value="{{ item.forsixprice }}">
                                                 {% endif %}
                                             </div>
-                                        </form>                                        
+                                        </form>                                          
+                                        <!--remove buttons-->
+                                        {% if item.product.is_sizes %}
+                                        <a href="{% url 'remove_from_bag_sizes' item.item_id item.sizeprice %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
+                                            <span class="text-uppercase">Remove</span>
+                                        </a>
+                                        {% elif item.product.is_for_six %}
+                                        <a href="{% url 'remove_from_bag_six' item.item_id item.forsixprice %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
+                                            <span class="text-uppercase">Remove</span>
+                                        </a>                                       
+                                        {% else %}
+                                        <a href="{% url 'remove_from_bag' item.item_id %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
+                                            <span class="text-uppercase">Remove</span>
+                                        </a>
+                                        {% endif %}
                                     </td>
                                     <!--subtotal-->
                                     <td class="py-3">
-                                        <p class="my-0">E{{ item.price }}</p>
+                                        <p class="my-0">E{{ item.price | sum_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
