@@ -97,13 +97,13 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <input data-item_id="{{ item.item_id }}" id="quantity_but" type="submit" class="btn rounded-0 upper" value="Update">
-                                                <input type="hidden" name="product_price" value="{{ item.price }}">
+                                                <input data-item_id="{{ item.item_id }}" id="quantity_butbag" type="submit" class="btn rounded-0 upper" value="Update">
+                                                
                                                 {% if item.product.is_sizes %}
-                                                    <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                    <input type="hidden" name="product_size" value="{{ item.sizeprice }}">
                                                 {% endif %}
                                                 {% if item.product.is_for_six %}
-                                                    <input type="hidden" name="product_forsix" value="{{ item.forsix }}">
+                                                    <input type="hidden" name="product_forsix" value="{{ item.forsixprice }}">
                                                 {% endif %}
                                             </div>
                                         </form>
@@ -163,5 +163,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'products/includes/quantity_selector_script.html' %}
+{% include 'bag/includes/quantity_selector_bag.html' %}
 {% endblock %}

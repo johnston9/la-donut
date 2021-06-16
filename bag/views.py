@@ -54,33 +54,28 @@ def update_bag(request, item_id):
     """Update the quantity of a product to the new value"""
 
     quantity = int(request.POST.get('quantity'))
-    price = request.POST.get('product_price')
-    print(price)
-    # price1 = round(int(request.POST.get('product_price')), 2)
-    # price = str(price1)
-    size = None
-    forsix = None
+    sizeprice = None
+    forsixprice = None
     if 'product_size' in request.POST:
-        size1 = request.POST['product_size']
-        size = size1 + "_" + price
+        sizeprice = request.POST['product_size']
+        print(sizeprice)
     if 'product_forsix' in request.POST:
-        forsix1 = request.POST['product_forsix']
-        forsix = forsix1 + "_" + price
-        print(forsix)
+        forsixprice = request.POST['product_forsix']
+        print(forsixprice)
     bag = request.session.get('bag', {})
 
-    if size:
+    if sizeprice:
         if quantity > 0:
-            bag[item_id]['items_with_size'][size] = quantity
+            bag[item_id]['items_with_size'][sizeprice] = quantity
         else:
-            del bag[item_id]['items_with_size'][size]
+            del bag[item_id]['items_with_size'][sizeprice]
             if not bag[item_id]['items_with_size']:
                 bag.pop(item_id)
-    if forsix:
+    if forsixprice:
         if quantity > 0:
-            bag[item_id]['items_with_forsix'][forsix] = quantity
+            bag[item_id]['items_with_forsix'][forsixprice] = quantity
         else:
-            del bag[item_id]['items_with_forsix'][forsix]
+            del bag[item_id]['items_with_forsix'][forsixprice]
             if not bag[item_id]['items_with_forsix']:
                 bag.pop(item_id)
     else:

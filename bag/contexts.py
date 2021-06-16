@@ -27,14 +27,19 @@ def bag_contents(request):
             product = get_object_or_404(Product, pk=item_id)
             sizes = get_object_or_404(Size, name=product.name)
             for size1, quantity in item_data['items_with_size'].items():
+                sizeprice = size1
+                print(sizeprice)
+                print(size1)
                 sizlist = [siz for siz in size1.split("_")]
                 size = sizlist[0]
                 price = int(float(sizlist[1]))
+                print(price)
                 # price = int(float(sizlist[1].strip()))
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
+                    'sizeprice': sizeprice,
                     'size': size,
                     'price': price,
                     'quantity': quantity,
@@ -46,6 +51,7 @@ def bag_contents(request):
             product = get_object_or_404(Product, pk=item_id)
             forsixes = get_object_or_404(Forsix, name=product.name)
             for forsix1, quantity in item_data['items_with_forsix'].items():
+                forsixprice = forsix1
                 six = [six for six in forsix1.split("_")]
                 forsix = six[0]
                 price = int(float(six[1].strip()))
@@ -53,6 +59,7 @@ def bag_contents(request):
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
+                    'forsixprice': forsixprice,
                     'forsix': forsix,
                     'price': price,
                     'quantity': quantity,
