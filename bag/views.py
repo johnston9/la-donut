@@ -64,13 +64,6 @@ def update_bag(request, item_id):
         print(forsixprice)
     bag = request.session.get('bag', {})
 
-    if sizeprice:
-        if quantity > 0:
-            bag[item_id]['items_with_size'][sizeprice] = quantity
-        else:
-            del bag[item_id]['items_with_size'][sizeprice]
-            if not bag[item_id]['items_with_size']:
-                bag.pop(item_id)
     if forsixprice:
         if quantity > 0:
             bag[item_id]['items_with_forsix'][forsixprice] = quantity
@@ -78,6 +71,15 @@ def update_bag(request, item_id):
             del bag[item_id]['items_with_forsix'][forsixprice]
             if not bag[item_id]['items_with_forsix']:
                 bag.pop(item_id)
+    
+    elif sizeprice:
+        if quantity > 0:
+            bag[item_id]['items_with_size'][sizeprice] = quantity
+        else:
+            del bag[item_id]['items_with_size'][sizeprice]
+            if not bag[item_id]['items_with_size']:
+                bag.pop(item_id)
+
     else:
         if quantity > 0:
             bag[item_id] = quantity

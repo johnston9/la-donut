@@ -20,7 +20,7 @@ def bag_contents(request):
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
-                'price': product.web_price
+                'price': int(product.web_price)
             })
 
         elif 'items_with_size' in item_data.keys():
@@ -33,8 +33,6 @@ def bag_contents(request):
                 sizlist = [siz for siz in size1.split("_")]
                 size = sizlist[0]
                 price = int(float(sizlist[1]))
-                print(price)
-                # price = int(float(sizlist[1].strip()))
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({

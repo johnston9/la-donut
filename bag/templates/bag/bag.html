@@ -67,12 +67,12 @@
                                     </td>
                                     {% else %}
                                     <td class="py-3">
-                                        <p class="my-0">n/a</p>
+                                        <p class="my-0">N/A</p>
                                     </td>
                                     {% endif %}
                                     <!--price-->
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.price }}</strong></p>
+                                        <p class="my-0"><strong> E{{ item.price|floatformat:2 }}</strong></p>
                                     </td>
                                     <!--quantity-->
                                     <td class="py-3 w-25">
@@ -106,23 +106,22 @@
                                                     <input type="hidden" name="product_forsix" value="{{ item.forsixprice }}">
                                                 {% endif %}
                                             </div>
-                                        </form>
-                                        
+                                        </form>                                        
                                     </td>
                                     <!--subtotal-->
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.price }}</p>
+                                        <p class="my-0">E{{ item.price }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+                                    <h6><strong>Bag Total: E{{ total|floatformat:2 }}</strong></h6>
+                                    <h6>Delivery: E{{ delivery|floatformat:2 }}</h6>
+                                    <h4 class="mt-4"><strong>Grand Total: E{{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_gap > 0 %}
                                         <p class="mb-1 text-danger">
-                                            Free delivery if you spend <strong>${{ free_delivery_delta }}</strong> more!
+                                            Free delivery if you spend <strong>E{{ free_delivery_delta }}</strong> more!
                                         </p>
                                     {% endif %}
                                 </td>

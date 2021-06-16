@@ -72,8 +72,7 @@
                                         value="large_{{ sizes.large }}">
                                     Large - E{{ sizes.large }}
                                 </label>
-                            </div>
-                            
+                            </div>                           
                             <!--prices for 6-->
                             {% elif product.is_for_six %}
                             <div class="form-check text-softblack font-weight-bold">
@@ -117,7 +116,7 @@
                                     <input class="form-control qty_input" type="number"
                                         name="quantity" value="1" min="1" max="99"
                                         data-item_id="{{ product.id }}"
-                                        id="xxx">
+                                        id="viewitem">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-quantity rounded-0"
                                             data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
