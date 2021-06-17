@@ -392,6 +392,24 @@ input[type=checkbox], input[type=radio] {
 .view {
     height: 26px;
 }
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    z-index: 999999;
+}
+
+.toast-style {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 5px;
+}
+
 /* -------------------------------- Media Queries */
 
 /*larger container on xl screens*/ 

@@ -116,7 +116,7 @@
                                         {% elif item.product.is_for_six %}
                                         <a href="{% url 'remove_from_bag_six' item.item_id item.forsixprice %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
                                             <span class="text-uppercase">Remove</span>
-                                        </a>                                       
+                                        </a>    
                                         {% else %}
                                         <a href="{% url 'remove_from_bag' item.item_id %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
                                             <span class="text-uppercase">Remove</span>

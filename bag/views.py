@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+
+from products.models import Product
 
 
 def bag(request):
@@ -10,6 +13,7 @@ def bag(request):
 def add_to_bag(request, item_id):
     """ Add product to the shopping bag """
 
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity') or 1)
     size = None
     forsix = None
@@ -26,25 +30,41 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_with_size'].keys():
                 bag[item_id]['items_with_size'][size] += quantity
+                messages.success(request, f'Updated {product.name} \
+                    quantity to {bag[item_id]["items_by_size"][size]}')
             else:
                 bag[item_id]['items_with_size'][size] = quantity
+                messages.success(request, f'Added {product.name} \
+                    to the shopping bag')
         else:
             bag[item_id] = {'items_with_size': {size: quantity}}
+            messages.success(request, f'Added {product.name} \
+                to the shopping bag')
 
     elif forsix:
         if item_id in list(bag.keys()):
             if forsix in bag[item_id]['items_with_forsix'].keys():
                 bag[item_id]['items_with_forsix'][forsix] += quantity
+                messages.success(request, f'Updated {product.name} \
+                    quantity to {bag[item_id]["items_with_forsix"][forsix]}')
             else:
                 bag[item_id]['items_with_forsix'][forsix] = quantity
+                messages.success(request, f'Added {product.name} \
+                    to the shopping bag')
         else:
             bag[item_id] = {'items_with_forsix': {forsix: quantity}}
+            messages.success(request, f'Added {product.name} \
+                to the shopping bag')
     
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity
+            messages.success(request, f'Updated {product.name}\
+                 quantity to {bag[item_id]}')
         else:
             bag[item_id] = quantity
+            messages.success(request, f'Added {product.name}\
+                 to the shopping bag')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -53,6 +73,7 @@ def add_to_bag(request, item_id):
 def update_bag(request, item_id):
     """Update the quantity of a product to the new value"""
 
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     sizeprice = None
     forsixprice = None
@@ -93,6 +114,7 @@ def update_bag(request, item_id):
 def remove_from_bag_sizes(request, item_id, item_size):
     """Remove the item from the shopping bag"""
 
+    product = get_object_or_404(Product, pk=item_id)
     bag = request.session.get('bag', {})
 
     del bag[item_id]['items_with_size'][item_size]
@@ -106,6 +128,7 @@ def remove_from_bag_sizes(request, item_id, item_size):
 def remove_from_bag_six(request, item_id, item_forsix):
     """Remove the item from the shopping bag"""
 
+    product = get_object_or_404(Product, pk=item_id)
     bag = request.session.get('bag', {})
 
     del bag[item_id]['items_with_forsix'][item_forsix]
@@ -119,6 +142,7 @@ def remove_from_bag_six(request, item_id, item_forsix):
 def remove_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
 
+    product = get_object_or_404(Product, pk=item_id)
     bag = request.session.get('bag', {})
 
     bag.pop(item_id)
