@@ -143,33 +143,6 @@ def update_bag(request, item_id):
     return redirect(reverse('bag'))
 
 
-def remove_from_bag_sizes(request, item_id, sizeprice):
-    """Remove the item from the shopping bag"""
-
-    try:
-        product = get_object_or_404(Product, pk=item_id)
-        bag = request.session.get('bag', {})
-        size_price1 = sizeprice
-        print(sizeprice)
-        print(size_price1)
-        sizlist = [siz for siz in size_price1.split("_")]
-        size = sizlist[0]
-        print(size)
-        
-        del bag[item_id]['items_with_size'][sizeprice]
-        if not bag[item_id]['items_with_size']:
-            bag.pop(item_id)
-        messages.success(request, f'Deleted {product.name} \
-                        one size from the shopping bag')
-
-        request.session['bag'] = bag
-        return redirect(reverse('bag'))
-    
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e} Please try again')
-        return redirect(reverse('bag'))
-
-
 def remove_from_bag_six(request, item_id, forsixprice):
     """Remove the item from the shopping bag"""
 
@@ -194,6 +167,34 @@ def remove_from_bag_six(request, item_id, forsixprice):
 
     except Exception as e:
         messages.error(request, f'Error deleting item, {e} Please try again')
+        return redirect(reverse('bag'))
+
+
+
+def remove_from_bag_sizes(request, item_id, sizeprice):
+    """Remove the item from the shopping bag"""
+
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        bag = request.session.get('bag', {})
+        size_price1 = sizeprice
+        print(sizeprice)
+        print(size_price1)
+        sizlist = [siz for siz in size_price1.split("_")]
+        size = sizlist[0]
+        print(size)
+
+        del bag[item_id]['items_with_size'][sizeprice]
+        if not bag[item_id]['items_with_size']:
+            bag.pop(item_id)
+        messages.success(request, f'Deleted {product.name} \
+                        one size from the shopping bag')
+
+        request.session['bag'] = bag
+        return redirect(reverse('bag'))
+    
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e} Please try again')
         return redirect(reverse('bag'))
 
 
