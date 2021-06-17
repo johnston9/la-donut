@@ -411,15 +411,15 @@ input[type=checkbox], input[type=radio] {
     overflow: visible;
 }
 
-.toast-capper {
+.toast-hr {
     height: 1px;
 }
 
-.toast-capper2 {
+.toast-hr2 {
     height: 2px;
 }
 
-.toast-capper3 {
+.toast-hr3 {
     height: 3px;
 }
 

@@ -160,7 +160,7 @@ def remove_from_bag_six(request, item_id, forsixprice):
         if not bag[item_id]['items_with_forsix']:
             bag.pop(item_id)
         messages.success(request, f'Deleted {product.name} \
-                        { box } from the shopping bag')
+                        "{ box } box" from the shopping bag')
 
         request.session['bag'] = bag
         return redirect(reverse('bag'))
@@ -168,7 +168,6 @@ def remove_from_bag_six(request, item_id, forsixprice):
     except Exception as e:
         messages.error(request, f'Error deleting item, {e} Please try again')
         return redirect(reverse('bag'))
-
 
 
 def remove_from_bag_sizes(request, item_id, sizeprice):
@@ -187,8 +186,8 @@ def remove_from_bag_sizes(request, item_id, sizeprice):
         del bag[item_id]['items_with_size'][sizeprice]
         if not bag[item_id]['items_with_size']:
             bag.pop(item_id)
-        messages.success(request, f'Deleted {product.name} \
-                        one size from the shopping bag')
+        messages.success(request, f'Deleted {size} {product.name} \
+            from the shopping bag')
 
         request.session['bag'] = bag
         return redirect(reverse('bag'))
