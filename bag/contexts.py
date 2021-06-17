@@ -28,8 +28,6 @@ def bag_contents(request):
             sizes = get_object_or_404(Size, name=product.name)
             for size1, quantity in item_data['items_with_size'].items():
                 sizeprice = size1
-                print(sizeprice)
-                print(size1)
                 sizlist = [siz for siz in size1.split("_")]
                 size = sizlist[0]
                 price = int(float(sizlist[1]))

@@ -64,7 +64,7 @@
                                     </td>
                                     {% elif item.product.is_for_six %}
                                     <td class="py-3">
-                                        <p class="my-0">{{ item.forsix }}</p>
+                                        <p class="my-0">{{ item.box }}</p>
                                     </td>
                                     {% else %}
                                     <td class="py-3">
@@ -105,23 +105,20 @@
                                                 {% endif %}
                                                 {% if item.product.is_for_six %}
                                                     <input type="hidden" name="product_forsix" value="{{ item.forsixprice }}">
-                                                {% endif %}
+                                                {% endif %}                                              
                                             </div>
-                                        </form>                                          
-                                        <!--remove buttons-->
+                                        </form>  
+                                        <!--remove buttons-->                        
+                                        {% if item.product.is_for_six %}
+                                        <a href="{% url 'remove_from_bag_six' item.item_id item.forsixprice %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
+                                            <span class="text-uppercase">Remove</span>
+                                        </a> 
+                                        {% endif %} 
                                         {% if item.product.is_sizes %}
                                         <a href="{% url 'remove_from_bag_sizes' item.item_id item.sizeprice %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
                                             <span class="text-uppercase">Remove</span>
                                         </a>
-                                        {% elif item.product.is_for_six %}
-                                        <a href="{% url 'remove_from_bag_six' item.item_id item.forsixprice %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
-                                            <span class="text-uppercase">Remove</span>
-                                        </a>    
-                                        {% else %}
-                                        <a href="{% url 'remove_from_bag' item.item_id %}" class="btn btn-light rounded-0 right mt-5" onclick="return confirm('Are you sure you want to remove this item?');">
-                                            <span class="text-uppercase">Remove</span>
-                                        </a>
-                                        {% endif %}
+                                        {% endif %}                                        
                                     </td>
                                     <!--subtotal-->
                                     <td class="py-3">

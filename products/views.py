@@ -77,7 +77,7 @@ def view_item(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if product.is_sizes:
         sizes = get_object_or_404(Size, name=product.name)
-    else:
+    if product.is_for_six:
         forsixes = get_object_or_404(Forsix, name=product.name)
 
     context = {
