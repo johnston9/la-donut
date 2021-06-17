@@ -314,6 +314,10 @@ input[type=checkbox], input[type=radio] {
     color: #777777;
 }
 
+.bg-red {
+    background-color: red;
+}
+
 .text-grey {
     color: #696666;
 }
@@ -408,7 +412,21 @@ input[type=checkbox], input[type=radio] {
 }
 
 .toast-capper {
-    height: 5px;
+    height: 1px;
+}
+
+.toast-capper2 {
+    height: 2px;
+}
+
+.toast-capper3 {
+    height: 3px;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* -------------------------------- Media Queries */
