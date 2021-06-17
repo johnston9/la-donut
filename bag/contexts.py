@@ -51,14 +51,14 @@ def bag_contents(request):
             for forsix1, quantity in item_data['items_with_forsix'].items():
                 forsixprice = forsix1
                 six = [six for six in forsix1.split("_")]
-                forsix = six[0]
+                box = six[0]
                 price = int(float(six[1].strip()))
                 total += quantity * price
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
                     'forsixprice': forsixprice,
-                    'forsix': forsix,
+                    'box': box,
                     'price': price,
                     'quantity': quantity,
                     'product': product,
