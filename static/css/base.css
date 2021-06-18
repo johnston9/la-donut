@@ -423,7 +423,7 @@ input[type=checkbox], input[type=radio] {
     height: 3px;
 }
 
-.bag-notification-wrapper {
+.bag-wrapper {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
