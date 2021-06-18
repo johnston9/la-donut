@@ -4,14 +4,23 @@ from .models import Product, Category, Size, Forsix
 # Register your models here.
 
 
+class SizeAdminInline(admin.TabularInline):
+    model = Size
+
+
+class ForsixAdminInline(admin.TabularInline):
+    model = Forsix
+
+
 class ProductAdmin(admin.ModelAdmin):
+    inlines = (SizeAdminInline, ForsixAdminInline)
+
     list_display = (
         'name',
         'category',
-        'shop_price',
         'web_price',
         'is_for_six',
-        'rating',
+        'is_sizes',
         'image',
     )
 

@@ -67,7 +67,7 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to get the item price,
+        Override the original save method to 
         set the lineitem total and update the order total.
         """
 
