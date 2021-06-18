@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
-from products.models import Product, Forsix, Size, get_object_or_404
+from products.models import Product
 
 
 class Order(models.Model):
@@ -62,6 +62,7 @@ class OrderLineItem(models.Model):
     size = models.CharField(max_length=2, null=True, blank=True)
     forsix = models.CharField(max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
@@ -70,14 +71,7 @@ class OrderLineItem(models.Model):
         set the lineitem total and update the order total.
         """
 
-    product = get_object_or_404(Product, pk=product)
-    if product.is_sizes:
-        sizes = get_object_or_404(Size, name=product.name)
-        self.lineitem_total = sizes.size * self.quantity
-    elif product.is_for_six:
-        forsixes = get_object_or_404(Forsix, name=product.name)
-        self.lineitem_total = sizes.forsix * self.quantity
-    else:
+        self.lineitem_total = self.price * self.quantity
 
         super().save(*args, **kwargs)
 
