@@ -42,7 +42,7 @@ def bag_contents(request):
                     'product': product,
                     'sizes': sizes,
                 })
-        
+
         elif 'items_with_forsix' in item_data.keys():
             product = get_object_or_404(Product, pk=item_id)
             forsixes = get_object_or_404(Forsix, name=product.name)
@@ -69,9 +69,9 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_gap = 0
-    
+
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,

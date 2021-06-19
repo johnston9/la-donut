@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import Product, Category, Size, Forsix
 
-# Register your models here.
-
 
 class SizeAdminInline(admin.TabularInline):
     model = Size
