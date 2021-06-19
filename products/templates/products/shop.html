@@ -126,7 +126,6 @@
                                             {% else %}
                                             <p class="">No Ratings Yet</p>
                                             {% endif %}
-                                            <!--find similiar-->
                                             <!--form-->
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
@@ -134,59 +133,76 @@
                                                     <div class="col-12">
                                                         <!--prices for sizes-->
                                                         {% if product.is_sizes %}
-                                                        {% for size in sizes %}
-                                                        {% if size.name == product.name %}
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_s">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_s"
-                                                                    name="product_size" value="small_{{ size.small }}">
-                                                                Small - E{{ size.small }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_m">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
-                                                                    name="product_size" value="medium_{{ size.medium }}" checked>
-                                                                Medium - E{{ size.medium }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_l">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_l"
-                                                                    name="product_size" value="large_{{ size.large }}">
-                                                                Large - E{{ size.large }}
-                                                            </label>
-                                                        </div>
-                                                        {% endif %}
-                                                        {% endfor %}
+                                                            {% for size in sizes %}
+                                                                {% if size.name == product.name %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_s">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_s"
+                                                                                name="product_size" value="small_{{ size.small }}">
+                                                                            Small - E{{ size.small }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_m">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
+                                                                                name="product_size" value="medium_{{ size.medium }}" checked>
+                                                                            Medium - E{{ size.medium }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_l">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_l"
+                                                                                name="product_size" value="large_{{ size.large }}">
+                                                                            Large - E{{ size.large }}
+                                                                        </label>
+                                                                    </div>
+                                                                    {% else %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_m">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
+                                                                                name="product_size" value="medium_{{ product.web_price }}">
+                                                                            Medium - E{{ product.web_price }}
+                                                                        </label>
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endfor %}
                                                         <!--prices for 6-->
                                                         {% elif product.is_for_six %}
-                                                        {% for forsix in forsixs %}
-                                                        {% if forsix.name == product.name %}
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_6">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
-                                                                    name="product_forsix" value="for6_{{ forsix.for6 }}">
-                                                                For 6 - E{{ forsix.for6}}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_12">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_12"
-                                                                    name="product_forsix" value="for12_{{ forsix.for12 }}" checked>
-                                                                For 12 - E{{ forsix.for12 }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_24">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_24"
-                                                                    name="product_forsix" value="for24_{{ forsix.for24 }}">
-                                                                For 24 - E{{ forsix.for24}}
-                                                            </label>
-                                                        </div>
-                                                        {% endif %}
-                                                        {% endfor %}
+                                                            {% for forsix in forsixs %}
+                                                                {% if forsix.name == product.name %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_6">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
+                                                                                name="product_forsix" value="for6_{{ forsix.for6 }}">
+                                                                            For 6 - E{{ forsix.for6}}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_12">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_12"
+                                                                                name="product_forsix" value="for12_{{ forsix.for12 }}" checked>
+                                                                            For 12 - E{{ forsix.for12 }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_24">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_24"
+                                                                                name="product_forsix" value="for24_{{ forsix.for24 }}">
+                                                                            For 24 - E{{ forsix.for24}}
+                                                                        </label>
+                                                                    </div>
+                                                                {% else %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_6">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
+                                                                                name="product_forsix" value="for6_{{ product.web_price }}">
+                                                                            For 6 - E{{ product.web_price }}
+                                                                        </label>
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endfor %}
                                                         {% else %}
+                                                        <!--web price-->
                                                         <h3 class="text-black">E{{ product.web_price }} </h3>
                                                         {% endif %}
                                                     </div>
@@ -313,9 +329,7 @@
                                             <p class="text-gold">{{ product.rating }} <i class="text-gold2 fas fa-star"></i></p>
                                             {% else %}
                                             <small class="">No Ratings Yet</small>
-                                            {% endif %}
-                                            <!--find similiar-->
-                    
+                                            {% endif %}                   
                                             <!--form-->
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
@@ -323,61 +337,76 @@
                                                     <div class="col-12">
                                                         <!--prices for sizes-->
                                                         {% if product.is_sizes %}
-                                                        {% for size in sizes %}
-                                                        {% if size.name == product.name %}
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_s">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_s"
-                                                                    name="product_size" value="small_{{ size.small }}">
-                                                                Small - E{{ size.small }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_m">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
-                                                                    name="product_size" value="medium_{{ size.medium }}" checked>
-                                                                Medium - E{{ size.medium }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_l">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_l"
-                                                                    name="product_size" value="large_{{ size.large }}">
-                                                                Large - E{{ size.large }}
-                                                            </label>
-                                                        </div>
-                                                        {% endif %}
-                                                        {% endfor %}
-
+                                                            {% for size in sizes %}
+                                                                {% if size.name == product.name %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_s">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_s"
+                                                                                name="product_size" value="small_{{ size.small }}">
+                                                                            Small - E{{ size.small }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_m">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
+                                                                                name="product_size" value="medium_{{ size.medium }}" checked>
+                                                                            Medium - E{{ size.medium }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_l">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_l"
+                                                                                name="product_size" value="large_{{ size.large }}">
+                                                                            Large - E{{ size.large }}
+                                                                        </label>
+                                                                    </div>
+                                                                {% else %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_m">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
+                                                                                name="product_size" value="medium_{{ product.web_price }}">
+                                                                            Medium - E{{ product.web_price }}
+                                                                        </label>
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endfor %}
                                                         <!--prices for 6-->
                                                         {% elif product.is_for_six %}
-                                                        {% for forsix in forsixs %}
-                                                        {% if forsix.name == product.name %}
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_6">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
-                                                                    name="product_forsix" value="for6_{{ forsix.for6 }}">
-                                                                For 6 - E{{ forsix.for6 }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_12">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_12"
-                                                                    name="product_forsix" value="for12_{{ forsix.for12 }}" checked>
-                                                                For 12 - E{{ forsix.for12 }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="pl-2 form-check text-black">
-                                                            <label class="form-check-label" for="id_for_{{ product.id }}_24">
-                                                                <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_24"
-                                                                    name="product_forsix" value="for24_{{ forsix.for24 }}">
-                                                                For 24 - E{{ forsix.for24 }}
-                                                            </label>
-                                                        </div>
-                                                        {% endif %}
-                                                        {% endfor %}
+                                                            {% for forsix in forsixs %}
+                                                                {% if forsix.name == product.name %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_6">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
+                                                                                name="product_forsix" value="for6_{{ forsix.for6 }}">
+                                                                            For 6 - E{{ forsix.for6 }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_12">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_12"
+                                                                                name="product_forsix" value="for12_{{ forsix.for12 }}" checked>
+                                                                            For 12 - E{{ forsix.for12 }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_24">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_24"
+                                                                                name="product_forsix" value="for24_{{ forsix.for24 }}">
+                                                                            For 24 - E{{ forsix.for24 }}
+                                                                        </label>
+                                                                    </div>
+                                                                {% else %}
+                                                                    <div class="pl-2 form-check text-black">
+                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_6">
+                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
+                                                                                name="product_size" value="for6_{{ product.web_price }}">
+                                                                            For 6 - E{{ product.web_price }}
+                                                                        </label>
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endfor %}
                                                         {% else %}
-                                                        <h3 class="text-black">Price - E{{ product.web_price }} </h3>
+                                                            <h3 class="text-black">Price - E{{ product.web_price }} </h3>
                                                         {% endif %}
                                                     </div>
                                                 </div>

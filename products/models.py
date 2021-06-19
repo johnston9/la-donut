@@ -38,8 +38,7 @@ class Product(models.Model):
 class Size(models.Model):
 
     name = models.CharField(max_length=254)
-
-    product = models.OneToOneField('Product', null=True, blank=True, on_delete=models.CASCADE, related_name='sizes')
+    product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.CASCADE, related_name='sizes')
     small = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
     medium = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
     large = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
@@ -51,8 +50,7 @@ class Size(models.Model):
 class Forsix(models.Model):
 
     name = models.CharField(max_length=254)
-
-    product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.CASCADE, related_name='forsix')
     for6 = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
     for12 = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
     for24 = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
