@@ -62,7 +62,7 @@ class OrderLineItem(models.Model):
     size = models.CharField(max_length=2, null=True, blank=True)
     forsix = models.CharField(max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
