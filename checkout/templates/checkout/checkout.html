@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr class="gold70">
+                <h2 class="upper mb-3 playball">Checkout</h2>
+                <hr class="gold70">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-6 order-lg-last">
+                <p class="text-muted">Order Details - Items({{ product_count }})</p>
+                <div class="row">
+                    <div class="col-8 offset-1">
+                        <p class="mb-1 mt-1">Item</p>
+                    </div>
+                    <div class="col-3 text-right">
+                        <p class="mb-1 mt-1">Subtotal</p>
+                    </div>
+                </div>
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-3 mb-0">
+                            <a href="{% url 'view_item' item.product.id %}">
+                                {% if item.product.image %}
+                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                {% else %}
+                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <!--size-->
+                            {% if item.product.is_sizes %}
+                                <p class="my-0">Size: {{ item.size }}</p>
+                            {% endif %}
+                            {% if item.product.is_for_six %}
+                                <p class="my-0">{{ item.box }} Box</p>
+                            {% endif %}
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                        <div class="col-3 text-right">
+                            <p class="my-0 small text-black">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr class="my-0 gold70">
+                <div class="row mt-4 text-black">
+                    <div class="col-5 text-right">
+                        <p class="my-0">Order Total:</p>
+                        <p class="my-0">Delivery:</p>
+                        <p class="my-0"><strong> Grand Total:</strong></p>
+                    </div>
+                    <div class="col-5 text-right">
+                        <p class="my-0">${{ total | floatformat:2 }}</p>
+                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
+                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Please complete in the form below so we can process your order.</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset class="px-2 mb-4">
+                        <legend class="orderfield-legend text-black px-3 w-auto">Your Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="px-2 mb-4">
+                        <legend class="orderfield-legend text-black px-3 w-auto">Delivery Details</legend>
+                        {{ order_form.phone_number | as_crispy_field }}
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        <div class="form-check form-check-inline float-right mr-0">
+							{% if user.is_authenticated %}
+								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+							{% else %}
+								<label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+							{% endif %}
+						</div>
+                    </fieldset>
+                    <fieldset class="px-2">
+                        <legend class="orderfield-legend text-black px-3 w-auto">Payment Details</legend>
+                        <!--Stripe card element-->
+                        <div class="mb-2" id="card-element"></div>
+
+                        <!-- Form errors -->
+                        <div class="mb-3 text-red" id="card-errors" role="alert"></div>
+                    </fieldset>
+
+                    <div class="checkout-buttons text-right mt-4 mb-2">                    
+						<a href="{% url 'bag' %}" class="btn bg-gold rounded-0">
+                            <span class="font-weight-bold">Update Bag</span>
+							<span class="icon">
+								<i class="fas fa-chevron-right"></i>
+							</span>							
+						</a>
+						<button id="submit-button" class="btn bg-gold rounded-0">
+							<span class="font-weight-bold text-black">Complete Order</span>
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</button>
+						<p class="small text-red my-0">
+							<span class="icon">
+								<i class="fas fa-exclamation-circle"></i>
+							</span>
+							<span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+						</p>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %
