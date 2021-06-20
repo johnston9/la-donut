@@ -2,6 +2,7 @@
 #card-element {
     color: #000;
     border: 1px solid #ced4da;
+    font-family: Lato;
 }
 
 .StripeElement,
@@ -29,6 +30,7 @@
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+  font-family: 'Lato', sans-serif;
 }
 
 .order-input-style::placeholder {
