@@ -323,8 +323,28 @@ input[type=checkbox], input[type=radio] {
     color: #777777;
 }
 
+.bg-redlight {
+    background-color: #f70a0a;
+}
+
+.text-redlight {
+    color: #f70a0a;
+}
+
 .bg-red {
-    background-color: red;
+    background-color: #da0808;
+}
+
+.text-red {
+    color: #da0808;
+}
+
+.bg-reddark {
+    background-color: rgb(119, 6, 6);
+}
+
+.text-reddark {
+    color: rgb(119, 6, 6);
 }
 
 .text-grey {

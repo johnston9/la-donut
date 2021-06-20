@@ -27,13 +27,13 @@
                 </li>
             {% endfor %}
             </ul>
-            <hr class="gold50 mb-1">
+            <hr class="gold50 mb-4">
         </div>
     </div>
 
         <div class="row">
-            <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Details - Items({{ product_count }})</p>
+            <div class="col-12 col-lg-5 offset-lg-1 order-lg-last mb-5">
+                <p class="text-muted text-center">Order Details - Items({{ product_count }})</p>
                 <div class="row">
                     <div class="col-8 offset-1">
                         <p class="mb-1 mt-1">Item</p>
@@ -44,7 +44,7 @@
                 </div>
                 {% for item in bag_items %}
                     <div class="row mb-4">
-                        <div class="col-3 mb-0">
+                        <div class="col-3 mb-0 pl-0 pr-0">
                             <a href="{% url 'view_item' item.product.id %}">
                                 {% if item.product.image %}
                                     <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
@@ -82,21 +82,21 @@
                         <p class="my-0"><strong>E{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
+                <hr class="gold100 mb-4 mt-4">
             </div>
 
             <!--col2-->
             <div class="col-12 col-lg-6">
-                <hr class="gold100 mb-1 mt-4">
                 <p class="text-muted">Please complete in the form below so we can process your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="px-2 mb-4">
-                        <legend class="orderfield-legend text-black px-3 w-auto">Your Details</legend>
+                        <legend class="orderfield-legend text-black text-center px-3 w-auto">Your Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="px-2 mb-4">
-                        <legend class="orderfield-legend text-black px-3 w-auto">Delivery Details</legend>
+                        <legend class="orderfield-legend text-black text-center px-3 w-auto">Delivery Details</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -117,7 +117,7 @@
 						</div>
                     </fieldset>
                     <fieldset class="px-2">
-                        <legend class="orderfield-legend text-black px-3 w-auto">Payment Details</legend>
+                        <legend class="orderfield-legend text-black text-center px-3 w-auto">Payment Details</legend>
                         <!--Stripe card element-->
                         <div class="mb-2" id="card-element"></div>
 
@@ -147,8 +147,13 @@
 					</div>
                 </form>
             </div>
-
         </div>
     </div>
+{% endblock %}
 
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
