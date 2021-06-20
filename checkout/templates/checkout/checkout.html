@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
+{% load bagtools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -15,18 +15,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <hr class="gold70">
-                <h2 class="upper mb-3 playball">Checkout</h2>
-                <hr class="gold70">
-            </div>
+    <div class="container-fluid checkout-container w-100 h-100">
+        <!--title-->
+    <div class="row">
+        <div class="col text-center mt-1">
+            <h2 class="playball">The Goodies Checkout</h2>
+            <ul class="list-inline">
+            {% for item in categories_selected %}                   
+                <li class="list-inline-item"> 
+                <h4 class=" playball" >{{ item.friendly_name }}</h4>
+                </li>
+            {% endfor %}
+            </ul>
+            <hr class="gold50 mb-1">
         </div>
+    </div>
 
         <div class="row">
-            <div class="col-12 col-lg-6 order-lg-last">
+            <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <p class="text-muted">Order Details - Items({{ product_count }})</p>
                 <div class="row">
                     <div class="col-8 offset-1">
@@ -37,7 +43,7 @@
                     </div>
                 </div>
                 {% for item in bag_items %}
-                    <div class="row">
+                    <div class="row mb-4">
                         <div class="col-3 mb-0">
                             <a href="{% url 'view_item' item.product.id %}">
                                 {% if item.product.image %}
@@ -59,25 +65,28 @@
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-black">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small text-black">E{{ item.product.price | sum_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
-                <hr class="my-0 gold70">
+                <hr class="my-0 gold70 mt-3">
                 <div class="row mt-4 text-black">
-                    <div class="col-5 text-right">
+                    <div class="col-6 text-right">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0"><strong> Grand Total:</strong></p>
                     </div>
-                    <div class="col-5 text-right">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
-                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                    <div class="col-6 text-right">
+                        <p class="my-0">E{{ total | floatformat:2 }}</p>
+                        <p class="my-0">E{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0"><strong>E{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
             </div>
+
+            <!--col2-->
             <div class="col-12 col-lg-6">
+                <hr class="gold100 mb-1 mt-4">
                 <p class="text-muted">Please complete in the form below so we can process your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
@@ -133,11 +142,13 @@
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+							<span>Your card will be charged <strong>E{{ grand_total|floatformat:2 }}</strong></span>
 						</p>
 					</div>
                 </form>
             </div>
+
         </div>
     </div>
-{% endblock %
+
+{% endblock %}
