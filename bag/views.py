@@ -27,11 +27,8 @@ def add_to_bag(request, item_id):
     if 'product_forsix' in request.POST:
         forsixprice = request.POST['product_forsix']
         forsix_price1 = forsixprice
-        print(forsixprice)
-        print(forsix_price1)
         forsixlist = [sip for sip in forsix_price1.split("_")]
         box = forsixlist[0]
-        print(box)
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
@@ -191,7 +188,7 @@ def remove_from_bag_sizes(request, item_id, sizeprice):
 
         request.session['bag'] = bag
         return redirect(reverse('bag'))
-    
+
     except Exception as e:
         messages.error(request, f'Error removing item: {e} Please try again')
         return redirect(reverse('bag'))

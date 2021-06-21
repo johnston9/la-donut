@@ -57,17 +57,6 @@ def shop(request):
     return render(request, 'products/shop.html', context)
 
 
-"""def shop_menu(request):
-
-    products = Product.objects.all()
-
-    context = {
-        'products': products,
-    }
-
-    return render(request, 'products/shop_menu.html', context)"""
-
-
 def view_item(request, product_id):
     """ A view to display each product's details """
 

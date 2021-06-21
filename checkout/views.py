@@ -1,8 +1,13 @@
-from django.shortcuts import render, redirect, reverse
+"""All code based on Code Institute's Boutique Ado
+    project written by ckz8780."""
+
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 
+from products.models import Product
 from .forms import OrderForm
+from .models import Order, OrderLineItem
 from bag.contexts import bag_contents
 
 import stripe
@@ -22,17 +27,80 @@ def checkout(request):
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
             'town_or_city': request.POST['town_or_city'],
-            'postcode': request.POST['postcode'],        
+            'postcode': request.POST['postcode'],
             'county': request.POST['county'],
             'country': request.POST['country'],
         }
+        order_form = OrderForm(form_data)
+        if order_form.is_valid():
+            order = order_form.save()
+            for item_id, item_data in bag.items():
+                try:
+                    if isinstance(item_data, int):
+                        product = get_object_or_404(Product, pk=item_id)
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                            price=int(product.web_price)
+                        )
+                        order_line_item.save()
+
+                    elif 'items_with_size' in item_data.keys():
+                        product = get_object_or_404(Product, pk=item_id)
+                        for size1, quantity in item_data[
+                                'items_with_size'].items():
+                            sizlist = [siz for siz in size1.split("_")]
+                            size = sizlist[0]
+                            price1 = int(float(sizlist[1]))
+                            price = round(price1, 2)
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                quantity=quantity,
+                                size=size,
+                                price=price
+                            )
+                            order_line_item.save()
+
+                    elif 'items_with_forsix' in item_data.keys():
+                        product = get_object_or_404(Product, pk=item_id)
+                        for forsix1, quantity in item_data[
+                                'items_with_forsix'].items():
+                            six = [six for six in forsix1.split("_")]
+                            box = six[0]
+                            price1 = int(float(six[1].strip()))
+                            price = round(price1, 2)
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                quantity=quantity,
+                                box=box,
+                                price=price
+                            )
+                            order_line_item.save()
+
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        "One of the items in your bag is out of stock \
+                            Please call us and we'll quickly find you an \
+                                alternative")
+                    )
+                    order.delete()
+                    return redirect(reverse('bag'))
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse(
+                'checkout_complete', args=[order.order_number]))
+        else:
+            messages.error(request, 'Sorry but there was an error processing\
+                your form. Please check that your information is correct.')
 
     else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "The Shopping Bag is empty...\
                 add some goodies")
-            return redirect(reverse('products'))
+            return redirect(reverse('shop'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
@@ -53,6 +121,28 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+    }
+
+    return render(request, template, context)
+
+
+def checkout_complete(request, order_number):
+    """
+    Display order success comfirmation on completed checkouts
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f'Order number - {order_number}. \
+        Your order has been successfully processed! \
+        A confirmation email will be sent to {order.email}.\
+            Please come again.')
+
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    template = 'checkout/checkout_complete.html'
+    context = {
+        'order': order,
     }
 
     return render(request, template, context)
