@@ -135,6 +135,18 @@ hr.grey100 {
     color: #696666;
 }
 
+.btn-bordergold {
+    background: rgb(255,215,0);
+    color: #000;
+    border: 1px solid #000;
+}
+
+.btn-gold {
+    background: rgb(255,215,0);
+    color: #000;
+}
+
+
 .btn-black {
     background: black;
     color: white;
@@ -234,7 +246,7 @@ input[type=checkbox], input[type=radio] {
 	display: none;
 	position: fixed;
 	bottom: 20px;
-	right: 50px;
+	right: 20px;
 	z-index: 99;
 	height: 34px;
 	width: 90px;
@@ -300,11 +312,11 @@ input[type=checkbox], input[type=radio] {
 }
 
 .text-gold3 {
-    color: rgb(114, 99, 16);
+    color: rgb(150, 131, 27);
 }
 
 .text-gold {
-    color: rgb(140 111 25 / 99%);
+    color: rgb(140, 111, 25, 99%);
 }
 
 .text-gold1 {

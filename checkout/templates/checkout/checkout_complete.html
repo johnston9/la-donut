@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid checkout-container w-100 h-100">
+    <!--title-->
+<div class="row">
+    <div class="col text-center mt-1">
+        <h2 class="playball">Order Complete</h2>
+        <h4 class="playball text-center">Your Goodies are on the way.</h4>
+        <ul class="list-inline">
+        {% for item in categories_selected %}                   
+            <li class="list-inline-item"> 
+            <h4 class=" playball" >{{ item.friendly_name }}</h4>
+            </li>
+        {% endfor %}
+        </ul>
+        <hr class="gold50 mb-4">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center">    
+        <p>Order number - {{ order.order_number }}</p>
+        <p>A confirmation email will be sent to <strong>{{ order.email }}</p> 
+            <a href="" class="btn bg-gold mt-5">
+                <span class="">Check out this week's <em>Secret Recipy</em> </span>
+            </a>      
+</div>
+    </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+
+            </div>
+        </div>
+        <div class="row mt-5">
+			<div class="col-12 col-lg-8 offset-lg-2">
+				
+			</div>
+		</div>
+    </div>
+{% endblock %}

@@ -43,6 +43,7 @@ def checkout(request):
                             product=product,
                             quantity=item_data,
                             price=int(product.web_price)
+                            # price=product.web_price
                         )
                         order_line_item.save()
 
@@ -68,14 +69,14 @@ def checkout(request):
                         for forsix1, quantity in item_data[
                                 'items_with_forsix'].items():
                             six = [six for six in forsix1.split("_")]
-                            box = six[0]
+                            forsix = six[0]
                             price1 = int(float(six[1].strip()))
                             price = round(price1, 2)
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                box=box,
+                                forsix=forsix,
                                 price=price
                             )
                             order_line_item.save()
@@ -133,9 +134,8 @@ def checkout_complete(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order number - {order_number}. \
-        Your order has been successfully processed! \
-        A confirmation email will be sent to {order.email}.\
-            Please come again.')
+        Your order has been successfully processed!'
+        )
 
     if 'bag' in request.session:
         del request.session['bag']
