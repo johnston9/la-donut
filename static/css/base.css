@@ -88,6 +88,11 @@ hr.gold100 {
 	width: 100%;
 }
 
+hr.goldleft {
+	border-top: 2px solid gold;
+	width: 200px;
+}
+
 
 hr.grey100 {
     border-top: 2px solid #666666;
