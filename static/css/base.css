@@ -334,6 +334,10 @@ input[type=checkbox], input[type=radio] {
     background-color: antiquewhite;
 }
 
+.bg-lightblue {
+    background-color: rgb(232, 240, 254);
+}
+
 
 .text-lightgold {
     color: rgb(255,215,0);
