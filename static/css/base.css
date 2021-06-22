@@ -9,7 +9,6 @@ html {
 	padding: 0;
 	border: 0;
 }
-
 .row {
     margin: 0;
 	padding-right: 0;
@@ -242,6 +241,30 @@ input[type=checkbox], input[type=radio] {
 }*/
 
 /*return to top button*/
+.inline-group .tabular td.original p {
+    height: 30px;
+}
+
+.js-inline-admin-formset .inline-related
+.inline-group .tabular td.original p {
+    position: absolute;
+    left: 0;
+    height: 2em;
+    padding: 2px 9px;
+    font-size: 10px;
+    font-weight: bold;
+    color: red;
+    _width: 700px;
+}
+
+
+/*.js-inline-admin-formset .inline-related 
+.inline-group .tabular tr td.original {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;   
+}*/
 #topbut {
 	display: none;
 	position: fixed;

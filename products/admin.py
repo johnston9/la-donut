@@ -2,10 +2,12 @@ from django.contrib import admin
 from .models import Product, Category, Size, Forsix
 
 
+# class SizeAdminInline(admin.StackedInline):
 class SizeAdminInline(admin.TabularInline):
     model = Size
 
 
+# class ForsixAdminInline(admin.StackedInline):
 class ForsixAdminInline(admin.TabularInline):
     model = Forsix
 
