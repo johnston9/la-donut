@@ -62,6 +62,7 @@ def view_item(request, product_id):
 
     sizes = None
     forsixes = None
+    back_to_cats = None
 
     product = get_object_or_404(Product, pk=product_id)
     if product.is_sizes:
@@ -76,7 +77,8 @@ def view_item(request, product_id):
     context = {
         'product': product,
         'sizes': sizes,
-        'forsixes': forsixes
+        'forsixes': forsixes,
+        'back_to_cats': back_to_cats
     }
 
     return render(request, 'products/view_item.html', context)

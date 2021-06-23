@@ -19,6 +19,7 @@
             <p class="playball">{{ item.friendly_name }}</p>
             {% endfor %}
             <hr class="gold50 mb-1">
+            {{ back_to_cats }}
         </div>
     </div>
     <div class="row">
@@ -156,7 +157,8 @@
                                     <i class="fas fa-chevron-right"></i>
                                 </span>
                             </a>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <input type="hidden" name="redirect_url" value="{{ back_to_cats }}">
+                            <!--<input type="hidden" name="redirect_url" value="{{ request.path }}">-->
                         </div>
                     </div>
                 </form>
