@@ -416,7 +416,7 @@
                                                     </div>
                                                     <div class="col-4 offset-2">
                                                         <div class="view w-100 my-0 bg-gold text-center">
-                                                        <a href="{% url 'view_item' product.id %}">
+                                                        <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                                             <spam class="text-black my-auto"> View</spam>
                                                         </a>
                                                     </div>

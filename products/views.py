@@ -41,7 +41,7 @@ def shop(request):
 
             queries = Q(
                 name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+            products = products.filter(queries)       
 
     current_sorting = f'{sort}_{direction}'
 
@@ -68,6 +68,10 @@ def view_item(request, product_id):
         sizes = get_object_or_404(Size, name=product.name)
     if product.is_for_six:
         forsixes = get_object_or_404(Forsix, name=product.name)
+
+    if 'r' in request.GET:
+        back_to_cats = request.GET['r']
+        print(back_to_cats)
 
     context = {
         'product': product,
