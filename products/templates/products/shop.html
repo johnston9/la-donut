@@ -96,12 +96,12 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div id="card" class="card mt-3">
                                 {% if product.image %}
-                                <a href="{% url 'view_item' product.id %}">
+                                <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}"
                                         alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="{% url 'view_item' product.id %}">
+                                <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.jpg"
                                         alt="{{ product.name }}">
                                 </a>
@@ -226,7 +226,7 @@
                                                     </div>
                                                     <div class="col-4 offset-2">
                                                         <div class="view w-100 bg-gold text-center">
-                                                        <a href="{% url 'view_item' product.id %}">
+                                                        <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                                             <spam class="text-black my-0"> View</spam>
                                                         </a>
                                                     </div>
@@ -284,12 +284,12 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div id="card" class="card mt-3">
                                 {% if product.image %}
-                                <a href="{% url 'view_item' product.id %}">
+                                <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}"
                                         alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="{% url 'view_item' product.id %}">
+                                <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.jpg"
                                         alt="{{ product.name }}">
                                 </a>
