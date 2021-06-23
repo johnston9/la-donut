@@ -36,7 +36,7 @@
         </div>
     </div>
     <hr class="gold100 mt-5 mb-5">
-    <div class="row text-black lato">
+    <div class="row text-grey lato">
         <div class="col-12 col-lg-8 offset-lg-2">   
             <h4 class="upper ml-3 mb-4"><strong> Order</strong></h4>
             <hr>
@@ -59,12 +59,12 @@
                     <div class="col-12 col-md-8">
                         <p class="small mb-0">
                             {{ item.product.name }}&nbsp; &nbsp; &nbsp;
-                            {% if item.size %}Size - {{ item.size }}{% endif %}
-                            {% if item.forsix %}Box - {{ item.forsix }}{% endif %}
+                            {% if item.size %}<span class="text-muted">{{ item.size }} Size</span>{% endif %}
+                            {% if item.forsix %}<span class="text-muted">{{ item.forsix }} Box</span>{% endif %}
                         </p>
                     </div>
                     <div class="col-12 col-md-4 text-md-right">
-                        <p class="small mb-0">
+                        <p class="small text-muted mb-0">
                              Qnt - {{ item.quantity }}&nbsp; &nbsp; &nbsp; Price - E{{ item.price }} </p>
                     </div>
                 </div>
