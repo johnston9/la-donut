@@ -23,6 +23,8 @@ def extra_checkout_info(request):
         stripe.PaymentIntent.modify(pay_intent_id, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
+            'gift_wrapped': request.POST.get('gift_wrapped'),
+            'sliced': request.POST.get('sliced'),
             'username': request.user,
         })
         return HttpResponse(status=200)
