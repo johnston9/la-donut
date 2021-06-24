@@ -43,7 +43,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
+        
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -54,14 +54,25 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'county': request.POST['county'],
             'country': request.POST['country'],
-            'gift_wrapped': request.POST['gift_wrapped'],
-            'is_card': request.POST['is_card'],
+            # 'gift_wrapped': request.POST['gift_wrapped'],
+            # 'is_card': request.POST['is_card'],
             'message': request.POST['message'],
-            'sliced': request.POST['sliced'],
+            # 'sliced': request.POST['sliced'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pay_intent_id = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pay_intent_id
+            order.shopping_bag = json.dumps(bag)
+            order.stripe_pid = pay_intent_id
+            if request.POST['gift_wrapped'] == 'gift_wrapped':
+                order.gift_wrapped = True
+            if request.POST['is_card'] == 'is_card':
+                order.is_card = True
+            if request.POST['sliced'] == 'sliced':
+                order.sliced = True
+            order.save()
             for item_id, item_data in bag.items():
                 try:
                     if isinstance(item_data, int):

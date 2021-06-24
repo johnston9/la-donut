@@ -93,7 +93,7 @@
                         <div class="pl-2 form-check text-black">
                             <label class="form-check-label" for="gift_wrapped">
                                 <input type="checkbox" class="form-check-input" id="id_gift_wrapped"
-                                    name="gift_wrapped" value="">
+                                    name="gift_wrapped" value="gift_wrapped">
                                 Gift Wrapped for free. 
                             </label>
                         </div>        
@@ -105,15 +105,15 @@
                             We'll do the rest.</p>
                         
                         <div class="pl-2 form-check text-black">
-                            <label class="form-check-label" for="gift_wrapped">
+                            <label class="form-check-label" for="is_card">
                                 <input type="checkbox" class="form-check-input" id="id_is_card"
-                                    name="is_card" value="">
+                                    name="is_card" value="is_card">
                                 Add a Card and Message
                             </label>
                         </div>  
                         <div class="form-group ">
                             <input type="message" class="form-control" id="id_message" 
-                            name="message" placeholder="Message">
+                            name="message" value="" placeholder="Message">
                           </div>
                     </fieldset>
 
@@ -123,17 +123,12 @@
                         <div class="pl-2 form-check text-black">
                             <label class="form-check-label" for="sliced">
                                 <input type="checkbox" class="form-check-input" id="id_sliced"
-                                    name="sliced" value="">
+                                    name="sliced" value="sliced" checked>
                                 Sliced for free. It's our pleasure.
                             </label>
                         </div> 
                     </fieldset>
 
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
-                    </fieldset>
                     <fieldset class="px-2 mb-4">
                         <legend class="orderfield-legend text-black text-center px-3 w-auto">Your Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
@@ -164,9 +159,10 @@
                         <legend class="orderfield-legend text-black text-center px-3 w-auto">Payment Details</legend>
                         <!--Stripe card element-->
                         <div class="mb-2" id="card-element"></div>
-
                         <!-- Form errors -->
                         <div class="mb-3 text-red" id="card-errors" role="alert"></div>
+                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                         <p class="small text-red my-0">
                             <span class="icon">

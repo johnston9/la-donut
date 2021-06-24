@@ -1,7 +1,13 @@
-"""All code taken from Code Institute's Boutique Ado
-    project written by ckz8780."""
+"""All code based on Code Institute's Boutique Ado
+    project written by ckz8780, most is taken directly."""
 
 from django.http import HttpResponse
+
+from .models import Order, OrderLineItem
+from products.models import Product
+
+import json
+import time
 
 
 class StripeWH_Handler:
@@ -26,50 +32,62 @@ class StripeWH_Handler:
         pay_intent_id = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
-        gift_wrapped = intent.metadata.gift_wrapped
-        is_card = intent.metadata.is_card
-        message = intent.metadata.message
-        sliced = intent.metadata.sliced
+        # gift_wrapped = intent.metadata.gift_wrapped
+        # is_card = intent.metadata.is_card
+        # message = intent.metadata.message
+        # sliced = intent.metadata.sliced
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
-        # Change "" to None for shipping details in model
+        # Change empty string value to None for shipping details in model
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
             
         order_exists = False
-        try:
-            order = Order.objects.get(
-                        full_name__iexact=shipping_details.name,
-                        email__iexact=billing_details.email,
-                        phone_number__iexact=shipping_details.phone,
-                        street_address1__iexact=shipping_details.address.line1,
-                        street_address2__iexact=shipping_details.address.line2,
-                        town_or_city__iexact=shipping_details.address.city,
-                        postcode__iexact=shipping_details.address.postal_code,
-                        county__iexact=shipping_details.address.state,
-                        country__iexact=shipping_details.address.country,
-                        grand_total=grand_total,
-            )
-            order_exists = True
+        attempt = 1
+        while attempt <= 5:
+            try:
+                order = Order.objects.get(
+                            full_name__iexact=shipping_details.name,
+                            email__iexact=billing_details.email,
+                            phone_number__iexact=shipping_details.phone,
+                            street_address1__iexact=shipping_details.address.line1,
+                            street_address2__iexact=shipping_details.address.line2,
+                            town_or_city__iexact=shipping_details.address.city,
+                            postcode__iexact=shipping_details.address.postal_code,
+                            county__iexact=shipping_details.address.state,
+                            country__iexact=shipping_details.address.country,
+                            grand_total=grand_total,
+                            shopping_bag=bag,
+                            stripe_pid=pay_intent_id,
+                )
+                order_exists = True
+                break
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+        if order_exists:
             return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
-                    status=200)
-        except Order.DoesNotExist:
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                status=200)
+        else:
+            order = None
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
-                    country=shipping_details.address.country,
-                    postcode=shipping_details.address.postal_code,
-                    town_or_city=shipping_details.address.city,
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
+                    postcode=shipping_details.address.postal_code,
+                    town_or_city=shipping_details.address.city,                    
                     county=shipping_details.address.state,
+                    country=shipping_details.address.country,
+                    shopping_bag=bag,
+                    stripe_pid=pay_intent_id,
                 )
                 for item_id, item_data in json.loads(bag).items():
                     if isinstance(item_data, int):
@@ -115,8 +133,7 @@ class StripeWH_Handler:
                                 price=price
                             )
                             order_line_item.save()
-
-                except Exception as e:
+            except Exception as e:
                 if order:
                     order.delete()
                 return HttpResponse(

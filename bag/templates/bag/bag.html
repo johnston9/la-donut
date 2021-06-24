@@ -129,39 +129,15 @@
                                         <p class="my-0">E{{ item.price | sum_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
-                            {% endfor %}
-                            <!--slice and wrap-->
-                            <tr>
-                                <td>
-                                    <h5>Have your items gift-wrapped for that special occasion</h5>
-                                <div class="pl-2 form-check text-black">
-                                    <label class="form-check-label" for="gift_wrapped">
-                                        <input type="checkbox" class="form-check-input" id="id_gift_wrapped"
-                                            name="gift_wrapped" value="">
-                                        Gift Wrapped - E2.00
-                                    </label>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>Have your items pre-sliced for ease</h5>
-                                <div class="pl-2 form-check text-black">
-                                    <label class="form-check-label" for="sliced">
-                                        <input type="checkbox" class="form-check-input" id="id_sliced"
-                                            name="sliced" value="">
-                                        Sliced - E2.00
-                                    </label>
-                                </td>
-                            </tr>                                                                
+                            {% endfor %}                                                               
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     <h6><strong>Bag Total: E{{ total|floatformat:2 }}</strong></h6>
                                     <h6>Delivery: E{{ delivery|floatformat:2 }}</h6>
                                     <h4 class="mt-4"><strong>Grand Total: E{{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_gap > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            Free delivery if you spend <strong>E{{ free_delivery_delta }}</strong> more!
+                                        <p class="mb-1 text-red">
+                                            Free delivery if you spend <strong>E{{ free_delivery_gap|floatformat:2 }}</strong> more!
                                         </p>
                                     {% endif %}
                                 </td>
@@ -169,13 +145,13 @@
                             <tr>
                                 <td colspan="5" class="">
                                     <div>
-                                    <a href="{% url 'shop' %}" class="float-left btn btn-bordergold">
+                                    <a href="{% url 'shop' %}" class="float-left btn text-softblack bg-lightblue">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="text-uppercase lato"><strong>Find more Goodies</strong></span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="float-right btn btn-bordergold">
+                                    <a href="{% url 'checkout' %}" class="float-right btn btn text-mattblack bg-gold">
                                         <span class="text-uppercase lato"><strong>Secure Checkout</strong></span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
