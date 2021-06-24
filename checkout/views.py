@@ -54,6 +54,10 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'county': request.POST['county'],
             'country': request.POST['country'],
+            'gift_wrapped': request.POST['gift_wrapped'],
+            'is_card': request.POST['is_card'],
+            'message': request.POST['message'],
+            'sliced': request.POST['sliced'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():

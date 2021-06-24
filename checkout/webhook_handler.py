@@ -35,8 +35,95 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
+        # Change "" to None for shipping details in model
+        for field, value in shipping_details.address.items():
+            if value == "":
+                shipping_details.address[field] = None
+            
+        order_exists = False
+        try:
+            order = Order.objects.get(
+                        full_name__iexact=shipping_details.name,
+                        email__iexact=billing_details.email,
+                        phone_number__iexact=shipping_details.phone,
+                        street_address1__iexact=shipping_details.address.line1,
+                        street_address2__iexact=shipping_details.address.line2,
+                        town_or_city__iexact=shipping_details.address.city,
+                        postcode__iexact=shipping_details.address.postal_code,
+                        county__iexact=shipping_details.address.state,
+                        country__iexact=shipping_details.address.country,
+                        grand_total=grand_total,
+            )
+            order_exists = True
+            return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                    status=200)
+        except Order.DoesNotExist:
+            try:
+                order = Order.objects.create(
+                    full_name=shipping_details.name,
+                    email=billing_details.email,
+                    phone_number=shipping_details.phone,
+                    country=shipping_details.address.country,
+                    postcode=shipping_details.address.postal_code,
+                    town_or_city=shipping_details.address.city,
+                    street_address1=shipping_details.address.line1,
+                    street_address2=shipping_details.address.line2,
+                    county=shipping_details.address.state,
+                )
+                for item_id, item_data in json.loads(bag).items():
+                    if isinstance(item_data, int):
+                        product = get_object_or_404(Product, pk=item_id)
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                            price=int(product.web_price)
+                        )
+                        order_line_item.save()
+
+                    elif 'items_with_size' in item_data.keys():
+                        product = get_object_or_404(Product, pk=item_id)
+                        for size1, quantity in item_data[
+                                'items_with_size'].items():
+                            sizlist = [siz for siz in size1.split("_")]
+                            size = sizlist[0]
+                            price1 = int(float(sizlist[1]))
+                            price = round(price1, 2)
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                quantity=quantity,
+                                size=size,
+                                price=price
+                            )
+                            order_line_item.save()
+
+                    elif 'items_with_forsix' in item_data.keys():
+                        product = get_object_or_404(Product, pk=item_id)
+                        for forsix1, quantity in item_data[
+                                'items_with_forsix'].items():
+                            six = [six for six in forsix1.split("_")]
+                            forsix = six[0]
+                            price1 = int(float(six[1].strip()))
+                            price = round(price1, 2)
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                quantity=quantity,
+                                forsix=forsix,
+                                price=price
+                            )
+                            order_line_item.save()
+
+                except Exception as e:
+                if order:
+                    order.delete()
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                    status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created new order using webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
