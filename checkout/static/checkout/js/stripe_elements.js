@@ -54,12 +54,16 @@ form.addEventListener('submit', function(ev) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
+    var giftWrapped = Boolean($('#id-gift_wrapped').attr('checked'));
+    var sliced = Boolean($('#id_sliced').attr('checked'));
     // use the {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
+        'gift_wrapped': giftWrapped,
+        'sliced': sliced,
     };
     var url = '/checkout/extra_checkout_info/';
 

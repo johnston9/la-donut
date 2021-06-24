@@ -30,6 +30,11 @@
             <hr class="gold50 mb-4">
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <h3>Have you order giftwrapped for that special occasion</h3>
+        </div>
+    </div>
 
         <div class="row">
             <div class="col-12 col-lg-5 offset-lg-1 order-lg-last mb-5">
@@ -45,13 +50,11 @@
                 {% for item in bag_items %}
                     <div class="row mb-4">
                         <div class="col-3 mb-0 pl-0 pr-0">
-                            <a href="{% url 'view_item' item.product.id %}">
-                                {% if item.product.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                                {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                                {% endif %}
-                            </a>
+                            {% if item.product.image %}
+                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
                         </div>
                         <div class="col-7">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
@@ -90,6 +93,34 @@
                 <p class="text-muted">Please complete in the form below so we can process your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Gift-wrapping</legend>
+                        <h5>Have your items gift-wrapped for that special occasion</h5>
+                        <div class="pl-2 form-check text-black">
+                            <label class="form-check-label" for="gift_wrapped">
+                                <input type="checkbox" class="form-check-input" id="id_gift_wrapped"
+                                    name="gift_wrapped" value="">
+                                Gift Wrapped - E2.00
+                            </label>
+                        </div> 
+                    </fieldset>
+
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Pre-sliced</legend>
+                        <h5>Have your items pre-sliced for ease</h5>
+                        <div class="pl-2 form-check text-black">
+                            <label class="form-check-label" for="sliced">
+                                <input type="checkbox" class="form-check-input" id="id_sliced"
+                                    name="sliced" value="">
+                                Sliced - E2.00
+                            </label>
+                        </div> 
+                    </fieldset>
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                    </fieldset>
                     <fieldset class="px-2 mb-4">
                         <legend class="orderfield-legend text-black text-center px-3 w-auto">Your Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
@@ -150,7 +181,7 @@
         </div>
     </div>
     <div id="loading-overlay">
-        <h1 class="text-light loading-spinner">
+        <h1 class="text-gold loading-spinner">
             <span class="icon">
                 <!--<i class="fas fa-3x fa-sync-alt fa-spin"></i>-->
                 <i class="far fa-3x fa-snowflake fa-spin"></i>
