@@ -27,6 +27,8 @@ class StripeWH_Handler:
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
         gift_wrapped = intent.metadata.gift_wrapped
+        is_card = intent.metadata.is_card
+        message = intent.metadata.message
         sliced = intent.metadata.sliced
 
         billing_details = intent.charges.data[0].billing_details

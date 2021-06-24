@@ -86,20 +86,14 @@ def update_bag(request, item_id):
     if 'product_size' in request.POST:
         sizeprice = request.POST['product_size']
         size_price1 = sizeprice
-        print(sizeprice)
-        print(size_price1)
         sizlist = [siz for siz in size_price1.split("_")]
         size = sizlist[0]
-        print(size)
 
     if 'product_forsix' in request.POST:
         forsixprice = request.POST['product_forsix']
         forsix_price1 = forsixprice
-        print(forsixprice)
-        print(forsix_price1)
         forsixlist = [sip for sip in forsix_price1.split("_")]
         box = forsixlist[0]
-        print(box)
     bag = request.session.get('bag', {})
 
     if forsixprice:

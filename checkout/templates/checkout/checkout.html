@@ -30,11 +30,6 @@
             <hr class="gold50 mb-4">
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <h3>Have you order giftwrapped for that special occasion</h3>
-        </div>
-    </div>
 
         <div class="row">
             <div class="col-12 col-lg-5 offset-lg-1 order-lg-last mb-5">
@@ -87,7 +82,6 @@
                 </div>
                 <hr class="gold100 mb-4 mt-4">
             </div>
-
             <!--col2-->
             <div class="col-12 col-lg-6 mb-3">
                 <p class="text-muted">Please complete in the form below so we can process your order.</p>
@@ -100,22 +94,41 @@
                             <label class="form-check-label" for="gift_wrapped">
                                 <input type="checkbox" class="form-check-input" id="id_gift_wrapped"
                                     name="gift_wrapped" value="">
-                                Gift Wrapped - E2.00
+                                Gift Wrapped for free. 
                             </label>
-                        </div> 
+                        </div>        
+                    </fieldset>
+                    <fieldset class="rounded px-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Card and Message</legend>
+                        <h5>Add an elegant card and a handwritten message</h5>
+                        <p>Simply check the box and write your message below. \
+                            We'll do the rest.</p>
+                        
+                        <div class="pl-2 form-check text-black">
+                            <label class="form-check-label" for="gift_wrapped">
+                                <input type="checkbox" class="form-check-input" id="id_is_card"
+                                    name="is_card" value="">
+                                Add a Card and Message
+                            </label>
+                        </div>  
+                        <div class="form-group ">
+                            <input type="message" class="form-control" id="id_message" 
+                            name="message" placeholder="Message">
+                          </div>
                     </fieldset>
 
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Pre-sliced</legend>
-                        <h5>Have your items pre-sliced for ease</h5>
+                        <h5>Have your cakes and deserts pre-sliced for ease.</h5>
                         <div class="pl-2 form-check text-black">
                             <label class="form-check-label" for="sliced">
                                 <input type="checkbox" class="form-check-input" id="id_sliced"
                                     name="sliced" value="">
-                                Sliced - E2.00
+                                Sliced for free. It's our pleasure.
                             </label>
                         </div> 
                     </fieldset>
+
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}

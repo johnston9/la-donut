@@ -130,6 +130,30 @@
                                     </td>
                                 </tr>
                             {% endfor %}
+                            <!--slice and wrap-->
+                            <tr>
+                                <td>
+                                    <h5>Have your items gift-wrapped for that special occasion</h5>
+                                <div class="pl-2 form-check text-black">
+                                    <label class="form-check-label" for="gift_wrapped">
+                                        <input type="checkbox" class="form-check-input" id="id_gift_wrapped"
+                                            name="gift_wrapped" value="">
+                                        Gift Wrapped - E2.00
+                                    </label>
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>Have your items pre-sliced for ease</h5>
+                                <div class="pl-2 form-check text-black">
+                                    <label class="form-check-label" for="sliced">
+                                        <input type="checkbox" class="form-check-input" id="id_sliced"
+                                            name="sliced" value="">
+                                        Sliced - E2.00
+                                    </label>
+                                </td>
+                            </tr>                                                                
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     <h6><strong>Bag Total: E{{ total|floatformat:2 }}</strong></h6>

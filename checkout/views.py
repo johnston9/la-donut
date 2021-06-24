@@ -24,6 +24,8 @@ def extra_checkout_info(request):
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
             'gift_wrapped': request.POST.get('gift_wrapped'),
+            'is_card': request.POST.get('is_card'),
+            'message': request.POST.get('message'),
             'sliced': request.POST.get('sliced'),
             'username': request.user,
         })
