@@ -84,11 +84,11 @@
             </div>
             <!--col2-->
             <div class="col-12 col-lg-6 mb-3">
-                <p class="text-muted mb-2">Please complete in the form below so we can process your order.</p>
+                <p class="text-muted">Please complete in the form below so we can process your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
-                        <div class="gift-wrapper">
+                        <div class="gift-wrapper mt-4">
                         <legend class="orderfield-legend text-center text-black px-3 w-auto">Gift Presentation</legend>
                         <p class="mb-2 text-center"><em>Have your cakes and deserts pre-sliced gift or not.</em></p>
                         <div class="mb-3 text-center form-check text-black">
@@ -164,7 +164,7 @@
                         </p>
                         <div class="row checkout-buttons text-center mt-5 mb-2">
                             <div class="col-md-6">
-                                <a href="{% url 'bag' %}" class="btn px-1 text-mattblack bg-gold">
+                                <a href="{% url 'bag' %}" class="btn pr-1 pl-0 text-mattblack bg-gold">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>	

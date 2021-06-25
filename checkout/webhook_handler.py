@@ -2,6 +2,7 @@
     project written by ckz8780, most is taken directly."""
 
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -141,9 +142,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created new \
-                 order using webhook',
-            status=200)
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created new order using webhook', status=200)
 
     def handle_payment_intent_payment_failed(self, event):
         """
