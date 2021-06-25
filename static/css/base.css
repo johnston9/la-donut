@@ -273,8 +273,8 @@ input[type=checkbox], input[type=radio] {
 #topbut {
 	display: none;
 	position: fixed;
-	bottom: 20px;
-	right: 20px;
+	bottom: 60px;
+	right: 10px;
 	z-index: 99;
 	height: 34px;
 	width: 90px;

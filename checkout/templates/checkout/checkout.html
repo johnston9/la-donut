@@ -111,7 +111,7 @@
                                 Add a Card and Message
                             </label>
                         </div>  
-                        <div class="form-group ">
+                        <div class="form-group">
                             <input type="message" class="form-control" id="id_message" 
                             name="message" value="" placeholder="Message">
                           </div>
@@ -123,7 +123,7 @@
                         <div class="pl-2 form-check text-black">
                             <label class="form-check-label" for="sliced">
                                 <input type="checkbox" class="form-check-input" id="id_sliced"
-                                    name="sliced" value="sliced" checked>
+                                    name="sliced" value="sliced">
                                 Sliced for free. It's our pleasure.
                             </label>
                         </div> 
@@ -146,9 +146,9 @@
                         <div class="form-check form-check-inline float-right mr-0">
 							{% if user.is_authenticated %}
 								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info">
 							{% else %}
-								<label class="form-check-label" for="id-save-info">
+								<label class="form-check-label" for="login">
                                     <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                                     <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                                 </label>
@@ -170,15 +170,15 @@
                             </span>
                             <span>Your card will be charged E{{ grand_total|floatformat:2 }}</span>
                         </p>
-                    <div class="checkout-buttons mt-4 mb-2">                    
-						<a href="{% url 'bag' %}" class="float-left btn text-softblack bg-lightblue">
+                    <div class="checkout-buttons text-center mt-5 mb-2">                    
+						<a href="{% url 'bag' %}" class="mr-md-5 btn text-mattblack bg-gold">
                             <span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>	
-                            <span class="upper"><strong>Update Bag</strong></span>													
+                            <span class="upper lato px-2"><strong>Update Bag</strong></span>													
 						</a>
-						<button id="submit-button" class="float-right btn text-mattblack bg-gold">
-							<span class="upper"><strong>Complete Order</strong></span>
+						<button id="submit-button" class="ml-md-5 mt-3 mt-md-0 btn text-mattblack bg-gold">
+							<span class="upper lato"><strong class="">Complete Order</strong></span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
 							</span>

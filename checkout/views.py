@@ -25,15 +25,14 @@ def extra_checkout_info(request):
             'save_info': request.POST.get('save_info'),
             'gift_wrapped': request.POST.get('gift_wrapped'),
             'is_card': request.POST.get('is_card'),
-            'message': request.POST.get('message'),
+            # 'message': request.POST.get('message'),
             'sliced': request.POST.get('sliced'),
             'username': request.user,
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'Something is gone amiss with the card \
-            processing. Please try again and if it still is not \
-                working please contact us and we will sort it out.')
+        messages.error(request, 'Your card did not go through.\
+            Please try again or contact us and we will sort it out.')
         return HttpResponse(content=e, status=400)
 
 
@@ -43,7 +42,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-        
+     
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -54,11 +53,13 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'county': request.POST['county'],
             'country': request.POST['country'],
+            'message': request.POST['message'],           
             # 'gift_wrapped': request.POST['gift_wrapped'],
             # 'is_card': request.POST['is_card'],
-            'message': request.POST['message'],
+            # 'message': request.POST['message'],
             # 'sliced': request.POST['sliced'],
         }
+        print(form_data)
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -66,12 +67,13 @@ def checkout(request):
             order.stripe_pid = pay_intent_id
             order.shopping_bag = json.dumps(bag)
             order.stripe_pid = pay_intent_id
-            if request.POST['gift_wrapped'] == 'gift_wrapped':
-                order.gift_wrapped = True
-            if request.POST['is_card'] == 'is_card':
+            if 'is_card' in request.POST:
                 order.is_card = True
-            if request.POST['sliced'] == 'sliced':
+            if 'gift_wrapped' in request.POST:
+                order.gift_wrapped = True
+            if 'sliced' in request.POST:
                 order.sliced = True
+            
             order.save()
             for item_id, item_data in bag.items():
                 try:

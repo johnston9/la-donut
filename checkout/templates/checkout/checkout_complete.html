@@ -78,14 +78,16 @@
                         {% if order.street_address2 %}
                         <p class="mb-0">{{ order.street_address2 }}</p>
                         {% endif %}
-                        <p class="mb-0 text-black">Town or City</p>
+                        {% if order.town_or_city %}
+                        <p class="mb-0">{{ order.town_or_city }}</p>
+                        {% endif %}
                         {% if order.postcode %}
                         <p class="mb-0">{{ order.postcode }}</p>
                         {% endif %}
                         {% if order.county %}
                         <p class="mb-0">{{ order.county }}</p>
                         {% endif %}
-                        <p class="mb-0">Country</p>
+                        <p class="mb-0">{{ order.country }}</p>
                         <p class="mt-1 mb-0"><em>Contact number</em> {{ order.phone_number }}</p>
                     </div>
                 </div>
