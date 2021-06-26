@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid shoprofilesp-container">
+        <div class="row">
+            <div class="col text-center mt-1">
+                <h2 class="playball">My Profile Page</h2>
+                <hr class="gold50 mb-1">
+            </div>
+        </div>
+        </div>
+{% endblock %}

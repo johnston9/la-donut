@@ -4,9 +4,24 @@
 
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
-{% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
+{% block inner_content %}
+<div class="container login-container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-black text-center mt-4"><strong>{% trans "Verify Your E-mail Address" %}</strong></h2>
+            <hr class="gold50">
+        </div>
+    </div>
 
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+    <div class="row">
+        <div class="col col-10 offset-1 col-md-6 offset-md-3">
+            <div class="login-box mb-3 text-center text-black lato">
 
+                <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize
+                    the signup process. Please contact us if you do not receive it within a few
+                    minutes.{% endblocktrans %}</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

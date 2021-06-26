@@ -24,6 +24,10 @@ body {
     font-family: "Playfair Display", serif;   
 }
 
+.header-container {
+    padding-top: 180px;
+}
+
 
 .lato {
     font-family: 'Lato', sans-serif;
@@ -98,10 +102,6 @@ hr.grey100 {
     border-top: 2px solid #666666;
 	margin: 5px auto 0px;
 	width: 100%;
-}
-
-.header-container {
-    padding-top: 150px;
 }
 
 .icon {
@@ -235,41 +235,8 @@ input[type=checkbox], input[type=radio] {
     border: 2px solid white;
 }
 
-/*.btn-quantity-sm span {
-    color: #3e3434;
-}
-
-.btn-quantity-sm>span:hover,
-.btn-quantity-sm>span:active,
-.btn-quantity-sm>span:focus {
-    color: rgba(255, 255, 255, 0.89);
-}*/
-
 /*return to top button*/
-.inline-group .tabular td.original p {
-    height: 30px;
-}
 
-.js-inline-admin-formset .inline-related
-.inline-group .tabular td.original p {
-    position: absolute;
-    left: 0;
-    height: 2em;
-    padding: 2px 9px;
-    font-size: 10px;
-    font-weight: bold;
-    color: red;
-    _width: 700px;
-}
-
-
-/*.js-inline-admin-formset .inline-related 
-.inline-group .tabular tr td.original {
-    padding-top: 40px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;   
-}*/
 #topbut {
 	display: none;
 	position: fixed;
@@ -300,6 +267,10 @@ input[type=checkbox], input[type=radio] {
 
 .text-white {
     color: #fff;
+}
+
+.bg-pink {
+    background-color: #f8ebf9;;
 }
 
 .text-black {
@@ -413,12 +384,8 @@ input[type=checkbox], input[type=radio] {
 .home-container {
     background: url('/media/digi1.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: rgb(97, 59, 59);
+    background-color: rgb(97, 59, 59);
     font-family: 'Lato';
-}
-
-.header-container {
-    padding-top: 180px;
 }
 
 /*--shop page--*/
@@ -508,12 +475,29 @@ input[type=checkbox], input[type=radio] {
     border: 1px solid rgb(255,215,0);
 }
 
+/*---------- Allauth ---------*/
+
+.login-container {
+    background: url('/media/pink_back.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: rgb(194, 71, 188);
+    width: 100%;
+}
+
+.login-box {
+    background-color: #fff;
+}
+
+.login-box .form-group {
+    margin-bottom: 5px;
+}
+
 /* -------------------------------- Media Queries */
 
 /*larger container on xl screens*/ 
 @media (min-width: 1200px) {
   .container {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 @media (max-width: 1000px) {
