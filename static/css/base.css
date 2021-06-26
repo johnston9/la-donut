@@ -508,10 +508,6 @@ input[type=checkbox], input[type=radio] {
     border: 1px solid rgb(255,215,0);
 }
 
-#payment-form #message {
-    color: red;
-} 
-
 /* -------------------------------- Media Queries */
 
 /*larger container on xl screens*/ 

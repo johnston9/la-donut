@@ -46,7 +46,7 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-            
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -85,7 +85,7 @@ class StripeWH_Handler:
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
                     postcode=shipping_details.address.postal_code,
-                    town_or_city=shipping_details.address.city,                    
+                    town_or_city=shipping_details.address.city,
                     county=shipping_details.address.state,
                     country=shipping_details.address.country,
                     shopping_bag=bag,
@@ -142,7 +142,8 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created new order using webhook', status=200)
+            content=f'Webhook received: {event["type"]} | SUCCESS: \
+                Created new order using webhook', status=200)
 
     def handle_payment_intent_payment_failed(self, event):
         """
