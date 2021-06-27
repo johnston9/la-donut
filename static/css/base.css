@@ -273,6 +273,10 @@ input[type=checkbox], input[type=radio] {
     background-color: #f8ebf9;;
 }
 
+.text-forgot-blue {
+    color: #042c33;
+}
+
 .text-black {
     color: #000 !important;
 }
@@ -488,8 +492,22 @@ input[type=checkbox], input[type=radio] {
     background-color: #fff;
 }
 
-.login-box .form-group {
-    margin-bottom: 5px;
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+    background-color: rgb(140, 111, 25, 99%);
+}
+
+.allauth-form-inner-content a {
+	color: #17a2b8; 
+}
+
+.allauth-form-inner-content a:hover {
+	color: #2d727c; 
+    text-decoration: none;
 }
 
 /* -------------------------------- Media Queries */
