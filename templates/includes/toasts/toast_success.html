@@ -14,7 +14,7 @@
                 <div class="w-100 mt-1 toast-hr bg-gold"></div>
             </div>
         </div>
-        {% if grand_total %}
+        {% if grand_total and not profile_update %}
             <p class="upper bg-white text-black py-1"><strong>Shopping Bag ( {{ product_count }} ) </strong></p>
             <div class="bag-wrapper">
                 {% for item in bag_items %}

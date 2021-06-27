@@ -22,7 +22,7 @@ class UserProfile(models.Model):
                                             blank=True)
     primary_postcode = models.CharField(max_length=20, null=True, blank=True)
     primary_county = models.CharField(max_length=80, null=True, blank=True)
-    primary_country = CountryField(blank_label='Country *', null=True,
+    primary_country = CountryField(blank_label='Country', null=True,
                                    blank=True)
 
     def __str__(self):
@@ -35,7 +35,6 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     Create or update the user profile
     """
     if created:
-        # New users: create new UserProfile
         UserProfile.objects.create(user=instance)
     # Existing users: save the profile
     instance.userprofile.save()
