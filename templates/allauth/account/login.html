@@ -16,12 +16,8 @@
 
   <div class="row">
     <div class="col col-10 offset-1 col-md-6 offset-md-3">
-      <div class="row">
-        <div class="col text-center">
-          <a class="btn text-black bg-lightblue py-0 mt-3" href="{% url 'home' %}">Home</a>
-        </div>
-      </div>
-      <div class="login-box lato mb-1 mt-3 px-3 py-1 text-center text-center text-black lato">
+      
+      <div class="login-box lato mb-1 mt-5 px-3 py-2 text-center text-center">
         {% get_providers as socialaccount_providers %}
 
         {% if socialaccount_providers %}
@@ -46,7 +42,7 @@
           <a href="{{ signup_url }}"><strong>sign up</strong></a> here.{% endblocktrans %}</p>
         {% endif %}
       
-        <form class="login" method="POST" action="{% url 'account_login' %}">
+        <form class="login mt-2" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
           {{ form|crispy }}
           {% if redirect_field_value %}
@@ -63,6 +59,11 @@
           <p class="mt-1 text-right">
             <a class="text-forgot-blue" href="{% url 'account_reset_password' %}"><strong>{% trans "Forgot Password?" %}</strong> </a>
           </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-right">
+          <a class="btn text-black bg-lightblue py-0" href="{% url 'home' %}">Home</a>
         </div>
       </div>
     </div>

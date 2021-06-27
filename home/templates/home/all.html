@@ -1,0 +1,42 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+<div class="container login-container mb-3">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-black text-center lato mt-4"><strong>{% trans "Sign Out" %}</strong></h2>
+      <hr class="gold50">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-10 offset-1 col-md-6 offset-md-3">
+      <div class="text-center text-black bg-gold lato">
+        <h4>{% trans 'Are you sure you want to leave?' %}</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10 offset-1 col-md-6 offset-md-3">
+
+      <div class="login-box mt-3 px-3 py-3 mb-3 px-3 py-3 text-center">
+
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <div class="text-center">
+            <button class="btn bg-gold text-mattblack py-1" type="submit">{% trans "Sign Out" %}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
