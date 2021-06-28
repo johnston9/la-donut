@@ -102,5 +102,17 @@
                 </div>                
         </div>
     </div>
+    {% if from_profile_page %}
+    <div class="row">
+        <div class="col text-right">
+            <a href="{% url 'profile' %}" class="btn bg-gold my-2">
+                <span class="icon">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <span class=""><strong>Back to Profile</strong></span>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -23,9 +23,10 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-6">
-                <p class="text-center mt-2 text-muted">My Delivery Address</p>
-                <form class="mt-4 mb-2 lato" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+            <div class="col-12 col-lg-5 offset-lg-0">
+                <h3 class="text-center ml-lg-4 mt-4 text-muted">Delivery Address</h3>
+                <hr class="gold70 mb-1">
+                <form class="mt-4 mb-2 ml-lg-5 lato" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="text-center ">
@@ -33,9 +34,52 @@
                 </div>
                 </form>
             </div>
-            <div class="col-12 col-lg-6">
-                <p class="text-center mt-4 text-muted">Order History</p>
-                {{ orders }}
+            <div class="col-12 col-lg-6 offset-lg-1">
+                <h3 class="text-center mt-4 text-muted">Order History</h3>
+                <hr class="gold70 mb-1">
+                <div class="order-history table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'past_orders' order.order_number %}"
+                                        title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ order.date }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for item in order.lineitems.all %}
+                                                <li class="small">
+                                                    {{ item.product.name }}<br>
+                                                    {% if item.size %}
+                                                        {{ item.size }}
+                                                    {% endif %}
+                                                    {% if item.forsix %}
+                                                        {{ item.forsix }}
+                                                    {% endif %}
+                                                     x {{ item.quantity }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>${{ order.grand_total }}</td>
+                                    
+                                </tr>                               
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

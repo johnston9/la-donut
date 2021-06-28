@@ -1,4 +1,5 @@
-/*--Taken from --*/
+/*All code taken from Code Institute's Boutique Ado
+    project written by ckz8780.*/
 
 let countrySelected = $('#id_primary_country').val();
 if(!countrySelected) {

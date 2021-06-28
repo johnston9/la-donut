@@ -12,6 +12,7 @@ class UserProfile(models.Model):
     is used as a default delivery address and user order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    primary_full_name = models.CharField(max_length=50, null=True, blank=True)
     primary_phone_number = models.CharField(max_length=20, null=True,
                                             blank=True)
     primary_street_address1 = models.CharField(max_length=80, null=True,

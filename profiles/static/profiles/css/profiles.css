@@ -5,3 +5,17 @@
 #profile-update-form .form-control {
     color: #000;
 }
+
+#id_primary_country,
+#id_primary_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_primary_country option:first-child {
+    color: #aab7c4;
+}
+
+.order-history {
+    max-height: 416px; /* height of profile form */
+    overflow-y: auto;
+}

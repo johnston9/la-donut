@@ -1,7 +1,8 @@
 """All code based on Code Institute's Boutique Ado
     project written by ckz8780."""
 
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404, \
+    HttpResponse
 from django.contrib import messages
 from django.conf import settings
 from django.views.decorators.http import require_POST
@@ -10,6 +11,8 @@ from products.models import Product
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from bag.contexts import bag_contents
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 
 import stripe
 import json
@@ -42,7 +45,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-     
+
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -53,17 +56,13 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'county': request.POST['county'],
             'country': request.POST['country'],
-            'message': request.POST['message'],           
-            # 'gift_wrapped': request.POST['gift_wrapped'],
-            # 'is_card': request.POST['is_card'],
-            # 'message': request.POST['message'],
-            # 'sliced': request.POST['sliced'],
+            'message': request.POST['message'],
         }
-        print(form_data)
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            pay_intent_id = request.POST.get('client_secret').split('_secret')[0]
+            pay_intent_id = request.POST.get(
+                'client_secret').split('_secret')[0]
             order.stripe_pid = pay_intent_id
             order.shopping_bag = json.dumps(bag)
             order.stripe_pid = pay_intent_id
@@ -73,7 +72,7 @@ def checkout(request):
                 order.gift_wrapped = True
             if 'sliced' in request.POST:
                 order.sliced = True
-            
+
             order.save()
             for item_id, item_data in bag.items():
                 try:
@@ -151,7 +150,25 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        order_form = OrderForm()
+
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.primary_full_name,
+                    'email': profile.user.email,
+                    'phone_number': profile.primary_phone_number,
+                    'street_address1': profile.primary_street_address1,
+                    'street_address2': profile.primary_street_address2,
+                    'town_or_city': profile.primary_town_or_city,
+                    'postcode': profile.primary_postcode,
+                    'county': profile.primary_county,
+                    'country': profile.primary_country,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -173,6 +190,29 @@ def checkout_complete(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Enter the user's profile on the order
+        order.user_profile = profile
+        order.save()
+
+        # Save the user's info to their userProfile model
+        if save_info:
+            profile_data = {
+                'primary_full_name': order.full_name,
+                'primary_phone_number': order.phone_number,
+                'primary_country': order.country,
+                'primary_postcode': order.postcode,
+                'primary_town_or_city': order.town_or_city,
+                'primary_street_address1': order.street_address1,
+                'primary_street_address2': order.street_address2,
+                'primary_county': order.county,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
     messages.success(request, f'Order number - {order_number}. \
         Your order has been successfully processed!')
 
