@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import UserProfile
 
 import json
 import time
@@ -33,19 +34,37 @@ class StripeWH_Handler:
         pay_intent_id = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
-        # gift_wrapped = intent.metadata.gift_wrapped
-        # is_card = intent.metadata.is_card
-        # message = intent.metadata.message
-        # sliced = intent.metadata.sliced
+        if intent.metadata.gift_wrapped == 'true':
+            gift_wrapped = True
+        if intent.metadata.is_card == 'true':
+            is_card = True
+        if intent.metadata.sliced == 'true':
+            sliced = True
+        message = intent.metadata.message
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # Change empty string value to None for shipping details in model
-        for field, value in shipping_details.address.items():
-            if value == "":
-                shipping_details.address[field] = None
+        # for field, value in shipping_details.address.items():
+        # if value == "":
+        # shipping_details.address[field] = None
+        
+        # Update profile information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.primary_phone_number = shipping_details.phone
+                profile.primary_country = shipping_details.address.country
+                profile.primary_postcode = shipping_details.address.postal_code
+                profile.primary_town_or_city = shipping_details.address.city
+                profile.primary_street_address1 = shipping_details.address.line1
+                profile.primary_street_address2 = shipping_details.address.line2
+                profile.primary_county = shipping_details.address.state
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -63,7 +82,7 @@ class StripeWH_Handler:
                             country__iexact=shipping_details.address.country,
                             grand_total=grand_total,
                             shopping_bag=bag,
-                            stripe_pid=pay_intent_id,
+                            stripe_pid=pay_intent_id,                
                 )
                 order_exists = True
                 break
@@ -80,6 +99,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     street_address1=shipping_details.address.line1,
@@ -90,6 +110,10 @@ class StripeWH_Handler:
                     country=shipping_details.address.country,
                     shopping_bag=bag,
                     stripe_pid=pay_intent_id,
+                    gift_wrapped=gift_wrapped,
+                    is_card=is_card,
+                    message=message,
+                    sliced=sliced,
                 )
                 for item_id, item_data in json.loads(bag).items():
                     if isinstance(item_data, int):
