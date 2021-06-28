@@ -1,10 +1,12 @@
+"""Views for Bag App
+"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 
 from products.models import Product
 
 
-def bag(request):
+def get_bag(request):
     """ A view that renders the bag page """
 
     return render(request, 'bag/bag.html')
@@ -131,7 +133,7 @@ def update_bag(request, item_id):
                 from the shopping bag')
 
     request.session['bag'] = bag
-    return redirect(reverse('bag'))
+    return redirect(reverse('get_bag'))
 
 
 def remove_from_bag_six(request, item_id, forsixprice):
@@ -141,11 +143,8 @@ def remove_from_bag_six(request, item_id, forsixprice):
         product = get_object_or_404(Product, pk=item_id)
         bag = request.session.get('bag', {})
         forsix_price1 = forsixprice
-        print(forsixprice)
-        print(forsix_price1)
         forsixlist = [sip for sip in forsix_price1.split("_")]
         box = forsixlist[0]
-        print(box)
 
         del bag[item_id]['items_with_forsix'][forsixprice]
         if not bag[item_id]['items_with_forsix']:
@@ -154,11 +153,11 @@ def remove_from_bag_six(request, item_id, forsixprice):
                         "{ box } box" from the shopping bag')
 
         request.session['bag'] = bag
-        return redirect(reverse('bag'))
+        return redirect(reverse('get_bag'))
 
-    except Exception as e:
-        messages.error(request, f'Error deleting item, {e} Please try again')
-        return redirect(reverse('bag'))
+    except Exception as e_r:
+        messages.error(request, f'Error deleting item, {e_r} Please try again')
+        return redirect(reverse('get_bag'))
 
 
 def remove_from_bag_sizes(request, item_id, sizeprice):
@@ -168,11 +167,8 @@ def remove_from_bag_sizes(request, item_id, sizeprice):
         product = get_object_or_404(Product, pk=item_id)
         bag = request.session.get('bag', {})
         size_price1 = sizeprice
-        print(sizeprice)
-        print(size_price1)
         sizlist = [siz for siz in size_price1.split("_")]
         size = sizlist[0]
-        print(size)
 
         del bag[item_id]['items_with_size'][sizeprice]
         if not bag[item_id]['items_with_size']:
@@ -181,11 +177,11 @@ def remove_from_bag_sizes(request, item_id, sizeprice):
             from the shopping bag')
 
         request.session['bag'] = bag
-        return redirect(reverse('bag'))
+        return redirect(reverse('get_bag'))
 
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e} Please try again')
-        return redirect(reverse('bag'))
+    except Exception as e_r:
+        messages.error(request, f'Error removing item: {e_r} Please try again')
+        return redirect(reverse('get_bag'))
 
 
 def remove_from_bag(request, item_id):
@@ -200,8 +196,8 @@ def remove_from_bag(request, item_id):
             from the shopping bag')
 
         request.session['bag'] = bag
-        return redirect(reverse('bag'))
+        return redirect(reverse('get_bag'))
 
-    except Exception as e:
-        messages.error(request, f'Error deleting item, {e} Please try again')
-        return redirect(reverse('bag'))
+    except Exception as e_r:
+        messages.error(request, f'Error deleting item, {e_r} Please try again')
+        return redirect(reverse('get_bag'))

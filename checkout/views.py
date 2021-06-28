@@ -1,25 +1,27 @@
 """All code based on Code Institute's Boutique Ado
     project written by ckz8780."""
 
+import json
+import stripe
 from django.shortcuts import render, redirect, reverse, get_object_or_404, \
     HttpResponse
 from django.contrib import messages
 from django.conf import settings
 from django.views.decorators.http import require_POST
 
-from products.models import Product
-from .forms import OrderForm
-from .models import Order, OrderLineItem
 from bag.contexts import bag_contents
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
-
-import stripe
-import json
+from products.models import Product
+from .forms import OrderForm
+from .models import Order, OrderLineItem
 
 
 @require_POST
 def extra_checkout_info(request):
+    """
+    Function to add metadata to the payment intent
+    """
     try:
         pay_intent_id = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -33,13 +35,16 @@ def extra_checkout_info(request):
             'username': request.user,
         })
         return HttpResponse(status=200)
-    except Exception as e:
+    except Exception as e_r:
         messages.error(request, 'Your card did not go through.\
             Please try again or contact us and we will sort it out.')
-        return HttpResponse(content=e, status=400)
+        return HttpResponse(content=e_r, status=400)
 
 
 def checkout(request):
+    """
+    Function to handle all checkout stuff
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
