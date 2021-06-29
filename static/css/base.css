@@ -147,7 +147,14 @@ hr.grey100 {
 
 .btn-gold {
     background: rgb(255,215,0);
-    color: #000;
+    color: rgb(71, 68, 68);
+    font-weight: 700;
+}
+
+.btn-blue {
+    background: rgb(232, 240, 254);
+    color: rgb(71, 68, 68);
+    font-weight: 700;
 }
 
 
