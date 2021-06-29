@@ -132,7 +132,7 @@ def checkout(request):
                                 alternative")
                     )
                     order.delete()
-                    return redirect(reverse('bag'))
+                    return redirect(reverse('get_bag'))
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse(
                 'checkout_complete', args=[order.order_number]))
