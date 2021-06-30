@@ -25,6 +25,9 @@ class Category(models.Model):
 class Product(models.Model):
     """Product Model for the Product App
     """
+    class Meta:
+        ordering = ['name']
+
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254, null=False, blank=False)
     flavour = models.CharField(max_length=254, null=True, blank=True)

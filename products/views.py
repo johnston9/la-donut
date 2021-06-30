@@ -89,21 +89,22 @@ def add_product(request):
     """ Add a product to the shop """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-        print(form)
-
+        item_name = request.POST['name']
+        print(item_name)
+        request.session['new_name'] = item_name
         if form.is_valid():
             form.save()
         else:
             messages.error(request, 'Failed to add product.\
                 Please check that the form is valid.')
-        if form.is_for_six:
+        if 'is_for_six' in request.POST:
             messages.success(request, 'Product added now add the box\
                 quantity prices')
-            return redirect(reverse('add_forsix'))
-        elif form.is_sizes:
+            return redirect('add_forsix')
+        elif 'is_sizes' in request.POST:
             messages.success(request, 'Product added now add the size\
                 prices')
-            return redirect(reverse('add_sizes'))
+            return redirect('add_sizes')
         else:
             messages.success(request, 'Product added successfully')
             return redirect(reverse('add_product'))
@@ -131,6 +132,11 @@ def add_size(request):
         else:
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
+    else:
+        # size = Size.objects.get(name=name)
+        name = request.session.get('new_name')
+        form = SizeForm()
+        print(name)
     
     template = 'products/add_size.html'
     context = {
@@ -151,7 +157,11 @@ def add_forsix(request):
         else:
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
-    
+    else:
+        new_name = request.session.get('new_name')
+        form = ForsixForm()
+        print(new_name)
+        # product = get_object_or_404(name=itemname)
     template = 'products/add_forsix.html'
     context = {
         'form': form,
