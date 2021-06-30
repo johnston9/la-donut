@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category, Size, Forsix
-from .forms import ProductForm
+from .forms import ProductForm, SizeForm, ForsixForm
 
 
 def shop(request):
@@ -86,9 +86,73 @@ def view_item(request, product_id):
 
 
 def add_product(request):
-    """ Add a product to the store """
-    form = ProductForm()
+    """ Add a product to the shop """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        print(form)
+
+        if form.is_valid():
+            form.save()
+        else:
+            messages.error(request, 'Failed to add product.\
+                Please check that the form is valid.')
+        if form.is_for_six:
+            messages.success(request, 'Product added now add the box\
+                quantity prices')
+            return redirect(reverse('add_forsix'))
+        elif form.is_sizes:
+            messages.success(request, 'Product added now add the size\
+                prices')
+            return redirect(reverse('add_sizes'))
+        else:
+            messages.success(request, 'Product added successfully')
+            return redirect(reverse('add_product'))
+
+    else:
+        form = ProductForm()
+
     template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_size(request):
+    """ Add size prices to a product """
+    if request.method == 'POST':
+        form = SizeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Size Prices Added Successfully.\
+                Process complete')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add prices.\
+                Please check that the form is valid.')
+    
+    template = 'products/add_size.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_forsix(request):
+    """ Add forsix prices to a product """
+    if request.method == 'POST':
+        form = ForsixForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Box Prices Added Successfully')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add prices.\
+                Please check that the form is valid.')
+    
+    template = 'products/add_forsix.html'
     context = {
         'form': form,
     }

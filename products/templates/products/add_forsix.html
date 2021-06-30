@@ -20,9 +20,9 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-6">
-                <h5 class="text-muted">Add a Product</h5>
-                <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">
+            <div class="col-12 col-lg-4">
+                <h5 class="text-muted">Add Forsix Prices</h5>
+                <form method="POST" action="{% url 'add_forsix' %}" class="lato form mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="row">
@@ -30,7 +30,7 @@
                             <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
                         </div>
                         <div class="col text-center">                   
-                            <button class="btn btn-gold" name="product_forn" type="submit">Add Product</button>
+                            <button class="btngold btn-" name="forsix_forn" type="submit">Add Product</button>
                         </div>
                     </div>
                 </form>

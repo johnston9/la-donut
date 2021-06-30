@@ -1,8 +1,10 @@
+"""Views for the Profile App
+"""
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from checkout.models import Order
 from .models import UserProfile
 from .forms import UserProfileForm
-from checkout.models import Order
 
 
 def profile(request):
@@ -15,8 +17,12 @@ def profile(request):
             form.save()
             messages.success(request, 'Your address has been\
                 changed successfully')
+        else:
+            messages.error(request, 'Update unsuccessful.\
+                 Please check the form is valid.')
 
-    form = UserProfileForm(instance=profile)
+    else:
+        form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
@@ -30,6 +36,7 @@ def profile(request):
 
 
 def past_orders(request, order_number):
+    """ Render the checkout_complete.html page for past order """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

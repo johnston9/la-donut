@@ -28,7 +28,6 @@ body {
     padding-top: 180px;
 }
 
-
 .lato {
     font-family: 'Lato', sans-serif;
 }
@@ -157,7 +156,6 @@ hr.grey100 {
     font-weight: 700;
 }
 
-
 .btn-black {
     background: black;
     color: white;
@@ -228,6 +226,7 @@ input[type=checkbox], input[type=radio] {
     background-color: black;
     border-color: black;
 }
+
 .form-check-input:hover,
 .form-check-input:active,
 .form-check-input:focus,
@@ -423,11 +422,28 @@ input[type=checkbox], input[type=radio] {
     border: 2px solid red;
 }
 
-.input-group>.custom-file, 
-.input-group>.custom-select, 
-.input-group>.form-control, 
-.input-group>.form-control-plaintext {
-    height: 26px !important;
+/*--search--*/
+
+#inner-search input[name='q'] {
+    color: #000 !important;
+}
+
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+#search-but {
+    /*height: 26px;*/
+    border: 1px solid rgb(94, 91, 91);
+}
+
+.input-group>.custom-file.inner-search, 
+.input-group>.custom-select.inner-search, 
+.input-group>.form-control.inner-search, 
+.input-group>.form-control-plaintext.inner-search {
+    border-color: rgb(94, 91, 91);
+    /*height: 26px !important;*/
+    color: #000 !important;
 }
 
 .input-group>.custom-file.small-input, 
@@ -545,9 +561,6 @@ input[type=checkbox], input[type=radio] {
     color: #aab7c4;
 }
 
-input[name='q']::placeholder {
-    color: #aab7c4;
-}
 /* -------------------------------- Media Queries */
 
 /*larger container on xl screens*/ 
