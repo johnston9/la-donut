@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-12 col-lg-4">
                 <h5 class="text-muted">Add Forsix Prices</h5>
-                <form method="POST" action="{% url 'add_forsix' %}" class="lato form mb-2">
+                <form method="POST" action="{% url 'add_forsix' 'itemname' %}" class="lato form mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="row">
