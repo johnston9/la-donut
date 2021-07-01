@@ -437,15 +437,25 @@ input[name='q']::placeholder {
     border: 1px solid rgb(94, 91, 91);
 }
 
+/*--for search--*/
 .input-group>.custom-file.inner-search, 
 .input-group>.custom-select.inner-search, 
 .input-group>.form-control.inner-search, 
 .input-group>.form-control-plaintext.inner-search {
     border-color: rgb(94, 91, 91);
-    /*height: 26px !important;*/
     color: #000 !important;
 }
 
+/*--for view item page--*/
+.input-group>.custom-file.view-it, 
+.input-group>.custom-select.view-it, 
+.input-group>.form-control.view-it, 
+.input-group>.form-control-plaintext.view-it {
+    height: 26px !important;
+    color: #000 !important;
+}
+
+/*--for shop page--*/
 .input-group>.custom-file.small-input, 
 .input-group>.custom-select.small-input, 
 .input-group>.form-control.small-input, 

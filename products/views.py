@@ -89,26 +89,26 @@ def add_product(request):
     """ Add a product to the shop """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-        item_name = request.POST['name']
-        print(item_name)
-        request.session['new_name'] = item_name
+
         if form.is_valid():
             product = form.save()
+            if 'is_for_six' in request.POST:
+                messages.success(request, 'Product added now add the box\
+                    quantity prices')
+                # return redirect('add_forsix', args=[newproduct.id])
+                return redirect('add_forsix', product_id=product.id)
+            elif 'is_sizes' in request.POST:
+                messages.success(request, 'Product added now add the size\
+                    prices')
+                # return redirect('add_sizes', args=[newproduct.id])
+                return redirect('add_sizes', product_id=product.id)
+            else:
+                messages.success(request, 'Product added successfully')
+                return redirect(reverse('add_product'))
+
         else:
             messages.error(request, 'Failed to add product.\
                 Please check that the form is valid.')
-        if 'is_for_six' in request.POST:
-            messages.success(request, 'Product added now add the box\
-                quantity prices')
-                
-            return redirect('add_forsix', product_id=product.id)
-        elif 'is_sizes' in request.POST:
-            messages.success(request, 'Product added now add the size\
-                prices')
-            return redirect('add_sizes', product_id=product.id)
-        else:
-            messages.success(request, 'Product added successfully')
-            return redirect(reverse('add_product'))
 
     else:
         form = ProductForm()
@@ -125,6 +125,8 @@ def add_size(request, product_id):
     """ Add size prices to a product """
     if request.method == 'POST':
         form = SizeForm(request.POST)
+        form.fields['name'].disabled = True
+        form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
             messages.success(request, 'Size Prices Added Successfully.\
@@ -135,12 +137,13 @@ def add_size(request, product_id):
                 Please check that the form is valid.')
     else:
         product = get_object_or_404(Product, pk=product_id)
-        form = SizeForm(initial={'product': product})
+        form = SizeForm(initial={'product': product, 'name': product.name})
 
     template = 'products/add_size.html'
     context = {
         'form': form,
-        'product_id': product_id
+        'product_id': product_id,
+        'product': product
     }
 
     return render(request, template, context)
@@ -150,6 +153,8 @@ def add_forsix(request, product_id):
     """ Add forsix prices to a product """
     if request.method == 'POST':
         form = ForsixForm(request.POST)
+        form.fields['name'].disabled = True
+        form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
             messages.success(request, 'Box Prices Added Successfully')
@@ -159,14 +164,105 @@ def add_forsix(request, product_id):
                 Please check that the form is valid.')
     else:
         product = get_object_or_404(Product, pk=product_id)
-        # form = ForsixForm(initial={'name': product.name})
-
-        form = SizeForm(initial={'product': product, 'name': product.name})
+        form = ForsixForm(initial={'product': product, 'name': product.name})
 
     template = 'products/add_forsix.html'
     context = {
         'form': form,
-        'product_id': product_id
+        'product_id': product_id,
+        'product': product
     }
 
     return render(request, template, context)
+
+
+def edit_product(request, product_id):
+    """ Edit a product """
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        form.fields['name'].disabled = True
+        form.fields['is_for_six'].disabled = True
+        form.fields['is_sizes'].disabled = True
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updated successfully')
+            return redirect(reverse('view_item', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update product.\
+                 Please check that the form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'Editing {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+def sizeprice_edit(request, product_id):
+    """ Edit a product's size prices"""
+    product = get_object_or_404(Product, pk=product_id)
+    sizeprice = get_object_or_404(Size, name=product.name)
+    if request.method == 'POST':
+        form = SizeForm(request.POST, request.FILES, instance=sizeprice)
+        form.fields['name'].disabled = True
+        form.fields['product'].disabled = True
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product prices updated successfully')
+            return redirect(reverse('view_item', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update product prices.\
+                 Please check that the form is valid.')
+    else:
+        form = SizeForm(instance=sizeprice)
+        messages.info(request, f'Editing {product.name} prices')
+
+    template = 'products/sizeprice_edit.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+def forsixprice_edit(request, product_id):
+    """ Edit a product's box quantity (forsix) prices """
+    product = get_object_or_404(Product, pk=product_id)
+    forsixprice = get_object_or_404(Forsix, name=product.name)
+    if request.method == 'POST':
+        form = ForsixForm(request.POST, request.FILES, instance=forsixprice)
+        form.fields['name'].disabled = True
+        form.fields['product'].disabled = True
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product prices updated successfully')
+            return redirect(reverse('view_item', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update product prices.\
+                 Please check that the form is valid.')
+    else:
+        form = ForsixForm(instance=forsixprice)
+        messages.info(request, f'Editing {product.name} prices')
+
+    template = 'products/forsixprice_edit.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """ Delete a product """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('shop'))

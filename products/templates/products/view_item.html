@@ -30,7 +30,7 @@
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image2.jpg" alt="{{ product.name }}">
                 </a>
                 {% endif %}
             </div>
@@ -133,7 +133,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <input class="form-control qty_input" type="number"
+                                    <input class="form-control view-it qty_input" type="number"
                                         name="quantity" value="1" min="1" max="99"
                                         data-item_id="{{ product.id }}"
                                         id="viewitem">
@@ -169,6 +169,35 @@
                         Find similiar products in the {{ product.category.friendly_name }} range.
                     </a>
                 </p>
+                {% endif %}
+                {% if request.user.is_superuser %}
+                    <div class="row">
+                        <div class="col-4">
+                            <small class="">
+                                <a href="{% url 'edit_product' product.id %}">Edit Product</a>
+                            </small>
+                        </div>
+                        
+                        <div class="col-4">
+                            <!--edit size prices-->
+                            {% if product.is_sizes %}
+                                <small class="">
+                                    <a href="{% url 'sizeprice_edit' product.id %}">Edit Prices</a>
+                                </small>
+                            {% endif %}
+                            <!--edit forsix prices-->
+                            {% if product.is_for_six %}
+                                <small class="">
+                                    <a href="{% url 'forsixprice_edit' product.id %}">Edit Prices</a>
+                                </small>
+                            {% endif %}
+                        </div>
+                        <div class="col-4">
+                            <small class="">
+                                <a class="text-red" a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                            </small>
+                        </div>
+                    </div>
                 {% endif %}
             </div>
         </div>
