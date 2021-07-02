@@ -20,8 +20,17 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12">
                 <h5 class="text-muted">Add a Product</h5>
+                <p class="text-black">
+                    For products with size prices select Is Sizes.<br> 
+                    For products with box quantity prices select Is For Six".<br> 
+                    On submit you will be taken to the "Add Prices" form.
+                </p>
+                <p class="text-red">Important! You must only select one
+                    for each product.</p>
+            </div>
+            <div class="col-12 col-lg-6">
                 <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
@@ -30,10 +39,11 @@
                             <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
                         </div>
                         <div class="col text-center">                   
-                            <button class="btn btn-gold" name="product_forn" type="submit">Add Product</button>
+                            <button class="btn btn-gold" name="product_form" type="submit">Add Product</button>
                         </div>
                     </div>
                 </form>
+            </div>
             </div>
         </div>
     </div>

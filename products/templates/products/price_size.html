@@ -21,8 +21,9 @@
 
         <div class="row">
             <div class="col-12 col-lg-4">
-                <h5 class="text-muted">Add Forsix Prices</h5>
-                <form method="POST" action="{% url 'add_forsix' product.id %}" class="lato form mb-2">
+                <h5 class="text-muted">Add Size Prices</h5>
+                <p class="text-red">Important! You must submit this form. The Product's name in the first two fields MUST not be altered.</p>
+                <form method="POST" action="{% url 'price_size' product.id %}" class="lato form mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="row">
@@ -30,11 +31,12 @@
                             <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
                         </div>
                         <div class="col text-center">                   
-                            <button class="btngold btn-" name="forsix_forn" type="submit">Add Prices</button>
+                            <button class="btn btn-gold" name="size_forn" type="submit">Add Prices</button>
                         </div>
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
 {% endblock %}

@@ -22,6 +22,7 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <h5 class="text-muted">Edit a Product's Box Quantity Prices</h5>
+                <small class="text-mutes">The Product's name in the first two fields may not be edited</small>
                 <form method="POST" action="{% url 'forsixprice_edit' product.id %}" class="lato form mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}

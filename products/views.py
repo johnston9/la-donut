@@ -89,6 +89,10 @@ def add_product(request):
     """ Add a product to the shop """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
+        if 'is_for_six' and 'is_sizes' in request.POST:         
+            messages.error(request, 'You can only choose either Is Sizes\
+                or Is For Six. Please re-enter form')
+            return redirect(reverse('add_product'))
 
         if form.is_valid():
             product = form.save()
@@ -96,12 +100,12 @@ def add_product(request):
                 messages.success(request, 'Product added now add the box\
                     quantity prices')
                 # return redirect('add_forsix', args=[newproduct.id])
-                return redirect('add_forsix', product_id=product.id)
+                return redirect('cost_forsix', product_id=product.id)
             elif 'is_sizes' in request.POST:
                 messages.success(request, 'Product added now add the size\
                     prices')
                 # return redirect('add_sizes', args=[newproduct.id])
-                return redirect('add_sizes', product_id=product.id)
+                return redirect('price_size', product_id=product.id)
             else:
                 messages.success(request, 'Product added successfully')
                 return redirect(reverse('add_product'))
@@ -121,12 +125,12 @@ def add_product(request):
     return render(request, template, context)
 
 
-def add_size(request, product_id):
+def price_size(request, product_id):
     """ Add size prices to a product """
     if request.method == 'POST':
         form = SizeForm(request.POST)
-        form.fields['name'].disabled = True
-        form.fields['product'].disabled = True
+        # form.fields['name'].disabled = True
+        # form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
             messages.success(request, 'Size Prices Added Successfully.\
@@ -139,7 +143,7 @@ def add_size(request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         form = SizeForm(initial={'product': product, 'name': product.name})
 
-    template = 'products/add_size.html'
+    template = 'products/price_size.html'
     context = {
         'form': form,
         'product_id': product_id,
@@ -149,12 +153,13 @@ def add_size(request, product_id):
     return render(request, template, context)
 
 
-def add_forsix(request, product_id):
+def cost_forsix(request, product_id):
     """ Add forsix prices to a product """
     if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
         form = ForsixForm(request.POST)
-        form.fields['name'].disabled = True
-        form.fields['product'].disabled = True
+        # form.fields['name'].disabled = True
+        # form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
             messages.success(request, 'Box Prices Added Successfully')
@@ -166,7 +171,7 @@ def add_forsix(request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         form = ForsixForm(initial={'product': product, 'name': product.name})
 
-    template = 'products/add_forsix.html'
+    template = 'products/cost_forsix.html'
     context = {
         'form': form,
         'product_id': product_id,
