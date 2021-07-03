@@ -67,9 +67,23 @@ def view_item(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     if product.is_sizes:
-        sizes = get_object_or_404(Size, name=product.name)
+        try:
+            sizes = Size.objects.get(name=product.name)
+            # sizes = get_object_or_404(Size, name=product.name)
+        except Size.DoesNotExist:
+            messages.error(request, (
+                "This option is unavailable")
+            )
+            return redirect(reverse('shop'))
+
     if product.is_for_six:
-        forsixes = get_object_or_404(Forsix, name=product.name)
+        try:
+            forsixes = Forsix.objects.get(name=product.name)
+        except Forsix.DoesNotExist:
+            messages.error(request, (
+                "This option is unavailable")
+            )
+            return redirect(reverse('shop'))
 
     if 'r' in request.GET:
         back_to_cats = request.GET['r']
@@ -91,14 +105,11 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            print(product)
             if product.is_for_six:
-            # if 'is_for_six' in request.POST:
                 messages.success(request, 'Product added now add the box\
                     quantity prices')
                 # return redirect('cost_forsix', args=[newproduct.id])
                 return redirect('cost_forsix', product_id=product.id)
-            # elif 'is_sizes' in request.POST:
             elif product.is_sizes:
                 messages.success(request, 'Product added now add the size\
                     prices')
@@ -156,8 +167,6 @@ def cost_forsix(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
         form = ForsixForm(request.POST)
-        # form.fields['name'].disabled = True
-        # form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
             messages.success(request, 'Box Prices Added Successfully')
@@ -210,7 +219,16 @@ def edit_product(request, product_id):
 def sizeprice_edit(request, product_id):
     """ Edit a product's size prices"""
     product = get_object_or_404(Product, pk=product_id)
-    sizeprice = get_object_or_404(Size, name=product.name)
+    try:
+        sizeprice = Size.objects.get(name=product.name)
+    except Size.DoesNotExist:
+        messages.error(request, (
+            "The size prices were not added after the product\
+                was added. Please delete the product then re-add it\
+                    with the prices.")
+        )
+        return redirect(reverse('add_product'))
+
     if request.method == 'POST':
         form = SizeForm(request.POST, request.FILES, instance=sizeprice)
         form.fields['name'].disabled = True
@@ -238,7 +256,16 @@ def sizeprice_edit(request, product_id):
 def forsixprice_edit(request, product_id):
     """ Edit a product's box quantity (forsix) prices """
     product = get_object_or_404(Product, pk=product_id)
-    forsixprice = get_object_or_404(Forsix, name=product.name)
+    try:
+        forsixprice = Forsix.objects.get(name=product.name)
+    except Forsix.DoesNotExist:
+        messages.error(request, (
+            "The box quantity prices were not added after the product\
+                was added. Please delete the product then re-add it\
+                    with the prices.")
+        )
+        return redirect(reverse('add_product'))
+
     if request.method == 'POST':
         form = ForsixForm(request.POST, request.FILES, instance=forsixprice)
         form.fields['name'].disabled = True

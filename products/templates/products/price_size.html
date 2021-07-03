@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-<ELEMENT onbeforeunload="handler">
+
     <div class="container-fluid management-container w-100 h-100">
         <!--title-->
         <div class="row">
@@ -48,18 +48,19 @@
 
 <script type="text/javascript">
     // Submit form if user leaves before submitting
-    object.onbeforeunload = handler;                        
-    object.addEventListener ("beforeunload", handler, useCapture);
-    window.onbeforeunload = warning;
+    //window.addEventListener("beforeunload", function(event) {
+    //event.preventDefault();
+    //event.returnValue = "you did not submit"; 
+    //return "you did not submit"; 
+//});
 
-    var warning = function () {
-        window.alert("you did not submit the form. You need to delete");
-       }
+    //var warning = function () {
+        //window.alert("you did not submit the form. You need to delete");
+       //}
 
     //window.onbeforeunload = function(){
       //  confirm('You must submit the form');
-        // document.getElementById("priceform").submit();
-}
+        // document.getElementById("priceform").submit();}
 
     // $(window).unload(function(){
         // var form = $('.priceform');
