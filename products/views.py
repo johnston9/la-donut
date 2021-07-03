@@ -91,6 +91,7 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
+            print(product)
             if product.is_for_six:
             # if 'is_for_six' in request.POST:
                 messages.success(request, 'Product added now add the box\

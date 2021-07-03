@@ -11,8 +11,10 @@ urlpatterns = [
     path('price_size/<int:product_id>', views.price_size, name='price_size'),
     path('cost_forsix/<int:product_id>', views.cost_forsix, name='cost_forsix'),
     path('edit/<int:product_id>/', views.edit_product, name='edit_product'),
-    path('sizeprice_edit/<int:product_id>/', views.sizeprice_edit, name='sizeprice_edit'),
-    path('forsixprice_edit/<int:product_id>/', views.forsixprice_edit, name='forsixprice_edit'),
+    path('sizeprice_edit/<int:product_id>/', views.sizeprice_edit,
+         name='sizeprice_edit'),
+    path('forsixprice_edit/<int:product_id>/', views.forsixprice_edit,
+         name='forsixprice_edit'),
     path('delete/<int:product_id>/', views.delete_product,
          name='delete_product'),
 ]
