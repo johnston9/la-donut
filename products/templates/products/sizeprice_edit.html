@@ -23,6 +23,7 @@
             <div class="col-12 col-lg-6">
                 <h5 class="text-muted">Edit a Product's Sizes Prices</h5>
                 <p>The Product's name in the first two fields may not be edited.</p>
+                <h3 class="mx-2" >{{ product.name}} </h3>
                 <form method="POST" action="{% url 'sizeprice_edit' product.id %}" class="lato form mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}

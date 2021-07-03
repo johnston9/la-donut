@@ -89,22 +89,20 @@ def add_product(request):
     """ Add a product to the shop """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-        if 'is_for_six' and 'is_sizes' in request.POST:         
-            messages.error(request, 'You can only choose either Is Sizes\
-                or Is For Six. Please re-enter form')
-            return redirect(reverse('add_product'))
 
         if form.is_valid():
             product = form.save()
-            if 'is_for_six' in request.POST:
+            if product.is_for_six:
+            # if 'is_for_six' in request.POST:
                 messages.success(request, 'Product added now add the box\
                     quantity prices')
-                # return redirect('add_forsix', args=[newproduct.id])
+                # return redirect('cost_forsix', args=[newproduct.id])
                 return redirect('cost_forsix', product_id=product.id)
-            elif 'is_sizes' in request.POST:
+            # elif 'is_sizes' in request.POST:
+            elif product.is_sizes:
                 messages.success(request, 'Product added now add the size\
                     prices')
-                # return redirect('add_sizes', args=[newproduct.id])
+                # return redirect('price_size', args=[newproduct.id])
                 return redirect('price_size', product_id=product.id)
             else:
                 messages.success(request, 'Product added successfully')

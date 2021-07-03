@@ -1,6 +1,7 @@
 """Form for the Product model
 """
 from django import forms
+from django.forms.widgets import HiddenInput
 from .models import Product, Category, Size, Forsix
 
 
@@ -27,6 +28,11 @@ class SizeForm(forms.ModelForm):
     class Meta:
         model = Size
         fields = '__all__'
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget = forms.HiddenInput()
+        self.fields['product'].widget = forms.HiddenInput()
 
 
 class ForsixForm(forms.ModelForm):
@@ -36,3 +42,11 @@ class ForsixForm(forms.ModelForm):
     class Meta:
         model = Forsix
         fields = '__all__'
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget = forms.HiddenInput()
+        self.fields['product'].widget = forms.HiddenInput()
+
+    # self.fields['name'].widget.attrs['disabled'] = 'disabled'
+    # self.fields['product'].widget.attrs['disabled'] = 'disabled'
