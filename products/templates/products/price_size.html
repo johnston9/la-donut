@@ -24,7 +24,7 @@
                 <h5 class="text-muted">Add Size Prices</h5>
                 <p class="text-red">Important! You must submit this form. The Product's name in the first two fields MUST not be altered.</p>
                 <h3 class="mx-2" >{{ product.name}} </h3>
-                <form method="POST" action="{% url 'price_size' size_id %}" class="lato form mb-2">
+                <form method="POST" action="{% url 'price_size' product.id %}" class="lato form mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="row">

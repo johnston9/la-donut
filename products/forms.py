@@ -28,7 +28,7 @@ class SizeForm(forms.ModelForm):
     class Meta:
         model = Size
         fields = '__all__'
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget = forms.HiddenInput()
@@ -42,7 +42,7 @@ class ForsixForm(forms.ModelForm):
     class Meta:
         model = Forsix
         fields = '__all__'
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget = forms.HiddenInput()
