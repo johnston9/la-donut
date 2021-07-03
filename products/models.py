@@ -51,9 +51,9 @@ class Size(models.Model):
     """
     name = models.CharField(max_length=254)
     product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.CASCADE, related_name='sizes')
-    small = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
-    medium = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
-    large = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
+    small = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
+    medium = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
+    large = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
 
     def __str__(self):
         return self.name
@@ -64,9 +64,9 @@ class Forsix(models.Model):
     """
     name = models.CharField(max_length=254)
     product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.CASCADE, related_name='forsix')
-    for6 = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.0)
-    for12 = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.0)
-    for24 = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.0)
+    for6 = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
+    for12 = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
+    for24 = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
 
     def __str__(self):
         return self.name

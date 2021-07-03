@@ -93,29 +93,34 @@ def add_product(request):
             product = form.save()
             product_id = product.id
             print(product_id)
-            product = get_object_or_404(Product, pk=product_id)
+            pro = get_object_or_404(Product, pk=product_id)
             name = product.name
             print(name)
-            new_size = Size.objects.create(product=product)
-            print(new_size)
-            size = get_object_or_404(Size, product=product)
+            size = Size.objects.create(product=pro)
+            size_id = size.idsize_id = size.id
+            print(size_id)           
+            size = get_object_or_404(Size, pk=size_id)
             size.name = name
-            new_forsix = Forsix.objects.create(product=product)
-            print(new_forsix)
-            forsix = get_object_or_404(Forsix, product=product)
+            print(size.name)
+            forsix = Forsix.objects.create(product=pro)
+            forsix_id = forsix.id
+            print(forsix_id)
+            forsix = get_object_or_404(Forsix, pk=forsix_id)
             forsix.name = name
+            print(forsix.name)
             if product.is_for_six:
             # if 'is_for_six' in request.POST:
                 messages.success(request, 'Product added now add the box\
                     quantity prices')
                 # return redirect('cost_forsix', args=[newproduct.id])
-                return redirect('cost_forsix', product_id=product.id)
+                return redirect('cost_forsix', forsix_id=forsix_id)
+                # return redirect('cost_forsix', product_id=product.id)
             # elif 'is_sizes' in request.POST:
             elif product.is_sizes:
                 messages.success(request, 'Product added now add the size\
                     prices')
                 # return redirect('price_size', args=[newproduct.id])
-                return redirect('price_size', product_id=product.id)
+                return redirect('price_size', size_id=size_id)
             else:
                 messages.success(request, 'Product added successfully')
                 return redirect(reverse('add_product'))
@@ -135,7 +140,7 @@ def add_product(request):
     return render(request, template, context)
 
 
-def price_size(request, product_id):
+def price_size(request, size_id):
     """ Add size prices to a product """
     if request.method == 'POST':
         form = SizeForm(request.POST)
@@ -150,23 +155,22 @@ def price_size(request, product_id):
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
     else:
-        product = get_object_or_404(Product, pk=product_id)
-        form = SizeForm(initial={'product': product, 'name': product.name})
+        size = get_object_or_404(Size, pk=size_id)
+        form = SizeForm(instance=size)
+        # form = SizeForm(initial={'product': product, 'name': product.name})
 
     template = 'products/price_size.html'
     context = {
         'form': form,
-        'product_id': product_id,
-        'product': product
+        'size_id': size_id
     }
 
     return render(request, template, context)
 
 
-def cost_forsix(request, product_id):
+def cost_forsix(request, forsix_id):
     """ Add forsix prices to a product """
     if request.method == 'POST':
-        product = get_object_or_404(Product, pk=product_id)
         form = ForsixForm(request.POST)
         # form.fields['name'].disabled = True
         # form.fields['product'].disabled = True
@@ -178,14 +182,14 @@ def cost_forsix(request, product_id):
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
     else:
-        product = get_object_or_404(Product, pk=product_id)
-        form = ForsixForm(initial={'product': product, 'name': product.name})
+        forsix = get_object_or_404(Forsix, pk=forsix_id)
+        form = SizeForm(instance=forsix)
+        # form = ForsixForm(initial={'product': product, 'name': product.name})
 
     template = 'products/cost_forsix.html'
     context = {
         'form': form,
-        'product_id': product_id,
-        'product': product
+        'forsix': forsix
     }
 
     return render(request, template, context)
