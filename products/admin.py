@@ -2,6 +2,22 @@ from django.contrib import admin
 from .models import Product, Category, Size, Forsix
 
 
+class SizeAdmin(admin.ModelAdmin):
+    model = Size
+
+    list_display = (
+        'name',
+    )
+
+
+class ForsixAdmin(admin.ModelAdmin):
+    model = Forsix
+
+    list_display = (
+        'name',
+    )
+
+
 # class SizeAdminInline(admin.StackedInline):
 class SizeAdminInline(admin.TabularInline):
     model = Size
@@ -36,5 +52,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Size)
-admin.site.register(Forsix)
+admin.site.register(Size, SizeAdmin)
+admin.site.register(Forsix, ForsixAdmin)

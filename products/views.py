@@ -89,9 +89,21 @@ def add_product(request):
     """ Add a product to the shop """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-
         if form.is_valid():
             product = form.save()
+            product_id = product.id
+            print(product_id)
+            product = get_object_or_404(Product, pk=product_id)
+            name = product.name
+            print(name)
+            new_size = Size.objects.create(product=product)
+            print(new_size)
+            size = get_object_or_404(Size, product=product)
+            size.name = name
+            new_forsix = Forsix.objects.create(product=product)
+            print(new_forsix)
+            forsix = get_object_or_404(Forsix, product=product)
+            forsix.name = name
             if product.is_for_six:
             # if 'is_for_six' in request.POST:
                 messages.success(request, 'Product added now add the box\
