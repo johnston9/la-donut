@@ -35,7 +35,7 @@ class Product(models.Model):
     flavour = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
     shop_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    web_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.00)
+    web_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0)
     is_for_six = models.BooleanField(default=False, null=True, blank=True)
     is_sizes = models.BooleanField(default=False, null=True, blank=True)
     rating = models.DecimalField(max_digits=1, decimal_places=0, null=True, blank=True)
@@ -83,5 +83,5 @@ def create_size_and_forsix(sender, instance, created, **kwargs):
         size = Size.objects.create(name=instance.name, product=instance)
         forsix = Forsix.objects.create(name=instance.name, product=instance)
 
-    size.save()
-    forsix.save()
+        size.save()
+        forsix.save()

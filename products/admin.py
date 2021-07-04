@@ -26,7 +26,7 @@ class ForsixAdminInline(admin.StackedInline):
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = (SizeAdminInline, ForsixAdminInline)
-    readonly_fields = ('name', 'is_sizes', 'is_for_six')
+    # readonly_fields = ('name', 'is_sizes', 'is_for_six')
 
     list_display = (
         'name',

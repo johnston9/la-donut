@@ -2,7 +2,7 @@
 """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product, Category, Size, Forsix
 from .forms import ProductForm, SizeForm, ForsixForm
@@ -97,8 +97,15 @@ def view_item(request, product_id):
     return render(request, 'products/view_item.html', context)
 
 
+@login_required
 def add_product(request):
     """ Add a product to the shop """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -115,7 +122,8 @@ def add_product(request):
                 return redirect('price_size', product_id=product.id)
             else:
                 messages.success(request, 'Product added successfully')
-                return redirect(reverse('add_product'))
+                return redirect(reverse('view_item', args=[product.id]))
+                # return redirect(reverse('add_product'))
 
         else:
             messages.error(request, 'Failed to add product.\
@@ -132,8 +140,15 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
 def price_size(request, product_id):
     """ Add size prices to a product """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
     product = get_object_or_404(Product, pk=product_id)
     size = get_object_or_404(Size, product=product)
     if request.method == 'POST':
@@ -142,7 +157,8 @@ def price_size(request, product_id):
             form.save()
             messages.success(request, 'Size Prices Added Successfully.\
                 Process complete')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('view_item', args=[product.id]))
+            # return redirect(reverse('add_product'))
         else:
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
@@ -158,8 +174,15 @@ def price_size(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def cost_forsix(request, product_id):
     """ Add forsix prices to a product """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
     product = get_object_or_404(Product, pk=product_id)
     forsix = get_object_or_404(Forsix, product=product)
     if request.method == 'POST':
@@ -167,7 +190,8 @@ def cost_forsix(request, product_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Box Prices Added Successfully')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('view_item', args=[product.id]))
+            # return redirect(reverse('add_product'))
         else:
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
@@ -184,8 +208,15 @@ def cost_forsix(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def edit_product(request, product_id):
     """ Edit a product """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -212,8 +243,15 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def sizeprice_edit(request, product_id):
     """ Edit a product's size prices"""
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
     product = get_object_or_404(Product, pk=product_id)
     try:
         sizeprice = Size.objects.get(name=product.name)
@@ -249,8 +287,15 @@ def sizeprice_edit(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def forsixprice_edit(request, product_id):
     """ Edit a product's box quantity (forsix) prices """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
     product = get_object_or_404(Product, pk=product_id)
     try:
         forsixprice = Forsix.objects.get(name=product.name)
@@ -286,8 +331,15 @@ def forsixprice_edit(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_product(request, product_id):
     """ Delete a product """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')

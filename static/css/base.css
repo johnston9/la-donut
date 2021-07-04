@@ -518,6 +518,33 @@ input[name='q']::placeholder {
     border: 1px solid rgb(255,215,0);
 }*/
 
+/* Product Form Image Widget*/
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-widget-box .custom-widget-label::before {
+    border-color: #9b1724;
+}
+
+.custom-widget-box #image-clear_id .custom-widget-input:checked~.custom-widget-label::before {
+    background-color: #e45f6c;
+    border-color: #e45f6c;
+}
+
+
 /*---------- Allauth ---------*/
 
 .login-container {
