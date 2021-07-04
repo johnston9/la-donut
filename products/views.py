@@ -2,7 +2,7 @@
 """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product, Category, Size, Forsix
 from .forms import ProductForm, SizeForm, ForsixForm
@@ -70,12 +70,10 @@ def view_item(request, product_id):
     if product.is_sizes:
         try:
             sizes = Size.objects.get(name=product.name)
-            # sizes = get_object_or_404(Size, name=product.name)
         except Size.DoesNotExist:
             messages.success(request, (
                 "This item has only one size")
             )
-            # return redirect(reverse('shop'))
 
     if product.is_for_six:
         try:
@@ -84,7 +82,6 @@ def view_item(request, product_id):
             messages.success(request, (
                 "This item has only one size")
             )
-            # return redirect(reverse('shop'))
 
     if 'r' in request.GET:
         back_to_cats = request.GET['r']
@@ -137,10 +134,10 @@ def add_product(request):
 
 def price_size(request, product_id):
     """ Add size prices to a product """
+    product = get_object_or_404(Product, pk=product_id)
+    size = get_object_or_404(Size, product=product)
     if request.method == 'POST':
-        form = SizeForm(request.POST)
-        # form.fields['name'].disabled = True
-        # form.fields['product'].disabled = True
+        form = SizeForm(request.POST, instance=size)
         if form.is_valid():
             form.save()
             messages.success(request, 'Size Prices Added Successfully.\
@@ -150,9 +147,8 @@ def price_size(request, product_id):
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
     else:
-        product = get_object_or_404(Product, pk=product_id)
-        form = SizeForm(initial={'product': product, 'name': product.name})
-
+        form = SizeForm(instance=size)
+        # form = SizeForm(initial={'product': product, 'name': product.name})
     template = 'products/price_size.html'
     context = {
         'form': form,
@@ -165,9 +161,10 @@ def price_size(request, product_id):
 
 def cost_forsix(request, product_id):
     """ Add forsix prices to a product """
+    product = get_object_or_404(Product, pk=product_id)
+    forsix = get_object_or_404(Forsix, product=product)
     if request.method == 'POST':
-        product = get_object_or_404(Product, pk=product_id)
-        form = ForsixForm(request.POST)
+        form = ForsixForm(request.POST, instance=forsix)
         if form.is_valid():
             form.save()
             messages.success(request, 'Box Prices Added Successfully')
@@ -176,8 +173,7 @@ def cost_forsix(request, product_id):
             messages.error(request, 'Failed to add prices.\
                 Please check that the form is valid.')
     else:
-        product = get_object_or_404(Product, pk=product_id)
-        form = ForsixForm(initial={'product': product, 'name': product.name})
+        form = ForsixForm(instance=forsix)
 
     template = 'products/cost_forsix.html'
     context = {
@@ -228,10 +224,10 @@ def sizeprice_edit(request, product_id):
                 was added. Please delete the product then re-add it\
                     with the prices.")
         )
-        return redirect(reverse('add_product'))
+        return redirect(reverse('shop'))
 
     if request.method == 'POST':
-        form = SizeForm(request.POST, request.FILES, instance=sizeprice)
+        form = SizeForm(request.POST, instance=sizeprice)
         form.fields['name'].disabled = True
         form.fields['product'].disabled = True
         if form.is_valid():
@@ -265,10 +261,10 @@ def forsixprice_edit(request, product_id):
                 was added. Please delete the product then re-add it\
                     with the prices.")
         )
-        return redirect(reverse('add_product'))
+        return redirect(reverse('shop'))
 
     if request.method == 'POST':
-        form = ForsixForm(request.POST, request.FILES, instance=forsixprice)
+        form = ForsixForm(request.POST, instance=forsixprice)
         form.fields['name'].disabled = True
         form.fields['product'].disabled = True
         if form.is_valid():

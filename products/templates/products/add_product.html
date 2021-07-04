@@ -23,12 +23,12 @@
             <div class="col-12">
                 <h5 class="text-muted">Add a Product</h5>
                 <p class="text-black">
-                    For products with size prices select Is Sizes.<br> 
-                    For products with box quantity prices select Is For Six".<br> 
-                    On submit you will be taken to the "Add Prices" form.
+                    For products with size prices select <strong>Is Sizes</strong><br> 
+                    For products with box quantity prices select <strong>Is For Six</strong><br> 
+                    On submit you will be taken to the <strong>Add Prices</strong> form
                 </p>
-                <p class="text-red">Important! You must only select one
-                    for each product.</p>
+                <p class="text-red">Important! You must only select either Is Sizes
+                    or Is For Six for each product</p>
             </div>
             <div class="col-12 col-lg-6">
                 <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">

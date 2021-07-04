@@ -1,6 +1,8 @@
 """Models for the Product App
 """
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Category(models.Model):
@@ -56,7 +58,7 @@ class Size(models.Model):
     large = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
 
     def __str__(self):
-        return self.name
+        return self.product.name
 
 
 class Forsix(models.Model):
@@ -69,4 +71,17 @@ class Forsix(models.Model):
     for24 = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
 
     def __str__(self):
-        return self.name
+        return self.product.name
+
+
+@receiver(post_save, sender=Product)
+def create_size_and_forsix(sender, instance, created, **kwargs):
+    """
+    Create size object for Product
+    """
+    if created:
+        size = Size.objects.create(name=instance.name, product=instance)
+        forsix = Forsix.objects.create(name=instance.name, product=instance)
+
+    size.save()
+    forsix.save()

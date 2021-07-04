@@ -22,9 +22,8 @@
 
         <div class="row">
             <div class="col-12 col-lg-4">
-                <h5 class="text-muted">Add Size Prices</h5>
-                <p class="text-red">Important! You must submit this form.</p>
-                <h3 class="mx-2" >{{ product.name}} </h3>
+                <h5 class="text-muted my-3">Add Size Prices</h5>
+                <h3 class="mb-3" >{{ product.name}} </h3>
                 <form id="priceform" method="POST" action="{% url 'price_size' product.id %}" class="lato form mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}
@@ -41,32 +40,4 @@
 
         </div>
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-
-<script type="text/javascript">
-    // Submit form if user leaves before submitting
-    //window.addEventListener("beforeunload", function(event) {
-    //event.preventDefault();
-    //event.returnValue = "you did not submit"; 
-    //return "you did not submit"; 
-//});
-
-    //var warning = function () {
-        //window.alert("you did not submit the form. You need to delete");
-       //}
-
-    //window.onbeforeunload = function(){
-      //  confirm('You must submit the form');
-        // document.getElementById("priceform").submit();}
-
-    // $(window).unload(function(){
-        // var form = $('.priceform');
-        // form.submit();
-    // });
-        
-</script>
-
 {% endblock %}
