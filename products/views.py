@@ -2,6 +2,7 @@
 """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product, Category, Size, Forsix
 from .forms import ProductForm, SizeForm, ForsixForm
@@ -71,19 +72,19 @@ def view_item(request, product_id):
             sizes = Size.objects.get(name=product.name)
             # sizes = get_object_or_404(Size, name=product.name)
         except Size.DoesNotExist:
-            messages.error(request, (
-                "This option is unavailable")
+            messages.success(request, (
+                "This item has only one size")
             )
-            return redirect(reverse('shop'))
+            # return redirect(reverse('shop'))
 
     if product.is_for_six:
         try:
             forsixes = Forsix.objects.get(name=product.name)
         except Forsix.DoesNotExist:
-            messages.error(request, (
-                "This option is unavailable")
+            messages.success(request, (
+                "This item has only one size")
             )
-            return redirect(reverse('shop'))
+            # return redirect(reverse('shop'))
 
     if 'r' in request.GET:
         back_to_cats = request.GET['r']
