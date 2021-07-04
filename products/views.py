@@ -148,7 +148,6 @@ def price_size(request, product_id):
                 Please check that the form is valid.')
     else:
         form = SizeForm(instance=size)
-        # form = SizeForm(initial={'product': product, 'name': product.name})
     template = 'products/price_size.html'
     context = {
         'form': form,
