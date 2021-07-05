@@ -21,6 +21,7 @@
                 <a href="{% url 'shop' %}?category=creamcake_selection" class="dropdown-item">Buns and Creamy Treats</a>
                 <a href="{% url 'shop' %}?category=breakfast_selection" class="dropdown-item">Breakfast</a>
                 <a href="{% url 'shop' %}?category=office_selection" class="dropdown-item">Office</a>
+                <a href="{% url 'shop' %}?category=vegan" class="dropdown-item">Vegan</a>
                 <a href="{% url 'shop' %}?category=creamcake_selection,breakfast_selection,office_selection" class="dropdown-item">All Selection Boxes</a>
             </div>
         </li>
@@ -53,12 +54,14 @@
 
         <li class="nav-item dropdown">
             <a class="upper font-weight-bold nav-link text-grey" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Specials
+                Recipes/Chat
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="{% url 'shop' %}?category=vegan" class="dropdown-item">Vegan</a>
+                <a href="{% url 'recipe' %}" class="dropdown-item">Recipes</a>
+                <a href="{% url 'add_comment' %}" class="dropdown-item">Add Comment or Question</a>
                 <a href="" class="dropdown-item">Office Deals</a>
                 <a href="" class="dropdown-item">Catering</a>
+                <a href="{% url 'shop' %}?category=vegan" class="dropdown-item">Vegan</a>
                 <a href="" class="dropdown-item">All Specials</a>
             </div>
         </li>

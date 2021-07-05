@@ -1,4 +1,4 @@
-"""Form for the Product model
+"""Forms for the Product App
 """
 from django import forms
 from django.forms.widgets import HiddenInput
@@ -14,7 +14,8 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -50,6 +51,3 @@ class ForsixForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget = forms.HiddenInput()
         self.fields['product'].widget = forms.HiddenInput()
-
-    # self.fields['name'].widget.attrs['disabled'] = 'disabled'
-    # self.fields['product'].widget.attrs['disabled'] = 'disabled'
