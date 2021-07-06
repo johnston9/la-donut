@@ -1,6 +1,7 @@
 """ Models for the Recipe App
 """
 from django.db import models
+from profiles.models import UserProfile
 
 
 class Recipe(models.Model):
@@ -22,7 +23,8 @@ class Recipe(models.Model):
 class Comment(models.Model):
     """Comments Model for the Recipe App
     """
-
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True)
     name = models.CharField(max_length=40)
     is_shop = models.BooleanField(default=False, null=True, blank=True)
     recipe = models.ForeignKey('Recipe', null=True, blank=True,

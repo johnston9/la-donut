@@ -30,4 +30,14 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ('name', 'recipe', 'comment', 'recipe')
+        fields = ('name', 'comment')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['comment'].widget.attrs.update(style='max-height: 5em')
+        self.fields['name'].widget.attrs.update(style='max-width: 15em')
+        self.fields['comment'].widget.attrs['placeholder'] = 'Comments or Questions'
+        self.fields['name'].widget.attrs['placeholder'] = 'Name'
+        self.fields['comment'].label = False
+        self.fields['name'].label = False
