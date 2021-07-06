@@ -39,7 +39,6 @@
                 </div>
                 {% endif %}
                 <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                <input type="hidden" name="recipe_id" value="{{ recipe.id }}">
                 <button class="btn btn-gold float-right" type="submit" name="comment_but" id="comment_but">
                     Submit 
                 </button>
@@ -54,32 +53,26 @@
             {% endif %}
             </div>
         </div>
-
-        {% endfor %}
-
-
-        <hr class="gold70">
+        <hr class="gold70 my-5">
     <!--Comments container-->
         <div class="row">
             <div class="col-sm-10">
-                <small class="text-muted my-2">View Comments and Replies</small>
-                
-                {% if comments.is_shop %}
+                <small class="text-muted my-2">View Comments and Replies</small>                
+                {% if comment.is_shop %}
                 <div class="row">
                     <div class="col">
-                        <p class="text-reddark">{{ comments.comment }}</p>
-                        <p class="text-reddark">{{ comments.user_profile }}</p>
-                        <p class="text-reddark">{{ comments.recipe }}</p>
-                        <p class="text-reddark">{{ comments.name }}</p>
-                        <p class="text-reddark">{{ comments.is_shop }}</p>
-                        <p class="text-reddark">{{ comments.date_posted }}</p>
+                        <p class="text-reddark">{{ comment.comment }}</p>
+                        <p class="text-reddark">{{ comment.user_profile }}</p>
+                        <p class="text-reddark">{{ comment.name }}</p>
+                        <p class="text-reddark">{{ comment.is_shop }}</p>
+                        <p class="text-reddark">{{ comment.date_posted }}</p>
                     </div> 
                 </div>
                 <hr>
                 {% else %}
                 <div class="row">
                     <div class="col">
-                        <p class="text-grey">{{ comments }}</p>
+                        <p class="text-grey">{{ comment }}</p>
                     </div>
                 </div>
                 <hr>

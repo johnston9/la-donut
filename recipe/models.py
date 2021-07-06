@@ -27,8 +27,6 @@ class Comment(models.Model):
                                      null=True, blank=True)
     name = models.CharField(max_length=40)
     is_shop = models.BooleanField(default=False, null=True, blank=True)
-    recipe = models.ForeignKey('Recipe', null=True, blank=True,
-                               on_delete=models.CASCADE,)
     comment = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
 
