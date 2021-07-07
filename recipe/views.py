@@ -29,7 +29,7 @@ def get_recipe(request, recipe_id):
         'recipe': recipe_one,
     }
 
-    return render(request, 'recipe/recipe.html', context)
+    return render(request, 'recipe/get_recipe.html', context)
 
 
 def latest_recipe(request):
@@ -40,7 +40,7 @@ def latest_recipe(request):
         'recipe': last_recipe,
     }
 
-    return render(request, 'recipe/recipe.html', context)
+    return render(request, 'recipe/get_recipe.html', context)
 
 
 def add_recipe(request):
@@ -74,11 +74,6 @@ def chat(request):
     """ A view to return the chat page """
 
     if request.method == 'POST':
-        # redirect user not authenticated
-        if not request.user:
-            messages.error(request, 'Sorry, incorrect url')
-            return redirect(reverse('shop'))
-
         form_data = {
             'name': request.POST['name'],
             'comment': request.POST['comment']
@@ -102,7 +97,7 @@ def chat(request):
     else:
         form_c = CommentForm()
 
-    comments = Comment.objects.all()
+    comments = Comment.objects.order_by('-date_posted')
     context = {
         'comments': comments,
         'form': form_c

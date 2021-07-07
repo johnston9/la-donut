@@ -26,7 +26,7 @@
             {% if request.user.is_authenticated %}
             <small class="text-muted my-2">Add comment or question</small>
             <!--Add Comment-->
-            <form class="lato" id="comment" method="POST" action="{% url 'recipe' %}">
+            <form class="lato" id="comment" method="POST" action="{% url 'chat' %}">
                 {% csrf_token %}  
                 
                 {{ form.comment | as_crispy_field }} 
