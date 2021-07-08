@@ -1,6 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js">
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">-->
+{% endblock %}
+
+{% block extra_js %}
+   <script src='https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js'></script>
+   <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js" charset="utf-8"></script>
+<script>
+  $(document).ready(function() {
+    $('#chat_box').DataTable( {
+        "ordering": false
+    } );
+} );
+</script>
+{% endblock %}
+
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -59,30 +79,40 @@
             <div class="col-sm-10">
                 <small class="text-muted my-2">View Comments and Replies</small> 
                 <div class="table-responsive rounded">
-                    <table id="chat-box" class="table table-sm table-striped table-borderless" cellspacing="0" width="100%">
+                    <table id="chat_box" class="table table-sm table-striped table-borderless" cellspacing="0" width="100%">
                         <thead class="">
                             <tr>
-                                <th colspan="5">Messages</th>
+                                <th>Messages</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
+                        <tbody>
                         {% for comment in comments %}              
                             {% if comment.is_shop %}
                             <tr>
-                                <td colspan="5" class="p-1 w-100">
+                                <td class="p-1 w-100">
                                     <p class="lato text-reddark">{{ comment.comment }}</p>
-                                    <p class="lato text-right text-reddark">{{ comment.name }} - {{ comment.date_posted }}</p>
+                                    <p class="lato text-right text-reddark">{{ comment.name }}</p>
+                                </td>
+                                <td class="p-1 w-100">
+                                    <p class="lato text-reddark">{{ comment.date_posted }}</p>
                                 </td>
                             </tr>
                             <hr>
                             {% else %}
                             <tr>
-                                <td colspan="5" class="p-1 w-100">
+                                <td class="p-1 w-100">
                                     <p class="">{{ comment.comment }}</p>
-                                    <p class="text-right lato">{{ comment.name }} - {{ comment.date_posted }}</p>
+                                    <p class="text-right lato">{{ comment.name }}</p>
+                                </td>
+                                <td class="p-1 w-100">
+                                    <p class="lato text-reddark">{{ comment.date_posted }}</p>
                                 </td>
                             </tr>
                             {% endif %}       
-                        {% endfor %}    
+                        {% endfor %} 
+                    </tbody>   
+                    
                     </table>   
                 </div>
             </div>
