@@ -16,17 +16,18 @@ html {
 	border: 0;
 }
 
-/*--Fonts--*/
+.header-container {
+    padding-top: 180px;
+}
 
 body {
-    color: #474343;
+    color: #333;
+    /*color: #474343;*/
 	/*color: #696666;*/
     font-family: "Playfair Display", serif;   
 }
 
-.header-container {
-    padding-top: 180px;
-}
+/*--Fonts--*/
 
 .lato {
     font-family: 'Lato', sans-serif;
@@ -174,6 +175,8 @@ hr.grey100 {
     background: rgb(71, 68, 68);
     color: white;
 }
+
+/*---item select form and buttons 0n shop and view item pages----*/
 
 .btn-quantity {
     color: white;
@@ -416,12 +419,6 @@ input[type=checkbox], input[type=radio] {
     border-color: #e8ecf0;
 }
 
-.quickpick {
-    width: 90%;
-    height: 90%;
-    border: 2px solid red;
-}
-
 /*--search--*/
 
 #inner-search input[name='q'] {
@@ -433,11 +430,10 @@ input[name='q']::placeholder {
 }
 
 #search-but {
-    /*height: 26px;*/
     border: 1px solid rgb(94, 91, 91);
 }
 
-/*--for search--*/
+/*-- search form --*/
 .input-group>.custom-file.inner-search, 
 .input-group>.custom-select.inner-search, 
 .input-group>.form-control.inner-search, 
@@ -446,7 +442,7 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*--for view item page--*/
+/*---------quantity selector for view item page--------*/
 .input-group>.custom-file.view-it, 
 .input-group>.custom-select.view-it, 
 .input-group>.form-control.view-it, 
@@ -455,7 +451,7 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*--for shop page--*/
+/*--quantity selector for shop page--*/
 .input-group>.custom-file.small-input, 
 .input-group>.custom-select.small-input, 
 .input-group>.form-control.small-input, 
@@ -475,13 +471,13 @@ input[name='q']::placeholder {
     height: 26px;
 }
 
-/* ---------------------View Iten---------- */
+/* ---------------------View Item page---------- */
 
 #reviews_button {
     cursor: pointer;
 }
 
-/* ---------------------Recipes---------- */cursor: pointer;
+/* ---------------------Recipes---------- */
 
 .v {
     border-top: 2px solid rgba(68,125,117,.1);

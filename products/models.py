@@ -3,6 +3,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.db.models import Avg
 from profiles.models import UserProfile
 
 
@@ -39,7 +40,7 @@ class Product(models.Model):
     web_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0)
     is_for_six = models.BooleanField(default=False, null=True, blank=True)
     is_sizes = models.BooleanField(default=False, null=True, blank=True)
-    rating = models.DecimalField(max_digits=1, decimal_places=0, null=True, blank=True)
+    rating = models.IntegerField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     storage = models.CharField(max_length=254, null=True, blank=True)
@@ -47,6 +48,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def avg_rating(self):
+        return Review.objects.filter(product__id=self.id).aggregate(Avg('rating'))['rating__avg']
 
 
 class Size(models.Model):
@@ -91,7 +95,7 @@ class Review(models.Model):
                                      null=True, blank=True)
     product = models.ForeignKey('Product', null=True, blank=True,
                                 on_delete=models.CASCADE,
-                                related_name='product')
+                                related_name='reviews')
     review = models.TextField(max_length=1500)
     rating = models.IntegerField(choices=RATING_CHOICES, default="1")
 

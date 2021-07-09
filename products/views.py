@@ -69,7 +69,7 @@ def view_item(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
-    print(reviews)
+
     if product.is_sizes:
         try:
             sizes = Size.objects.get(name=product.name)
