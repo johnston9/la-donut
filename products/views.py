@@ -68,13 +68,13 @@ def view_item(request, product_id):
     back_to_cats = None
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product=product)
+    reviews = Review.objects.filter(product=product).order_by('-date_posted')
 
     if product.is_sizes:
         try:
             sizes = Size.objects.get(name=product.name)
         except Size.DoesNotExist:
-            messages.success(request, (
+            messages.info(request, (
                 "This item has only one size")
             )
 
@@ -82,7 +82,7 @@ def view_item(request, product_id):
         try:
             forsixes = Forsix.objects.get(name=product.name)
         except Forsix.DoesNotExist:
-            messages.success(request, (
+            messages.info(request, (
                 "This item has only one size")
             )
 
@@ -115,17 +115,17 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             if product.is_for_six:
-                messages.success(request, 'Product added now add the box\
+                messages.info(request, 'Product added now add the box\
                     quantity prices')
                 # return redirect('cost_forsix', args=[newproduct.id])
                 return redirect('cost_forsix', product_id=product.id)
             elif product.is_sizes:
-                messages.success(request, 'Product added now add the size\
+                messages.info(request, 'Product added now add the size\
                     prices')
                 # return redirect('price_size', args=[newproduct.id])
                 return redirect('price_size', product_id=product.id)
             else:
-                messages.success(request, 'Product added successfully')
+                messages.info(request, 'Product added successfully')
                 return redirect(reverse('view_item', args=[product.id]))
                 # return redirect(reverse('add_product'))
 
@@ -139,6 +139,7 @@ def add_product(request):
     template = 'products/add_product.html'
     context = {
         'form': form,
+        'profile_update': True
     }
 
     return render(request, template, context)
@@ -159,7 +160,7 @@ def price_size(request, product_id):
         form = SizeForm(request.POST, instance=size)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Size Prices Added Successfully.\
+            messages.info(request, 'Size Prices Added Successfully.\
                 Process complete')
             return redirect(reverse('view_item', args=[product.id]))
             # return redirect(reverse('add_product'))
@@ -193,7 +194,7 @@ def cost_forsix(request, product_id):
         form = ForsixForm(request.POST, instance=forsix)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Box Prices Added Successfully')
+            messages.info(request, 'Box Prices Added Successfully')
             return redirect(reverse('view_item', args=[product.id]))
             # return redirect(reverse('add_product'))
         else:
@@ -229,7 +230,7 @@ def edit_product(request, product_id):
         form.fields['is_sizes'].disabled = True
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product updated successfully')
+            messages.info(request, 'Product updated successfully')
             return redirect(reverse('view_item', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product.\
@@ -271,7 +272,7 @@ def sizeprice_edit(request, product_id):
         form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product prices updated successfully')
+            messages.info(request, 'Product prices updated successfully')
             return redirect(reverse('view_item', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product prices.\
@@ -313,7 +314,7 @@ def forsixprice_edit(request, product_id):
         # form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product prices updated successfully')
+            messages.info(request, 'Product prices updated successfully')
             return redirect(reverse('view_item', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product prices.\
@@ -342,7 +343,7 @@ def delete_product(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Product deleted!')
+    messages.info(request, 'Product deleted!')
     return redirect(reverse('shop'))
 
 
@@ -360,7 +361,7 @@ def review(request, product_id):
             saved_review.product = product
             saved_review.user_profile = profile
             saved_review.save()
-            messages.success(request, 'Review for {{ product.name }}\
+            messages.info(request, f'Review for {product.name}\
                 added successfully')
             return redirect(reverse('view_item', args=[product.id]))
         else:

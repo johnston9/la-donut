@@ -72,6 +72,15 @@ body {
     margin-right: 0!important;
 }
 
+.linkcol {
+    color: #131eaf;
+}
+
+.linkcol:hover {
+    color: rgb(255,215,0);
+    text-decoration: none;
+}
+
 /*-----line breaks------*/
 
 hr.gold50 {
@@ -151,10 +160,56 @@ hr.grey100 {
     font-weight: 700;
 }
 
+.btn-gold:hover {
+    background: rgb(71, 68, 68);
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.delete-button a:hover {
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
+}
+
 .btn-blue {
     background: rgb(232, 240, 254);
     color: rgb(71, 68, 68);
     font-weight: 700;
+}
+
+.btn-blue:hover {
+    background: rgb(71, 68, 68);
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-blue a:hover {
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.delete-button {
+    background: rgb(232, 240, 254);
+    color: red;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.delete-button:hover {
+    background: rgb(71, 68, 68);
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.delete-button a:hover {
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .btn-black {
@@ -411,6 +466,14 @@ input[type=checkbox], input[type=radio] {
     border: 0;
     border-bottom: 2px solid red;
     padding-top: 30px;
+}
+
+.item-name {
+    height: 60px;
+}
+
+.item-prices {
+    height: 75px;
 }
 
 .select-btn {

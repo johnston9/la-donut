@@ -55,7 +55,7 @@ def add_recipe(request):
         form = RecipeForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Recipe Added Successfully.\
+            messages.info(request, 'Recipe Added Successfully.\
                 Process complete')
             return redirect(reverse('shop'))
         else:
@@ -89,7 +89,7 @@ def chat(request):
                 profile = UserProfile.objects.get(user=request.user)
             comment.user_profile = profile
             comment.save()
-            messages.success(request, 'Comment Added Successfully')
+            messages.info(request, 'Comment Added Successfully')
             return redirect(redirect_url)
         else:
             messages.error(request, 'Failed to Add Comment.\
@@ -117,5 +117,5 @@ def delete_recipe(request, recipe_id):
 
     recipe_del = get_object_or_404(Recipe, pk=recipe_id)
     recipe_del.delete()
-    messages.success(request, 'Recipe deleted!')
+    messages.info(request, 'Recipe deleted!')
     return redirect(reverse('all_recipes'))

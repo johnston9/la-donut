@@ -103,9 +103,12 @@
                                 <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
                                     <div class="row">
                                         <div class="col mx-0 px-0">
+                                            <div class="item-name">
                                             <p
                                                 class="text-black lead mb-2 mx-0 px-0 font-weight-bold text-center pb-0 mb-1">
                                                 {{ product.name }}</p>
+                                            </div>
+                                                <div class="row"></div>
                                                 {% if product.category %}
                                                 <small class="category-shop">
                                                     <a class="playball text-grey"
@@ -116,9 +119,9 @@
                                                 {% endif %}
                                             {% if product.rating %}
                                             {% if product.avg_rating > 1 %}
-                                            <p class="text-gold">{{ product.avg_rating }} <i class="text-gold2 fas fa-star"></i></p>
+                                            <p class="text-gold">{{ product.avg_rating|floatformat:1 }} <i class="text-gold2 fas fa-star"></i></p>
                                             {% else %}
-                                            <p class="playball text-muted">No Ratings Yet</p>
+                                            <p class="playball text-gold">No Ratings Yet</p>
                                             {% endif %}
                                             {% endif %}
                                             <!--form-->
@@ -126,7 +129,7 @@
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
-                                                    <div class="col-12">
+                                                    <div class="col-12 item-prices">
                                                         <!--prices for sizes-->
                                                         {% if product.is_sizes %}
                                                             {% for size in sizes %}
@@ -338,9 +341,11 @@
                                 <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
                                     <div class="row">
                                         <div class="col mx-0 px-0">
+                                            <div class="item-name">
                                             <p
                                                 class="text-black lead mb-2 mx-0 px-0 font-weight-bold text-center pb-0 mb-1">
                                                 {{ product.name }}</p>
+                                            </div>
                                                 {% if product.category %}
                                                 <small class="category-shop">
                                                     <a class="playball text-grey"
@@ -350,7 +355,7 @@
                                                 </small>
                                                 {% endif %}
                                             {% if product.rating %}
-                                            <p class="text-gold">{{ product.avg_rating }} <i class="text-gold2 fas fa-star"></i></p>
+                                            <p class="text-gold">{{ product.avg_rating|floatformat:1 }} <i class="text-gold2 fas fa-star"></i></p>
                                             {% else %}
                                             <p class="playball text-muted">No Ratings Yet</p>
                                             {% endif %}                   
@@ -359,7 +364,7 @@
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
-                                                    <div class="col-12">
+                                                    <div class="col-12 item-prices">
                                                         <!--prices for sizes-->
                                                         {% if product.is_sizes %}
                                                             {% for size in sizes %}
