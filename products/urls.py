@@ -9,7 +9,8 @@ urlpatterns = [
     path('<int:product_id>/', views.view_item, name='view_item'),
     path('add/', views.add_product, name='add_product'),
     path('price_size/<int:product_id>', views.price_size, name='price_size'),
-    path('cost_forsix/<int:product_id>', views.cost_forsix, name='cost_forsix'),
+    path('cost_forsix/<int:product_id>', views.cost_forsix, 
+         name='cost_forsix'),
     path('edit/<int:product_id>/', views.edit_product, name='edit_product'),
     path('sizeprice_edit/<int:product_id>/', views.sizeprice_edit,
          name='sizeprice_edit'),
@@ -17,4 +18,5 @@ urlpatterns = [
          name='forsixprice_edit'),
     path('delete/<int:product_id>/', views.delete_product,
          name='delete_product'),
+    path('review/<int:product_id>', views.review, name='review'),
 ]

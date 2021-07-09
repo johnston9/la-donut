@@ -475,7 +475,13 @@ input[name='q']::placeholder {
     height: 26px;
 }
 
-/* ---------------------Recipes---------- */
+/* ---------------------View Iten---------- */
+
+#reviews_button {
+    cursor: pointer;
+}
+
+/* ---------------------Recipes---------- */cursor: pointer;
 
 .v {
     border-top: 2px solid rgba(68,125,117,.1);

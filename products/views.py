@@ -4,8 +4,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Product, Category, Size, Forsix
-from .forms import ProductForm, SizeForm, ForsixForm
+from profiles.models import UserProfile
+from .models import Product, Category, Size, Forsix, Review
+from .forms import ProductForm, SizeForm, ForsixForm, ReviewForm
 
 
 def shop(request):
@@ -67,6 +68,8 @@ def view_item(request, product_id):
     back_to_cats = None
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product=product)
+    print(reviews)
     if product.is_sizes:
         try:
             sizes = Size.objects.get(name=product.name)
@@ -89,6 +92,7 @@ def view_item(request, product_id):
 
     context = {
         'product': product,
+        'reviews': reviews,
         'sizes': sizes,
         'forsixes': forsixes,
         'back_to_cats': back_to_cats
@@ -257,9 +261,7 @@ def sizeprice_edit(request, product_id):
         sizeprice = Size.objects.get(name=product.name)
     except Size.DoesNotExist:
         messages.error(request, (
-            "The size prices were not added after the product\
-                was added. Please delete the product then re-add it\
-                    with the prices.")
+            "This option is currently unavailable.")
         )
         return redirect(reverse('shop'))
 
@@ -301,16 +303,14 @@ def forsixprice_edit(request, product_id):
         forsixprice = Forsix.objects.get(name=product.name)
     except Forsix.DoesNotExist:
         messages.error(request, (
-            "The box quantity prices were not added after the product\
-                was added. Please delete the product then re-add it\
-                    with the prices.")
+            "This option is currently unavailable.")
         )
         return redirect(reverse('shop'))
 
     if request.method == 'POST':
         form = ForsixForm(request.POST, instance=forsixprice)
-        form.fields['name'].disabled = True
-        form.fields['product'].disabled = True
+        # form.fields['name'].disabled = True
+        # form.fields['product'].disabled = True
         if form.is_valid():
             form.save()
             messages.success(request, 'Product prices updated successfully')
@@ -344,3 +344,35 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('shop'))
+
+
+@login_required
+def review(request, product_id):
+    """ Review a product """
+
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        review_f = ReviewForm(request.POST)
+        if review_f.is_valid():
+            saved_review = review_f.save(commit=False)
+            if request.user.is_authenticated:
+                profile = UserProfile.objects.get(user=request.user)
+            saved_review.product = product
+            saved_review.user_profile = profile
+            saved_review.save()
+            messages.success(request, 'Review for {{ product.name }}\
+                added successfully')
+            return redirect(reverse('view_item', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to add review\
+                 Please check that the form is valid.')
+    else:
+        form = ReviewForm()
+
+    template = 'products/review.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)

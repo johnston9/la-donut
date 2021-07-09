@@ -117,9 +117,10 @@
                                             {% if product.rating %}
                                             <p class="text-gold">{{ product.rating }} <i class="text-gold2 fas fa-star"></i></p>
                                             {% else %}
-                                            <p class="">No Ratings Yet</p>
+                                            <p class="playball text-muted">No Ratings Yet</p>
                                             {% endif %}
                                             <!--form-->
+                                            <div class="text-center">
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
@@ -186,89 +187,104 @@
                                                 </div>
                                                 <!--quan new-->
                                                 <div class="row">
-                                                <div class="col-7 pl-0 ml-0 mt-2 mb-0">
-                                                    <div class="form-group pl-0 ml-0">
-                                                        <div class="input-group pl-0 ml-0">
-                                                            <div class="input-group-prepend">
-                                                                <button class="decrement-qty btn btn-quantity-sm rounded-0" 
-                                                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                                                    <span class="plus font-weight-bold mx-0 my-0">-</span>
-                                                                </button>
-                                                            </div>
-                                                            <input class="form-control small-input qty_input" type="number"
-                                                                name="quantity" value="1" min="1" max="99"
-                                                                data-item_id="{{ product.id }}"
-                                                                id="zzz">
-                                                            <div class="input-group-append">
-                                                                <button class="increment-qty btn btn-quantity-sm rounded-0"
-                                                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                                                    <span class="plus font-weight-bold mx-0 my-0">+</span>
-                                                                </button>
+                                                    <div class="col-6 offset-3 col-md-8 offset-md-2 text-center mt-2 mb-0">
+                                                        <div class="form-group pl-0 ml-0">
+                                                            <div class="input-group pl-0 ml-0">
+                                                                <div class="input-group-prepend">
+                                                                    <button class="decrement-qty btn btn-quantity-sm rounded-0" 
+                                                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                                        <span class="plus font-weight-bold mx-0 my-0">-</span>
+                                                                    </button>
+                                                                </div>
+                                                                <input class="form-control small-input qty_input" type="number"
+                                                                    name="quantity" value="1" min="1" max="99"
+                                                                    data-item_id="{{ product.id }}"
+                                                                    id="zzz">
+                                                                <div class="input-group-append">
+                                                                    <button class="increment-qty btn btn-quantity-sm rounded-0"
+                                                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                                        <span class="plus font-weight-bold mx-0 my-0">+</span>
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                </div>
-                                                <!--buttons-->
-                                                <div class="form-row">
-                                                    <div class="col-4 offset-1">
-                                                        <input type="submit" id="quantity_but4" class="btn w-100 bg-gold p-0 text-black rounded-0"
-                                                            value="Add">
-                                                        <input type="hidden" name="redirect_url"
-                                                            value="{{ request.get_full_path }}">
                                                     </div>
-                                                    <div class="col-4 offset-2">
-                                                        <div class="view w-100 bg-gold text-center">
-                                                        <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
-                                                            <spam class="text-black my-0"> View</spam>
-                                                        </a>
+                                                    <!--buttons-->
+                                                    <div class="form-row">
+                                                        <div class="col-4 offset-4">
+                                                            <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 text-black rounded-0"
+                                                                value="Add">
+                                                            <input type="hidden" name="redirect_url"
+                                                                value="{{ request.get_full_path }}">
+                                                        </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col-8 offset-2 mt-3">
+                                                            <div class="view w-100 bg-gold text-center">
+                                                            <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
+                                                                <spam class="font-weight-bold text-black my-0"> View</spam>
+                                                            </a>
+                                                        </div>
+                                                        </div>
+                                                        <!--end but-->
                                                     </div>
-                                                    <!--end but-->
+                                                    <!--end col-12-->
+                                                </form>
                                                 </div>
-                                                <!--end col-12-->
-                                            </form>
+                                            </div>
                                         </div>
+                                        {% if request.user.is_superuser %}
+                                            <div class="row">
+                                                <div class="col">
+                                                    <hr>
+                                                    <h5 class="upper lato text-black my-0 text-center font-weight-bold">Admin</h5>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 text-center">
+                                                    <small class="">
+                                                        <a class="lato text-softblack font-weight-bold" href="{% url 'edit_product' product.id %}">Edit Product</a>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                            <div class="row">                                            
+                                                <div class="col-12 text-center">
+                                                    <!--edit size prices-->
+                                                    {% if product.is_sizes %}
+                                                        <small class="">
+                                                            <a class="lato text-softblack font-weight-bold" href="{% url 'sizeprice_edit' product.id %}">Edit Prices</a>
+                                                        </small>
+                                                    {% endif %}
+                                                    <!--edit forsix prices-->
+                                                    {% if product.is_for_six %}
+                                                        <small class="">
+                                                            <a class="lato text-softblack font-weight-bold" href="{% url 'forsixprice_edit' product.id %}">Edit Prices</a>
+                                                        </small>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 text-center">
+                                                    <small class="">
+                                                        <a class="lato font-weight-bold text-red" a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        {% endif %}
                                     </div>
-                                    {% if request.user.is_superuser %}
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <small class="">
-                                                    <a href="{% url 'edit_product' product.id %}">Edit Product</a>
-                                                </small>
-                                            </div>
-                                            
-                                            <div class="col-4">
-                                                <!--edit size prices-->
-                                                {% if product.is_sizes %}
-                                                    <small class="">
-                                                        <a href="{% url 'sizeprice_edit' product.id %}">Edit Prices</a>
-                                                    </small>
-                                                {% endif %}
-                                                <!--edit forsix prices-->
-                                                {% if product.is_for_six %}
-                                                    <small class="">
-                                                        <a href="{% url 'forsixprice_edit' product.id %}">Edit Prices</a>
-                                                    </small>
-                                                {% endif %}
-                                            </div>
-                                            <div class="col-4">
-                                                <small class="">
-                                                    <a class="text-red" a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    {% endif %}
+                                    <!--end footer-->
                                 </div>
-                                <!--end footer-->
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    
+                                                
 
     <div id="no-menu-con" class="d-none no-menu-product-container">
         <!--menu button-->
@@ -334,9 +350,10 @@
                                             {% if product.rating %}
                                             <p class="text-gold">{{ product.rating }} <i class="text-gold2 fas fa-star"></i></p>
                                             {% else %}
-                                            <small class="">No Ratings Yet</small>
+                                            <p class="playball text-muted">No Ratings Yet</p>
                                             {% endif %}                   
                                             <!--form-->
+                                            <div class="text-center">
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
@@ -400,95 +417,104 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                <!--quan new-->   
-                                                <div class="form-row mt-2">                                            
-                                                <div class="col-6 pl-0">
-                                                    <div class="form-group pl-0">
-                                                        <div class="input-group pl-0">
-                                                            <div class="input-group-prepend">
-                                                                <button class="pr-1 decrement-qty btn btn-quantity-sm rounded-0" 
-                                                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                                                    <span class="icon-sm plus font-weight-bold mx-auto my-auto">-</span>
-                                                                </button>
-                                                            </div>
-                                                            <input class="form-control small-input qty_input text-gold " type="number"
-                                                                name="quantity" value="1" min="1" max="99"
-                                                                data-item_id="{{ product.id }}"
-                                                                id="sss">
-                                                            <div class="input-group-append">
-                                                                <button class="increment-qty btn btn-quantity-sm rounded-0"
-                                                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                                                    <span class="icon-sm plus font-weight-bold mx-auto my-auto">+</span>
-                                                                    <!--<span class="icon">
-                                                                        <i class="fas fa-plus fa-xs"></i>
-                                                                    </span>-->
-                                                                </button>
+                                                <!--quan new-->
+                                                <div class="row">
+                                                    <div class="col-6 offset-3 col-md-8 offset-md-2 text-center mt-2 mb-0">
+                                                        <div class="form-group pl-0 ml-0">
+                                                            <div class="input-group pl-0 ml-0">
+                                                                <div class="input-group-prepend">
+                                                                    <button class="decrement-qty btn btn-quantity-sm rounded-0" 
+                                                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                                        <span class="plus font-weight-bold mx-0 my-0">-</span>
+                                                                    </button>
+                                                                </div>
+                                                                <input class="form-control small-input qty_input" type="number"
+                                                                    name="quantity" value="1" min="1" max="99"
+                                                                    data-item_id="{{ product.id }}"
+                                                                    id="zzz">
+                                                                <div class="input-group-append">
+                                                                    <button class="increment-qty btn btn-quantity-sm rounded-0"
+                                                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                                        <span class="plus font-weight-bold mx-0 my-0">+</span>
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    </div>
+                                                    <!--buttons-->
+                                                    <div class="form-row">
+                                                        <div class="col-4 offset-4">
+                                                            <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 text-black rounded-0"
+                                                                value="Add">
+                                                            <input type="hidden" name="redirect_url"
+                                                                value="{{ request.get_full_path }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-8 offset-2 mt-3">
+                                                            <div class="view w-100 bg-gold text-center">
+                                                            <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
+                                                                <spam class="font-weight-bold text-black my-0"> View</spam>
+                                                            </a>
+                                                        </div>
+                                                        </div>
+                                                        <!--end but-->
+                                                    </div>
+                                                    <!--end col-12-->
+                                                </form>
                                                 </div>
                                             </div>
-                                                <!--buttons-->
-                                                <div class="form-row">
-                                                    <div class="col-4 offset-1">
-                                                        <input type="submit" id="quantity_but3" class="btn w-100 bg-gold p-0 text-black rounded-0"
-                                                            value="Add">
-                                                        <!--<input type="hidden" name="redirect_url" value="{{ request.path }}">-->
-                                                        <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                                                    </div>
-                                                    <div class="col-4 offset-2">
-                                                        <div class="view w-100 my-0 bg-gold text-center">
-                                                        <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
-                                                            <spam class="text-black my-auto"> View</spam>
-                                                        </a>
-                                                    </div>
-                                                    </div>
-                                                    <!--end but-->
-                                                </div>
-                                                <!--end col-12-->
-                                            </form>
                                         </div>
+                                        {% if request.user.is_superuser %}
+                                            <div class="row">
+                                                <div class="col">
+                                                    <hr class="">
+                                                    <h5 class="upper lato text-black my-0 py-1 text-center font-weight-bold">Admin</h5>
+                                                    <hr class="">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 text-center">
+                                                    <small class="">
+                                                        <a class="lato text-softblack font-weight-bold" href="{% url 'edit_product' product.id %}">Edit Product</a>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                            <div class="row">                                            
+                                                <div class="col-12 text-center">
+                                                    <!--edit size prices-->
+                                                    {% if product.is_sizes %}
+                                                        <small class="">
+                                                            <a class="lato text-softblack font-weight-bold" href="{% url 'sizeprice_edit' product.id %}">Edit Prices</a>
+                                                        </small>
+                                                    {% endif %}
+                                                    <!--edit forsix prices-->
+                                                    {% if product.is_for_six %}
+                                                        <small class="">
+                                                            <a class="lato text-softblack font-weight-bold" href="{% url 'forsixprice_edit' product.id %}">Edit Prices</a>
+                                                        </small>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 text-center">
+                                                    <small class="">
+                                                        <a class="lato font-weight-bold text-red" a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        {% endif %}
                                     </div>
-                                    {% if request.user.is_superuser %}
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <small class="">
-                                                    <a href="{% url 'edit_product' product.id %}">Edit Product</a>
-                                                </small>
-                                            </div>
-                                            
-                                            <div class="col-4">
-                                                <!--edit size prices-->
-                                                {% if product.is_sizes %}
-                                                    <small class="">
-                                                        <a href="{% url 'sizeprice_edit' product.id %}">Edit Prices</a>
-                                                    </small>
-                                                {% endif %}
-                                                <!--edit forsix prices-->
-                                                {% if product.is_for_six %}
-                                                    <small class="">
-                                                        <a href="{% url 'forsixprice_edit' product.id %}">Edit Prices</a>
-                                                    </small>
-                                                {% endif %}
-                                            </div>
-                                            <div class="col-4">
-                                                <small class="">
-                                                    <a class="text-red" a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    {% endif %}
+                                    <!--end footer-->
                                 </div>
-                                <!--end footer-->
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
-                    <!--end row-->
                 </div>
             </div>
         </div>
-    </div>
     {% endblock %}
 
     {% block postloadjs %}

@@ -3,7 +3,7 @@
 from django import forms
 from django.forms.widgets import HiddenInput
 from .widgets import CustomClearableFileInput
-from .models import Product, Category, Size, Forsix
+from .models import Product, Category, Size, Forsix, Review
 
 
 class ProductForm(forms.ModelForm):
@@ -26,7 +26,7 @@ class ProductForm(forms.ModelForm):
 
 
 class SizeForm(forms.ModelForm):
-    """Form for the Size model
+    """Form for the Size model for6for12for24
     """
 
     class Meta:
@@ -51,3 +51,12 @@ class ForsixForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget = forms.HiddenInput()
         self.fields['product'].widget = forms.HiddenInput()
+
+
+class ReviewForm(forms.ModelForm):
+    """Form for the Review model
+    """
+
+    class Meta:
+        model = Review
+        fields = ('name', 'review', 'rating')

@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Product, Category, Size, Forsix
+from .models import Product, Category, Size, Forsix, Review
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    model = Review
 
 
 class SizeAdmin(admin.ModelAdmin):
@@ -51,3 +55,4 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Size, SizeAdmin)
 admin.site.register(Forsix, ForsixAdmin)
+admin.site.register(Review, ReviewAdmin)

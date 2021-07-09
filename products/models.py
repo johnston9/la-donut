@@ -3,6 +3,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from profiles.models import UserProfile
 
 
 class Category(models.Model):
@@ -72,6 +73,30 @@ class Forsix(models.Model):
 
     def __str__(self):
         return self.product.name
+
+
+class Review(models.Model):
+    """Review Model for the Product App
+    """
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
+    name = models.CharField(max_length=254)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True)
+    product = models.ForeignKey('Product', null=True, blank=True,
+                                on_delete=models.CASCADE,
+                                related_name='product')
+    review = models.TextField(max_length=1500)
+    rating = models.IntegerField(choices=RATING_CHOICES, default="1")
+
+    def __str__(self):
+        return self.name
 
 
 @receiver(post_save, sender=Product)

@@ -83,7 +83,6 @@
                         <thead class="">
                             <tr>
                                 <th>Messages</th>
-                                <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,21 +91,14 @@
                             <tr>
                                 <td class="p-1 w-100">
                                     <p class="lato text-reddark">{{ comment.comment }}</p>
-                                    <p class="lato text-right text-reddark">{{ comment.name }}</p>
-                                </td>
-                                <td class="p-1 w-100">
-                                    <p class="lato text-reddark">{{ comment.date_posted }}</p>
+                                    <p class="lato text-right text-reddark">{{ comment.name }} - {{ comment.date_posted }}</p>
                                 </td>
                             </tr>
-                            <hr>
                             {% else %}
                             <tr>
                                 <td class="p-1 w-100">
-                                    <p class="">{{ comment.comment }}</p>
-                                    <p class="text-right lato">{{ comment.name }}</p>
-                                </td>
-                                <td class="p-1 w-100">
-                                    <p class="lato text-reddark">{{ comment.date_posted }}</p>
+                                    <p class="latp">{{ comment.comment }}</p>
+                                    <p class="text-right lato">{{ comment.name }} - {{ comment.date_posted }}</p>
                                 </td>
                             </tr>
                             {% endif %}       

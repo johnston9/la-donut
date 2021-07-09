@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js">
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">-->
+{% endblock %}
+
+{% block extra_js %}
+   <script src='https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js'></script>
+   <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js" charset="utf-8"></script>
+<script>
+  $(document).ready(function() {
+    $('#review_box').DataTable( {
+        "ordering": false
+    } );
+} );
+</script>
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -22,7 +40,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+        <div class="col-12 col-sm-6 offset-sm-3 text-center">
             <div class="image-box my-4">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
@@ -37,9 +55,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="item-box mb-4 mt-3">
-                <h3 class="">{{ product.name }}</h3>
+        <div class="col-12">
+            <div class="item-box mb-4 mt-3 text-center">
+                <h3 class="">{{ product.name }}{{ reviews }}</h3>
                 <p class="mt-3">{{ product.description }}</p>
                 {% if product.rating %}
                 <p class="text-gold">{{ product.rating }} <i class="fas fa-star"></i></p>
@@ -123,9 +141,9 @@
                             {% endif %}
                         </div>
                         <!--Quantity-->
-                        <div class="col-12">
+                            <div class="col-6 offset-3 col-md-4 offset-md-4 col-lg-2 offset-lg-5 text-center mt-2 mb-0">
                             <p class="mt-2 text-softblack"><strong>Quantity:</strong></p>
-                            <div class="form-group w-50">
+                            <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-quantity rounded-0" 
@@ -149,65 +167,120 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            </div>
                         <div class="col-12">
-                            <input type="submit" id="quantity_but" class="btn bg-gold text-black" value="Add to Bag">
-                            <a href="{% url 'shop' %}" class="btn gg-gold text-black my-2">
-                                <span class="upper">Back to Shop</span>
-                                <span class="icon">
-                                    <i class="fas fa-chevron-right"></i>
-                                </span>
+                            <input type="submit" id="quantity_but" class="px-3 mr-3 lato btn bg-gold text-black font-weight-bold my-2" value="Add to Bag">
+                            <a href="{% url 'shop' %}" class="ml-3 btn bg-gold text-black my-2">
+                                <span class="lato font-weight-bold">Back to Shop</span>
                             </a>
                             <input type="hidden" name="redirect_url" value="{{ back_to_cats }}">
                             <!--<input type="hidden" name="redirect_url" value="{{ request.path }}">-->
                         </div>
                     </div>
                 </form>
-                <p>Add Rating</p>
                 <!--find similiar-->
                 {% if product.category %}
-                <p class="small mt-1">
-                    <a class="" href="{% url 'shop' %}?category={{ product.category.name }}">
-                        Find similiar products in the {{ product.category.friendly_name }} range.
-                    </a>
+                <p class="small mt-1">Find similiar products in the
+                    <a class="text-reddark" href="{% url 'shop' %}?category={{ product.category.name }}">
+                        {{ product.category.friendly_name }}
+                    </a> range.
                 </p>
                 {% endif %}
+                <div class="row">
+                <div class="col-6 text-center mx-sm-0 pr-0 pl-0">
+                <h5 class="">
+                    <a class="text-reddark" href="{% url 'review' product.id %}">Add Review</a>
+                </h5>
+                </div>
+                <div class="col-6 text-center mx-sm-0 pr-0 pl-0">
+                <h5 id="reviews_button" class="text-reddark">
+                    Read Reviews
+                </h5>
+                </div>
+                </div>
                 {% if request.user.is_superuser %}
+                <section class="admin">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 offset-sm-3">
+                            <hr>
+                            <h5 class="upper lato text-black my-0 text-center font-weight-bold">Admin</h5>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 offset-sm-3 text-center">
                             <small class="">
-                                <a href="{% url 'edit_product' product.id %}">Edit Product</a>
+                                <a class="lato text-softblack font-weight-bold" href="{% url 'edit_product' product.id %}">Edit Product</a>
                             </small>
                         </div>
-                        
-                        <div class="col-4">
+                    </div>
+                    <div class="row">                                            
+                        <div class="col-12 col-sm-6 offset-sm-3 text-center">
                             <!--edit size prices-->
                             {% if product.is_sizes %}
                                 <small class="">
-                                    <a href="{% url 'sizeprice_edit' product.id %}">Edit Prices</a>
+                                    <a class="lato text-softblack font-weight-bold" href="{% url 'sizeprice_edit' product.id %}">Edit Prices</a>
                                 </small>
                             {% endif %}
                             <!--edit forsix prices-->
                             {% if product.is_for_six %}
                                 <small class="">
-                                    <a href="{% url 'forsixprice_edit' product.id %}">Edit Prices</a>
+                                    <a class="lato text-softblack font-weight-bold" href="{% url 'forsixprice_edit' product.id %}">Edit Prices</a>
                                 </small>
                             {% endif %}
                         </div>
-                        <div class="col-4">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 offset-sm-3 text-center">
                             <small class="">
-                                <a class="text-red" a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                <a class="lato font-weight-bold text-red" a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                             </small>
                         </div>
                     </div>
+                </section>
                 {% endif %}
+        </div>
+    </div>
+    </div>
+    <!--reviews-->
+    <div id="review_section" class="d-none">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+                <div class="table-responsive rounded">
+                    <table id="review_box" class="table table-sm table-striped table-borderless" cellspacing="0" width="100%">
+                        <thead class="">
+                            <tr>
+                                <th>Reviews</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for review in reviews %}              
+                            <tr>
+                                <td class="p-1 w-100">
+                                    <p class="lato text-reddark">{{ review.rating }}</p>
+                                    <p class="lato text-reddark">{{ review.review }}</p>
+                                    <p class="lato text-right text-reddark">{{ review.name }}</p>
+                                </td>
+                            </tr>
+                            <hr>    
+                        {% endfor %} 
+                    </tbody>                      
+                    </table>   
+                </div>
             </div>
         </div>
     </div>
-</div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_selector_script.html' %}
+<script>
+    $(document).ready(function () {
+        $("#reviews_button").click(function () {
+            $("#review_section").toggleClass("d-none");
+        });
+    })
+</script>
 {% endblock %}
