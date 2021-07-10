@@ -167,6 +167,17 @@ hr.grey100 {
     text-decoration: none;
 }
 
+.btn-menu {
+    color: #3a4bb1;
+    font-weight: 700;
+    /*color: #007bff;*/
+}
+
+.btn-menu:hover {
+    color: rgb(255,215,0);
+    text-decoration: none;
+}
+
 .delete-button a:hover {
     color: rgb(232, 240, 254);
     font-weight: 700;
@@ -458,6 +469,12 @@ input[type=checkbox], input[type=radio] {
 
 /*--shop page--*/
 
+.btn.dropdown-toggle.select-btn {
+    background-color: #f8f9fa;
+    color: #353d46;
+    border-color: #f8f9fa;
+}
+
 .product-container {
     width: 100%;
 }
@@ -480,6 +497,7 @@ input[type=checkbox], input[type=radio] {
     color: #353d46;
     background-color: #e8ecf0;
     border-color: #e8ecf0;
+    /*color: #007bff;*/
 }
 
 /*--search--*/
@@ -695,4 +713,16 @@ input[name='q']::placeholder {
         margin-right: 0px !important;
         margin-left: 0px !important;
     }
+
+    #banner h4 {
+        font-size: .75rem;
+    }
+
+    .header-container {
+        padding-top: 200px;
+    }
+
+    .cake-select-label {
+        height: 92px;
+        }
   }

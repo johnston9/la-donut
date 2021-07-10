@@ -97,13 +97,13 @@ class Forsix(models.Model):
 class Review(models.Model):
     """Review Model for the Product App
     """
-    RATING_CHOICES = (
+    RATING_CHOICES = [
         (1, '1'),
         (2, '2'),
         (3, '3'),
         (4, '4'),
         (5, '5'),
-    )
+    ]
 
     name = models.CharField(max_length=254)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,

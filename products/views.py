@@ -60,6 +60,76 @@ def shop(request):
     return render(request, 'products/shop.html', context)
 
 
+def cakes_menu(request):
+    """ A view to render the shop page using the cakes and desserts \
+        select menu"""
+
+    products = Product.objects.all()
+    sizes = Size.objects.all()
+    forsixs = Forsix.objects.all()
+    categories = None
+
+    if request.GET:
+        category_name = request.GET['cakes_deserts']
+        products = products.filter(category__name=category_name)
+        categories = Category.objects.filter(name=category_name)
+
+    context = {
+        'products': products,
+        'forsixs': forsixs,
+        'sizes': sizes,
+        'categories_selected': categories,
+    }
+
+    return render(request, 'products/shop.html', context)
+
+
+def buns_menu(request):
+    """ A view to render the shop page using the Buns select menu"""
+
+    products = Product.objects.all()
+    sizes = Size.objects.all()
+    forsixs = Forsix.objects.all()
+    categories = None
+
+    if request.GET:
+        category_name = request.GET['buns']
+        products = products.filter(category__name=category_name)
+        categories = Category.objects.filter(name=category_name)
+
+    context = {
+        'products': products,
+        'forsixs': forsixs,
+        'sizes': sizes,
+        'categories_selected': categories,
+    }
+
+    return render(request, 'products/shop.html', context)
+
+
+def box_menu(request):
+    """ A view to render the shop page using the buns select menu"""
+
+    products = Product.objects.all()
+    sizes = Size.objects.all()
+    forsixs = Forsix.objects.all()
+    categories = None
+
+    if request.GET:
+        category_name = request.GET['box']
+        products = products.filter(category__name=category_name)
+        categories = Category.objects.filter(name=category_name)
+
+    context = {
+        'products': products,
+        'forsixs': forsixs,
+        'sizes': sizes,
+        'categories_selected': categories,
+    }
+
+    return render(request, 'products/shop.html', context)
+
+
 def view_item(request, product_id):
     """ A view to display each product's details """
 

@@ -13,7 +13,7 @@
 <div class="container-fluid shop-container w-100 h-100">
     <!--title-->
     <div class="row">
-        <div class="col text-center mt-1">
+        <div class="col text-center mt-0">
             <h2 class="playball">The Goodies</h2>
             <ul class="list-inline">
                 {% for item in categories_selected %}
@@ -30,36 +30,108 @@
         <!--menu button-->
         <div class="row mb-1">
             <div class="col">
-                <button id="hide-menu-button" class="bg-gold">Close Menu</button>
+                <button id="hide-menu-button" class="btn btn-blue px-2 pt-1 pb-1">Close Menu</button>
             </div>
         </div>
         <div class="row">
             <!--menu-->
             <div class="col-lg-3">
-                <form method="GET" action="">
-                    <div class="">
-                        <div class="select-label text-grey upper">
-                            <p>type</p>
-                            <hr class="grey70" />
-                        </div>
-                        <select id="type_picker" class="selectpicker mt-5" multiple name="type"
-                            aria-label="type select picker" data-style="select-btn">
-                            <option value="">bun</option>
-                            <option value="">cake</option>
-                            <option value="">desert</option>
-                            <option value="">croissant</option>
-                        </select>
+                <h4 class="playball text-center mt-1 my-1">Menu</h4>
+                <hr class="gold70 mb-3">
+                <p class="text-center d-none">Select a category and see items below.</p>
+                <div class="row">
+                    <div class="col-4 col-lg-12">
+                        <!--cakes and desserts menu-->
+                        <form method="GET" action="{% url 'cakes_menu' %}">
+                            <div class="">
+                                <div class="text-center cake-select-label select-label text-black playball mb-0">
+                                    <h5>Cakes and Deserts</h5>
+                                </div>
+                                <select id="cake_picker" class="mx-auto selectpicker" data-width="100%" name="cakes_deserts"
+                                    aria-label="type select picker" data-style="select-btn">
+                                    <option value="cakes">Cakes</option>
+                                    <option value="cheese_cakes">Cheesecakes</option>
+                                    <option value="desserts">Desserts</option>
+                                    <option value="occasion_cakes">Occasion Cakes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="text-center px-0 mx-0 col-12 col-sm-6">
+                                    <button class="btn btn-menu  px-1" type="submit"
+                                    aria-label="Submit Button">Find</button>
+                                </div>
+                                <div class="text-center px-0 mx-0 col-12 col-sm-6">
+                                    <p id="refresh-cake" class=" btn btn-menu px-1"
+                                    aria-label="Refresh Button">Refresh</p>
+                                </div>
+                            </div>
+                            <hr class="grey70 mt-0 mb-2" />
+                        </form>
                     </div>
-                    <div class="mt-5">
-                        <button class="btn px-5 bg-info text-black" type="submit"
-                            aria-label="Submit Button">Find</button>
+                    <div class="col-4 col-lg-12">
+                        <!--buns menu-->
+                        <form method="GET" action="{% url 'buns_menu' %}">
+                            <div class="">
+                                <div class="text-center cake-select-label mb-0 select-label text-grey playball">
+                                    <h5>Buns, Creamy Treats</h5>
+                                </div>
+                                <select id="buns_picker" class="selectpicker" data-width="100%" name="buns"
+                                    aria-label="type select picker" data-style="select-btn">
+                                    <option value="creamy_treats">Creamy Treats</option>
+                                    <option value="donuts">Donuts</option>
+                                    <option value="muffins">Muffins</option>
+                                    <option value="cookies">Cookies</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="text-center px-0 mx-0 col-12 col-sm-6">
+                                    <button class="btn  btn-menu px-1" type="submit"
+                                    aria-label="Submit Button">Find </button>
+                                </div>
+                                <div class="text-center px-0 mx-0 col-12 col-sm-6">
+                                    <p id="refresh-buns" class=" btn btn-menu px-1"
+                                    aria-label="Refresh Button">Refresh</p>
+                                </div>
+                            </div>
+                            <hr class="grey70 mt-0 mb-2" />
+                        </form>
                     </div>
-                    <!--refresh button-->
-                    <div class="mt-5">
-                        <button id="refresh-type" class="btn px-5 bg-info text-black"
-                            aria-label="Refresh Button">Refresh</button>
+                    <div class="col-4 col-lg-12">
+                        <!--boxes menu-->
+                        <form method="GET" action="{% url 'box_menu' %}">
+                            <div class="">
+                                <div class="text-center playball cake-select-label mb-0 select-label text-grey">
+                                    <h5>Selecton Boxes</h5>
+                                </div>
+                                <select id="box_picker" class="selectpicker" name="box" data-width="100%"
+                                    aria-label="selection box select picker" data-style="select-btn">
+                                    <option value="creamy_treats_box">Creamy Treats Box</option>
+                                    <option value="office_box">Office Box</option>
+                                    <option value="breakfast_box">Breakfast Box</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="text-center px-0 mx-0 col-12 col-sm-6">
+                                    <button class="btn btn-menu px-1 " type="submit"
+                                    aria-label="Submit Button">Find </button>
+                                </div>
+                                <div class="text-center px-0 mx-0 col-12 col-sm-6">
+                                    <p id="refresh-box" class=" btn btn-menu px-1"
+                                    aria-label="Refresh Button">Refresh</p>
+                                </div>
+                            </div>
+                        </form>
+                        <hr class="grey70 mt-0 mb-2" />
                     </div>
-                </form>
+                </div>
+                <div class="row">
+                    <div class="col text-center mb-3">
+                        <!--<button class="btn btn-blue px-3 mb-2 pt-1 pb-1"> 
+                            <a class="playball" href="{% url 'shop' %}">All Products <i class="fas fa-chevron-right"></i></a>
+                        </button>-->
+                        <a class="playball" href="{% url 'shop' %}">All Products <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
             </div>
             <!--products-->
             <div class="col-lg-9">
@@ -87,7 +159,7 @@
                     <div class="row">
                         {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div id="card" class="card mt-3">
+                            <div id="card" class="card mt-0">
                                 {% if product.image %}
                                 <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}"
@@ -287,15 +359,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-    
+        </div>    
                                                 
-
     <div id="no-menu-con" class="d-none no-menu-product-container">
         <!--menu button-->
         <div class="row mb-1">
             <div class="col">
-                <button id="show-menu-button" class="bg-gold">Open Menu</button>
+                <button id="show-menu-button" class="btn-blue px-2 pt-1 pb-1">Open Menu</button>
             </div>
         </div>
         <div class="row">
@@ -522,24 +592,18 @@
                 </div>
             </div>
         </div>
+</div>
     {% endblock %}
 
     {% block postloadjs %}
     {{ block.super }}
     {% include 'products/includes/quantity_selector_script.html' %}
-    <!--<script>    
-$('#refresh-type').on("click", function(){
-  $("#type_picker").selectpicker('deselectAll');
-});
-</script>-->
-    <!--$('.selectpicker').selectpicker();-->
+    
     <script>
         $(document).ready(function () {
-            var menu = true
             $("#hide-menu-button").click(function () {
                 $("#menu-con").toggleClass("d-none");
                 $("#no-menu-con").toggleClass("d-none");
-                var menu = false
             });
             $("#show-menu-button").click(function () {
                 $("#no-menu-con").toggleClass("d-none");
@@ -547,6 +611,26 @@ $('#refresh-type').on("click", function(){
             });
         })
     </script>
+    
+    <script>
+        $(document).ready(function () {
+            $('#refresh-cake').on("click", function () {
+                $("#cake_picker").selectpicker('val', '');
+            });
+            $('#refresh-buns').on("click", function () {
+                $("#buns_picker").selectpicker('val', '');
+            });
+            $('#refresh-box').on("click", function () {
+                $("#box_picker").selectpicker('val', '');
+            });
+        })
+    </script>
+    <!--<script>    
+    $('#refresh-type').on("click", function(){
+    $("#type_picker").selectpicker('deselectAll');
+    });
+    </script>-->
+    <!--$('.selectpicker').selectpicker();-->
     <!--<script>
     $(document).ready(function(){
       $("#hide-menu-button").click(function(){
@@ -559,10 +643,5 @@ $('#refresh-type').on("click", function(){
       });
     
     })
-</script>-->
-    <script>
-        $('#refresh-type').on("click", function () {
-            $("#type_picker").selectpicker('val', '');
-        });
-    </script>
-    {% endblock %}
+    </script>-->
+{% endblock %}
