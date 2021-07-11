@@ -32,9 +32,9 @@ def shop(request):
             products = products.order_by(sort)
 
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            category_name = request.GET['category'].split(',')
+            products = products.filter(category__name__in=category_name)
+            categories = Category.objects.filter(name__in=category_name)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -70,9 +70,12 @@ def cakes_menu(request):
     categories = None
 
     if request.GET:
-        category_name = request.GET['cakes_deserts']
-        products = products.filter(category__name=category_name)
-        categories = Category.objects.filter(name=category_name)
+        category_name = request.GET['cakes_deserts'].split(',')        
+        products = products.filter(category__name__in=category_name)        
+        categories = Category.objects.filter(name__in=category_name)
+        # category_name = request.GET['cakes_deserts']
+        # products = products.filter(category__name=category_name)
+        # categories = Category.objects.filter(name=category_name)
 
     context = {
         'products': products,

@@ -53,6 +53,7 @@
                                     <option value="cheese_cakes">Cheesecakes</option>
                                     <option value="desserts">Desserts</option>
                                     <option value="occasion_cakes">Occasion Cakes</option>
+                                    <option value="cakes,cheese_cakes,desserts,occasion_cakes">All Cakes and Desserts</option>
                                 </select>
                             </div>
                             <div class="row">
@@ -72,8 +73,8 @@
                         <!--buns menu-->
                         <form method="GET" action="{% url 'buns_menu' %}">
                             <div class="">
-                                <div class="text-center cake-select-label mb-0 select-label text-grey playball">
-                                    <h5>Buns, Creamy Treats</h5>
+                                <div class="text-center cake-select-label mb-0 select-label text-black playball">
+                                    <h5 class="mb-2">Buns, Creamy Treats</h5>
                                 </div>
                                 <select id="buns_picker" class="selectpicker" data-width="100%" name="buns"
                                     aria-label="type select picker" data-style="select-btn">
@@ -81,6 +82,7 @@
                                     <option value="donuts">Donuts</option>
                                     <option value="muffins">Muffins</option>
                                     <option value="cookies">Cookies</option>
+                                    <option value="creamy_treats,donuts,muffins,cookies">All Buns and Treats</option>
                                 </select>
                             </div>
                             <div class="row">
@@ -100,14 +102,15 @@
                         <!--boxes menu-->
                         <form method="GET" action="{% url 'box_menu' %}">
                             <div class="">
-                                <div class="text-center playball cake-select-label mb-0 select-label text-grey">
-                                    <h5>Selecton Boxes</h5>
+                                <div class="text-center playball cake-select-label mb-0 select-label text-black">
+                                    <h5 class="mb-2" >Selecton Boxes</h5>
                                 </div>
                                 <select id="box_picker" class="selectpicker" name="box" data-width="100%"
                                     aria-label="selection box select picker" data-style="select-btn">
                                     <option value="creamy_treats_box">Creamy Treats Box</option>
                                     <option value="office_box">Office Box</option>
                                     <option value="breakfast_box">Breakfast Box</option>
+                                    <option value="creamy_treats_box,office_box,breakfast_box">All Boxes</option>
                                 </select>
                             </div>
                             <div class="row">
@@ -129,7 +132,7 @@
                         <!--<button class="btn btn-blue px-3 mb-2 pt-1 pb-1"> 
                             <a class="playball" href="{% url 'shop' %}">All Products <i class="fas fa-chevron-right"></i></a>
                         </button>-->
-                        <a class="playball" href="{% url 'shop' %}">All Products <i class="fas fa-chevron-right"></i></a>
+                        <a class="playball btn-menu" href="{% url 'shop' %}">All Products <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -177,27 +180,31 @@
                                         <div class="col mx-0 px-0">
                                             <div class="item-name">
                                             <p
-                                                class="text-black lead mb-2 mx-0 px-0 font-weight-bold text-center pb-0 mb-1">
+                                                class="text-black lead mx-0 px-0 font-weight-bold text-center">
                                                 {{ product.name }}</p>
                                             </div>
-                                                <div class="row"></div>
-                                                {% if product.category %}
+                                            {% if product.category %}
                                                 <small class="category-shop">
                                                     <a class="playball text-grey"
                                                         href="{% url 'shop' %}?category={{ product.category.name }}">
                                                         {{ product.category.friendly_name }}
                                                     </a>
                                                 </small>
-                                                {% endif %}
+                                            {% endif %}
                                             {% if product.rating %}
+                                                <p class="text-gold">{{ product.avg_rating|floatformat:1 }} <i class="text-gold2 fas fa-star"></i></p>
+                                            {% else %}
+                                                <p class="playball text-muted">No Ratings Yet</p>
+                                            {% endif %} 
+                                            <!--{% if product.rating %}
                                             {% if product.avg_rating > 1 %}
                                             <p class="text-gold">{{ product.avg_rating|floatformat:1 }} <i class="text-gold2 fas fa-star"></i></p>
                                             {% else %}
                                             <p class="playball text-gold">No Ratings Yet</p>
                                             {% endif %}
-                                            {% endif %}
+                                            {% endif %}-->
                                             <!--form-->
-                                            <div class="text-center">
+                                            <div class="ml-2">
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
@@ -258,12 +265,12 @@
                                                             {% endfor %}
                                                         {% else %}
                                                         <!--web price-->
-                                                        <h3 class="text-black">E{{ product.web_price }} </h3>
+                                                        <h3 class="mt-3">E{{ product.web_price }} </h3>
                                                         {% endif %}
                                                     </div>
                                                 </div>
                                                 <!--quan new-->
-                                                <div class="row">
+                                                <!--<div class="row">
                                                     <div class="col-6 offset-3 col-md-8 offset-md-2 text-center mt-2 mb-0">
                                                         <div class="form-group pl-0 ml-0">
                                                             <div class="input-group pl-0 ml-0">
@@ -286,19 +293,17 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
+                                                    </div>-->
                                                     <!--buttons-->
-                                                    <div class="form-row">
-                                                        <div class="col-4 offset-4">
+                                                    <div class="form-row mt-3">
+                                                        <div class="col-4 offset-1">
                                                             <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 text-black rounded-0"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-8 offset-2 mt-3">
-                                                            <div class="view w-100 bg-gold text-center">
+                                                        <div class="col-4 offset-1">
+                                                            <div class="view bg-gold text-center">
                                                             <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                                                 <spam class="font-weight-bold text-black my-0"> View</spam>
                                                             </a>
@@ -423,14 +428,14 @@
                                                         {{ product.category.friendly_name }}.
                                                     </a>
                                                 </small>
-                                                {% endif %}
+                                            {% endif %}
                                             {% if product.rating %}
                                             <p class="text-gold">{{ product.avg_rating|floatformat:1 }} <i class="text-gold2 fas fa-star"></i></p>
                                             {% else %}
                                             <p class="playball text-muted">No Ratings Yet</p>
                                             {% endif %}                   
                                             <!--form-->
-                                            <div class="text-center">
+                                            <div class="">
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
@@ -490,12 +495,12 @@
                                                                 {% endif %}
                                                             {% endfor %}
                                                         {% else %}
-                                                            <h3 class="text-black">E{{ product.web_price }} </h3>
+                                                            <h3 class="mt-3">E{{ product.web_price }} </h3>
                                                         {% endif %}
                                                     </div>
                                                 </div>
                                                 <!--quan new-->
-                                                <div class="row">
+                                                <!--<div class="row">
                                                     <div class="col-6 offset-3 col-md-8 offset-md-2 text-center mt-2 mb-0">
                                                         <div class="form-group pl-0 ml-0">
                                                             <div class="input-group pl-0 ml-0">
@@ -518,18 +523,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
+                                                    </div>-->
                                                     <!--buttons-->
-                                                    <div class="form-row">
-                                                        <div class="col-4 offset-4">
+                                                    <div class="form-row mt-3">
+                                                        <div class="col-4 offset-1">
                                                             <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 text-black rounded-0"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-8 offset-2 mt-3">
+                                                        <div class="col-4 offset-1">
                                                             <div class="view w-100 bg-gold text-center">
                                                             <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                                                 <spam class="font-weight-bold text-black my-0"> View</spam>

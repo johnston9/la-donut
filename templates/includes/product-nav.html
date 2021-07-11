@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav lato w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="upper font-weight-bold nav-link mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
@@ -14,7 +14,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="upper font-weight-bold nav-link text-grey mr-3" href="#" id="box-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link text-grey mr-3" href="#" id="box-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Selection Boxes
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
@@ -27,7 +27,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="upper font-weight-bold nav-link text-grey mr-3" href="#" id="cakes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link text-grey mr-3" href="#" id="cakes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Cakes and Desserts
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
@@ -35,12 +35,12 @@
                 <a href="{% url 'shop' %}?category=cheese_cakes" class="dropdown-item">Cheesecakes</a>
                 <a href="{% url 'shop' %}?category=desserts" class="dropdown-item">Desserts</a>
                 <a href="{% url 'shop' %}?category=occasion_cakes" class="dropdown-item">Occasion Cakes</a>
-                <a href="{% url 'shop' %}?category=cheese_cakes,deserts,occasion_cakes" class="dropdown-item">All Cakes and Desserts</a>
+                <a href="{% url 'shop' %}?category=cheese_cakes,cakes,deserts,occasion_cakes" class="dropdown-item">All Cakes and Desserts</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="upper font-weight-bold nav-link text-grey mr-3" href="#" id="buns-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link text-grey mr-3" href="#" id="buns-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Buns, Creamy Treats
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
@@ -53,13 +53,19 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="upper font-weight-bold nav-link text-grey" href="#" id="chat-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Recipes/Chat
+            <a class="font-weight-bold nav-link text-grey mr-3" href="#" id="chat-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Recipes
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <a href="{% url 'recipe' %}" class="dropdown-item">Recipes</a>
-                <a href="{% url 'chat' %}" class="dropdown-item">Chat - Comments and Questions</a>
-                <a href="{% url 'shop' %}?category=vegan" class="dropdown-item">Vegan</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="font-weight-bold nav-link text-grey" href="#" id="chat-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Chat
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
             </div>
         </li>
     </ul>

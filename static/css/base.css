@@ -59,7 +59,13 @@ body {
 
 .topnav-link {
     display: block;
-    padding: .5rem 1rem;
+    padding-top: .5rem;
+    /*padding: .5rem 1rem;*/
+}
+
+.topnav-link:hover {
+    text-decoration: none;
+    color: rgb(119, 129, 24);
 }
 
 .navbar-nav .nav-link {
@@ -168,9 +174,8 @@ hr.grey100 {
 }
 
 .btn-menu {
-    color: #3a4bb1;
     font-weight: 700;
-    /*color: #007bff;*/
+    color: rgb(140, 111, 25, 99%);
 }
 
 .btn-menu:hover {
@@ -515,6 +520,7 @@ input[name='q']::placeholder {
 }
 
 /*-- search form --*/
+
 .input-group>.custom-file.inner-search, 
 .input-group>.custom-select.inner-search, 
 .input-group>.form-control.inner-search, 
@@ -530,6 +536,16 @@ input[name='q']::placeholder {
 .input-group>.form-control-plaintext.view-it {
     height: 26px !important;
     color: #000 !important;
+}
+
+/*--quantity selector for shop page--*/
+.input-group>.custom-file.bag-quantity, 
+.input-group>.custom-select.bag-quantity, 
+.input-group>.form-control.bag-quantity, 
+.input-group>.form-control-plaintext.bag-quantity {
+    height: 26px !important;
+    color: #000 !important;
+
 }
 
 /*--quantity selector for shop page--*/
@@ -550,9 +566,14 @@ input[name='q']::placeholder {
 
 .view {
     height: 26px;
+    padding-top: 1px;
 }
 
 /* ---------------------View Item page---------- */
+
+div.dataTables_wrapper div.dataTables_length label {
+    display: none; 
+}
 
 #reviews_button {
     cursor: pointer;
@@ -705,7 +726,6 @@ input[name='q']::placeholder {
     }
   }
 
-/* nav links */
 @media (max-width: 600px) {
     .topnav-link {
         padding-right: 0px !important;
@@ -723,6 +743,6 @@ input[name='q']::placeholder {
     }
 
     .cake-select-label {
-        height: 92px;
+        height: 92px;;
         }
   }
