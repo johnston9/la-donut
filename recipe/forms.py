@@ -20,8 +20,8 @@ class RecipeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields['ingredients'].label = 'Please add each ingredient\
-            to a new line'
+        self.fields['ingredients'].label = 'Please add a comma\
+            after each ingredient'
 
 
 class CommentForm(forms.ModelForm):
@@ -37,7 +37,8 @@ class CommentForm(forms.ModelForm):
 
         self.fields['comment'].widget.attrs.update(style='max-height: 5em')
         self.fields['name'].widget.attrs.update(style='max-width: 15em')
-        self.fields['comment'].widget.attrs['placeholder'] = 'Comments or Questions'
+        self.fields['comment'].widget.attrs['placeholder'] = 'Comments or \
+            Questions'
         self.fields['name'].widget.attrs['placeholder'] = 'Name'
         self.fields['comment'].label = False
         self.fields['name'].label = False

@@ -14,30 +14,66 @@
         <!--title-->
         <div class="row">
             <div class="col text-center mt-1">
-                <h2 class="playball">Product Management</h2>
+                <h2 class="playball">Add a Product</h2>
                 <hr class="gold50 mb-1">
             </div>
         </div>
-
         <div class="row">
-            <div class="col-12">
-                <h5 class="text-muted">Add a Product</h5>
-                <p class="text-black">
-                    For products with size prices select <strong>Is Sizes</strong><br> 
-                    For products with box quantity prices select <strong>Is For Six</strong><br> 
-                    On submit you will then be taken to the <strong>Add Prices</strong> form
-                </p>
-                <p class="text-red">Important! You must only select either Is Sizes
-                    or Is For Six for each product</p>
-                <p>For optimum visual balance use please resize your images on\
-                    <a class="text-red" href="https://img-resize.com/">img-resize</a>\
-                    or similar site to to 450px by 300px. Find instructions on how to \
-                    simply do this <a class="text-red" href="">here</a>.
-                </p>
+            <div class="col-12 col-lg-6 text-center">
+                <p>Please read instructions</p>
+                <button id="show_instructions" class="btn-blue px-2 pt-1 pb-1">Instructions</button>
             </div>
-            <div class="col-12 col-lg-6">
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 col-lg-6 order-lg-2">
+                <div id="instructions_box" class="d-none">
+                    <div class="mb-4">
+                        <small class="text-muted">Instructions</small>
+                    </div>
+                <p>Please ensure images are 450px by 300px.<br>
+                    You can resize your images on
+                    <a class="" href="https://img-resize.com/">img-resize</a> or a similar site. <br>
+                    Find details <a class="" href="">here</a>.
+                </p>
+                
+                <p class="">Select Is Sizes for items with Size prices <br>
+                            Select Is For Six for items with box quantity prices.<br>
+                            Only select one for each product.<br>
+                            Upon submit fill in prices form.
+                </p>
+                <p>The Required Web Price is the price for:
+                    items sold individually. <br>
+                    the <em>medium</em> price on Size items.<br>
+                    the <em>for-six</em> price on Box items.</p>
+                <hr>
+                </div>
+            
+            </div>
+            <div class="col-12 col-lg-6 order-lg-1">
+                <div class="text-center mb-3">
+                <small class="text-muted text-center">Form</small>
+                </div>
                 <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
+                        <p>Is Sizes</p>
+                        <div class="form-check mb-0">
+                            <label class="form-check-label" for="is_sizes">
+                                <input type="checkbox" class="form-check-input" id="is_sizes"
+                                    name="is_sizes" value="is_sizes">
+                                Check if item has size prices. 
+                            </label>
+                        </div>
+                        <hr>
+                        <p>Is For Six</p>
+                        <div class="form-check mb-0">
+                            <label class="form-check-label" for="is_for_six">
+                                <input type="checkbox" class="form-check-input" id="is_for_six"
+                                    name="is_for_six" value="is_for_six">
+                                Check if item has box quantity prices. 
+                            </label>
+                        </div>
+                        <hr>
                     {% for field in form %}
                         {% if field.name != 'image' %}
                             {{ field | as_crispy_field }}
@@ -45,11 +81,12 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
+                    <hr class="my-4">
                     <div class="row">
-                        <div class="col text-center">
+                        <div class="col mx-0 px-0 text-center">
                             <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
                         </div>
-                        <div class="col text-center">                   
+                        <div class="col mx-0 px-0 text-center">                   
                             <button class="btn btn-gold" name="product_form" type="submit">Add Product</button>
                         </div>
                     </div>
@@ -63,9 +100,18 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
+    /*Function to show the name of the new image file*/
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];
             $('#filename').text(`Image will be set to: ${file.name}`);
         });
+    </script>
+    <script>
+        /*Function to show and hide the instructions box*/
+        $(document).ready(function () {
+            $("#show_instructions").click(function () {
+                $("#instructions_box").toggleClass("d-none");
+            });
+        })
     </script>
 {% endblock %}

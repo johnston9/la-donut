@@ -184,23 +184,33 @@ def add_product(request):
         return redirect(reverse('shop'))
 
     if request.method == 'POST':
+        if 'is_sizes' in request.POST and 'is_for_six' in request.POST:
+            messages.error(request, 'Please only select either Is Sizes \
+                or Is For Six for each product')
+            return redirect(reverse('add_product'))
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            product = form.save()
+            product = form.save(commit=False)
+            if 'is_sizes' in request.POST:
+                product.is_sizes = True
+                print('is_sizes')
+            if 'is_for_six' in request.POST:
+                product.is_for_six = True
+                print('is_for_six')
+            product.save()
             if product.is_for_six:
                 messages.info(request, 'Product added now add the box\
                     quantity prices')
-                # return redirect('cost_forsix', args=[newproduct.id])
+                # return redirect('cost_forsix', args=[product.id])
                 return redirect('cost_forsix', product_id=product.id)
             elif product.is_sizes:
                 messages.info(request, 'Product added now add the size\
                     prices')
-                # return redirect('price_size', args=[newproduct.id])
+                # return redirect('price_size', args=[product.id])
                 return redirect('price_size', product_id=product.id)
             else:
                 messages.info(request, 'Product added successfully')
                 return redirect(reverse('view_item', args=[product.id]))
-                # return redirect(reverse('add_product'))
 
         else:
             messages.error(request, 'Failed to add product.\

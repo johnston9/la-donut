@@ -35,19 +35,16 @@ class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True,
                                  on_delete=models.SET_NULL)
     name = models.CharField(max_length=254, default="", blank=False)
-    flavour = models.CharField(max_length=254, default="", blank=True)
     description = models.TextField()
-    shop_price = models.DecimalField(max_digits=6, decimal_places=2,
-                                     null=True, blank=True)
     web_price = models.DecimalField(max_digits=6, decimal_places=2,
                                     null=False, blank=False, default=0)
     is_for_six = models.BooleanField(default=False, null=True, blank=True)
     is_sizes = models.BooleanField(default=False, null=True, blank=True)
     rating = models.IntegerField(null=True, blank=True)
+    allergens = models.CharField(max_length=254, default="", blank=True)
+    is_vegan = models.BooleanField(default=False, null=True, blank=True)
     image_url = models.URLField(max_length=1024, default="", blank=True)
     image = models.ImageField(null=True, blank=True)
-    storage = models.CharField(max_length=254, default="", blank=True)
-    is_vegan = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
         return self.name

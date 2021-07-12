@@ -14,14 +14,14 @@
         <!--title-->
         <div class="row">
             <div class="col text-center mt-1">
-                <h2 class="playball">Product Management</h2>
+                <h2 class="playball">Edit a Product</h2>
                 <hr class="gold50 mb-1">
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 col-lg-6">
-                <h5 class="text-muted my-3">Edit a Product</h5>
+                <h4 class="text-black my-3">{{ product.name }}</h4>
                 <small class="text-muted my-3">The Product's name, Is Sizes and Is For Six fields may not be edited</small>
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="lato form my-3" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -32,6 +32,7 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
+                    <hr class="my-3">
                     <div class="row">
                         <div class="col text-center">
                             <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>

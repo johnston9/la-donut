@@ -12,7 +12,9 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ('web_price', 'category', 'name', 
+                  'description', 'rating', 'allergens', 
+                  'is_vegan', 'image_url', 'image', )
 
     image = forms.ImageField(label='Image', required=False,
                              widget=CustomClearableFileInput)
@@ -23,6 +25,10 @@ class ProductForm(forms.ModelForm):
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
         self.fields['category'].choices = friendly_names
+        self.fields['web_price'].label = 'Web Price'
+        self.fields['image_url'].label = 'Image url - for back-up image url \
+            from external site.'
+        self.fields['description'].widget.attrs.update(style='max-height: 5em')
 
 
 class SizeForm(forms.ModelForm):
