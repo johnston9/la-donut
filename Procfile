@@ -1,0 +1,1 @@
+web: gunicorn silverDollar.wsgi:application
