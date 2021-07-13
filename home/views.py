@@ -19,3 +19,9 @@ def all(request):
     """ A view to return the all page """
 
     return render(request, 'home/all.html')
+
+
+def resize(request):
+    """ A view to return the resize image instructions page """
+
+    return render(request, 'home/resize.html')
