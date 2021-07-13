@@ -162,7 +162,7 @@ hr.grey100 {
 
 .btn-gold {
     background: rgb(255,215,0);
-    color: rgb(71, 68, 68);
+    color: #000;
     font-weight: 700;
 }
 
@@ -191,7 +191,8 @@ hr.grey100 {
 
 .btn-blue {
     background: rgb(232, 240, 254);
-    color: rgb(71, 68, 68);
+    color: #000;
+    /*color: rgb(71, 68, 68);*/
     font-weight: 700;
 }
 
@@ -692,20 +693,32 @@ div.dataTables_wrapper div.dataTables_length label {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8;  
+	color: #117b8c; 
     font-weight: 700;
 }
 
 #hombut {
-    color: #1a7584;
+    color: #3e3434;
 }
 
 #hombut2 {
-    color: #1a7584;
+    color: #3e3434;
 }
 
 #hombut3 {
-    color: #1a7584;
+    color: #3e3434;
+}
+
+#hombut:hover {
+    color: #fff;
+}
+
+#hombut2:hover {
+    color: #fff;
+}
+
+#hombut3:hover {
+    color: #fff;
 }
 
 .allauth-form-inner-content a:hover {
