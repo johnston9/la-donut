@@ -175,7 +175,7 @@
                                 </a>
                                 {% endif %}
                                 <!--footer-->
-                                <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
+                                <div class="card-footer bg-white px-0 mx-0 border-0">
                                     <div class="row">
                                         <div class="col mx-0 px-0">
                                             <div class="item-name">
@@ -196,13 +196,6 @@
                                             {% else %}
                                                 <p class="playball text-muted">No Ratings Yet</p>
                                             {% endif %} 
-                                            <!--{% if product.rating %}
-                                            {% if product.avg_rating > 1 %}
-                                            <p class="text-gold">{{ product.avg_rating|floatformat:1 }} <i class="text-gold2 fas fa-star"></i></p>
-                                            {% else %}
-                                            <p class="playball text-gold">No Ratings Yet</p>
-                                            {% endif %}
-                                            {% endif %}-->
                                             <!--form-->
                                             <div class="ml-2">
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
@@ -265,7 +258,7 @@
                                                             {% endfor %}
                                                         {% else %}
                                                         <!--web price-->
-                                                        <h3 class="mt-3">E{{ product.web_price }} </h3>
+                                                        <h5 class="mt-3">E{{ product.web_price }} </h5>
                                                         {% endif %}
                                                     </div>
                                                 </div>
@@ -296,13 +289,13 @@
                                                     </div>-->
                                                     <!--buttons-->
                                                     <div class="form-row mt-3">
-                                                        <div class="col-4 offset-1">
+                                                        <div class="col-6 mx-0">
                                                             <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 text-black rounded-0"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
                                                         </div>
-                                                        <div class="col-4 offset-1">
+                                                        <div class="col-6 mx-0">
                                                             <div class="view bg-gold text-center">
                                                             <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
                                                                 <spam class="font-weight-bold text-black my-0"> View</spam>
@@ -413,12 +406,12 @@
                                 </a>
                                 {% endif %}
                                 <!--footer-->
-                                <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
+                                <div class="card-footer bg-white mx-0 border-0">
                                     <div class="row">
                                         <div class="col mx-0 px-0">
-                                            <div class="item-name">
+                                            <div class="item-name text-center">
                                             <p
-                                                class="text-black lead mb-2 mx-0 px-0 font-weight-bold text-center pb-0 mb-1">
+                                                class="text-softblack lead px-0 font-weight-bold pb-0">
                                                 {{ product.name }}</p>
                                             </div>
                                                 {% if product.category %}
@@ -436,7 +429,7 @@
                                             {% endif %}                   
                                             <!--form-->
                                             <div class="">
-                                            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                                            <form class="form ml-2" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
                                                     <div class="col-12 item-prices">
@@ -444,25 +437,25 @@
                                                         {% if product.is_sizes %}
                                                             {% for size in sizes %}
                                                                 {% if size.name == product.name %}
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check text-">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_s">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_s"
                                                                                 name="product_size" value="small_{{ size.small }}">
-                                                                            Small - E{{ size.small }}
+                                                                            <small> Small - <span> E{{ size.small }}</span></small>
                                                                         </label>
                                                                     </div>
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check text-">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_m">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
                                                                                 name="product_size" value="medium_{{ size.medium }}" checked>
-                                                                            Medium - E{{ size.medium }}
+                                                                            Medium - <span> E{{ size.medium }}</span>
                                                                         </label>
                                                                     </div>
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check text-">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_l">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_l"
                                                                                 name="product_size" value="large_{{ size.large }}">
-                                                                            Large - E{{ size.large }}
+                                                                            Large - <span> E{{ size.large }}</span>
                                                                         </label>
                                                                     </div>
                                                                 {% endif %}
@@ -475,21 +468,21 @@
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_6">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
                                                                                 name="product_forsix" value="for6_{{ forsix.for6 }}">
-                                                                            For 6 - E{{ forsix.for6 }}
+                                                                            For 6 - <span> E{{ forsix.for6 }}</span>
                                                                         </label>
                                                                     </div>
                                                                     <div class="pl-2 form-check text-black">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_12">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_12"
                                                                                 name="product_forsix" value="for12_{{ forsix.for12 }}" checked>
-                                                                            For 12 - E{{ forsix.for12 }}
+                                                                            For 12 - <span> E{{ forsix.for12 }}</span>
                                                                         </label>
                                                                     </div>
                                                                     <div class="pl-2 form-check text-black">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_24">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_24"
                                                                                 name="product_forsix" value="for24_{{ forsix.for24 }}">
-                                                                            For 24 - E{{ forsix.for24 }}
+                                                                            For 24 -<span> E{{ forsix.for24 }}</span>
                                                                         </label>
                                                                     </div>
                                                                 {% endif %}
@@ -526,16 +519,16 @@
                                                     </div>-->
                                                     <!--buttons-->
                                                     <div class="form-row mt-3">
-                                                        <div class="col-4 offset-1">
-                                                            <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 text-black rounded-0"
+                                                        <div class="col-6 mx-0">
+                                                            <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 my-0 text-black rounded-0"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
                                                         </div>
-                                                        <div class="col-4 offset-1">
+                                                        <div class="col-6 mx-0">
                                                             <div class="view w-100 bg-gold text-center">
                                                             <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
-                                                                <spam class="font-weight-bold text-black my-0"> View</spam>
+                                                                <spam class="font-weight-bold text-black p-0 my-0"> View</spam>
                                                             </a>
                                                         </div>
                                                         </div>
