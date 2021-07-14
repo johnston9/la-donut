@@ -309,8 +309,8 @@ def edit_product(request, product_id):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         form.fields['name'].disabled = True
-        form.fields['is_for_six'].disabled = True
-        form.fields['is_sizes'].disabled = True
+        # form.fields['is_for_six'].disabled = True
+        # form.fields['is_sizes'].disabled = True
         if form.is_valid():
             form.save()
             messages.info(request, 'Product updated successfully')
