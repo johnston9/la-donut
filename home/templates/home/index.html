@@ -10,19 +10,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container home-container w-100 h-100">
-        <div class="row h-100 my-0 mr-0">
-            <div class="col-8 offset-2 my-auto">
-                <h2 class="display-3 upper text-danger">
+    <div class="container home-container">
+        <div class="row my-0 mr-0">
+            <div class="col-12 col-sm-8 offset-sm-2 mt-5">
+                <h2 class="display-4 explore upper text-gold">
                     Explore our Delights
                 </h2>
                 <div class="my-5">
                     <h4>
-                        <a href="{% url 'shop' %}" class="btn enter-button btn-sm rounded-sm text-uppercase">enter</a>
+                        <a href="{% url 'shop' %}" class="btn enter-button btn-black upper">enter</a>
                     </h4>
                 </div>
                 <div>
-                    <p class="bg-gold">Free delivery on orders over {{ free_delivery_total }} Euro</p>
+                    <p class="font-weight-bold px-1 bg-lightblue">Free delivery on orders over {{ free_delivery_total }} Euro</p>
                 </div>
             </div>
         </div>

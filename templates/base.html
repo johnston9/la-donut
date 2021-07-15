@@ -74,7 +74,7 @@
                 </form>
             </div>
             <div class="d-block d-lg-none my-auto py-1 py-lg-0">-->
-                <!--search form mobile and large-->
+                <!--search form-->
                 <div class="">
                     <a class="text-gold font-weight-bold mt-1 float-right text-center topnav-link" href="#" id="search" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -105,11 +105,15 @@
             </div>
             <!--name-->
             <div class="col-6 pb-0 mb-0 text-center">
-                <h2 class="name text-black pb-0 mb-0"><strong>Silver Dollar</strong></h2>
+                <div class="donut-logo mx-auto">
+                <a class="" a href="{% url 'index' %}" >
+                <h2 class="name text-black pb-0 my-2"><strong>La Donut</strong></h2>
+                </a>
+                </div>
             </div>
             <!--total-->
             <div class="col-3 pb-0 mb-0 pr-0 pl-0">
-                <a class="pb-0 mb-0 {% if grand_total %}text-gold font-weight-bold{% else %}text-gold{% endif %} topnav-link" href="{% url 'get_bag' %}">
+                <a class="pb-0 mb-0 text-gold font-weight-bold topnav-link" href="{% url 'get_bag' %}">
                     <div class="">
                         <span class="d-none d-sm-block icon float-left">
                             <i class="fas fa-shopping-bag"></i>
@@ -147,8 +151,7 @@
                                 
                             {% endif %}
                             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            <a href="{% url 'recipe' %}" class="dropdown-item">Recipes</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>                            
                             <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
                         {% else %}
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -157,17 +160,17 @@
                     </div>
                     </li>
                 
-                    <button class="text-center my-) py-0 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="font-weight-bold text-grey">Products</span>
+                    <button class="text-center my-0 py-0 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler text-grey">Products</span>
                     </button>
                     {% include 'includes/product-nav.html' %}
                 </nav>
         </div>
 
-        <div class="row w-100 mb-0 pb-0">
-            <div class="col mb-0 pb-0 w-100">
+        <div class="row w-100 mx-0 px-0 mb-0 pb-0">
+            <div class="col-12 mx-0 px-0 mb-0 pb-0 w-100">
                 <div id="banner" class="w-100 mx-0 py-1 bg-mattblack text-center text-antiquewhite">
-                <h4 class="my-0 px-2 pb-0 mb-0">Free Gift Presentation Extras from the Checkout</h4> 
+                <h4 class="my-0 px-2 pb-0 mb-0">Free Gift Presentation Extras <span class="d-none d-sm-inline-block"> from the Checkout</span></h4> 
                 </div>  
                 <hr class="gold100 mt-0 pt-0" />             
             </div>                   

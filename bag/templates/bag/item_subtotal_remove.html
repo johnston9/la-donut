@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col mr-0 pr-0">
+    <!--remove buttons-->                        
+    {% if item.product.is_for_six %}
+    <a href="{% url 'remove_from_bag_six' item.item_id item.forsixprice %}" class="btn btn-blue mt-1" onclick="return confirm('Are you sure you want to remove this bun?');">
+        <span class="text-uppercase">Remove</span>
+    </a> 
+    {% elif item.product.is_sizes %}
+    <a href="{% url 'remove_from_bag_sizes' item.item_id item.sizeprice %}" class="btn btn-blue mt-1" onclick="return confirm('Are you sure you want to remove this cake?');">
+        <span class="text-uppercase">Remove </span>
+    </a>
+    {% else %}
+    <a href="{% url 'remove_from_bag' item.item_id %}" class="btn btn-blue mt-1" onclick="return confirm('Are you sure you want to remove this item?');">
+        <span class="text-uppercase">Remove </span>
+    </a>
+    {% endif %} 
+    </div>
+</div> 

@@ -1,7 +1,15 @@
 /*----------------------General----------------------*/
 
-html {
+/*html {
     height: 100%;
+}*/
+
+.delivery-container {
+    background: url('/media/no-image2.jpg') no-repeat center center fixed;
+    background-size: contain;
+    width: 450px;
+    height: 300px;
+    font-family: 'Playball';
 }
 
 * {
@@ -17,7 +25,7 @@ html {
 }
 
 .header-container {
-    padding-top: 180px;
+    padding-top: 160px;
 }
 
 body {
@@ -25,6 +33,27 @@ body {
     /*color: #474343;*/
 	/*color: #696666;*/
     font-family: "Playfair Display", serif;   
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.no-marginx {
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+.upper {
+    text-transform: uppercase;
 }
 
 /*--Fonts--*/
@@ -45,16 +74,25 @@ body {
     font-family: "Playfair Display", serif; 
 }
 
-.center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+/*--nav/nav-links/icon--*/
+
+.donut-logo {
+    background: url('/media/digi1.jpg') no-repeat center center fixed;
+    background-size: contain;
+    background-color: rgb(97, 59, 59);
+    width: 200px;
 }
 
-.center-div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.navbar-light .navbar-toggler {
+    border-color: #fff;
+}
+
+#main-nav {
+    background-color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.6);
 }
 
 .topnav-link {
@@ -73,11 +111,6 @@ body {
     padding-left: 50px; 
 }
 
-.no-marginx {
-    margin-left: 0!important;
-    margin-right: 0!important;
-}
-
 .linkcol {
     color: #131eaf;
 }
@@ -85,6 +118,34 @@ body {
 .linkcol:hover {
     color: rgb(255,215,0);
     text-decoration: none;
+}
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.icon-sm {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1rem;
+    width: 1rem;
+}
+
+/*.navbar-toggler .toggler {
+    padding: .25rem .75rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}*/
+
+#account-text {
+    font-size: 1.25rem;
 }
 
 /*-----line breaks------*/
@@ -117,26 +178,6 @@ hr.grey100 {
     border-top: 2px solid #666666;
 	margin: 5px auto 0px;
 	width: 100%;
-}
-
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.icon-sm {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1rem;
-    width: 1rem;
-}
-
-.upper {
-    text-transform: uppercase;
 }
 
 /*--buttons--*/
@@ -173,6 +214,19 @@ hr.grey100 {
     text-decoration: none;
 }
 
+.btn-gold a {
+    background: rgb(255,215,0);
+    color: #000;
+    font-weight: 700;
+}
+
+.btn-gold a:hover {
+    background: rgb(71, 68, 68);
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
+}
+
 .btn-menu {
     font-weight: 700;
     color: rgb(140, 111, 25, 99%);
@@ -192,7 +246,6 @@ hr.grey100 {
 .btn-blue {
     background: rgb(232, 240, 254);
     color: #000;
-    /*color: rgb(71, 68, 68);*/
     font-weight: 700;
 }
 
@@ -241,6 +294,12 @@ hr.grey100 {
     color: white;
 }
 
+.enter-button {
+    background: black;
+    color: white;
+    border: 1px solid rgb(255,215,0); 
+}
+
 .enter-button:hover,
 .enter-button:active,
 .enter-button:focus {
@@ -248,7 +307,8 @@ hr.grey100 {
     color: white;
 }
 
-/*---item select form and buttons 0n shop and view item pages----*/
+/*---item select form and buttons 
+   on shop and view item pages----*/
 
 .btn-quantity {
     color: white;
@@ -338,10 +398,6 @@ input[type=checkbox], input[type=radio] {
 
 #topbut:hover {
 	background-color: #666666;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(0,0,0,.6);
 }
 
 /*--colors--*/
@@ -451,19 +507,6 @@ input[type=checkbox], input[type=radio] {
     color: #696666;
 }
 
-#account-text {
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.navbar-light .navbar-toggler {
-    border-color: #fff;
-}
-
-#main-nav {
-    background-color: #fff;
-}
-
 /*--home page--*/
 
 .home-container {
@@ -471,6 +514,7 @@ input[type=checkbox], input[type=radio] {
     background-size: cover;
     background-color: rgb(97, 59, 59);
     font-family: 'Lato';
+    height: 700px;
 }
 
 /*--shop page--*/
@@ -597,11 +641,6 @@ div.dataTables_wrapper div.dataTables_length label {
     border: 2px dotted red;
     padding: 5px;
 }
-.v {
-    border-top: 2px solid rgba(68,125,117,.1);
-    color: #333;
-}
-
 
 /* ---------------------Chat---------- */
 
@@ -742,17 +781,19 @@ div.dataTables_wrapper div.dataTables_length label {
 
 /* -------------------------------- Media Queries */
 
-/*larger container on xl screens*/ 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 100%;
-  }
-}
-@media (max-width: 1000px) {
-    .home-container {
-      max-width: 100%;
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
     }
-  }
+
+    .header-container {
+        padding-top: 150px;
+    }
+
+    h2.display-4.explore {
+        font-size: 2rem;
+    }
+}
 
 @media (max-width: 600px) {
     .topnav-link {
@@ -766,16 +807,12 @@ div.dataTables_wrapper div.dataTables_length label {
         font-size: .75rem;
     }
 
-    .header-container {
-        padding-top: 200px;
-    }
-
     .cake-select-label {
         height: 92px;;
         }
   }
 
-  /*---images--*/
+  /*---Shop Page images--*/
   @media (min-width: 576px) {
     .card-img, .card-img-top {
       height: 240px;
