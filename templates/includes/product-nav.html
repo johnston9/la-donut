@@ -17,7 +17,7 @@
             <a class="nav-link text-grey mr-3" href="#" id="box-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Selection Boxes
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+            <div class="dropdown-menu border-0" aria-labelledby="box-link">
                 <a href="{% url 'shop' %}?category=creamcake_box" class="dropdown-item">Creamy Treats Box</a>
                 <a href="{% url 'shop' %}?category=breakfast_box" class="dropdown-item">Breakfast Box</a>
                 <a href="{% url 'shop' %}?category=office_box" class="dropdown-item">Office Box</a>
@@ -30,7 +30,7 @@
             <a class="nav-link text-grey mr-3" href="#" id="cakes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Cakes and Desserts
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+            <div class="dropdown-menu border-0" aria-labelledby="cakes-link">
                 <a href="{% url 'shop' %}?category=cakes" class="dropdown-item">Cakes</a>
                 <a href="{% url 'shop' %}?category=cheese_cakes" class="dropdown-item">Cheesecakes</a>
                 <a href="{% url 'shop' %}?category=desserts" class="dropdown-item">Desserts</a>
@@ -43,7 +43,7 @@
             <a class="nav-link text-grey mr-3" href="#" id="buns-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Buns, Creamy Treats
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
+            <div class="dropdown-menu border-0" aria-labelledby="buns-link">
                 <a href="{% url 'shop' %}?category=creamy_treats" class="dropdown-item">Creamy Treats</a>
                 <a href="{% url 'shop' %}?category=donuts" class="dropdown-item">Donuts</a>
                 <a href="{% url 'shop' %}?category=cookies" class="dropdown-item">Cookies</a>
@@ -53,12 +53,20 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link text-grey mr-3" href="#" id="chat-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link text-grey mr-3" href="#" id="recipes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Recipes
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+            <div class="dropdown-menu border-0" aria-labelledby="recipes-link">
                 <a href="{% url 'recipe' %}" class="dropdown-item">Recipes</a>
                 <a href="{% url 'latest_recipe' %}" class="dropdown-item">Latest Recipe</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="font-weight-bold nav-link text-grey" href="#" id="chat-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Chat
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="chat-link">
+                <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
             </div>
         </li>
     </ul>

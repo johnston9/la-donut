@@ -83,7 +83,13 @@ For the user, the goal of the site is to easily browse goods or find particular 
 
 The aim of the site is to create an app that establishes the online shop as a reputable purveyor of cakes and pastries of a top of the range quality, to create an online presence and establish it as a brand. It aims to be an enjoyable and simple shopping experience enticing new customers and building a regular, especially business client base.
 
-It aims to create a brand to establish an image in the public eye for the shop, to show it's quality and professionalism. It aims to allow the owner full control over their content and promote their items in the best way. It's elegant bright sophisticate but simple design aims to encourage users to explore it. It's clear navigation and shopping experience encourage retuning customer and it's features, gift presentation, free delivery, recipes and chat encourage user to create an account an become a loyal customer
+It aims to create a brand to establish an image in the public eye for the shop, to show it's quality and professionalism. It aims to allow the owner full control over their content and promote their items in the best way. It's elegant bright sophisticate but simple design aims to encourage users to explore it. It's clear navigation and shopping experience encourage retuning customer and it's features, gift presentation and chat encourage user to create an account an become a loyal customer.
+
+#### Brand Identity
+- Brand promise: Highest quality and most luxurious pastries and desserts available.
+- Vision: Classy romantic.
+- Mission: To cater to your most luxurious culinary desires
+- Values: Class and quality
 
 ### Scope Plane
 
@@ -107,7 +113,7 @@ A message, success, info, warning and error will display after every important i
 The information architecture is a tree structure allowing users to move through content quickly and simply becoming aware of the site’s inherent structure as they go. 
 
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
+<img src="documentation/readme-images/structure.png" width="90%">
 </h2>
 
 ### Skeleton Plane
@@ -241,9 +247,9 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 [Back to Table of Content](#table-of-content)
 
-### Admin's Base Page
+### Superuser Features
 
-  As discussed above in "Security Measures" defensive programming will only allow access to the admin features if user is the a superuser user and this is implemented both in the front-end and back-end. The superuser/owner can upload products and recipes and edit and delete them as well. These will be given the option to delete a user. When they go to the chat page a check box displays for them only and on checking it add is_shop to the chat object saved which is interpretted in the template to render a certain style to let the users know that message is from the shop.
+  As discussed above in "Security Measures" defensive programming will only allow access to the admin features if user is a superuser user and this is implemented both in the front-end and back-end. The superuser/owner can upload products and recipes and edit and delete them as well. They can delete a user from admin also. When they go to the chat page a check box displays for them only and on checking it will add is_shop to the chat object which is interpretted in the template to render a certain style to let the users know that message is from the shop.
 
 <p align="center"><strong></strong></p>
 <h2 align="center">
@@ -259,3 +265,79 @@ making the user feel both at home here and part of an interesting journey. Detai
 Please see admin testing for further details.
 
 [Back to Table of Content](#table-of-content)
+
+## Future Features
+
+### Social Account Login
+This Allauth function allows users to sign up and log in using an existing third party account such as Google and Facebook. This would make encouraging users to sign up easier as they are just a click away and don't have to do any more. For the site owners apart from having more user sign ups this opens up hugh areas in terms of information and marketing.
+
+### Social Media Share Icons
+In terms of brand awarness through social media social media share icons would be most advantagous.
+
+
+## Information Architecture
+
+- Development 
+**SQLight** was used during development and comes with Django. 
+
+- Deployment 
+**PostgreSQL** is used for deployment, and was added as an add-on with Heroku.
+
+### Database structure - Model Tables by App
+
+#### Django contrib auth
+1 - <strong>User</strong> - to hold the authenticated users.<br>
+  - Foreign Key to UserProfile
+
+#### Product App
+1 - <strong>Category</strong> - to hold the product categories.<br>
+
+2 - <strong>Product</strong> - to hold the products.
+  - Foreign Key to Category 
+
+3 - <strong>Size</strong> - to hold the product's size prices.<br>
+  - Foreign Key to Product
+
+4 - <strong>Forsix</strong> - to hold the product's box quantity prices.<br>
+  - Foreign Key to Product
+
+5 - <strong>Review</strong> - to hold the product's reviews.<br>
+  - Foreign Key to Product
+  - Foreign Key to UserProfile
+
+
+#### Checkout App
+1 - <strong>Order</strong> - to hold the orders for all completed orders.<br>
+  - Foreign Key to UserProfile
+
+2 - <strong>OrderLineItem</strong> - to hold the order's items.
+  - Foreign Key to Order
+  - Foreign Key to Product
+
+#### Profiles App
+1 - <strong>UserProfile</strong> - to hold the registered users details.<br>
+  - OneToOne Key to User
+
+#### Recipe App
+1 - <strong>Recipe</strong> - to hold the recipes.<br>
+  - Foreign Key to User
+
+2 - <strong>Comment</strong> - to hold the chat.<br>
+  - Foreign Key to UserProfile
+
+<p align="center"><strong>Entity Relationship Diagram</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/er_diagram.png" width="100%">
+</h2>
+
+[Back to Table of Content](#table-of-content)
+
+## Languages Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [JAVASCRIPT](https://en.wikipedia.org/wiki/JavaScript)
+- [PYTHON](https://en.wikipedia.org/wiki/Python_(programming_language))
+- [JINJA](https://en.wikipedia.org/wiki/Jinja_(template_engine))
+

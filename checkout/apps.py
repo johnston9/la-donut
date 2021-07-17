@@ -1,5 +1,5 @@
 """Set the Checkout App
-    """
+"""
 from django.apps import AppConfig
 
 

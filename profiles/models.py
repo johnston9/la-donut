@@ -1,3 +1,5 @@
+"""Models for the Profiles App
+"""
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -12,18 +14,18 @@ class UserProfile(models.Model):
     is used as a default delivery address and user order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    primary_full_name = models.CharField(max_length=50, null=True, blank=True)
-    primary_phone_number = models.CharField(max_length=20, null=True,
+    primary_full_name = models.CharField(max_length=50, default="", blank=True)
+    primary_phone_number = models.CharField(max_length=20, default="",
                                             blank=True)
-    primary_street_address1 = models.CharField(max_length=80, null=True,
+    primary_street_address1 = models.CharField(max_length=80, default="",
                                                blank=True)
-    primary_street_address2 = models.CharField(max_length=80, null=True,
+    primary_street_address2 = models.CharField(max_length=80, default="",
                                                blank=True)
-    primary_town_or_city = models.CharField(max_length=40, null=True,
+    primary_town_or_city = models.CharField(max_length=40, default="",
                                             blank=True)
-    primary_postcode = models.CharField(max_length=20, null=True, blank=True)
-    primary_county = models.CharField(max_length=80, null=True, blank=True)
-    primary_country = CountryField(blank_label='Country', null=True,
+    primary_postcode = models.CharField(max_length=20, default="", blank=True)
+    primary_county = models.CharField(max_length=80, default="", blank=True)
+    primary_country = CountryField(blank_label='Country', default="",
                                    blank=True)
 
     def __str__(self):

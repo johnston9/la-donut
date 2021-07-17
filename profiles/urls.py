@@ -1,3 +1,5 @@
+"""urls for the profiles App
+"""
 from django.urls import path
 from . import views
 

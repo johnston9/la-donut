@@ -1,8 +1,12 @@
+"""Forms for the Profiles App
+"""
 from django import forms
 from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """User Profile Form
+    """
     class Meta:
         model = UserProfile
         exclude = ('user',)
@@ -22,7 +26,7 @@ class UserProfileForm(forms.ModelForm):
             'primary_street_address2': 'Street Address 2',
             'primary_county': 'County, State or Area',
         }
-        
+
         self.fields['primary_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'primary_country':
