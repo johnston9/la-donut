@@ -66,6 +66,7 @@
             </div>     
         </div>           
 
+        {% if user.is_authenticated %}
             <div class="row">
                 <div class="col-12 text-center">
                     <button class="btn btn-gold">
@@ -73,6 +74,12 @@
                     </button>                   
                 </div>
             </div> 
+            {% else %}
+            <label class="form-check-label" for="login">
+                <a class="text-red" href="{% url 'account_signup' %}">Create an account</a> or 
+                <a class="text-red" href="{% url 'account_login' %}">login</a> to view or add comments and questions.
+            </label>
+        {% endif %}
             {% if request.user.is_superuser %}
                 <div class="row">
                     <div class="col-6">
