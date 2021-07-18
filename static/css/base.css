@@ -7,6 +7,16 @@
     font-family: 'Playball';
 }
 
+.bag-update {
+    color: rgb(140, 111, 25, 99%);
+    background-color: #fff;
+}
+
+.bag-update:hover {
+    color: rgba(37, 158, 142, 0.99);
+    text-decoration: none;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -739,15 +749,15 @@ div.dataTables_wrapper div.dataTables_length label {
 }
 
 #hombut {
-    color: #3e3434;
+    color: #000
 }
 
 #hombut2 {
-    color: #3e3434;
+    color: #000
 }
 
 #hombut3 {
-    color: #3e3434;
+    color: #000
 }
 
 #hombut:hover {

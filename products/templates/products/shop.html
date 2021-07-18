@@ -201,26 +201,26 @@
                                             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-row">
-                                                    <div class="col-12 item-prices">
+                                                    <div class="col-12 item-prices text-black">
                                                         <!--prices for sizes-->
                                                         {% if product.is_sizes %}
                                                             {% for size in sizes %}
                                                                 {% if size.name == product.name %}
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_s">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_s"
                                                                                 name="product_size" value="small_{{ size.small }}">
                                                                             Small - E{{ size.small }}
                                                                         </label>
                                                                     </div>
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_m">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
                                                                                 name="product_size" value="medium_{{ size.medium }}" checked>
                                                                             Medium - E{{ size.medium }}
                                                                         </label>
                                                                     </div>
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_l">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_l"
                                                                                 name="product_size" value="large_{{ size.large }}">
@@ -233,21 +233,21 @@
                                                         {% elif product.is_for_six %}
                                                             {% for forsix in forsixs %}
                                                                 {% if forsix.name == product.name %}
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_6">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
                                                                                 name="product_forsix" value="for6_{{ forsix.for6 }}">
                                                                             For 6 - E{{ forsix.for6}}
                                                                         </label>
                                                                     </div>
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_12">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_12"
                                                                                 name="product_forsix" value="for12_{{ forsix.for12 }}" checked>
                                                                             For 12 - E{{ forsix.for12 }}
                                                                         </label>
                                                                     </div>
-                                                                    <div class="pl-2 form-check text-black">
+                                                                    <div class="pl-2 form-check">
                                                                         <label class="form-check-label" for="id_for_{{ product.id }}_24">
                                                                             <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_24"
                                                                                 name="product_forsix" value="for24_{{ forsix.for24 }}">
@@ -262,48 +262,40 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                <!--quan new-->
-                                                <!--<div class="row">
-                                                    <div class="col-6 offset-3 col-md-8 offset-md-2 text-center mt-2 mb-0">
-                                                        <div class="form-group pl-0 ml-0">
-                                                            <div class="input-group pl-0 ml-0">
-                                                                <div class="input-group-prepend">
-                                                                    <button class="decrement-qty btn btn-quantity-sm rounded-0" 
-                                                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                                                        <span class="plus font-weight-bold mx-0 my-0">-</span>
-                                                                    </button>
-                                                                </div>
-                                                                <input class="form-control small-input qty_input" type="number"
-                                                                    name="quantity" value="1" min="1" max="99"
-                                                                    data-item_id="{{ product.id }}"
-                                                                    id="zzz">
-                                                                <div class="input-group-append">
-                                                                    <button class="increment-qty btn btn-quantity-sm rounded-0"
-                                                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                                                        <span class="plus font-weight-bold mx-0 my-0">+</span>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </div>-->
                                                     <!--buttons-->
-                                                    <div class="form-row mt-3">
-                                                        <div class="col-6 mx-0">
-                                                            <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 text-black rounded-0"
+                                                    <div class="form-row mt-3 shop-button">
+                                                        <div class="col-6 mx-0 text-center">
+                                                            <input type="submit" id="quantity_but4" class="btn btn-gold py-0 px-4"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
                                                         </div>
-                                                        <div class="col-6 mx-0">
-                                                            <div class="view bg-gold text-center">
-                                                            <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
-                                                                <spam class="font-weight-bold text-black my-0"> View</spam>
+                                                        <div class="col-6 mx-0 text-center">
+                                                            <div class="">
+                                                            <a class="btn btn-gold py-0 px-4" href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
+                                                                View
                                                             </a>
                                                         </div>
                                                         </div>
-                                                        <!--end but-->
                                                     </div>
+                                                    <!--buttons-->
+                                                    <!--<div class="form-row mt-3">
+                                                        <div class="col-12 mx-0 text-center ">
+                                                            <input type="submit" id="quantity_but4" class="btn btn-blue px-3 py-0"
+                                                                value="Add">
+                                                            <input type="hidden" name="redirect_url"
+                                                                value="{{ request.get_full_path }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row mt-3">
+                                                        <div class="col-12 mx-0">
+                                                            <div class="text-center">
+                                                            <a class="btn btn-gold px-5 py-0" href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
+                                                              View
+                                                            </a>
+                                                        </div>
+                                                        </div>
+                                                    </div>-->
                                                     <!--end col-12-->
                                                 </form>
                                                 </div>
@@ -492,45 +484,18 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                <!--quan new-->
-                                                <!--<div class="row">
-                                                    <div class="col-6 offset-3 col-md-8 offset-md-2 text-center mt-2 mb-0">
-                                                        <div class="form-group pl-0 ml-0">
-                                                            <div class="input-group pl-0 ml-0">
-                                                                <div class="input-group-prepend">
-                                                                    <button class="decrement-qty btn btn-quantity-sm rounded-0" 
-                                                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                                                        <span class="plus font-weight-bold mx-0 my-0">-</span>
-                                                                    </button>
-                                                                </div>
-                                                                <input class="form-control small-input qty_input" type="number"
-                                                                    name="quantity" value="1" min="1" max="99"
-                                                                    data-item_id="{{ product.id }}"
-                                                                    id="zzz">
-                                                                <div class="input-group-append">
-                                                                    <button class="increment-qty btn btn-quantity-sm rounded-0"
-                                                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                                                        <span class="plus font-weight-bold mx-0 my-0">+</span>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </div>-->
                                                     <!--buttons-->
                                                     <div class="form-row mt-3">
-                                                        <div class="col-6 mx-0">
-                                                            <input type="submit" id="quantity_but4" class="font-weight-bold btn w-100 bg-gold p-0 my-0 text-black rounded-0"
+                                                        <div class="col-6 mx-0 text-center">
+                                                            <input type="submit" id="quantity_but4" class="btn btn-gold px-4 py-0"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
                                                         </div>
-                                                        <div class="col-6 mx-0">
-                                                            <div class="view w-100 bg-gold text-center">
-                                                            <a href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
-                                                                <spam class="font-weight-bold text-black p-0 my-0"> View</spam>
+                                                        <div class="col-6 mx-0 text-center">
+                                                            <a class="btn btn-gold px-4 py-0" href="{% url 'view_item' product.id %}?r={{ request.get_full_path }}">
+                                                                View
                                                             </a>
-                                                        </div>
                                                         </div>
                                                         <!--end but-->
                                                     </div>

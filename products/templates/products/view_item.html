@@ -191,9 +191,15 @@
                 {% endif %}
                 <div class="row">
                 <div class="col-6 text-center mx-sm-0 pr-0 pl-0">
+                {% if request.user.is_authenticated %}
                 <h5 class="">
                     <a class="linkcol" href="{% url 'review' product.id %}">Add Review</a>
                 </h5>
+                {% else %}
+                <h5 class="">
+                    <a class="linkcol" href="{% url 'account_signup' %}">Sign Up to Add Review</a>
+                </h5>
+                {% endif %}
                 </div>
                 <div class="col-6 text-center mx-sm-0 pr-0 pl-0">
                     <a href="#review_section">

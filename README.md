@@ -144,11 +144,10 @@ making the user feel both at home here and part of an interesting journey. Detai
 
   - #### Frequent User Goals
 
-1. As a Frequent User, I want to view or update my profile.
-2. As a Frequent User, I want to view my order history and payment details.
-3. As a Frequent User, I want to easily recover my password if I forget it.
-4. As a Frequent User, I want to view the latest recipe and all recipes.
-5. As a Frequent User, I want to view and add comments and questions.
+1. As a Frequent User, I want to view my order history and payment details.
+2. As a Frequent User, I want to easily recover my password if I forget it.
+3. As a Frequent User, I want to view the latest recipe and all recipes.
+4. As a Frequent User, I want to view and add comments and questions.
 
   - #### Owner/Admin User Goals
 
@@ -411,16 +410,16 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 1. #### As a First Time User, I want to learn what the site has to offer and how to use the site quickly.
 
-    - The site is designed for first time learning. It is streamlined for specific user goals that upon first use the user with a few clicks will be able to find any item, feature or page. At the top of every page the navbar displays all options for the user so they can select their desired destination quickly.
+    - The site is designed for first time learning. It is streamlined for specific user goals that upon first use the user with a few clicks will be able to find any item, feature or page. At the top of every page the navbar displays all options for the user so they can select their desired destination quickly and a menu is available on landing on the shop page.
 
-<p align="center"><strong>Navbar</strong></p>   
+<p align="center"><strong>Navbar and on Entry Shop Page</strong></p>   
 <h2 align="center">
-<img src="documentation/readme-images/nav1a.png" width="90%">
+<img src="documentation/readme-images/shop-page.png" width="90%">
 </h2>
 
 2. #### As a First Time User, I want to view specific categories and specific products.
 
-    - Upon entering the user is take to the shop page where they can use the menu to find specific categories. They have the option to close the menu for a larger items page and shop directly from the navbar. 
+    - Upon entering the user is take to the shop page where they can use the menu to find specific categories. They have the option to close the menu to shop from a larger items page and browse directly from the navbar. 
 
 <p align="center"><strong>Menu Input</strong></p>   
 <h2 align="center">
@@ -446,49 +445,60 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 <img src="documentation/readme-images/search2.png" width="90%">
 </h2>
 
-1. #### As a First Time User, I want to sort products by price, rating and category.
+4. #### As a First Time User, I want to sort products by price, rating and category.
 
-    1. The site is designed for first time learning. It is streamlined for 
+    - The user can sort products by price - high to low or low to high, rating -high to low and category from the navbar and have the amount of products found display on top as well as the current sorting value the have chosen.
 
-<p align="center"><strong>User Base</strong></p>   
+<p align="center"><strong>Sorting Selection</strong></p>   
 <h2 align="center">
-<img src="documentation/readme-images/user10.png" width="90%">
+<img src="documentation/readme-images/nava1.png" width="90%">
 </h2>
 
-1. #### As a First Time User, I want to find the best prices for different sizes or quantities of each product.
-
-    1. The site is designed for first time learning. It is streamlined for 
-
-<p align="center"><strong>User Base</strong></p>   
+<p align="center"><strong>Sorting Result</strong></p>   
 <h2 align="center">
-<img src="documentation/readme-images/user10.png" width="90%">
+<img src="documentation/readme-images/sort2.png" width="90%">
 </h2>
 
-1. #### As a First Time User, I want to know what I have added to my shopping bag, make updates or remove items and see the total.
+5. #### As a First Time User, I want to find the best prices for different sizes or quantities of each product.
 
-    1. The site is designed for first time learning. It is streamlined for 
+    - All products have their prices showing for their sizes, if they have them or box quantity if they have them, both at first glance on the shop page or on closer inspection on the view item page. 
 
-<p align="center"><strong>User Base</strong></p>   
+<p align="center"><strong>Prices</strong></p>   
 <h2 align="center">
-<img src="documentation/readme-images/user10.png" width="90%">
+<img src="documentation/readme-images/price.png" width="90%">
 </h2>
 
-1. #### As a First Time User, I want to purchase specific productsquickly without having to sign up.
+6. #### As a First Time User, I want to know what I have added to my shopping bag, make updates or remove items and see the total.
 
-    1. The site is designed for first time learning. It is streamlined for 
+    - Upon the adding of an item to the shopping bad a success message shows with a preview of all bag items and total and a link to the actual bag. The users total, updated on every transaction is displayed at the top of every page with a link to the bag. on going to the bag the user can see all their items and total and update select item quantities or remove the item entirely. A confirm alert displays if a user clicks Remove.
 
-<p align="center"><strong>User Base</strong></p>   
+<p align="center"><strong>Add item Success Message</p>   
 <h2 align="center">
-<img src="documentation/readme-images/user10.png" width="90%">
+<img src="documentation/readme-images/message1.png" width="90%">
 </h2>
 
-1. #### As a First Time User, I want to register easily.
-
-    1. The site is designed for first time learning. It is streamlined for 
-
-<p align="center"><strong>User Base</strong></p>   
+<p align="center"><strong>Shopping Bag</p>   
 <h2 align="center">
-<img src="documentation/readme-images/user10.png" width="90%">
+<img src="documentation/readme-images/bag.png" width="90%">
+</h2>
+
+7. #### As a First Time User, I want to purchase specific products quickly without having to sign up.
+
+    - All users can purchase items without having to sign up. The user can make a quick selection of any item and the size or box quantity they want right from the shop page without having to go to the view item page. This is also intended for regular users who know what the want and want to select items quickly. See prices image above.
+
+8. #### As a First Time User, I want to register easily.
+
+    - The user will be given the option to sign up from the landing page, when they go to checkout and anytime in the My Account nav link. On clicking they will be take to the Register Page and only have to enter a username, email and password to sign up. The Registration page as with all Allauth page has been customised for greater user experience.<br>
+    See Allauth Testing below for more testing of this function.
+
+<p align="center"><strong>My Account Nav Link</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/reg1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Register page - Mobile view</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/reg-mo.png" width="90%">
 </h2>
 
 
@@ -496,70 +506,84 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 ### Returning User Goals
 
-4. #### As a Returning User, I want to easily login and logout.
+1. #### As a Returning User, I want to easily login and logout.
 
-    1. On clicking download script the script is downloaded to the user's device.
+    - The user can login and logout easily from the My Account nav link which takes them to customed Allauth pages. <br>
+    See Allauth Testing below for more testing of this function.
 
-<p align="center"><strong>Result for downloaded shot list</strong></p>
+<p align="center"><strong>Login</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/shot1.png" width="90%">
+<img src="documentation/readme-images/login.png" width="90%">
 </h2>
 
-4. #### As a Returning User, I want to view or update my profile.
 
-    1. On clicking download script the script is downloaded to the user's device.
-
-<p align="center"><strong>Result for downloaded shot list</strong></p>
+<p align="center"><strong>Logout</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/shot1.png" width="90%">
+<img src="documentation/readme-images/logout.png" width="90%">
 </h2>
 
-4. #### As a Returning User, I want to easily login and logout.
+2. #### As a Returning User, I want to view or update my profile.
 
-    1. On clicking download script the script is downloaded to the user's device.
+    - On clicking on the profile nav link in My Account the user is taken to their Profile Page where they can update their Primary Delivery Address and recieve a success message on doing so. This info is preset as the Delivery address when they checkout.
 
-<p align="center"><strong>Result for downloaded shot list</strong></p>
+<p align="center"><strong>Profile Page</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/shot1.png" width="90%">
+<img src="documentation/readme-images/pro1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Profile Page Update Success Message</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/pro2.png" width="90%">
+</h2>
+
+3. #### As a Returning User, I want to see products ratings and reviews.
+
+    - The product average customer rating is displayed for each item on the shop and view item pages. On the view item page the user will see a link to the item's reviews and another link to add a review if the user is authenticated or sign up to add a review if not. On the add review page the user can rate the product and this is displayed in stars on their review and also used to calculate the average rating. A customised Bootstrap paginated table is used to hold the reviews which includes a search function which I figured out from the Bootstrap4 docs.<br>
+    [DataTables](https://datatables.net/examples/styling/bootstrap4)
+
+<p align="center"><strong>Review Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/rev3.png" width="90%">
+</h2>
+
+<p align="center"><strong>Add Review Success message</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/rev4.png" width="90%">
+</h2>
+
+<p align="center"><strong>Result</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/rev5.png" width="90%">
 </h2>
 
 
 ### Frequent User Goals
 
-6. #### As a Frequent User, I want to view or update my profile.
+1. #### As a Frequent User, I want to view my order history and payment details.
 
-   1. When the user clicks on the Latest Updates button on their home base page
+   - When the user goes to their Profile they will find their order history there. On clicking on an order they will be taken to the checkout complete message recieved for that order.
   
-<p align="center"><strong>Latest Updates Page</strong></p>
+<p align="center"><strong>Order History</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/la2.png" width="90%">
+<img src="documentation/readme-images/.png" width="90%">
 </h2>
 
-6. #### As a Frequent User, I want to view my order history and payment details.
+2. #### As a Frequent User, I want to easily recover my password if I forget it.
 
-   1. When the user clicks on the Latest Updates button on their home base page
+   - When the user clicks forgot password on their login they will be taken to a customizes series of Allauth pages to get a new password.
   
-<p align="center"><strong>Latest Updates Page</strong></p>
+<p align="center"><strong>Recover Password</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/la2.png" width="90%">
-</h2>
-
-6. #### As a Frequent User, I want to easily recover my password if I forget it.
-
-   1. When the user clicks on the Latest Updates button on their home base page
-  
-<p align="center"><strong>Latest Updates Page</strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/la2.png" width="90%">
+<img src="documentation/readme-images/.png" width="90%">
 </h2>
 
 6. #### As a Frequent User, I want to view the latest recipe and all recipes.
 
-   1. When the user clicks on the Latest Updates button on their home base page
+   1. When the user clicks Recipes in the nav they will be taken to the Recipe Page where they can select a Recipe and be taken to a page for it. After completing an order a large button displays on the checkout complete page to take them to the Latest Recipe.
   
-<p align="center"><strong>Latest Updates Page</strong></p>
+<p align="center"><strong></strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/la2.png" width="90%">
+<img src="documentation/readme-images/.png" width="90%">
 </h2>
 
 6. #### As a Frequent User, I want to view and add comments and questions.
