@@ -167,7 +167,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 ## Design
 
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
+<img src="documentation/readme-images/shop-page.png" width="90%">
 </h2>
 
 ### Colour Scheme
@@ -198,9 +198,13 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 <p align="center"> <strong>Small Screen 320px</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="25%">
+<img src="documentation/readme-images/shop-sm.png" width="25%">
 </h2>
 
+<p align="center"> <strong>Large Screen</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/shop-page2.png" width="25%">
+</h2>
 [Back to Table of Content](#table-of-content)
 
 ### Allauth Login/Register/Logout Pages and Security
@@ -452,7 +456,7 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 <p align="center"><strong>Sorting Selection</strong></p>   
 <h2 align="center">
-<img src="documentation/readme-images/nava1.png" width="90%">
+<img src="documentation/readme-images/nav1a.png" width="90%">
 </h2>
 
 <p align="center"><strong>Sorting Result</strong></p>   
@@ -499,7 +503,7 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 <p align="center"><strong>Register page - Mobile view</strong></p>   
 <h2 align="center">
-<img src="documentation/readme-images/reg-mo.png" width="90%">
+<img src="documentation/readme-images/reg-mo.png" width="25%">
 </h2>
 
 
@@ -518,9 +522,9 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 </h2>
 
 
-<p align="center"><strong>Logout</strong></p>
+<p align="center"><strong>Logout - Mobile View</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/logout.png" width="90%">
+<img src="documentation/readme-images/logout.png" width="25%">
 </h2>
 
 2. #### As a Returning User, I want to view or update my profile.
@@ -571,7 +575,7 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 2. #### As a Frequent User, I want to easily recover my password if I forget it.
 
-   - When the user clicks forgot password on their login they will be taken to a customizes series of Allauth pages to get a new password.
+   - When the user clicks forgot password on their login they will be taken to a customizes series of Allauth pages to get a new password.<br>
    See [Allauth](documentation/allauth) for all Allauth images.
   
 <p align="center"><strong>Reset Password</strong></p>
