@@ -21,6 +21,12 @@ def all(request):
     return render(request, 'home/all.html')
 
 
+def delivery(request):
+    """ A view to return the delivery page """
+
+    return render(request, 'home/delivery.html')
+
+
 def resize(request):
     """ A view to return the resize image instructions page """
 

@@ -272,7 +272,7 @@ Please see admin testing for further details.
 This Allauth function allows users to sign up and log in using an existing third party account such as Google and Facebook. This would make encouraging users to sign up easier as they are just a click away and don't have to do any more. For the site owners apart from having more user sign ups this opens up hugh areas in terms of information and marketing.
 
 ### Social Media Share Icons
-In terms of brand awarness through social media social media share icons would be most advantagous.
+In terms of brand awareness through social media social media share icons would be most advantagous.
 
 
 ## Information Architecture
@@ -339,5 +339,47 @@ In terms of brand awarness through social media social media share icons would b
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [JAVASCRIPT](https://en.wikipedia.org/wiki/JavaScript)
 - [PYTHON](https://en.wikipedia.org/wiki/Python_(programming_language))
-- [JINJA](https://en.wikipedia.org/wiki/Jinja_(template_engine))
+- [djangotemplatelanguage](
+  https://docs.djangoproject.com/en/3.2reftemplateslanguage/))
+
+## Frameworks, Databases, Libraries & Programs Used
+
+1. [Bootstrap:](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+   - Bootstrap with it's grid-based format was used to create the overall framework for the site This included the primary responsiveness
+     and overall styling of the website. Also specific 
+     Bootstrap features, which include the "Select", 
+     the "Navbar" and "Sidenav", "Modals", "Tooltipped" and "Datepickers", were used in the site.
+1. [Django:](https://www.djangoproject.com/)
+   - Django the high-level Python Web framework was used to build the app.
+1. [SQLight:](https://www.sqlite.org/index.html)
+   - SQLight came with Django and was used as the database for development.
+1. [PostgreSQL:](https://www.postgresql.org/)
+   - PostgreSQL was added with Heroku and was used as the database for production.
+1. [Pymongo:](https://pypi.org/project/pymongo/)
+   - Pymongo was used for interacting with MongoDB database from the app.
+1. [Font Awesome:](https://fontawesome.com/)
+   - Font Awesome was used throughout the website for the icons.
+1. [jQuery:](https://jquery.com/)
+   - jQuery was used along with Javascript through-out the site for front-end functionality and to initialize some Bootstrap features.
+1. [Git](https://git-scm.com/)
+   - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+1. [GitHub:](https://github.com/)
+   - GitHub is used to store the projects code after being pushed from Git.
+1. [Balsamiq:](https://balsamiq.com/)
+   - Balsamiq was used to create the [wireframes](https://github.com/johnston9/MS3-Shot-Caller) during the design process.
+1. [Freeformatter](https://www.freeformatter.com/html-formatter.html)
+   - Freeformatter was used to tidy up the final code.
+1. [Gauger](https://gauger.io/fonticon/)
+   - Gauger was used to create the favicon icon.
+1. [Am-I-Responsive](http://ami.responsivedesign.is/):
+   - Am I Responsive was used to test the site's responsive sizings and to generate responsive sizing images.
+1. [GitHub Wiki TOC generator:](http://ecotrust-canada.github.io/markdown-toc/)
+   - GitHub Wiki TOC generator was used to create the Table of Contents.
+1. [dbdiagram.io](https://dbdiagram.io/home)
+   - dbdiagram.io was used to create the Entity-Relationship Diagram.
+
+[Back to Table of Content](#table-of-content)
+
+
+
 

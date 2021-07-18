@@ -1,10 +1,9 @@
 /*----------------------General----------------------*/
 
-.delivery-container {
-    background: url('/media/no-image2.jpg') no-repeat center center fixed;
-    background-size: contain;
-    width: 450px;
+#delivery {
+    background: url('/media/no-image2.jpg');
     height: 300px;
+    width: 100%;
     font-family: 'Playball';
 }
 
