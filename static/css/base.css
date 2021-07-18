@@ -71,12 +71,12 @@ body {
 
 /*--nav/nav-links/icon--*/
 
-.donut-logo {
+/*.donut-logo {
     background: url('/media/digi1.jpg') no-repeat center center fixed;
     background-size: contain;
     background-color: rgb(97, 59, 59);
     width: 200px;
-}
+}*/
 
 .navbar-light .navbar-toggler {
     border-color: #fff;

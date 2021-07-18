@@ -16,14 +16,16 @@
                 <h2 class="display-4 explore upper text-gold">
                     Explore our Delights
                 </h2>
+                <p class="font-weight-bold px-1 text-gold">Free delivery on orders over E{{ free_delivery_total }}</p>
                 <div class="my-5">
                     <h4>
                         <a href="{% url 'shop' %}" class="btn enter-button btn-black upper">enter</a>
                     </h4>
                 </div>
-                <div>
-                    <p class="font-weight-bold px-1 bg-lightblue">Free delivery on orders over E{{ free_delivery_total }}</p>
-                    <p class="font-weight-bold px-1 bg-lightblue">Get patisserie tips and chat with our Master pastry chefs on our Chat when you create an account. Join now</p>
+                <div>                    
+                    <p class="font-weight-bold px-1 text-gold">Account holders get Free Gift Presentation Extras 
+                        and can chat directly with our Master pastry chefs on all things patisserie. 
+                    </p>
                     <h4>
                         <a href="{% url 'account_signup' %}" class="btn enter-button btn-black upper">Sign Up</a>
                     </h4>

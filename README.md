@@ -129,39 +129,38 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 1. As a First Time User, I want to learn what the site has to offer and how to use the site quickly.
 2. As a First Time User, I want to view specific categories and specific products.
-2. As a First Time User, I want to search for specific products, know if it's available or not and see how many results there are for the search.
-2. As a First Time User, I want to sort products by price, rating and category.
-3. As a First Time User, I want to find the best prices for different sizes or quantities of each product.
-4. As a First Time User, I want to know what I have added to my shopping bag, make updates or remove items and see the total.
-5. As a First Time User, I want to purchase specific products.
-6. As a First Time User, I want to purchase products quickly without having to sign up.
-7. As a First Time User, I want to register easily.
+3. As a First Time User, I want to search for specific products, know if it's available or not and see how many results there are for the search.
+4. As a First Time User, I want to sort products by price, rating and category.
+5. As a First Time User, I want to find the best prices for different sizes or quantities of each product.
+6. As a First Time User, I want to know what I have added to my shopping bag, make updates or remove items and see the total.
+7. As a First Time User, I want to purchase specific products quickly without having to sign up.
+8. As a First Time User, I want to register easily.
 
  - #### Returning User Goals
 
-8. As a Returning User, I want to easily login and logout.
-9. As a Returning User, I want to view or update my profile.
-8. As a Returning User, I want to see products ratings and reviews.
+1. As a Returning User, I want to easily login and logout.
+2. As a Returning User, I want to view or update my profile.
+3. As a Returning User, I want to see products ratings and reviews.
 
   - #### Frequent User Goals
 
-6. As a Frequent User, I want to view or update my profile.
-7. As a Frequent User, I want to view my order history and payment details.
-8. As a Frequent User, I want to easily recover my password if I forget it.
-6. As a Frequent User, I want to view the latest recipe and all recipes.
-6. As a Frequent User, I want to view and add comments and questions.
+1. As a Frequent User, I want to view or update my profile.
+2. As a Frequent User, I want to view my order history and payment details.
+3. As a Frequent User, I want to easily recover my password if I forget it.
+4. As a Frequent User, I want to view the latest recipe and all recipes.
+5. As a Frequent User, I want to view and add comments and questions.
 
-  - #### Owner User Goals
+  - #### Owner/Admin User Goals
 
-1. As the owner/admin user I want to upload new products.
-2. As the owner/admin user I want to edit product details.
-3. As the owner/admin user I want to edit product prices.
-4. As the owner/admin user I want to edit images.
-5. As the owner/admin user I want to delete images and products.
-1. As the owner/admin user I want to upload new products.
-1. As the owner/admin user I want to upload new recipes.
-6. As the owner/admin user I want to post or respong on chat to users questions.
-7. As the owner/admin user I want control over material posted on the site for legal and other purposes.
+1. As the Owner/Admin User I want to upload new products.
+2. As the Owner/Admin User I want to edit product details.
+3. As the Owner/Admin User I want to edit product prices.
+4. As the Owner/Admin User I want to edit images.
+5. As the Owner/Admin User I want to delete images and products.
+6. As the Owner/Admin User I want to upload new products.
+7. As the Owner/Admin User I want to upload new recipes.
+8. As the Owner/Admin User I want to post or respong on chat to users questions.
+9. As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
 
 [Back to Table of Content](#table-of-content)
 
@@ -378,8 +377,281 @@ In terms of brand awareness through social media social media share icons would 
 1. [dbdiagram.io](https://dbdiagram.io/home)
    - dbdiagram.io was used to create the Entity-Relationship Diagram.
 
+A number of imports were used in Django for various functions and an inventory of these can be found in the Deployment section.
+
 [Back to Table of Content](#table-of-content)
 
+## Testing
+
+W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate every page of the project.
+
+- [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut)
+  - W3C "Direct Input" option was used on each html page where errors displayed due to template ...but on validated by URL no errors were shown - documentation/w3c-by-url.
+
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnston9/la-donut)
+  - W3C showed no errors and only one warning for the hr rule's background color
+    being the same as it's color, but this was intentional.
+  
+- [JSHint](https://jshint.com/) - [Results](https://github.com/johnston9/la-donut)
+  - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu.
+    
+- [PEP8 online check](http://pep8online.com/) - [Results](https://github.com/johnston9/la-donut)
+  - PEP8 approved all pyhton pages. It gave a "no newline at end of file"
+    but I researched this and found it was a common result and could be ignored. I explored the matter more and found that if
+    the curser was at the start of the new line, I got an "All Right" result.
+
+- [PythonChecker](https://www.pythonchecker.com/) - [Results](https://github.com/johnston9/la-donut)
+  - PythonChecker gave 100% result.
+
+[Back to Table of Content](#table-of-content)
+
+## Testing User Stories from User Experience (UX) 
+
+### First Time User Goals
+
+1. #### As a First Time User, I want to learn what the site has to offer and how to use the site quickly.
+
+    - The site is designed for first time learning. It is streamlined for specific user goals that upon first use the user with a few clicks will be able to find any item, feature or page. At the top of every page the navbar displays all options for the user so they can select their desired destination quickly.
+
+<p align="center"><strong>Navbar</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/nav1a.png" width="90%">
+</h2>
+
+2. #### As a First Time User, I want to view specific categories and specific products.
+
+    - Upon entering the user is take to the shop page where they can use the menu to find specific categories. They have the option to close the menu for a larger items page and shop directly from the navbar. 
+
+<p align="center"><strong>Menu Input</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/menu1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Menu Result</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/menu2.png" width="90%">
+</h2>
+
+3. #### As a First Time User, I want to search for a specific product, know if it's available or not and see how many results there are for the search.
+
+    - At the top of all pages is a search bar where the user can search for specific items. The number of results is displayed above the results or a message sating there were no results if that is the case.
+
+<p align="center"><strong>Search Input</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/search1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Search Result</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/search2.png" width="90%">
+</h2>
+
+1. #### As a First Time User, I want to sort products by price, rating and category.
+
+    1. The site is designed for first time learning. It is streamlined for 
+
+<p align="center"><strong>User Base</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/user10.png" width="90%">
+</h2>
+
+1. #### As a First Time User, I want to find the best prices for different sizes or quantities of each product.
+
+    1. The site is designed for first time learning. It is streamlined for 
+
+<p align="center"><strong>User Base</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/user10.png" width="90%">
+</h2>
+
+1. #### As a First Time User, I want to know what I have added to my shopping bag, make updates or remove items and see the total.
+
+    1. The site is designed for first time learning. It is streamlined for 
+
+<p align="center"><strong>User Base</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/user10.png" width="90%">
+</h2>
+
+1. #### As a First Time User, I want to purchase specific productsquickly without having to sign up.
+
+    1. The site is designed for first time learning. It is streamlined for 
+
+<p align="center"><strong>User Base</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/user10.png" width="90%">
+</h2>
+
+1. #### As a First Time User, I want to register easily.
+
+    1. The site is designed for first time learning. It is streamlined for 
+
+<p align="center"><strong>User Base</strong></p>   
+<h2 align="center">
+<img src="documentation/readme-images/user10.png" width="90%">
+</h2>
 
 
+[Back to Table of Content](#table-of-content)
 
+### Returning User Goals
+
+4. #### As a Returning User, I want to easily login and logout.
+
+    1. On clicking download script the script is downloaded to the user's device.
+
+<p align="center"><strong>Result for downloaded shot list</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/shot1.png" width="90%">
+</h2>
+
+4. #### As a Returning User, I want to view or update my profile.
+
+    1. On clicking download script the script is downloaded to the user's device.
+
+<p align="center"><strong>Result for downloaded shot list</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/shot1.png" width="90%">
+</h2>
+
+4. #### As a Returning User, I want to easily login and logout.
+
+    1. On clicking download script the script is downloaded to the user's device.
+
+<p align="center"><strong>Result for downloaded shot list</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/shot1.png" width="90%">
+</h2>
+
+
+### Frequent User Goals
+
+6. #### As a Frequent User, I want to view or update my profile.
+
+   1. When the user clicks on the Latest Updates button on their home base page
+  
+<p align="center"><strong>Latest Updates Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/la2.png" width="90%">
+</h2>
+
+6. #### As a Frequent User, I want to view my order history and payment details.
+
+   1. When the user clicks on the Latest Updates button on their home base page
+  
+<p align="center"><strong>Latest Updates Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/la2.png" width="90%">
+</h2>
+
+6. #### As a Frequent User, I want to easily recover my password if I forget it.
+
+   1. When the user clicks on the Latest Updates button on their home base page
+  
+<p align="center"><strong>Latest Updates Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/la2.png" width="90%">
+</h2>
+
+6. #### As a Frequent User, I want to view the latest recipe and all recipes.
+
+   1. When the user clicks on the Latest Updates button on their home base page
+  
+<p align="center"><strong>Latest Updates Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/la2.png" width="90%">
+</h2>
+
+6. #### As a Frequent User, I want to view and add comments and questions.
+
+   1. When the user clicks on the Latest Updates button on their home base page
+  
+<p align="center"><strong>Latest Updates Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/la2.png" width="90%">
+</h2>
+
+
+### Owner/Admin User Goals
+
+
+1. #### As the Owner/Admin User I want to upload new products.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to edit product details.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to upload new products.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to edit product prices.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to edit images.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to delete images and products.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to upload new products.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to upload new recipes.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want to post or respond on chat to users questions.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+
+1. #### As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
+
+   - If the admin user clicks the upload script button available only to them
+     
+<h2 align="center">
+<img src="documentation/readme-images/sc-1.png" width="90%">
+</h2>
+ 
