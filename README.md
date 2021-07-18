@@ -332,13 +332,15 @@ In terms of brand awareness through social media social media share icons would 
 [Back to Table of Content](#table-of-content)
 
 ## Languages Used
+[Allauth](allauth)
+[Allauth](documentation/allauth)
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [JAVASCRIPT](https://en.wikipedia.org/wiki/JavaScript)
 - [PYTHON](https://en.wikipedia.org/wiki/Python_(programming_language))
 - [djangotemplatelanguage](
-  https://docs.djangoproject.com/en/3.2reftemplateslanguage/))
+  https://docs.djangoproject.com/en/3.2reftemplateslanguage/)
 
 ## Frameworks, Databases, Libraries & Programs Used
 
