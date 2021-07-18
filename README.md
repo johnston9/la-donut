@@ -205,7 +205,8 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 ### Allauth Login/Register/Logout Pages and Security
 
-  The user can browse and purchase items on the sit but they are encouraged to create an account. On one of the many links to register the user is brought to the Allauth Register page. Like all other pages I customed it to give to a personal easy to use friendly feel. Allauth is used throughout the site to look after all security issues concerning users and deals with all other issues like forgetting passwords and email confirmations.
+  The user can browse and purchase items on the sit but they are encouraged to create an account. On one of the many links to register the user is brought to the Allauth Register page. Like all other Allauth pages I customised it to give to a personal easy to use friendly feel. Allauth is used throughout the site to look after all security issues concerning users and deals with all other issues like forgetting passwords and email confirmations.<br>
+  See [Allauth](documentation/allauth) for all Allauth images.
 
   The site has a number of other security measures firstly the use of front end measures to allow admin access only to admin. Then in the backend the use of @login_required for pages only for authenticated users and a redirect if the user is not a superuser for admin only functions.
 
@@ -332,8 +333,6 @@ In terms of brand awareness through social media social media share icons would 
 [Back to Table of Content](#table-of-content)
 
 ## Languages Used
-[Allauth](allauth)
-[Allauth](documentation/allauth)
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
@@ -491,7 +490,7 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 8. #### As a First Time User, I want to register easily.
 
     - The user will be given the option to sign up from the landing page, when they go to checkout and anytime in the My Account nav link. On clicking they will be take to the Register Page and only have to enter a username, email and password to sign up. The Registration page as with all Allauth page has been customised for greater user experience.<br>
-    See Allauth Testing below for more testing of this function.
+    See [Allauth](documentation/allauth) for all Allauth images.
 
 <p align="center"><strong>My Account Nav Link</strong></p>   
 <h2 align="center">
@@ -511,7 +510,7 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 1. #### As a Returning User, I want to easily login and logout.
 
     - The user can login and logout easily from the My Account nav link which takes them to customed Allauth pages. <br>
-    See Allauth Testing below for more testing of this function.
+    See [Allauth](documentation/allauth) for all Allauth images.
 
 <p align="center"><strong>Login</strong></p>
 <h2 align="center">
@@ -573,10 +572,11 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 2. #### As a Frequent User, I want to easily recover my password if I forget it.
 
    - When the user clicks forgot password on their login they will be taken to a customizes series of Allauth pages to get a new password.
+   See [Allauth](documentation/allauth) for all Allauth images.
   
-<p align="center"><strong>Recover Password</strong></p>
+<p align="center"><strong>Reset Password</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/.png" width="90%">
+<img src="documentation/readme-images/password_reset.png" width="90%">
 </h2>
 
 6. #### As a Frequent User, I want to view the latest recipe and all recipes.
