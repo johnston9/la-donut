@@ -196,16 +196,18 @@ making the user feel both at home here and part of an interesting journey. Detai
   The site is responsive to all sizes and the images remain whole and in proportion at all sizes. One of the major decisions I had to make was regarding the images which would be actually uploader by the owner. The modern repsonsive capabilities are something I really want to take advantage of resizing all images and content at all sizes. BUT...this would only work if all image are the same aspect ratio or it would throw the row symmetry off.
   I combated this by putting in specific image heights, something obviously recommended by Lighthouse but something that also hampers the full responsive capabilities. I greatly researched this and it is something that many in UX field are trying to find a solution to. I also instructed the owner/user that 3:2 aspect ratio was the optimum way to go and gave them a link to img-resize where they could resize their images if necessary. I also put in a link, this all being on the add product page in an instructions hide/show box, to a how to resize on img-resize page. An awful lot of detail and instruction but I believe very necessary as ultimately these images were the whole point of the site and I thought it relevant to advise owners about them. These instruction are intended as an aid to intuitive learning for the owner and lead to them being satisfied with the control and artistic input they had over their site and in turn being happy with the site.
 
+<p align="center"> <strong>Large Screen</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/shop-page2.png" width="90%">
+</h2>
+
 <p align="center"> <strong>Small Screen 320px</strong></p>
 <h2 align="center">
 <img src="documentation/readme-images/shop-sm.png" width="25%">
 </h2>
 
-<p align="center"> <strong>Large Screen</strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/shop-page2.png" width="25%">
-</h2>
 [Back to Table of Content](#table-of-content)
+
 
 ### Allauth Login/Register/Logout Pages and Security
 
