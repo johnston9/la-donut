@@ -65,7 +65,7 @@ class StripewhHandler:
             sliced = True
         else:
             sliced = False
-        if intent.metadata.message:
+        if len(intent.metadata.message) > 0:
             message = intent.metadata.message
         else:
             message = 'No Message'

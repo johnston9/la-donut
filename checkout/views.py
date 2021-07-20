@@ -25,16 +25,12 @@ def extra_checkout_info(request):
     try:
         pay_intent_id = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        if 'message' in request.POST:
-            message1 = request.POST.get('message')
-        else:
-            message1 = "No Message"
         stripe.PaymentIntent.modify(pay_intent_id, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
             'gift_wrapped': request.POST.get('gift_wrapped'),
             'is_card': request.POST.get('is_card'),
-            'message': message1,
+            'message': request.POST.get('message'),
             'sliced': request.POST.get('sliced'),
             'username': request.user,
         })
