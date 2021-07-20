@@ -25,12 +25,16 @@ def extra_checkout_info(request):
     try:
         pay_intent_id = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
+        if 'message' in request.POST:
+            message1 = request.POST.get('message')
+        else:
+            message1 = "No Message"
         stripe.PaymentIntent.modify(pay_intent_id, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
             'gift_wrapped': request.POST.get('gift_wrapped'),
             'is_card': request.POST.get('is_card'),
-            'message': request.POST.get('message'),
+            'message': message1,
             'sliced': request.POST.get('sliced'),
             'username': request.user,
         })
@@ -194,6 +198,7 @@ def checkout_complete(request, order_number):
     Display order success comfirmation on completed checkouts
     """
     save_info = request.session.get('save_info')
+    print(save_info)
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:

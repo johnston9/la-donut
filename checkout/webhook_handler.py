@@ -55,20 +55,24 @@ class StripewhHandler:
         save_info = intent.metadata.save_info
         if intent.metadata.gift_wrapped == 'true':
             gift_wrapped = True
+        else:
+            gift_wrapped = False
         if intent.metadata.is_card == 'true':
             is_card = True
+        else:
+            is_card = False
         if intent.metadata.sliced == 'true':
             sliced = True
-        message = intent.metadata.message
+        else:
+            sliced = False
+        if intent.metadata.message:
+            message = intent.metadata.message
+        else:
+            message = 'No Message'
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-
-        # Change empty string value to None for shipping details in model
-        # for field, value in shipping_details.address.items():
-        # if value == "":
-        # shipping_details.address[field] = None
 
         # Update profile information if save_info was checked
         profile = None

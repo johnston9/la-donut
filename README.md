@@ -156,9 +156,8 @@ making the user feel both at home here and part of an interesting journey. Detai
 3. As the Owner/Admin User I want to edit product prices.
 4. As the Owner/Admin User I want to edit images.
 5. As the Owner/Admin User I want to delete images and products.
-6. As the Owner/Admin User I want to upload new products.
 7. As the Owner/Admin User I want to upload new recipes.
-8. As the Owner/Admin User I want to post or respong on chat to users questions.
+8. As the Owner/Admin User I want to post or respond on chat to users questions.
 9. As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
 
 [Back to Table of Content](#table-of-content)
@@ -268,6 +267,60 @@ making the user feel both at home here and part of an interesting journey. Detai
 </h2>
 
 Please see admin testing for further details.
+
+### Optimum Image Showcase
+The site is designed for the owner to show their products and I believed it good practice to give then a little instruction to help then intuititively learn how it is best to do this. The site uses responsive design to display the products and this is ideal however it does need a little management on the owners behalf for them to make best use of the feature. If the owner was to upload all images at the same aspect ratio this would not be an issue but even so they would still need to understand this and arrange for all images to be of that size and that no one ever upload one of a different size. So to safeguard against different size images I set specific heights for the images at different screen sizes. This would keep the rows uniformed. <br>
+I also gave instructions to the owner when they first arrive on the upload product page. They inform the user that a aspect ratio of 3:2 to best for all images and there is then a link to img-resize where they can resize an image if necessary. There is a further link to instructions on how best to actually do this. These instructions along with the practice of uploading the images should help the owner intuitivly learn how to manage the site and give them a good feeling of their capabilities over it and how to best showcase their products. 
+
+<p align="center"><strong>Resize Instructions</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/x.png" width="90%">
+</h2>
+
+[Back to Table of Content](#table-of-content)
+
+### Size and Box Quantity Prices
+
+The owner is given the option to add size or box quantity prices to an item when they upload it. They simply check the box for which one they want. Upon submit they are automatically taken to the size or box quantity (which I have called the "Forsix" ) form to add the prices for that product. On the shop page and also on the view item page these price are displayed in radio boxes so that specif size or forsix and it's coinciding price can be added to the bag. This process called for a lot for precice code throughout the site as the boolean is_sizes or is_for_six and the particular size or forsix and it's price were needed at a number of places
+
+##### The "forsix/size"journey
+
+ 1. The owner selects is_sizes or is_for_six when uploading a product.
+
+ 2. The owner inputs the size of forsix prices.
+
+ 3. The user selects a product and it's id is added to the bag with either<br>
+    'items_with_size' or 'items_with_forsix' as a key in it's value<br>
+    which has in turn as a value the items size or forsix attached to it's price<br>
+    and it's quantity.
+  
+ 4. The context.py file intreprets this to get the id, size or forsix and price which it add to the bag_items variable as well as updating the total.
+
+<p align="center"><strong>Print-out of bag items and session bag</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/bag-code.png" width="90%">
+</h2>
+
+ 5. 
+
+### Checkout and Stripe
+Stripe is used to process the order. <br>
+  1. Once the user clicks the checkout button a Stripe payment intent is created, the total being calculated from the contect.py function.
+  2. After the user fills in the delivery and card detail and clicks submit metadata is added to the intent before the form is submitted. If the form is OK the order is saved again getting the item details using the 'items_with_size' or 'items_with_forsix' bag keys. If the user has clicked save info their details will be saved to UserProfiles.
+  3. Stripe sends an Charge Succeeded webhook and a Payment Intent Succeeded. An Order Complete page is sent to the user and the webhook checks to see if the order has been successfully created in the database. After 5 checks if not it creates the order from the intent and the added metadata.
+
+
+  
+
+
+
+<p align="center"><strong>Prices</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/x.png" width="90%">
+</h2>
 
 [Back to Table of Content](#table-of-content)
 
@@ -589,20 +642,21 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 6. #### As a Frequent User, I want to view the latest recipe and all recipes.
 
-   1. When the user clicks Recipes in the nav they will be taken to the Recipe Page where they can select a Recipe and be taken to a page for it. After completing an order a large button displays on the checkout complete page to take them to the Latest Recipe.
+   1. When the user clicks Recipes in the nav they will be taken to the Recipe Page where they can select a Recipe and be taken to a page for it. Also, to entice the user to sign up, upon completing an order a large button displays on the checkout complete page to take them to the Latest Recipe. Below the recipe they are prompted with another button to view comments and question on the Chat page. There they have to register to post a question.
   
-<p align="center"><strong></strong></p>
+<p align="center"><strong>Recipe page</strong></p>
 <h2 align="center">
 <img src="documentation/readme-images/.png" width="90%">
+
 </h2>
 
 6. #### As a Frequent User, I want to view and add comments and questions.
 
-   1. When the user clicks on the Latest Updates button on their home base page
+   1. The user can click the chat link in the nav to go directly to the Chat page or, as mentioned directly above, click on the link below each recipe and sign up to add messages or just read them without doing that. If there post a question directed to the pastry chefs it will be replied to by a shop superuser.
   
-<p align="center"><strong>Latest Updates Page</strong></p>
+<p align="center"><strong>Chat Page</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/la2.png" width="90%">
+<img src="documentation/readme-images/.png" width="90%">
 </h2>
 
 
@@ -611,8 +665,13 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 1. #### As the Owner/Admin User I want to upload new products.
 
-   - If the admin user clicks the upload script button available only to them
-     
+   - As a superuser the owner can easily click on the Add Product link in their My Account link in the nav which will take them to the Add Product page. There they will first see an instructions button and be asked to read them. Upon clicking it the instructions will open. They can keep it closed or refer to it as thet familiarize themselves with the upload process. The instructions go into great detail about the uploading images process as this is paramont to the site being used to it's greatest advantage. <br>
+   See [Existing Features](#existing-features) above for more on this.
+   The instructions also inform the use about how to add size or box quantity prices to each product.<br>
+   See [Existing Features](#existing-features) above for more on this.
+   
+
+<p align="center"><strong>Upload Product Page</strong></p>     
 <h2 align="center">
 <img src="documentation/readme-images/sc-1.png" width="90%">
 </h2>

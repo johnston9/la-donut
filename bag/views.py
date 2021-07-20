@@ -16,8 +16,7 @@ def add_to_bag(request, item_id):
     """ Add product to the shopping bag """
 
     product = get_object_or_404(Product, pk=item_id)
-    # quantity = int(request.POST.get('quantity') or 1)
-    quantity = 1
+    quantity = int(request.POST.get('quantity') or 1)
     sizeprice = None
     forsixprice = None
 
