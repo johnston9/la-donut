@@ -89,6 +89,7 @@
                 <hr class="gold70 mb-1">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
+                    {% if user.is_authenticated %}
                     <fieldset class="rounded px-3 mb-5">
                         <div class="gift-wrapper mt-4">
                         <legend class="orderfield-legend text-center text-black px-3 w-auto">Gift Presentation</legend>
@@ -122,6 +123,10 @@
                           </div>
                         </div>
                     </fieldset>
+                    {% else %}
+                    <h5 class="text-center">Create an account and get the Free Gift Presentation Extras.<br>
+                        Includes Gift-wrapping, Card and Handwritten Personal Message and Pre-Slicing.</h5>
+                    {% endif %}
 
                     <fieldset class="px-2 mb-4">
                         <legend class="orderfield-legend text-black text-center px-3 w-auto">Your Details</legend>

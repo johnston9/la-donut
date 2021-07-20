@@ -11,4 +11,4 @@ class CustomClearableFileInput(ClearableFileInput):
         before adding new image')
     initial_text = _('Current Image')
     input_text = _('')
-    template_name = 'products/widgets_custom/clearable_file_input.html'
+    template_name = 'recipe/widgets_custom/clearable_file_input.html'

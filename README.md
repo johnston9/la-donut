@@ -546,7 +546,9 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 3. #### As a Returning User, I want to see products ratings and reviews.
 
     - The product average customer rating is displayed for each item on the shop and view item pages. On the view item page the user will see a link to the item's reviews and another link to add a review if the user is authenticated or sign up to add a review if not. On the add review page the user can rate the product and this is displayed in stars on their review and also used to calculate the average rating. A customised Bootstrap paginated table is used to hold the reviews which includes a search function which I figured out from the Bootstrap4 docs.<br>
+    
     [DataTables](https://datatables.net/examples/styling/bootstrap4)
+    [Supervalue](https://supervalu.ie/real-food/recipes/tiramisu?ref=meal_planner)
 
 <p align="center"><strong>Review Page</strong></p>
 <h2 align="center">

@@ -83,6 +83,7 @@ def bag_contents(request):
         'delivery': delivery,
         'free_delivery_gap': free_delivery_gap,
         'free_delivery_total': settings.FREE_DELIVERY_TOTAL,
+        'delivery_charge': settings.DELIVERY_CHARGE,
         'grand_total': grand_total,
     }
 

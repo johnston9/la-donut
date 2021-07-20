@@ -11,7 +11,7 @@
 
 {% block content %}
 
-    <div class="container-fluid recipies-container">
+    <div class="container-fluid recipies-container lato">
         
         <!--title-->
         <div class="row">
@@ -49,16 +49,39 @@
             </div>
             <div class="col-12 col-md-6">
                 <div class="row">
-                    <div class="col-10 offset-1">
-                        <p class="mt-3">{{ recipe.description }}</p>
-                        <h5>Ingredients</h5>
-                        <p class="mt-3">{{ recipe.ingredients }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-10 offset-1">
-                        <h5>Preparation</h5>
-                        <p class="mt-3">{{ recipe.preparation }}</p>
+                    <div class="col-12 mt-3">
+                        <p class="text-newred font-weight-bold">PREPARATION TIME:<span class="text-grey"> {{ recipe.prep_time}}</span></p>
+                        <p class="text-newred font-weight-bold">COOKING TIME:<span class="text-grey"> {{ recipe.cook_time}}</span></p>  
+                        <p class="text-newred font-weight-bold">SERVES:<span class="text-grey"> {{ recipe.serves}}</span></h5>
+                        <h5 class="mt-2 playball text-center">{{ recipe.description }}</h5>
+                        <h5 class="text-black playfair text-center ">Ingredients</h5>
+                        <p class="py-0 my-0">{{ recipe.ingredient1 }}</p>
+                        <p class="py-0 my-0">{{ recipe.ingredient2 }}</p>
+                        <p class="py-0 my-0">{{ recipe.ingredient3 }}</p>
+                        <p class="py-0 my-0">{{ recipe.ingredient4 }}</p>
+                        <p class="py-0 my-0">{{ recipe.ingredient5 }}</p>
+                        {% if recipe.ingredient6 %}
+                            <p class="py-0 my-0">{{ recipe.ingredient6 }}</p>
+                        {% endif %}
+                        {% if recipe.ingredient7 %}
+                            <p class="py-0 my-0">{{ recipe.ingredient7 }}</p>
+                        {% endif %}
+                        {% if recipe.ingredient8 %}
+                            <p class="py-0 my-0">{{ recipe.ingredient8 }}</p>
+                        {% endif %}
+                        {% if recipe.ingredient9 %}
+                            <p class="py-0 my-0">{{ recipe.ingredient9 }}</p>
+                        {% endif %}
+                        {% if recipe.ingredient10 %}
+                            <p class="py-0 my-0">{{ recipe.ingredient10 }}</p>
+                        {% endif %}
+                        <h5 class="text-black playfair text-center ">Preparation</h5>
+                        <p class="text-black"><strong>Step 1</strong></p>
+                        <p class="text-black">{{ recipe.step1 }}</p>
+                        <p class="text-black"><strong>Step 2</strong></p>
+                        <p class="text-black">{{ recipe.step2 }}</p>
+                        <p class="text-black"><strong>Step 3</strong></p>
+                        <p class="text-black">{{ recipe.step3 }}</p>
                     </div>
                 </div>
             </div>     
@@ -72,12 +95,20 @@
         </div> 
         {% if request.user.is_superuser %}
             <div class="row">
-                <div class="col-6">
-                    <small class="">
-                        <a class="text-red" a href="{% url 'delete_recipe' recipe.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                    </small>
+                <div class="col-12 text-right">
+                    <h5>
+                        <a class="lato text-softblack font-weight-bold" href="{% url 'edit_recipe' recipe.id %}">Edit</a>
+                    </h5>
+                    
                 </div>
             </div>
-        {% endif %}     
+            <div class="row mb-2">
+                <div class="col-12 text-right">
+                    <h5 class="">
+                        <a class="text-red font-weight-bold" a href="{% url 'delete_recipe' recipe.id %}" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete</a>
+                    </h5>
+                </div>
+            </div>
+        {% endif %}    
     </div>
 {% endblock %}

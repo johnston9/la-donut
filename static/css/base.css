@@ -508,6 +508,10 @@ input[type=checkbox], input[type=radio] {
     color: rgb(119, 6, 6);
 }
 
+.text-newred {
+    color: #9b1724;;
+}
+
 .text-grey {
     color: #696666;
 }

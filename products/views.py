@@ -73,9 +73,6 @@ def cakes_menu(request):
         category_name = request.GET['cakes_deserts'].split(',')
         products = products.filter(category__name__in=category_name)
         categories = Category.objects.filter(name__in=category_name)
-        # category_name = request.GET['cakes_deserts']
-        # products = products.filter(category__name=category_name)
-        # categories = Category.objects.filter(name=category_name)
 
     context = {
         'products': products,
@@ -309,8 +306,6 @@ def edit_product(request, product_id):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         form.fields['name'].disabled = True
-        # form.fields['is_for_six'].disabled = True
-        # form.fields['is_sizes'].disabled = True
         if form.is_valid():
             form.save()
             messages.info(request, 'Product updated successfully')
@@ -427,6 +422,21 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.info(request, 'Product deleted!')
+    return redirect(reverse('shop'))
+
+
+@login_required
+def cut_review(request, review_id):
+    """ Delete a review """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
+    review1 = get_object_or_404(Review, pk=review_id)
+    review1.delete()
+    messages.info(request, 'Review deleted!')
     return redirect(reverse('shop'))
 
 

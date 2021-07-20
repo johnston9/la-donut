@@ -25,8 +25,11 @@ def get_recipe(request, recipe_id):
     """ A view to return the recipe page """
 
     recipe_one = get_object_or_404(Recipe, pk=recipe_id)
+    print(recipe_one)
+    # list = recipe_one.ingedients.split(',')
     context = {
         'recipe': recipe_one,
+        'ingredients': list,
     }
 
     return render(request, 'recipe/get_recipe.html', context)
@@ -52,12 +55,12 @@ def add_recipe(request):
         return redirect(reverse('shop'))
 
     if request.method == 'POST':
-        form = RecipeForm(request.POST)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.info(request, 'Recipe Added Successfully.\
                 Process complete')
-            return redirect(reverse('shop'))
+            return redirect(reverse('recipe'))
         else:
             messages.error(request, 'Failed to add Recipe.\
                 Please check that the form is valid.')
@@ -68,6 +71,36 @@ def add_recipe(request):
     }
 
     return render(request, 'recipe/add_recipe.html', context)
+
+
+def edit_recipe(request, recipe_id):
+    """ A view to return the edit recipe page """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
+    recipe1 = get_object_or_404(Recipe, pk=recipe_id)
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES, instance=recipe1)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Recipe Edited Successfully.\
+                Process complete')
+            return redirect(reverse('get_recipe', args=[recipe1.id]))
+        else:
+            messages.error(request, 'Failed to Edit Recipe.\
+                Please check that the form is valid.')
+    else:
+        recipe_form = RecipeForm(instance=recipe1)
+        messages.info(request, f'Editing {recipe1.title}')
+    context = {
+        'form': recipe_form,
+        'recipe': recipe1
+    }
+
+    return render(request, 'recipe/edit_recipe.html', context)
 
 
 def chat(request):
@@ -118,4 +151,19 @@ def delete_recipe(request, recipe_id):
     recipe_del = get_object_or_404(Recipe, pk=recipe_id)
     recipe_del.delete()
     messages.info(request, 'Recipe deleted!')
-    return redirect(reverse('all_recipes'))
+    return redirect(reverse('recipe'))
+
+
+@login_required
+def cut_comment(request, comment_id):
+    """ Delete a comment """
+
+    # redirect if user not superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, incorrect url')
+        return redirect(reverse('shop'))
+
+    comment_del = get_object_or_404(Comment, pk=comment_id)
+    comment_del.delete()
+    messages.info(request, 'Comment deleted!')
+    return redirect(reverse('chat'))
