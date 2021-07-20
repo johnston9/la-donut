@@ -65,10 +65,7 @@ class StripewhHandler:
             sliced = True
         else:
             sliced = False
-        if len(intent.metadata.message) > 0:
-            message = intent.metadata.message
-        else:
-            message = 'No Message'
+        print(sliced)
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
@@ -136,7 +133,6 @@ class StripewhHandler:
                     stripe_pid=pay_intent_id,
                     gift_wrapped=gift_wrapped,
                     is_card=is_card,
-                    message=message,
                     sliced=sliced,
                 )
                 for item_id, item_data in json.loads(bag).items():
