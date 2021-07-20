@@ -57,7 +57,11 @@ form.addEventListener('submit', function(ev) {
     var giftWrapped = Boolean($('#gift_wrapped').is(":checked"));
     var isCard = Boolean($('#is_card').is(":checked"));
     var sliced = Boolean($('#sliced').is(":checked"));
-    /*var message = $('#message').val();*/
+    if($('#message').val()) {
+        message = $('#message').val();
+      } else {
+        message = 'No message';
+      }
 
     // use the {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -68,7 +72,7 @@ form.addEventListener('submit', function(ev) {
         'gift_wrapped': giftWrapped,
         'is_card': isCard,
         'sliced': sliced,
-        /*'message': message,*/
+        'message': message,
     };
     var url = '/checkout/extra_checkout_info/';
 
