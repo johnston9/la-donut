@@ -8,23 +8,17 @@ from .models import Recipe, Comment
 from .forms import RecipeForm, CommentForm
 
 
-# def recipe(request):
-#     """ A view to return the recipes page """
-
-#     recipes = Recipe.objects.all()
-#     latest = Recipe.objects.last()
-#     context = {
-#         'recipes': recipes,
-#         'latest': latest,
-#     }
-
-#     return render(request, 'recipe/recipe.html', context)
-
-
 def recipe(request):
     """ A view to return the recipes page """
 
-    return render(request, 'recipe/recipe.html')
+    recipes = Recipe.objects.all()
+    latest = Recipe.objects.last()
+    context = {
+        'recipes': recipes,
+        'latest': latest,
+    }
+
+    return render(request, 'recipe/recipe.html', context)
 
 
 def get_recipe(request, recipe_id):

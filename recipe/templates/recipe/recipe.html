@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <!--<div class="row">
+        <div class="row">
             <div class="col">
                 <div class="row">
                     {% for recipe in recipes %}
@@ -49,9 +49,9 @@
                                         </a>
                                     {% endif %}
                                 </div>
-                            </div>-->
+                            </div>
                             <!--footer-->
-                            <!--<div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
+                            <div class="card-footer bg-white pt-1 px-0 mx-0 mt-3 border-0">
                                 <div class="row">
                                     <div class="col-12">
                                         <h5 class="text-center playball text-mattblack font-weight-bold upper mb-2">
@@ -59,11 +59,11 @@
                                     </div>
                                     <div class="col-12">
                                         <p class="mb-2 mx-0 px-0 text-center pb-0 mb-1">
-                                            {{ recipe.description }}</p>                  
+                                            {{ recipe.description|truncatechars:60 }}</p>                  
                                     </div>
                                 </div>
                                 
-                            </div>-->
+                            </div>
                             <!--end footer-->
                         </div>
                     </div>

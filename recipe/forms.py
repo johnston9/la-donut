@@ -15,7 +15,7 @@ class RecipeForm(forms.ModelForm):
                   'prep_time', 'cook_time', 'serves',
                   'ingredient1', 'ingredient2', 'ingredient3',
                   'ingredient4', 'ingredient5', 'ingredient6',
-                  'ingredient7', 'ingredient7', 'ingredient9',
+                  'ingredient7', 'ingredient8', 'ingredient9',
                   'ingredient10', 'step1', 'step2', 'step3')
 
     image = forms.ImageField(label='Image', required=False,
