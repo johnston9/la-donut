@@ -37,7 +37,7 @@
             <div class="col-12 col-lg-6 offset-lg-1">
                 <h3 class="text-center mt-4 text-muted">Order History</h3>
                 <hr class="gold70 mb-1">
-                <div class="order-history table-responsive">
+                <div class="order-history table-responsive lato">
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
@@ -56,7 +56,7 @@
                                             {{ order.order_number|truncatechars:6 }}
                                         </a>
                                     </td>
-                                    <td>{{ order.date }}</td>
+                                    <td>{{ order.|date:"d M Y" }}</td>
                                     <td>
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
@@ -73,8 +73,7 @@
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>${{ order.grand_total }}</td>
-                                    
+                                    <td>E{{ order.grand_total }}</td>                               
                                 </tr>                               
                             {% endfor %}
                         </tbody>

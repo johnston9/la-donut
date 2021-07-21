@@ -29,15 +29,16 @@
             </div>
         </div>
         
-        <!--<div class="row">
+        {% if recipe %}
+        <div class="row">
             <div class="col">
                 <h4 class="text-center text-softblack playball">
                     {{ recipe.title }}
                 </h4>
             </div>
-        </div>-->
+        </div>
 
-        <!--<div class="row">
+        <div class="row">
             <div class="col-12 col-md-6">
                 <div class="image-box my-4">
                     {% if recipe.image %}
@@ -84,8 +85,9 @@
                         <p class="text-black">{{ recipe.step3 }}</p>
                     </div>
                 </div>
-            </div>     
-        </div>-->           
+            </div>  
+            {% endif %}   
+        </div>        
         <div class="row">
             <div class="col-12 text-center">
                 <button class="btn btn-gold">
