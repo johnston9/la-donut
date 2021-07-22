@@ -156,7 +156,8 @@ making the user feel both at home here and part of an interesting journey. Detai
 3. As the Owner/Admin User I want to edit product prices.
 4. As the Owner/Admin User I want to edit images.
 5. As the Owner/Admin User I want to delete images and products.
-7. As the Owner/Admin User I want to upload new recipes.
+6. As the Owner/Admin User I want to upload new recipes.
+7. As the Owner/Admin User I want to edit recipes.
 8. As the Owner/Admin User I want to post or respond on chat to users questions.
 9. As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
 
@@ -192,8 +193,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 ### Responsive Design
 
-  The site is responsive to all sizes and the images remain whole and in proportion at all sizes. One of the major decisions I had to make was regarding the images which would be actually uploader by the owner. The modern repsonsive capabilities are something I really want to take advantage of resizing all images and content at all sizes. BUT...this would only work if all image are the same aspect ratio or it would throw the row symmetry off.
-  I combated this by putting in specific image heights, something obviously recommended by Lighthouse but something that also hampers the full responsive capabilities. I greatly researched this and it is something that many in UX field are trying to find a solution to. I also instructed the owner/user that 3:2 aspect ratio was the optimum way to go and gave them a link to img-resize where they could resize their images if necessary. I also put in a link, this all being on the add product page in an instructions hide/show box, to a how to resize on img-resize page. An awful lot of detail and instruction but I believe very necessary as ultimately these images were the whole point of the site and I thought it relevant to advise owners about them. These instruction are intended as an aid to intuitive learning for the owner and lead to them being satisfied with the control and artistic input they had over their site and in turn being happy with the site.
+- The site is responsive to all sizes and the images remain whole and in proportion at all sizes. 
 
 <p align="center"> <strong>Large Screen</strong></p>
 <h2 align="center">
@@ -204,6 +204,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 <h2 align="center">
 <img src="documentation/readme-images/shop-sm.png" width="25%">
 </h2>
+
 
 [Back to Table of Content](#table-of-content)
 
@@ -282,11 +283,17 @@ I also gave instructions to the owner when they first arrive on the upload produ
 
 ### Size and Box Quantity Prices
 
-The owner is given the option to add size or box quantity prices to an item when they upload it. They simply check the box for which one they want. Upon submit they are automatically taken to the size or box quantity (which I have called the "Forsix" ) form to add the prices for that product. On the shop page and also on the view item page these price are displayed in radio boxes so that specif size or forsix and it's coinciding price can be added to the bag. This process called for a lot for precice code throughout the site as the boolean is_sizes or is_for_six and the particular size or forsix and it's price were needed at a number of places
+The owner is given the option to add size or box quantity prices to an item when they upload it. They simply check the box for which one they want. Upon submit they are automatically taken to the size or box quantity (which I have called the "Forsix" ) form to add the prices for that product. On the shop page and also on the view item page these price are displayed in radio boxes so that specif size or forsix and it's coinciding price can be added to the bag. This process called for a lot for precise code throughout the site as the boolean is_sizes or is_for_six and the particular size or forsix and it's price were needed at a number of places.
 
-##### The "forsix/size"journey
+##### The forsix/size journey
 
- 1. The owner selects is_sizes or is_for_six when uploading a product.
+ 1. The owner selects is_sizes or is_for_six when uploading a product. A check is in place in the view to prevent a user selecting both. On submit a signal creates a Size and Forsix model object for that product. This is a safety measure to ensure products have a Size or Forsix model related to it or it would cause problems when Django goes to find the prices for that product were it not there. Further saftey measures are in the template if for some reason the Size or Forsix model was not found in the view.
+
+ <p align="center"><strong>Safety Check Against Both Being Checked</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/size-check.png" width="90%">
+</h2>
 
  2. The owner inputs the size of forsix prices.
 
@@ -303,7 +310,6 @@ The owner is given the option to add size or box quantity prices to an item when
 <img src="documentation/readme-images/bag-code.png" width="90%">
 </h2>
 
- 5. 
 
 ### Checkout and Stripe
 Stripe is used to process the order. <br>
@@ -666,85 +672,180 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 1. #### As the Owner/Admin User I want to upload new products.
 
    - As a superuser the owner can easily click on the Add Product link in their My Account link in the nav which will take them to the Add Product page. There they will first see an instructions button and be asked to read them. Upon clicking it the instructions will open. They can keep it closed or refer to it as thet familiarize themselves with the upload process. The instructions go into great detail about the uploading images process as this is paramont to the site being used to it's greatest advantage. <br>
-   See [Existing Features](#existing-features) above for more on this.
-   The instructions also inform the use about how to add size or box quantity prices to each product.<br>
-   See [Existing Features](#existing-features) above for more on this.
+   See [Existing Features - Optimum Image Showcase](#optimum-image-showcase) above for more on this.
+   The instructions also inform the user about how to add size or box quantity prices to each product.<br>
+   See [Existing Features - Size and Box Quantity Prices](#size-and-box-quantity-prices) above for more on this.
    
 
-<p align="center"><strong>Upload Product Page</strong></p>     
+<p align="center"><strong>Upload Product Page Instructions</strong></p>     
 <h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
+<img src="documentation/readme-images/add-inst.png" width="90%">
 </h2>
 
-1. #### As the Owner/Admin User I want to edit product details.
+<p align="center"><strong>Select image from user device</strong></p>     
+<h2 align="center">
+<img src="documentation/readme-images/select-im.png" width="90%">
+</h2>
+
+<p align="center"><strong>Selected image from user device</strong></p>     
+<h2 align="center">
+<img src="documentation/readme-images/image-sel.png" width="90%">
+</h2>
+
+<p align="center"><strong>After Submitting Add Product Add Prices</strong></p>     
+<h2 align="center">
+<img src="documentation/readme-images/size-ad1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Success Message Product Added</strong></p>     
+<h2 align="center">
+<img src="documentation/readme-images/pro-com.png" width="90%">
+</h2>
+
+2. #### As the Owner/Admin User I want to edit product details.
+
+   - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can update a product or it's image. On doing so a success message will display.
+
+<p align="center"><strong>Edit Product Info message</strong></p>       
+<h2 align="center">
+<img src="documentation/readme-images/ed-pro1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Edit Product Success message</strong></p>       
+<h2 align="center">
+<img src="documentation/readme-images/ed-pro2.png" width="90%">
+</h2>
+
+3. #### As the Owner/Admin User I want to edit product prices.
+
+   - As a superuser the owner can easily update a product's webprice in the Edit product page if that item does not have size or forsix prices. If it does thet can click on the Edit Prices link under each Product in the View Item page which will take them to the Edit Size Prices or Edit Forsix Prices pages. On doing so a success message will display.
+
+<p align="center"><strong>Edit Prices Info message</strong></p>       
+<h2 align="center">
+<img src="documentation/readme-images/ed-pr1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Edit Prices Success message</strong></p>       
+<h2 align="center">
+<img src="documentation/readme-images/ed-pr2.png" width="90%">
+</h2>
+
+
+4. #### As the Owner/Admin User I want to edit images.
+
+   - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can update a product image. The same applies for Recipe images. On doing so a success message will display. The image field was customize using the code from Boutique Ado which I just tweeked a bit and add a second widgets.py and clearable_file_input.html to the Recipe app.
+
+<p align="center"><strong>Delete Image Alert</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/im-al.png" width="90%">
+</h2>
+
+5. #### As the Owner/Admin User I want to delete images and products.
+
+   - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can delete a product image. The same applies for Recipe images. On doing so a success message will display. If a user checks the delete image box a js alert displays to warn them. To delete a product the owner can easily click on the Delete link under each Product in the Shop and View Item pages. This time a confirm alert will display to ask if they are sure they want to delet it.
+
+<p align="center"><strong>Delete Product Alert</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/del-al33.png" width="90%">
+</h2>
+
+6. #### As the Owner/Admin User I want to upload new recipes.
+
+   - If the admin user clicks the Add Recipe link in My Account they will be taken to the Add Recipe page where they can easily add a new recipe and upload an image for it. I gave an input box for each ingredient for user friendliness and to prevent user error which could be caused if the ingredients were added to one input then split in a loop on the page. 
+
+<p align="center"><strong>Add Recipe Page</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/rec-add2.png" width="90%">
+</h2>
+
+<p align="center"><strong>Add Recipe success message</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/rec-add3.png" width="90%">
+</h2>
+
+7. #### As the Owner/Admin User I want to edit recipes.
+
+   - If the user is a superuser an edit and delete link will display below each recipe. On clicking edit the user will be taken to the Edit Recipe page and on completion a success message will display. On clicking delete a confirm delete confirm alert will display and on clicking OK the recipe will be deleted.
+
+<p align="center"><strong>Edit Recipe success message</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/recipe-edit3.png" width="90%">
+</h2>
+
+8. #### As the Owner/Admin User I want to post or respond on chat to users questions.
 
    - If the admin user clicks the upload script button available only to them
-     
+
+<p align="center"><strong>Upload Product Page</strong></p>      
 <h2 align="center">
 <img src="documentation/readme-images/sc-1.png" width="90%">
 </h2>
 
-1. #### As the Owner/Admin User I want to upload new products.
+9. #### As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
 
    - If the admin user clicks the upload script button available only to them
-     
+
+<p align="center"><strong>Upload Product Page</strong></p>      
 <h2 align="center">
 <img src="documentation/readme-images/sc-1.png" width="90%">
 </h2>
 
-1. #### As the Owner/Admin User I want to edit product prices.
 
-   - If the admin user clicks the upload script button available only to them
-     
-<h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
-</h2>
 
-1. #### As the Owner/Admin User I want to edit images.
-
-   - If the admin user clicks the upload script button available only to them
-     
-<h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
-</h2>
-
-1. #### As the Owner/Admin User I want to delete images and products.
-
-   - If the admin user clicks the upload script button available only to them
-     
-<h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
-</h2>
-
-1. #### As the Owner/Admin User I want to upload new products.
-
-   - If the admin user clicks the upload script button available only to them
-     
-<h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
-</h2>
-
-1. #### As the Owner/Admin User I want to upload new recipes.
-
-   - If the admin user clicks the upload script button available only to them
-     
-<h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
-</h2>
-
-1. #### As the Owner/Admin User I want to post or respond on chat to users questions.
-
-   - If the admin user clicks the upload script button available only to them
-     
-<h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
-</h2>
-
-1. #### As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
-
-   - If the admin user clicks the upload script button available only to them
-     
-<h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
-</h2>
+## Bugs Fixed
+### metadata
+ - The adding of the metadata to the intent caused a few bugs. What is meant to happen is;
+ 1. stripe_elements.js checks to see if the is_saved, giftwrapped, is_card checkboxes are checked or not and get the value from the message input box.
+ 2. stripe_elements.js sends this data, along with some other data to the extra_checkout_info view where it is added to the intent metadata. 
+ 3. The handle_payment_intent_succeeded function retreives this data and uses it to add to the Order.
  
+ But error 1;
+ I had used Boolean...ischecked() to check the boxes and it had in fact returned strings "true" or "false" not Boolean values which threw errors and caused the payment intent succeeded to fail.
+ 
+ And error 2;
+ If there was no message the message key was not added to the intent so that threw another error and caused the same problem.
+
+ Solution for error 1;
+ I just checked the values in the handle_payment_intent_succeeded function and set the variables to either true or false depending on what the string value was.
+
+<p align="center"><strong>Check Values</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/meta.png" width="90%">
+</h2>
+
+Solution for error 2;
+ I checked to see if a value existed in message in stripe_elements.js and if so set message to that, if no value set to a default value. function and set the variables to either true or false depending on what the string value was.
+
+<p align="center"><strong>Check Values</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/meta1.png" width="90%">
+</h2>
+
+## Bugs Ongoing
+
+### Payment Intent Succeeded 
+There are two webhook endpoints one for Gitpod and one for Heroku.
+The payment intent succeeded always sends to both when Heroku is used but for a reason I just couldn't figure out occasonally, and I mean rarely, does not send one to Heroku when Gitpod is used. All charges are completed successfully always and all other webhooks send. On checking the Stripe Logs on one of these occasions it said I needed to login again.
+
+<p align="center"><strong>Stripe Logs</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/stripe-logs.png" width="90%">
+</h2>
+
+### Heroku Logs
+I noticed an "Invalid block token" warning sometimes in Heroku logs for something in Django templates base.py line 531 but there were no actual problems witht the sie always deploying.
+
+<p align="center"><strong>Heroku Logs</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/heroku-logs.png" width="90%">
+</h2>
+
+## Bugs Fixed
+
+### Migrations to Heroku
+I redid the recipe model and migrated it to Postgres on Heroku but it threw errors when I went to load the Recipe page. After numerous unsuccessful efforts to fix this I decided to do another migration and the problem was fixed.
+
+<p align="center"><strong>Bad Migration</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/recipe-er1.png" width="90%">
+</h2>

@@ -56,16 +56,16 @@
                 <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                         <p>Is Sizes</p>
-                        <div class="form-check mb-0">
+                        <div class="form-check add_product mb-0">
                             <label class="form-check-label" for="is_sizes">
-                                <input type="checkbox" class="form-check-input" id="is_sizes"
+                                <input type="checkbox" class="form-check-input lato" id="is_sizes"
                                     name="is_sizes" value="is_sizes">
                                 Check if item has size prices. 
                             </label>
                         </div>
                         <hr>
                         <p>Is For Six</p>
-                        <div class="form-check mb-0">
+                        <div class="form-check add_product mb-0">
                             <label class="form-check-label" for="is_for_six">
                                 <input type="checkbox" class="form-check-input" id="is_for_six"
                                     name="is_for_six" value="is_for_six">

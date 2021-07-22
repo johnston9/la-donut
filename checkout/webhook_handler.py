@@ -66,8 +66,6 @@ class StripewhHandler:
         else:
             sliced = False
         message = intent.metadata.message
-        print(sliced)
-        print(message)
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping

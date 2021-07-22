@@ -623,6 +623,11 @@ input[name='q']::placeholder {
     padding-top: 1px;
 }
 
+.add_product .form-check-label {
+    font-size: 1rem;
+    font-family: lato;
+}
+
 .form-check-label {
     font-size: .75rem;
     font-family: Playball;

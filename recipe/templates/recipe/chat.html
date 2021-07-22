@@ -53,7 +53,7 @@
                             
                 {% if request.user.is_superuser %}
                 <div>
-                <label class="form-check-label" for="is_shop">Check here if in-house reply</label>
+                <label class="form-check-label lato" for="is_shop">Check here if in-house reply</label>
                 <input class="form-check-input ml-2 mr-0" type="checkbox" id="is_shop" name="is_shop">
                 </div>
                 {% endif %}
@@ -63,7 +63,7 @@
                 </button>
             </form>
             {% else %}
-            <div class="inline float-right my-2 mr-0">
+            <div class="inline lato float-right my-2 mr-0">
                 <label class="form-check-label" for="login">
                     <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                     <a class="text-info" href="{% url 'account_login' %}">login</a> to add comment

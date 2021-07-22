@@ -25,8 +25,6 @@ def get_recipe(request, recipe_id):
     """ A view to return the recipe page """
 
     recipe_one = get_object_or_404(Recipe, pk=recipe_id)
-    print(recipe_one)
-    # list = recipe_one.ingedients.split(',')
     context = {
         'recipe': recipe_one,
         'ingredients': list,
