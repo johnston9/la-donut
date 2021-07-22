@@ -372,25 +372,7 @@ Stripe is used to process the order. <br>
 <img src="documentation/readme-images/check6.png" width="90%">
 </h2>
 
-The webhook creating an order process was tested by commenting out the submit form in the stripe_elements.js and worked successfully.
-
-<p align="center"><strong>Test message in the Metadata</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/web2.png" width="90%">
-</h2>
-
-<p align="center"><strong>Response in Webhook Page to Show it was Created by Webhook Handler</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/web1.png" width="90%">
-</h2>
-
-<p align="center"><strong>Test message in Order Database</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/web3.png" width="90%">
-</h2>
+See Further Testing [Testing Webhook Create order](#testing-webhook-create-order) for testing of the webhook creating the order.
 
 [Back to Table of Content](#table-of-content)
 
@@ -861,9 +843,43 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 </h2>
 
 ## Further Testing
-### Testing Webhook Creating Order
+### Testing Webhook Create order
 
+The webhook creating an order process was tested by commenting out the submit form in the stripe_elements.js and worked successfully.
 
+<p align="center"><strong>Submit Commented Out</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/sub-no.png" width="90%">
+</h2>
+
+It worked with the gift values.
+
+<p align="center"><strong>Values in metadata</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/web-with.png" width="90%">
+</h2>
+
+<p align="center"><strong>Response confirming the webhook did create the order</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/web-res1.png" width="90%">
+</h2>
+
+It worked without the gift values.
+
+<p align="center"><strong>Values not in metadata</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/met22.png" width="90%">
+</h2>
+
+<p align="center"><strong>Response confirming the webhook did create the order</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/web-res2.png" width="90%">
+</h2>
 
 
 ## Bugs Fixed
