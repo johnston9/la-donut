@@ -3,9 +3,13 @@
 [View the project live here.](https://la-donut.herokuapp.com/)
 
 A web application for an online cake shop and patisserie. Primarily, the site allows the shop to display their goods and allows users to browse the goods and purchase them. Users are initally taken to a products page with a side menu from which they can select categories. They are given the option to close this and browse from the navbar where they will find a search option and another product menu.<br>
-The user can select an item directly from the page or on viewing the item on it's own page. On doing so it is added to their bag which they can view at any time giving them the option to update or remove products. From the bag they can simply click to be taken to the checkout page where through Stripe they can complete their transaction.<br>
+<br>
+The user can select an item directly from the page or on viewing the item on it's own page. On doing so it is added to their bag which they can view at any time giving them the option to update or remove products. From the bag they can simply click to be taken to the checkout page where through Stripe they can complete their transaction.
+<br>
 The user is offered the option to open an account throughout the site and on completion of they purchase order with the incentive of free delivery, free gift presentation and the opportunity to participate in the online chat feature. There is also a recipes page with a latest recipe feature which is displayed apon completing an order and this in turn encourages user to go to the chat page.<br>
+<br>
 The shop owner can easily manage the site through the admin and manage site pages where they can upload, edit and remove goods. They are given instructions as to how to make the most of the visual promoting of goods in terms of image display.<br>
+<br>
 Allauth is used for site security and user authentication. Future developments may include...
 
 <h2 align="center"><img src="documentation/readme-images/x.png"></h2>
@@ -93,21 +97,31 @@ It aims to create a brand to establish an image in the public eye for the shop, 
 
 ### Scope Plane
 
-The features included in the app at present reflect choices made around the following reflections.<br>
+The features included in the app at present reflect choices made around the following reflections.
+<br>
+
 What is absolutely necessary for the app to deliver it’s basic marketed functionality?<br>  
-What is the most enticing user frendly way of doing building these? <br>
+
+What is the most enticing user frendly way of doing building these?<br>
+
 What types of design would further these and become great user experience in themselves?<br>
-Which proposed features are buildable?
-What features are necessary to make the goods sellable, the shop sellable and in return the actual app sellable to other businesses?
+
+Which proposed features are buildable?<br>
+
+What features are necessary to make the goods sellable, the shop sellable and in return the actual app sellable to other businesses?<br>
+
 The buildable and time frame aspect was vital for the scope of the app and several more advance features, like Allauth Social were repositioned as future features.
 
 [Back to Table of Content](#table-of-content)
 
 ### Structure Plane
 
-The site is structured so the user can navigate in an intuitive way through the different features and categories of products, all pages keeping a uniformed consistency. 
+The site is structured so the user can navigate in an intuitive way through the different features and categories of products, all pages keeping a uniformed consistency.<br>
+
 The user is taken on a journey into the site, all elements being discoverable as they proceed along. From finding the different categories of cakes and pastries available to adding them to the shopping bag to checking out. To discovering the advantage of ceating an account and the chat other extras availabe on doing so. The site aims to, through it's freindly structure, build a relationship with the user.<br>
+
 The Menu is a key element to the structure. Here the user can feel like they are in a real shop and have a more personal user experience and ease and control over their shopping experience.<br>
+
 The user will see clear states of change when they interact with the features and selection and choice buttons and be given clear feedback to assure them of their interactive success.
 A message, success, info, warning and error will display after every important interaction.<br>
 The information architecture is a tree structure allowing users to move through content quickly and simply becoming aware of the site’s inherent structure as they go. 
@@ -205,20 +219,20 @@ making the user feel both at home here and part of an interesting journey. Detai
 <img src="documentation/readme-images/shop-sm.png" width="25%">
 </h2>
 
-
+ 
 [Back to Table of Content](#table-of-content)
 
 
 ### Allauth Login/Register/Logout Pages and Security
 
-  The user can browse and purchase items on the sit but they are encouraged to create an account. On one of the many links to register the user is brought to the Allauth Register page. Like all other Allauth pages I customised it to give to a personal easy to use friendly feel. Allauth is used throughout the site to look after all security issues concerning users and deals with all other issues like forgetting passwords and email confirmations.<br>
-  See [Allauth](documentation/allauth) for all Allauth images.
+  The user can browse and purchase items on the site but they are encouraged to create an account. They can do this or login or logout easili From My Account in the navbar. There are also a number of other links to register, one being on the Home page, and on doing so the user is brought to the Allauth Register page. Like all other Allauth pages I customised it to give to a personal easy to use friendly feel. Allauth is used throughout the site to look after all security issues concerning users and deals with all other issues like forgetting passwords and email confirmations.<br>
+  See [Allauth](documentation/allauth) for all Allauth images and testing images.
 
   The site has a number of other security measures firstly the use of front end measures to allow admin access only to admin. Then in the backend the use of @login_required for pages only for authenticated users and a redirect if the user is not a superuser for admin only functions.
 
-<p align="center"><strong>Register Page</strong></p>
+<p align="center"><strong>Login Page</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
+<img src="documentation/readme-images/login.png" width="90%">
 </h2>
 
  See Further Testing login and register pages.
@@ -227,7 +241,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 ### Recipes Page
 
-  This page shows images of different recipes the user can click on and go to each one. There is a Latest Recipe link on the Checkout Complete page to take the user to the Latest Recipe. This is a feature designed to take the user further into the site and create an account. Under each recipe there is a link to view or add comments on the Chat Page for which the user need to create an account.
+  This page shows images of different recipes the user can click on and go to each one. There is a Latest Recipe link on the Checkout Complete page to take the user to the Latest Recipe. This is a feature designed to take the user further into the site and create an account. Under each recipe there is a link to view or add comments on the Chat Page for which the user need to create an account. See...
 
 <p align="center"><strong>Recipes Page</strong></p>
 <h2 align="center">
@@ -243,7 +257,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 ### ChatPage
 
-  Once the user registers they can avail of the chat feature which allows they to chat to the Master Pastry chef and view other user's chats
+  Once the user registers they can avail of the chat feature which allows they to chat to the Master Pastry chef and view other user's chats.
 
 <p align="center"><strong>Chat</strong></p>
 <h2 align="center">
@@ -256,27 +270,26 @@ making the user feel both at home here and part of an interesting journey. Detai
 
   As discussed above in "Security Measures" defensive programming will only allow access to the admin features if user is a superuser user and this is implemented both in the front-end and back-end. The superuser/owner can upload products and recipes and edit and delete them as well. They can delete a user from admin also. When they go to the chat page a check box displays for them only and on checking it will add is_shop to the chat object which is interpretted in the template to render a certain style to let the users know that message is from the shop.
 
-<p align="center"><strong></strong></p>
+<p align="center"><strong>Admin Features on the Shop Page</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
-</h2>
-
-<p align="center"><strong>Admin Page 320px</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/x.png" width="25%">
+<img src="documentation/readme-images/admin-shop.png" width="90%">
 </h2>
 
 Please see admin testing for further details.
 
 ### Optimum Image Showcase
-The site is designed for the owner to show their products and I believed it good practice to give then a little instruction to help then intuititively learn how it is best to do this. The site uses responsive design to display the products and this is ideal however it does need a little management on the owners behalf for them to make best use of the feature. If the owner was to upload all images at the same aspect ratio this would not be an issue but even so they would still need to understand this and arrange for all images to be of that size and that no one ever upload one of a different size. So to safeguard against different size images I set specific heights for the images at different screen sizes. This would keep the rows uniformed. <br>
-I also gave instructions to the owner when they first arrive on the upload product page. They inform the user that a aspect ratio of 3:2 to best for all images and there is then a link to img-resize where they can resize an image if necessary. There is a further link to instructions on how best to actually do this. These instructions along with the practice of uploading the images should help the owner intuitivly learn how to manage the site and give them a good feeling of their capabilities over it and how to best showcase their products. 
+The site is designed for the owner to show their products and I believed it good practice to give then a little instruction to help then intuititively learn how it is best to do this. The site uses responsive design to display the products and this is ideal however it does need a little management on the owners behalf for them to make best use of the feature. <br>
+
+If the owner was to upload all images at the same aspect ratio this would not be an issue but even so they would still need to understand this and arrange for all images to be of that size and that no one ever upload one of a different size. So to safeguard against different size images I set specific heights for the images at different screen sizes. This would keep the rows uniformed.<br>
+
+I also gave instructions to the owner when they first arrive on the upload product page. They inform the user that a aspect ratio of 3:2 to best for all images and there is then a link to img-resize where they can resize an image if necessary. There is a further link to instructions on how best to actually do this. <br>
+
+These instructions along with the practice of uploading the images should help the owner intuitivly learn how to manage the site and give them a good feeling of their capabilities over it and how to best showcase their products. 
 
 <p align="center"><strong>Resize Instructions</strong></p>
 
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
+<img src="documentation/readme-images/res-in.png" width="90%">
 </h2>
 
 [Back to Table of Content](#table-of-content)
@@ -313,19 +326,70 @@ The owner is given the option to add size or box quantity prices to an item when
 
 ### Checkout and Stripe
 Stripe is used to process the order. <br>
-  1. Once the user clicks the checkout button a Stripe payment intent is created, the total being calculated from the contect.py function.
-  2. After the user fills in the delivery and card detail and clicks submit metadata is added to the intent before the form is submitted. If the form is OK the order is saved again getting the item details using the 'items_with_size' or 'items_with_forsix' bag keys. If the user has clicked save info their details will be saved to UserProfiles.
-  3. Stripe sends an Charge Succeeded webhook and a Payment Intent Succeeded. An Order Complete page is sent to the user and the webhook checks to see if the order has been successfully created in the database. After 5 checks if not it creates the order from the intent and the added metadata.
+  1. Once the user clicks the checkout button on their Shopping Bag page a Stripe payment intent is created, the total being calculated from the contect.py function and the user are taken to the Checkout page.
 
-
-  
-
-
-
-<p align="center"><strong>Prices</strong></p>
+<p align="center"><strong>Checkout Page</strong></p>
 
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
+<img src="documentation/readme-images/check1.png" width="90%">
+</h2>
+
+  2. On the checkout page they will see a list of their order items, the delivery details form and card form. If they are a registered user and have clicked save info on a previous order or added their details to their profile before, their delivery details will be prefilled. If not they can check save info and they will save now. If they are a registered user the Gift Presentation Extras will be on display.
+
+  3. After the user does or doesn't select any Gift Extras, then fills in the delivery and card detail and clicks submit, first metadata, including the Gift value, is added to the intent before the form is submitted. If the form is OK the order is saved, again getting the item details using the 'items_with_size' or 'items_with_forsix' bag keys. 
+
+<p align="center"><strong>Order Success Message</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/check2.png" width="90%">
+</h2>
+
+  4. Stripe sends an Charge Succeeded webhook and a Payment Intent Succeeded. An Order Complete page is sent to the user and the webhook checks to see if the order has been successfully created in the database. After 5 checks if not it creates the order from the intent and the added metadata.
+
+<p align="center"><strong>Stripe Webhooks Successful</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/check3.png" width="90%">
+</h2>
+
+<p align="center"><strong>The Metadata in the intent</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/check4.png" width="90%">
+</h2>
+
+  4. If the user has clicked save info their details will be saved to UserProfiles. They can see their updated details on their Profile page along with their order history. On clicking on an order they will be taken to it's confirmation page.
+
+<p align="center"><strong>Past Confirmation page</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/check5.png" width="90%">
+</h2>
+
+<p align="center"><strong>The Order in the Database</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/check6.png" width="90%">
+</h2>
+
+The webhook creating an order process was tested by commenting out the submit form in the stripe_elements.js and worked successfully.
+
+<p align="center"><strong>Test message in the Metadata</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/web2.png" width="90%">
+</h2>
+
+<p align="center"><strong>Response in Webhook Page to Show it was Created by Webhook Handler</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/web1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Test message in Order Database</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/web3.png" width="90%">
 </h2>
 
 [Back to Table of Content](#table-of-content)
@@ -543,10 +607,22 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 <img src="documentation/readme-images/message1.png" width="90%">
 </h2>
 
-<p align="center"><strong>Shopping Bag</p>   
+<p align="center"><strong>Update item in Shopping Bag</p>   
 <h2 align="center">
-<img src="documentation/readme-images/bag.png" width="90%">
+<img src="documentation/readme-images/up-bag.png" width="90%">
 </h2>
+
+<p align="center"><strong>Confirm Delete item in Shopping Bag</p>   
+<h2 align="center">
+<img src="documentation/readme-images/del-mes22.png" width="90%">
+</h2>
+
+<p align="center"><strong>Delete item in Shopping Bag Success Message</p>   
+<h2 align="center">
+<img src="documentation/readme-images/del-mes32.png" width="90%">
+</h2>
+
+
 
 7. #### As a First Time User, I want to purchase specific products quickly without having to sign up.
 
@@ -576,12 +652,6 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
     - The user can login and logout easily from the My Account nav link which takes them to customed Allauth pages. <br>
     See [Allauth](documentation/allauth) for all Allauth images.
-
-<p align="center"><strong>Login</strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/login.png" width="90%">
-</h2>
-
 
 <p align="center"><strong>Logout - Mobile View</strong></p>
 <h2 align="center">
@@ -810,7 +880,7 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 <p align="center"><strong>Check Values</strong></p>      
 <h2 align="center">
-<img src="documentation/readme-images/meta.png" width="90%">
+<img src="documentation/readme-images/meta.png" width="50%">
 </h2>
 
 Solution for error 2;
@@ -818,11 +888,10 @@ Solution for error 2;
 
 <p align="center"><strong>Check Values</strong></p>      
 <h2 align="center">
-<img src="documentation/readme-images/meta1.png" width="90%">
+<img src="documentation/readme-images/meta2.png" width="90%">
 </h2>
 
-## Bugs Ongoing
-
+## Bugs Ongoing5
 ### Payment Intent Succeeded 
 There are two webhook endpoints one for Gitpod and one for Heroku.
 The payment intent succeeded always sends to both when Heroku is used but for a reason I just couldn't figure out occasonally, and I mean rarely, does not send one to Heroku when Gitpod is used. All charges are completed successfully always and all other webhooks send. On checking the Stripe Logs on one of these occasions it said I needed to login again.

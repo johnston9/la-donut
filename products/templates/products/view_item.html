@@ -172,11 +172,17 @@
                             </div>
                             </div>
                         <div class="col-12">
-                            <input type="submit" id="quantity_but" class="px-3 mr-3 lato btn bg-gold text-black font-weight-bold my-2" value="Add to Bag">
-                            <a href="{% url 'shop' %}" class="ml-3 btn bg-gold text-black my-2">
-                                <span class="lato font-weight-bold">Back to Shop</span>
-                            </a>
-                            <input type="hidden" name="redirect_url" value="{{ back_to_cats }}">
+                            <div class="row">
+                                <div class="col-6 text-center mx-0 px-0">
+                                    <a href="{% url 'shop' %}" class="btn btn-gold lato my-2">
+                                        <span class="">Back to Shop</span>
+                                    </a>
+                                </div>
+                                <div class="col-6 text-center mx-0 px-0">
+                                    <input type="submit" id="quantity_but" class="px-4 btn btn-gold my-2 lato" value="Add to Bag">    
+                                    <input type="hidden" name="redirect_url" value="{{ back_to_cats }}">
+                                </div>
+                            </div>
                             <!--<input type="hidden" name="redirect_url" value="{{ request.path }}">-->
                         </div>
                     </div>
