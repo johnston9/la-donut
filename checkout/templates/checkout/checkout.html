@@ -85,7 +85,7 @@
                     {% if user.is_authenticated %}
                     <fieldset class="rounded px-3 mb-5">
                         <div class="gift-wrapper mt-4">
-                        <legend class="orderfield-legend text-center text-black px-3 w-auto">Gift Presentation</legend>
+                        <legend class="orderfield-legend text-center text-black px-3 w-auto">Gift Presentation Extras</legend>
                         <p class="mb-2 text-center"><em>Have your cakes and deserts pre-sliced gift or not.</em></p>
                         <div class="mb-3 text-center form-check text-black">
                             <label class="form-check-label" for="sliced">
@@ -162,18 +162,18 @@
                             </span>
                             <span>Your card will be charged E{{ grand_total|floatformat:2 }}</span>
                         </p>
-                        <div class="row checkout-buttons text-center mt-5 mb-2">
-                            <div class="col-sm-6 text-center mx-0 px-0">
-                                <a href="{% url 'get_bag' %}" class="btn btn-gold lato upper">
+                        <div class="row checkout-buttons text-center mt-5 mb-2 mx-0 px-0">
+                            <div class="col-6 text-center mx-0 px-0">
+                                <a href="{% url 'get_bag' %}" class="btn btn-gold">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>	
-                                    Back to Bag													
+                                    <span class="upper lato"><strong>Back <span class="d-none d-sm-inline-block"> to Shop</span></strong></span>													
                                 </a>
                             </div>
-                            <div class="col-sm-6 text-center mx-0 px-0">
-                                <button id="submit-button" class="upper lato mt-3 mt-md-0 btn btn-gold">
-                                    Complete Order
+                            <div class="col-6 text-center mx-0 px-0">
+                                <button id="submit-button" class="btn btn-gold">
+                                    <span class="upper lato"><strong class="">Submit <span class="d-none d-sm-inline-block"> Order</span></strong></span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
                                     </span>

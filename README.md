@@ -325,7 +325,8 @@ The owner is given the option to add size or box quantity prices to an item when
 
 
 ### Checkout and Stripe
-Stripe is used to process the order. <br>
+##### Stripe is used to process the order. 
+
   1. Once the user clicks the checkout button on their Shopping Bag page a Stripe payment intent is created, the total being calculated from the contect.py function and the user are taken to the Checkout page.
 
 <p align="center"><strong>Checkout Page</strong></p>
@@ -685,7 +686,12 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
   
 <p align="center"><strong>Order History</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/.png" width="90%">
+<img src="documentation/readme-images/ords.png" width="90%">
+</h2>
+
+<p align="center"><strong>Past Confirmation page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/past-con2.png" width="90%">
 </h2>
 
 2. #### As a Frequent User, I want to easily recover my password if I forget it.
@@ -826,23 +832,40 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 8. #### As the Owner/Admin User I want to post or respond on chat to users questions.
 
-   - If the admin user clicks the upload script button available only to them
+   - The superuser can click on Chat as a normal user and check messages then add replies.On the Chat page an is_shop checkbox will display for them. When they check it their message will be styled differently to that of normal users and be given "La Donut Reply" in from of the name.
 
-<p align="center"><strong>Upload Product Page</strong></p>      
+<p align="center"><strong>Superuser's Chat Page</strong></p>      
 <h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
+<img src="documentation/readme-images/chats.png" width="90%">
 </h2>
 
 9. #### As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
 
-   - If the admin user clicks the upload script button available only to them
+   - The user has the ability to delete any comment or review as a "Delete" link will display for each message for them. On clicking it they will first recieve a confirm alert. After clicking OK they will recieve a success info message.
 
-<p align="center"><strong>Upload Product Page</strong></p>      
+<p align="center"><strong>Chat Page Admin Delete Buttons</strong></p>      
 <h2 align="center">
-<img src="documentation/readme-images/sc-1.png" width="90%">
+<img src="documentation/readme-images/del1a.png" width="90%">
+</h2>
+
+<p align="center"><strong>Recipe Admin Delete Button</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/del2a.png" width="90%">
+</h2>
+
+<p align="center"><strong>Chat Page Confirm</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/del1a.png" width="90%">
+</h2>
+
+<p align="center"><strong>Recipe Page Delete Success</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/del2a.png" width="90%">
 </h2>
 
 ## Further Testing
+
+### Testing Webhooks
 ### Testing Webhook Create order
 
 The webhook creating an order process was tested by commenting out the submit form in the stripe_elements.js and worked successfully.
@@ -881,9 +904,32 @@ It worked without the gift values.
 <img src="documentation/readme-images/web-res2.png" width="90%">
 </h2>
 
+### Testing Stripe Two-step authentication
+
+The testing method for Two-step authentication was used and it proved successfully.
+
+<p align="center"><strong>First Fail was Selected then Complet</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/tstep1.png" width="90%">
+</h2>
+
+<p align="center"><strong>Fail Result</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/tstep2.png" width="90%">
+</h2>
+
+<p align="center"><strong>Complete Result</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/tstep3.png" width="90%">
+</h2>
+
 
 ## Bugs Fixed
-### metadata
+
+### Metadata
  - The adding of the metadata to the intent caused a few bugs. What is meant to happen is;
  1. stripe_elements.js checks to see if the is_saved, giftwrapped, is_card checkboxes are checked or not and get the value from the message input box.
  2. stripe_elements.js sends this data, along with some other data to the extra_checkout_info view where it is added to the intent metadata. 
@@ -922,14 +968,6 @@ Solution for error 2;
 </h2>
 
 ## Bugs Ongoing5
-### Payment Intent Succeeded 
-There are two webhook endpoints one for Gitpod and one for Heroku.
-The payment intent succeeded always sends to both when Heroku is used but for a reason I just couldn't figure out occasonally, and I mean rarely, does not send one to Heroku when Gitpod is used. All charges are completed successfully always and all other webhooks send. On checking the Stripe Logs on one of these occasions it said I needed to login again.
-
-<p align="center"><strong>Stripe Logs</strong></p>      
-<h2 align="center">
-<img src="documentation/readme-images/stripe-logs.png" width="90%">
-</h2>
 
 ### Heroku Logs
 I noticed an "Invalid block token" warning sometimes in Heroku logs for something in Django templates base.py line 531 but there were no actual problems witht the sie always deploying.
