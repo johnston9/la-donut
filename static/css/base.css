@@ -475,6 +475,9 @@ input[type=checkbox], input[type=radio] {
 .text-gold2 {
     color: rgb(206, 176, 12);
 }
+.text-gold4 {
+    color: rgb(226, 198, 39);
+}
 
 .bg-gold {
     background-color: rgb(255,215,0);
@@ -540,7 +543,6 @@ input[type=checkbox], input[type=radio] {
 
 #card {
     border: 0;
-    /*border-bottom: 2px solid red;*/
     padding-top: 30px;
 }
 
@@ -581,6 +583,20 @@ input[name='q']::placeholder {
 .input-group>.form-control-plaintext.inner-search {
     border-color: rgb(94, 91, 91);
     color: #000 !important;
+}
+
+/*--logo--*/
+.donut-logo {
+
+}
+
+.donut-logo a {
+    color: #000;
+}
+
+.donut-logo a:hover {
+    text-decoration: none;
+    color: rgb(140, 111, 25, 99%);
 }
 
 /*---------quantity selector for view item page--------*/
