@@ -5,7 +5,18 @@
 
 <head>
 
-    {% block meta %}
+    {% block meta %}    
+        <!--<meta property="og:image" content="" />
+        <meta property='og:title' content='Title of the article'/>
+        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
+        <meta property="og:image" content="https://...image.jpg">
+        <meta property="og:image:alt" content="A picture of the cakes.">
+        <meta property='og:url' content='//www.example.com/URL of the article'/>-->
+        <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
+        <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
+        <meta name="Description" content="Online cake and patissery shop">
+        <meta name="author" content="David Johnston" />
+        <meta property='og:description' content='Online cake and patissery shop'/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,7 +59,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Silver Dollar{% block extra_title %}{% endblock %}</title>
+    <title>La Donut{% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>

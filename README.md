@@ -456,18 +456,22 @@ In terms of brand awareness through social media social media share icons would 
 1. [Bootstrap:](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
    - Bootstrap with it's grid-based format was used to create the overall framework for the site This included the primary responsiveness
      and overall styling of the website. Also specific 
-     Bootstrap features, which include the "Select", 
-     the "Navbar" and "Sidenav", "Modals", "Tooltipped" and "Datepickers", were used in the site.
+     Bootstrap features, which include the "Selectpicker", 
+     the "Navbar", "DatatTables" were used in the site.
 1. [Django:](https://www.djangoproject.com/)
    - Django the high-level Python Web framework was used to build the app.
 1. [SQLight:](https://www.sqlite.org/index.html)
    - SQLight came with Django and was used as the database for development.
 1. [PostgreSQL:](https://www.postgresql.org/)
    - PostgreSQL was added with Heroku and was used as the database for production.
-1. [Pymongo:](https://pypi.org/project/pymongo/)
-   - Pymongo was used for interacting with MongoDB database from the app.
+1. [AWS S3:](https://aws.amazon.com/)
+   - AWS was used to hold the static and media files.
+1. [PIP3](https://pip.pypa.io/en/stable/installing/)
+   - PIP3 was used to install everything.
 1. [Font Awesome:](https://fontawesome.com/)
    - Font Awesome was used throughout the website for the icons.
+1. [Google Fonts](https://fonts.google.com/)
+   - Google Fonts was used throughout the website for the fonts.
 1. [jQuery:](https://jquery.com/)
    - jQuery was used along with Javascript through-out the site for front-end functionality and to initialize some Bootstrap features.
 1. [Git](https://git-scm.com/)
@@ -478,6 +482,10 @@ In terms of brand awareness through social media social media share icons would 
    - Balsamiq was used to create the [wireframes](https://github.com/johnston9/MS3-Shot-Caller) during the design process.
 1. [Freeformatter](https://www.freeformatter.com/html-formatter.html)
    - Freeformatter was used to tidy up the final code.
+1. [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+   - Django Crispy Forms were uses throughout the site to style the forms.
+1. [Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+   - Django Allauth was used for all user functions, eg. login.
 1. [Gauger](https://gauger.io/fonticon/)
    - Gauger was used to create the favicon icon.
 1. [Am-I-Responsive](http://ami.responsivedesign.is/):
@@ -486,8 +494,12 @@ In terms of brand awareness through social media social media share icons would 
    - GitHub Wiki TOC generator was used to create the Table of Contents.
 1. [dbdiagram.io](https://dbdiagram.io/home)
    - dbdiagram.io was used to create the Entity-Relationship Diagram.
+1. [Stripe](https://stripe.com/en-ie)
+   - Stripe was used to handle the payments.
+1. [gmail](https://www.google.com/gmail/)
+   - gmail was used for the email backend.
 
-A number of imports were used in Django for various functions and an inventory of these can be found in the Deployment section.
+A number of imports were used in Django and an inventory of these can be found in the Deployment section.
 
 [Back to Table of Content](#table-of-content)
 
@@ -920,7 +932,8 @@ If incorrect details or there are required boxes not filled in an error message 
 
 ### Testing Stripe Two-step authentication
 
-The testing method for Two-step authentication was used and it proved successfully.
+The testing method for Two-step authentication was used and it proved successfully.<br>
+The card number for this is 4000 0000 0000 3220.
 
 <p align="center"><strong>First Fail was Selected then Complet</strong></p>
 
@@ -939,6 +952,9 @@ The testing method for Two-step authentication was used and it proved successful
 <h2 align="center">
 <img src="documentation/readme-images/tstep3.png" width="90%">
 </h2>
+
+## Lighthouse Testing
+
 
 
 ## Bugs Fixed
@@ -1007,16 +1023,16 @@ I redid the recipe model and migrated it to Postgres on Heroku but it threw erro
 
 ## Deployment
 
-### Development platform
+#### Development platform
 
 1. [Gitpod:](https://www.gitpod.io/docs/)
    - Gitpod was used as the development platform.
 
-### Repository
+#### Repository
    [Github](https://github.com/)
    - Github was used as the repository for the project.
 
-#### Forking the GitHub Repository
+### Forking the GitHub Repository
 
 By forking we make a copy of the GitHub Repository in our Github account.
 
@@ -1024,7 +1040,14 @@ By forking we make a copy of the GitHub Repository in our Github account.
 2. At the top of the Repository just above the "Settings" button on the menu, click the "Fork" Button.
 3. This will create a copy of the original repository in your GitHub account.
 
-#### Making a Local Clone
+### Making a Local Clone
+
+#### Pre-requisites
+Create a [Stripe](https://stripe.com/en-ie) account.
+Here you will get a 
+ - STRIPE_PUBLIC_KEY
+ - STRIPE_SECRET_KEY
+ - STRIPE_WH_SECRET
 
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/johnston9/la-donut)
 2. Under the repository name, click "Code" beside the Gitpod button.
@@ -1038,7 +1061,7 @@ By forking we make a copy of the GitHub Repository in our Github account.
       will need these to run the app.
    -  The Procfile which tells Heroku what language the app is using.
 
-Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for more details.
 
 
 #### Terminal
@@ -1046,42 +1069,62 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   - Use the following command to install the packages needed for the app from 
     requirements.txt. 
 
-##### pip3 install -r requirements.txt 
+#### Install Allauth
+Allauth will run all the user management, like login etc.
+1. pip3 install django-allauth 
+
+#### Install All other necessary requirements
+
+1. pip3 install -r requirements.txt 
   - The -r switch tells pip to install packages from the requirements.txt file 
     needed for the app.
 
-#### Further steps required  
+### Further steps required  
 
-Some files containing sensitive variables will not have been pushed to Github so it 
-will be necessary to create them.
+Some files containing sensitive variables will not have been pushed to Github so it will be necessary to create them.
 
-##### Create a .gitignore file
+#### Create a .gitignore file
 - .gitignore is used to store sensitive variables and keys that do not get sent to github.
   Type pycach.py and env.py in the .gitignore file.
 
 
-##### Create a env.py file 
+#### Create a env.py file 
 - Type touch env.py in the terminal.
-  In env.py set the app's environment variables and keys needed during development.
+  Generate a SECRET_KEY for Django, [Djecrety](https://djecrety.ir/) is one option of where to do this.
+  In env.py set the Djanog and Stripe environment variables and keys needed during development.
   These will later be set in Heroku.
 
 
-    **env.py**
+#### env.py
+```
+import os
 
-      import os
+os.environ.setdefault("SECRET_KEY", "")
+os.environ.setdefault("STRIPE_PUBLIC_KEY", "")
+os.environ.setdefault("STRIPE_SECRET_KEY", "")
+os.environ.setdefault("STRIPE_WH_SECRET", "")
+os.environ["DEVELOPMENT"] = "True"
+```
 
-      os.environ.setdefault("IP", "0.0.0.0")
+#### Create a Superuser
+1. python3 manage.py createsuperuser 
+2. Create and confirm email manually. Login as superuser and click the email model. Click add email address on the right. Click search. Click and select the username. Enter an email. And select both verified and primary to convince allauth that we verified the email.
 
-      os.environ.setdefault("PORT", "5000")
+#### Change Name
+In admin click sites and change the domain and display name of the site to one of you own.
 
-      os.environ.setdefault("SECRET_KEY", "***************")
-
-      os.environ.setdefault("REGISTER_KEY", "************")
-
-      os.environ.setdefault("MONGO_URI", "Get this in Mongo when you click 
-      'Connect your Application’ after clicking the Connect button")
-      
-      os.environ.setdefault("MONGO_DBNAME", "The name of your Mongo database")
+#### Run Migrations
+In the terminal type,
+1. python3 manage.py showigrations
+        - to see what migrations need migration
+2. python3 manage.py makemigrations --dry-run
+       - to make sure everything is OK but if you have not made any new ones this is just a formality
+3. python3 manage.py makemigrations  
+        - to make the migrations but if you have not made any new ones this is just a formality
+4. python3 manage.py migrate --plan
+        - to make sure everything is OK
+5. python3 manage.py migrate 
+        - to migrate
 
 ### Deploy to Heroku
 
@@ -1089,59 +1132,323 @@ will be necessary to create them.
 
 #### Heroku was used to deploy the project.
 
- - As mentioned in the "Clone" section above a requirements.txt and Procfile are needed
-by Heroku to run the app. If not already created make sure to do so. In the terminal
-type the following commands.
+ - As mentioned in the "Clone" section above a requirements.txt and Procfile are needed by Heroku to run the app. If not already created make sure to do so. In the terminal type the following commands.
 
    - pip3 freeze --local > requirements.txt
    - echo web: python3 app.py > Procfile
 
  - Register a Heroku account.
 
+ ##### In Heroku
+
  - Click 'Create a New App'.
 
  - Where asked select "Europe" as the region then click create app.
 
- - Click Settings then click Reveal Config Vars.
+ - Click resources tab and provision a new Postgres database for the app. 
+   Just use the free plan if you want.
 
- - Now set the variables and keys to those in env.py.
+##### In yourTerminal 
+Install [gnicorn](https://gunicorn.org/) a Python WSGI HTTP Server for UNIX. 
+Install [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) a popular PostgreSQL database adapter for the Python programming language.
+Install [dj_database_url](https://pypi.org/project/dj-database-url/) which allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
 
-     - IP, with the value of 0.0.0.0.
+1. $ pip3 install dj_database_url
+2. $ pip3 install psycopg2-binary
+2. $ pip3 install gunicorn
+4. $ pip3 freeze > requirements.txt
 
-     - PORT, which is 5000.
+#### Procfile
+If it isn't already created create a Procfile to tell Heroku to create a web dyno which will run unicorn and serve our django app. In it put
 
-     - SECRET_KEY, copy then paste it from env.py. 
+web: gunicorn silverDollar.wsgi:application 
 
-     - REGISTER_KEY, ************
+### Set-Up Database on Heroku 
 
-     - Post
+##### Settings.py
+In settings temporarily comment out the default configuration and replace with a call to dj_database_url.parse with your Postrgres URL, which you can get from your config variables on Heroku, to migrate the datbase on Heroku.
+```
+  DATABASES = {     
+        'default': dj_database_url.parse("<Your Postrgres Database URL>")     
+   }
+```
 
-     - 
+##### Terminal
+In the terminal type,
+1. python3 manage.py migrate 
 
-- THEN CLICK HIDE CONFIG VARS
+##### Load Your Database with Data
+Use this command to load the data from the db.json file into Postgres:
+./manage.py loaddata db.json.
 
- - Back in Deploy choose Github then click Search to get the correct Github repo for the app
-   then click connect.
+Or upload your own data.
 
- - Click Enable Automatic Deployment then click Deploy Branch.
+#### Settings.py
+Delete the the recently add call to Postgres with the URL.
+! Important. Never reveal this or push it to Github.
 
- - Click "View" to launch the app.
+Replace the database setting with an if statement to tell Django which database to use depending on whether in development or in deployment.
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+#### Temporarily disable collectstatic
+Disable collect static, so that Heroku won't try to collect static files.
 
-### Clarification
+##### Terminal
+1. Login to Heroku
+heroku login -I
+2. Type the following with the name you gave your app in Heroku after the -a
+heroku config:set DISABLE_COLLECTSTATIC=1 -a (your app name)
 
-##### pip3 install 
+#### Add Heroku App Name to Localhosts
+##### settings.py
+In setting.py (replace xxx with your Heroku app name)
 
-##### pip3 install 
-- .
+```
+ALLOWED_HOSTS = ['xxx.herokuapp.com', 'localhost']
+```
 
-##### pip3 install 
-- 
+#### Stripe
+In Stripe, add the Heroku app URL as a new webhook endpoint.
 
-##### echo web: python app.py > Procfile
-- This tells Heroku what language the app is using.
+#### Settings.py
 
-##### 6. pip3 freeze --local > requirements.txt
-- A requirements.txt containing 
+Update the settings.py with the new Stripe environment variables and email settings.
+
+#### Terminal
+1. Git add, commit and push.
+2. heroku git:remote -a xxx<br>
+   Create a Heroku remote. (xxx) being your heroku app name.
+3. git push heroku master<br>
+   Push to your Heroku remote.
+
+#### Heroku - set automatic deploy when push to github
+So every time we push to github our code will automatically be deployed to Heroku.
+1. click deploy tab set it to connect to github.
+2. Search for my repository.
+3. click connect.
+4. click enable automatic deploys.
+
+
+
+#### settings.py
+1. Replace the secret key setting with call to get it from the environment and use an empty string as a default. 
+
+SECRET_KEY = os.getenv('SECRET_KEY', '')
+
+2. Set debug to be true only if there's a variable called development in the environment. 
+
+DEBUG = 'DEVELOPMENT' in os.environ
+
+#### env.py
+Generate a new Django SECRET_KEY for Gitpod and add it in env.py.
+
+os.environ.setdefault("SECRET_KEY", ""
+
+Set DEVELOPMENT to true
+os.environ["DEVELOPMENT"] = "True"
+
+
+#### Heroku
+In the heroku dashboard  
+click Setting 
+click Reveal Config Vars and set the values as follows:
+Generate a new Django SECRET_KEY for Heroku.
+(set the AWS and emaail values after you have generated them in the next steps)
+
+| Key | Value |
+| ----------- | ----------- |
+| AWS_ACCESS_KEY_ID | `Your AWS Access Key` |
+| AWS_SECRET_ACCESS_KEY | `Your AWS Secret Access Key` |
+| DATABASE_URL | `Your Postgres Database URL` |
+| EMAIL_HOST_PASS | `Your Email Password` |
+| EMAIL_HOST_USER | `Your Email Address` |
+| SECRET_KEY | `Your Secret Key` |
+| STRIPE_PUBLIC_KEY | `Your Stripe Public Key` |
+| STRIPE_SECRET_KEY | `Your Stripe Secret Key` | 
+| STRIPE_WH_SECRET | `Your Stripe WH Key` |
+| USE_AWS | `True` |
+
+#### settings.py
+You may want to change some variables here.
+
+In the Stripe setting section they currently are.
+# Stripe
+FREE_DELIVERY_TOTAL = 50
+DELIVERY_CHARGE = 10
+STRIPE_CURRENCY = 'EUR'
+
+In the email setting section they currently are.
+DEFAULT_FROM_EMAIL = 'la-donut@gmail.com'
+
+
+### Amazon Web Service 
+
+Amazon Web Service was used to host the static and media files for the project.
+
+1. Create an AWS account.
+2. Go to AWS management console.
+3. Go to s3 s3 and create a new bucket which will be used to store our files.
+4. You can call it to match your Heroku app name.
+5. select a region select the one closest to you.
+6. Uncheck block all public access.
+7. Acknowledge that the bucket will be public.
+8. Click create bucket. Then click on bucket name.
+9. On the properties tab enable static website hosting. This gives us an endpoint to access it from the internet.
+10. For index and error document fill in some default values, click save.
+
+#### On the permissions tab paste in a cors configuration
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+#### On the bucket policy tab. Click edit
+1. Select, policy generator and create a security policy for this bucket.
+2. The policy type is going to be s3 bucket policy. 
+3. Allow all principals by using a star.
+3. Action will be, get object.
+4. Copy the ARN from the last page and paste it into the ARN box and add  statement.
+5. click generate policy.
+6. copy this policy into the bucket policy editor.
+7. Replace the xxx in Resource with your ARN
+9. Add a slash star at end of the Arm in "Resourse" and click Save.
+
+
+```
+"Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "xxx/*",
+      "Principal": "*"
+```
+#### On the access control list tab
+1.  Set the list objects permission for everyone under the Public Access.
+
+### Create AWS Group, Policies and Users
+
+#### Go to IAM
+
+#### Create a Group
+1. Click User groups then click create group 
+
+#### Create a policy
+1. Click policies and then create policy.
+2. Click JSON - select import managed policy.
+3. Import s3 full access policy.
+4. In Resource paste in the ARN from before twice and add a/* to the second one. As above replace the xxx with your ARN.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        { 
+"Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "xxx",
+                "xxx/*"
+                ]
+        }
+    ]
+}
+```
+5. Click review policy.
+6. Give it a name and a description.
+7. Click create policy.
+8. Go to groups, click manage.
+9. Click permissions – click add permissions – click attach policies
+10. Select policy.
+11. Click add permissions.
+
+### Create a user 
+1. On the user's page click add user.
+2. Create a user.
+3. Give them programmatic access - select next.
+4. Put the user in the group. 
+5. Click create user. You will see two AWS keys which we will put in Heroku.
+6. Download the CSV file or note both keys down.
+
+### Connecting Django to S3
+#### In the terminal type
+1. pip3 install boto3
+2. pip3 install django-storages
+3. pip3 freeze > requirements.txt
+
+#### settings.py
+Change the AWS_STORAGE_BUCKET_NAME to your bucket name so the AWS section in settings.py should look like this.
+Add the following in settings.py.
+```
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'xxx'
+    AWS_S3_REGION_NAME = 'xxx'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+### Heroku 
+1. Now go to Heroku and add the AWS keys to the config variables.
+2. Remove the disable collectstatic variable.
+
+### Media
+All images uploaded to the app through the Add Product, Edit Product, Add Recipe or Edit Recipe will automatically got to the Media Folder in The Static folder in AWS.
+
+If you used load db.json to add data to your app you will need to remove the now unavailabe images and add new images.
+
+### Emails
+Gmail's SMTP server was used to handle the emails. 
+1. Turn on two-step verification.
+2. Go to app passwords under the signing in to Google.
+3. Select app and click mail.
+4. Select device click other and type in a name. 
+5. You'll get a 16 character password'
+7. Put that in Heroku config vars - EMAIL_HOST_PASS. 
+8. Add your gmail account to EMAIL_HOST_USER.
+ 
 
 [Back to Table of Content](#table-of-content)
 
@@ -1149,10 +1456,20 @@ type the following commands.
 
 ### Code
 
+- [Code Institue](https://codeinstitute.net/)
+  The basic set up and Django configuration for the app is based on The Boutique Ado project from the coures material. The instructions for the AWS set up are included in this.
+- [Django Docs](https://docs.djangoproject.com/en/3.2/)
+  I refered to these throughout the project.
+- [Data Tables](https://datatables.net/examples/styling/bootstrap4)
+  Here I followed the docs on how to set up datatables for the Chat page and for Recepes which included pagination.
+- [Slack](code-institute-room.slack.com)
+  Here I found the Get Average Rating function, thanks to ck....
 - [stackoverflow.com]()
   Here I learnt how to use.
-  [w3schools.com]()
-- Here I found out how 
+- [w3schools.com]()
+  I refered to W3 often for code examples like the toggleClass function used a number of times in the site.
+- [developer.snapappointments](https://developer.snapappointments.com/bootstrap-select/methods/) 
+  Here I learnt how to refresh a select menu but I experimented around and figured out a different one.
 ### Content
 
 All content was written by the developer apart from the recipes.
