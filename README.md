@@ -8,9 +8,8 @@ The user can select an item directly from the page or on viewing the item on it'
 <br>
 The user is offered the option to open an account throughout the site and on completion of they purchase order with the incentive of free delivery, free gift presentation and the opportunity to participate in the online chat feature. There is also a recipes page with a latest recipe feature which is displayed apon completing an order and this in turn encourages user to go to the chat page.<br>
 <br>
-The shop owner can easily manage the site through the admin and manage site pages where they can upload, edit and remove goods. They are given instructions as to how to make the most of the visual promoting of goods in terms of image display.<br>
+The shop owner can easily manage the site through the admin and manage site pages where they can upload, edit and remove goods. They are given instructions as to how to make the most of the visual promoting of goods in terms of image display. Allauth is used for site security and user authentication.<br>
 <br>
-Allauth is used for site security and user authentication. Future developments may include...
 
 <h2 align="center"><img src="documentation/readme-images/x.png"></h2>
 
@@ -235,13 +234,12 @@ making the user feel both at home here and part of an interesting journey. Detai
 <img src="documentation/readme-images/login.png" width="90%">
 </h2>
 
- See Further Testing login and register pages.
 
  - [Back to Table of Content](#table-of-content)
 
 ### Recipes Page
 
-  This page shows images of different recipes the user can click on and go to each one. There is a Latest Recipe link on the Checkout Complete page to take the user to the Latest Recipe. This is a feature designed to take the user further into the site and create an account. Under each recipe there is a link to view or add comments on the Chat Page for which the user need to create an account. See...
+  This page shows images of different recipes the user can click on and go to each one. There is a Latest Recipe link on the Checkout Complete page to take the user to the Latest Recipe. This is a feature designed to take the user further into the site and create an account. Under each recipe there is a link to view or add comments on the Chat Page for which the user need to create an account. 
 
 <p align="center"><strong>Recipes Page</strong></p>
 <h2 align="center">
@@ -268,14 +266,14 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 ### Superuser Features
 
-  As discussed above in "Security Measures" defensive programming will only allow access to the admin features if user is a superuser user and this is implemented both in the front-end and back-end. The superuser/owner can upload products and recipes and edit and delete them as well. They can delete a user from admin also. When they go to the chat page a check box displays for them only and on checking it will add is_shop to the chat object which is interpretted in the template to render a certain style to let the users know that message is from the shop.
+  As discussed above in "Security Measures" defensive programming will only allow access to the admin features if user is a superuser user and this is implemented both in the front-end and back-end. The superuser/owner can upload products and recipes and edit and delete them as well. They can delete a user from admin also. When they go to the chat page a check box displays for them only and on checking it will add is_shop to the chat object which is interpretted in the template to render a certain style to let the users know that message is from the shop.<br>
+  See [Owner/Admin User Goals](#owner/Admin-user-goals) for more.
 
 <p align="center"><strong>Admin Features on the Shop Page</strong></p>
 <h2 align="center">
 <img src="documentation/readme-images/admin-shop.png" width="90%">
 </h2>
 
-Please see admin testing for further details.
 
 ### Optimum Image Showcase
 The site is designed for the owner to show their products and I believed it good practice to give then a little instruction to help then intuititively learn how it is best to do this. The site uses responsive design to display the products and this is ideal however it does need a little management on the owners behalf for them to make best use of the feature. <br>
@@ -364,16 +362,16 @@ The owner is given the option to add size or box quantity prices to an item when
 <p align="center"><strong>Past Confirmation page</strong></p>
 
 <h2 align="center">
-<img src="documentation/readme-images/check5.png" width="90%">
+<img src="documentation/readme-images/check6.png" width="90%">
 </h2>
 
 <p align="center"><strong>The Order in the Database</strong></p>
 
 <h2 align="center">
-<img src="documentation/readme-images/check6.png" width="90%">
+<img src="documentation/readme-images/check5.png" width="90%">
 </h2>
 
-See Further Testing [Testing Webhook Create order](#testing-webhook-create-order) for testing of the webhook creating the order.
+See Further Testing [Testing Webhook Create Order](#testing-webhook-create-order) for testing of the webhook creating the order.
 
 [Back to Table of Content](#table-of-content)
 
@@ -660,7 +658,6 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
     - The product average customer rating is displayed for each item on the shop and view item pages. On the view item page the user will see a link to the item's reviews and another link to add a review if the user is authenticated or sign up to add a review if not. On the add review page the user can rate the product and this is displayed in stars on their review and also used to calculate the average rating. A customised Bootstrap paginated table is used to hold the reviews which includes a search function which I figured out from the Bootstrap4 docs.<br>
     
     [DataTables](https://datatables.net/examples/styling/bootstrap4)
-    [Supervalue](https://supervalu.ie/real-food/recipes/tiramisu?ref=meal_planner)
 
 <p align="center"><strong>Review Page</strong></p>
 <h2 align="center">
@@ -860,7 +857,7 @@ W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate e
 
 <p align="center"><strong>Recipe Page Delete Success</strong></p>      
 <h2 align="center">
-<img src="documentation/readme-images/del2a.png" width="90%">
+<img src="documentation/readme-images/del4a.png" width="90%">
 </h2>
 
 ## Further Testing
@@ -876,7 +873,7 @@ The webhook creating an order process was tested by commenting out the submit fo
 <img src="documentation/readme-images/sub-no.png" width="90%">
 </h2>
 
-It worked with the gift values.
+Tested successfully for order with the gift boxes checked and a message in the message box.
 
 <p align="center"><strong>Values in metadata</strong></p>
 
@@ -890,7 +887,7 @@ It worked with the gift values.
 <img src="documentation/readme-images/web-res1.png" width="90%">
 </h2>
 
-It worked without the gift values.
+Tested successfully for order with the gift boxes unchecked and the message box empty.
 
 <p align="center"><strong>Values not in metadata</strong></p>
 
@@ -903,6 +900,23 @@ It worked without the gift values.
 <h2 align="center">
 <img src="documentation/readme-images/web-res2.png" width="90%">
 </h2>
+
+### Testing Stripe Card and Details Input Errors
+
+If incorrect details or there are required boxes not filled in an error message will display.
+
+<p align="center"><strong>Missing Details</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/card-mo-fill1.png" width="25%">
+</h2>
+
+<p align="center"><strong>Incorrect Card Number</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/card-inco.png" width="90%">
+</h2>
+
 
 ### Testing Stripe Two-step authentication
 
@@ -930,18 +944,21 @@ The testing method for Two-step authentication was used and it proved successful
 ## Bugs Fixed
 
 ### Metadata
- - The adding of the metadata to the intent caused a few bugs. What is meant to happen is;
+ - The adding of the metadata to the intent caused a few bugs which were dealt with. The process was;
  1. stripe_elements.js checks to see if the is_saved, giftwrapped, is_card checkboxes are checked or not and get the value from the message input box.
  2. stripe_elements.js sends this data, along with some other data to the extra_checkout_info view where it is added to the intent metadata. 
  3. The handle_payment_intent_succeeded function retreives this data and uses it to add to the Order.
  
- But error 1;
+ Bug 1;<br>
+
  I had used Boolean...ischecked() to check the boxes and it had in fact returned strings "true" or "false" not Boolean values which threw errors and caused the payment intent succeeded to fail.
  
- And error 2;
+ Bug 2;<br>
+
  If there was no message the message key was not added to the intent so that threw another error and caused the same problem.
 
- Solution for error 1;
+ Solution for bug 1;<br>
+
  I just checked the values in the handle_payment_intent_succeeded function and set the variables to either true or false depending on what the string value was.
 
 <p align="center"><strong>Check Values</strong></p>      
@@ -949,28 +966,29 @@ The testing method for Two-step authentication was used and it proved successful
 <img src="documentation/readme-images/meta.png" width="50%">
 </h2>
 
-Solution for error 2;
+Solution for bug 2;<br>
+
  I checked to see if a value existed in message in stripe_elements.js and if so set message to that, if no value set to a default value. function and set the variables to either true or false depending on what the string value was.
 
 <p align="center"><strong>Check Values</strong></p>      
 <h2 align="center">
-<img src="documentation/readme-images/meta2.png" width="90%">
+<img src="documentation/readme-images/meta2.png" width="50%">
 </h2>
 
-<p align="center"><strong>Result of No boxes being Checked and no Message</strong></p>      
+<p align="center"><strong>Successful adding of metadata with no boxes being checked and no message</strong></p>      
 <h2 align="center">
 <img src="documentation/readme-images/met3.png" width="50%">
 </h2>
 
-<p align="center"><strong>Metadata with No boxes being Checked and no Message</strong></p>      
+<p align="center"><strong>Successful result of no boxes being checked and no message</strong></p>       
 <h2 align="center">
 <img src="documentation/readme-images/met4.png" width="50%">
 </h2>
 
-## Bugs Ongoing5
+## Bugs Ongoing
 
 ### Heroku Logs
-I noticed an "Invalid block token" warning sometimes in Heroku logs for something in Django templates base.py line 531 but there were no actual problems witht the sie always deploying.
+I noticed an "Invalid block token" warning sometimes in Heroku logs for something in Django templates base.py line 531 but there were no actual problems with the site always deploying and behaving successfully.
 
 <p align="center"><strong>Heroku Logs</strong></p>      
 <h2 align="center">
@@ -986,3 +1004,171 @@ I redid the recipe model and migrated it to Postgres on Heroku but it threw erro
 <h2 align="center">
 <img src="documentation/readme-images/recipe-er1.png" width="90%">
 </h2>
+
+## Deployment
+
+### Development platform
+
+1. [Gitpod:](https://www.gitpod.io/docs/)
+   - Gitpod was used as the development platform.
+
+### Repository
+   [Github](https://github.com/)
+   - Github was used as the repository for the project.
+
+#### Forking the GitHub Repository
+
+By forking we make a copy of the GitHub Repository in our Github account.
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/johnston9/la-donut)
+2. At the top of the Repository just above the "Settings" button on the menu, click the "Fork" Button.
+3. This will create a copy of the original repository in your GitHub account.
+
+#### Making a Local Clone
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/johnston9/la-donut)
+2. Under the repository name, click "Code" beside the Gitpod button.
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash.
+5. Set the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone, and then paste the URL copied above.
+7. Press enter and a local clone will be created.
+8. The clone will include two files needed for set up and Heroku.
+   -  The requirements.txt file which contains all packages to be installed to run the app. These are and it's dependencies. Heroku
+      will need these to run the app.
+   -  The Procfile which tells Heroku what language the app is using.
+
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+
+#### Terminal
+
+  - Use the following command to install the packages needed for the app from 
+    requirements.txt. 
+
+##### pip3 install -r requirements.txt 
+  - The -r switch tells pip to install packages from the requirements.txt file 
+    needed for the app.
+
+#### Further steps required  
+
+Some files containing sensitive variables will not have been pushed to Github so it 
+will be necessary to create them.
+
+##### Create a .gitignore file
+- .gitignore is used to store sensitive variables and keys that do not get sent to github.
+  Type pycach.py and env.py in the .gitignore file.
+
+
+##### Create a env.py file 
+- Type touch env.py in the terminal.
+  In env.py set the app's environment variables and keys needed during development.
+  These will later be set in Heroku.
+
+
+    **env.py**
+
+      import os
+
+      os.environ.setdefault("IP", "0.0.0.0")
+
+      os.environ.setdefault("PORT", "5000")
+
+      os.environ.setdefault("SECRET_KEY", "***************")
+
+      os.environ.setdefault("REGISTER_KEY", "************")
+
+      os.environ.setdefault("MONGO_URI", "Get this in Mongo when you click 
+      'Connect your Application’ after clicking the Connect button")
+      
+      os.environ.setdefault("MONGO_DBNAME", "The name of your Mongo database")
+
+### Deploy to Heroku
+
+[Heroku](https://www.heroku.com/platform)
+
+#### Heroku was used to deploy the project.
+
+ - As mentioned in the "Clone" section above a requirements.txt and Procfile are needed
+by Heroku to run the app. If not already created make sure to do so. In the terminal
+type the following commands.
+
+   - pip3 freeze --local > requirements.txt
+   - echo web: python3 app.py > Procfile
+
+ - Register a Heroku account.
+
+ - Click 'Create a New App'.
+
+ - Where asked select "Europe" as the region then click create app.
+
+ - Click Settings then click Reveal Config Vars.
+
+ - Now set the variables and keys to those in env.py.
+
+     - IP, with the value of 0.0.0.0.
+
+     - PORT, which is 5000.
+
+     - SECRET_KEY, copy then paste it from env.py. 
+
+     - REGISTER_KEY, ************
+
+     - Post
+
+     - 
+
+- THEN CLICK HIDE CONFIG VARS
+
+ - Back in Deploy choose Github then click Search to get the correct Github repo for the app
+   then click connect.
+
+ - Click Enable Automatic Deployment then click Deploy Branch.
+
+ - Click "View" to launch the app.
+
+### Clarification
+
+##### pip3 install 
+
+##### pip3 install 
+- .
+
+##### pip3 install 
+- 
+
+##### echo web: python app.py > Procfile
+- This tells Heroku what language the app is using.
+
+##### 6. pip3 freeze --local > requirements.txt
+- A requirements.txt containing 
+
+[Back to Table of Content](#table-of-content)
+
+## Credits
+
+### Code
+
+- [stackoverflow.com]()
+  Here I learnt how to use.
+  [w3schools.com]()
+- Here I found out how 
+### Content
+
+All content was written by the developer apart from the recipes.
+The Tiramasu recipe was obtained from [Supervalue](https://supervalu.ie/real-food/recipes/tiramisu?ref=meal_planner).
+
+### Media
+
+The photos used for the products for site were obtained from.
+
+  1.  [FreeImages.com](https://www.freeimages.com/)
+
+  2.  [pexels.com](https://www.pexels.com)
+
+
+### Acknowledgements
+   
+- I would  like to thank the Code Institute tutor team and Aaron Sinnott for their support.
+
+[Back to Table of Content](#table-of-content)
