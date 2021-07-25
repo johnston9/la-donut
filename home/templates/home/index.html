@@ -10,14 +10,15 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container home-container">
-        <div class="row my-0 mr-0">
-            <div class="col-12 col-sm-8 offset-sm-2 mt-5">
+    <div class="container-fluid home-container mt-3">
+        <div class="home-container-im w-100">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 mt-5">
                 <h2 class="display-4 explore upper text-gold">
                     Explore our Delights
                 </h2>
                 <p class="font-weight-bold px-1 text-gold">Free delivery on orders over E{{ free_delivery_total }} All other deliveries E{{ delivery_charge }}  </p>
-                <div class="my-5">
+                <div class="my-3">
                     <h4>
                         <a href="{% url 'shop' %}" class="btn enter-button btn-black upper">enter</a>
                     </h4>
@@ -26,11 +27,12 @@
                     <p class="font-weight-bold px-1 text-gold">Account holders get Free Gift Presentation Extras 
                         and can chat directly with our Master pastry chefs on all things patisserie. 
                     </p>
-                    <h4>
+                    <h4 class="mb-5">
                         <a href="{% url 'account_signup' %}" class="btn enter-button btn-black upper">Sign Up</a>
                     </h4>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 {% endblock %}

@@ -1482,8 +1482,7 @@ Gmail's SMTP server was used to handle the emails.
   Here I learnt how to refresh a select menu but I experimented around and figured out a different one.
 ### Content
 
-All content was written by the developer apart from the recipes.
-The Tiramasu recipe was obtained from [Supervalue](https://supervalu.ie/real-food/recipes/tiramisu?ref=meal_planner).
+All content was written by the developer apart from the recipes which were obtained from [Supervalue](https://supervalu.ie/real-food/recipes/tiramisu?ref=meal_planner).
 
 ### Media
 
@@ -1492,6 +1491,8 @@ The photos used for the products for site were obtained from.
   1.  [FreeImages.com](https://www.freeimages.com/)
 
   2.  [pexels.com](https://www.pexels.com)
+
+  3. [Unsplash.com](https://unsplash.com/photos/irRhPKPqP9Y)
 
 
 ### Acknowledgements
