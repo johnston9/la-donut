@@ -12,6 +12,16 @@
 	border: 0;
 }
 
+.donut-logo {
+    background: url('/media/la4.jpg') no-repeat center center;
+    /*object-fit: cover;*/
+    background-size: cover;
+    background-color: #fff;
+    width: 120px;
+    height: 30px;
+    
+}
+
 .header-container {
     padding-top: 160px;
 }
@@ -161,22 +171,23 @@ hr.grey100 {
 /*--buttons--*/
 
 .enter-button {
-    background: #fff;
-    color: #696666;
-    min-width: 120px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    background: black;
+    color: white;
+    border: 1px solid rgb(255,215,0); 
+    width: 120px;
+    font-weight: 700;
+}
+
+.enter-button:hover,
+.enter-button:active,
+.enter-button:focus {
+    background: rgb(255,215,0); 
+    color: #000;
 }
 
 .btn-light {
     background: #fff;
     color: #696666;
-}
-
-.btn-bordergold {
-    background: rgb(255,215,0);
-    color: #000;
-    border: 1px solid #000;
 }
 
 .btn-gold {
@@ -256,19 +267,6 @@ hr.grey100 {
 .btn-black:active,
 .btn-black:focus {
     background: #222;
-    color: white;
-}
-
-.enter-button {
-    background: black;
-    color: white;
-    border: 1px solid rgb(255,215,0); 
-}
-
-.enter-button:hover,
-.enter-button:active,
-.enter-button:focus {
-    background: rgb(71, 68, 68);
     color: white;
 }
 
@@ -535,9 +533,6 @@ input[name='q']::placeholder {
 }
 
 /*--logo--*/
-.donut-logo {
-
-}
 
 .donut-logo a {
     color: #000;
@@ -549,6 +544,7 @@ input[name='q']::placeholder {
 }
 
 /*---------quantity selector for view item page--------*/
+
 .input-group>.custom-file.view-it, 
 .input-group>.custom-select.view-it, 
 .input-group>.form-control.view-it, 
@@ -557,11 +553,6 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-#quicksub-but {
-    width: 70px;
-    height: 20px;
-    padding: 0;
-} 
 
 .view {
     height: 26px;
@@ -830,10 +821,14 @@ div.dataTables_wrapper div.dataTables_length label {
 
 
 /*--home page--*/ 
+
 .home-container {
-    width: 90%;
-    height: 100%;
+    width: 100%;
 }
+
+/*.footer-container {
+    width: 90%;
+}*/
 
 .home-container-im {
     background: url('/media/dessy-ss.jpg') no-repeat center center;
@@ -844,12 +839,32 @@ div.dataTables_wrapper div.dataTables_length label {
     
 }
 
-@media (min-width: 576px) {
+@media (min-width: 400px) {
     .home-container-im {
         background: url('/media/vvv1.jpg') no-repeat center center fixed;       
         background-size: contain;
     }
+}
+
+@media (min-width: 576px) {
+    .home-container {
+        width: 90%;
     }
+
+    .donut-logo {
+        width: 200px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .enter-button {
+        width: 90px;
+    }
+}
+
+    
+    
 /*background-size: contain;*/
 /*@media (min-width: 1000px) {
     .home-container { 
