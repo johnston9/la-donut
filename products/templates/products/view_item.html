@@ -158,8 +158,7 @@
                                     <input class="form-control view-it qty_input" type="number"
                                         name="quantity" value="1" min="1" max="99"
                                         data-item_id="{{ product.id }}"
-                                        id="viewitem">
-                                    <label class="d-none" for="promo">Item Quantity</label>
+                                        aria-label="quantity input" id="input_box">
                                     <div class="input-group-append">
                                         <button aria-label="Increment Quantity" class="px-1 increment-qty btn btn-quantity rounded-0"
                                             data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
@@ -195,21 +194,21 @@
                 </p>
                 {% endif %}
                 <div class="row">
-                <div class="col-6 text-center mx-sm-0 pr-0 pl-0">
+                <div class="col-6 review-view text-center mx-sm-0 pr-0 pl-0">
                 {% if request.user.is_authenticated %}
-                <h5 class="">
+                <p class="">
                     <a class="linkcol" href="{% url 'review' product.id %}">Add Review</a>
-                </h5>
+                </p>
                 {% else %}
-                <h5 class="">
+                <p class="">
                     <a class="linkcol" href="{% url 'account_signup' %}">Sign Up to Add Review</a>
-                </h5>
+                </p>
                 {% endif %}
                 </div>
-                <div class="col-6 text-center mx-sm-0 pr-0 pl-0">
+                <div class="col-6 text-center review-view mx-sm-0 pr-0 pl-0">
                     <a href="#review_section">
-                        <h5 id="reviews_button" class="linkcol">Read Reviews
-                        </h5>
+                        <p id="reviews_button" class="linkcol">Read Reviews
+                        </p>
                     </a>
                 </div>
                 </div>

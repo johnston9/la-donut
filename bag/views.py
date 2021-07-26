@@ -82,7 +82,7 @@ def update_bag(request, item_id):
     """Update the quantity of a product to the new value"""
 
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity') or 1)
     sizeprice = None
     forsixprice = None
     if 'product_size' in request.POST:

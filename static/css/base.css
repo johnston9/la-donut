@@ -12,9 +12,22 @@
 	border: 0;
 }
 
+.bag-update {
+    color: #117b8c;
+    background-color: #fff;
+}
+
+.bag-update:hover {
+    color: #b8bb14;
+    text-decoration: none;
+}
+
+.review-view p {
+    font-size: 1.5rem;
+}
+
 .donut-logo {
     background: url('/media/la4.jpg') no-repeat center center;
-    /*object-fit: cover;*/
     background-size: cover;
     background-color: #fff;
     width: 120px;
@@ -72,14 +85,11 @@ body {
     font-family: "Playfair Display", serif; 
 }
 
-/*--nav/nav-links/icon--*/
-
-/*.donut-logo {
-    background: url('/media/digi1.jpg') no-repeat center center fixed;
-    background-size: contain;
-    background-color: rgb(97, 59, 59);
-    width: 200px;
-}*/
+/*---------------------Nav---------------------------*/
+#banner p {
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+}
 
 .navbar-light .navbar-toggler {
     border-color: #fff;
@@ -305,17 +315,20 @@ hr.grey100 {
 .form-check-input {
     color: #000;
     background-color: black;
+    padding: 20px;
 }
 
 .form-check-input[type=checkbox], input[type=radio] {
     color: black;
     background-color: black;
     border-color: black;
+    padding: 20px;
 }
 input[type=checkbox], input[type=radio] {
     color: black;
     background-color: black;
     border-color: black;
+    padding: 20px;
 }
 
 .form-check-input[type=checkbox], input[type=radio]:checked {
@@ -553,6 +566,14 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
+/*---------quantity selector for bag page--------*/
+.input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, 
+.input-group:not(.has-validation)>.custom-select:not(:last-child), 
+.input-group:not(.has-validation)>.form-control:not(:last-child) {
+    height: 26px !important;
+    color: #000 !important;
+}
+
 
 .view {
     height: 26px;
@@ -751,7 +772,7 @@ div.dataTables_wrapper div.dataTables_length label {
         padding-top: 150px;
     }
 
-    #banner h4 {
+    #banner p {
         font-size: .75rem;
     }
 

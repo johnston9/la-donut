@@ -207,22 +207,22 @@
                                                             {% for size in sizes %}
                                                                 {% if size.name == product.name %}
                                                                     <div class="pl-2 form-check">
-                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_s">
-                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_s"
+                                                                        <label class="form-check-label" for="id_for_menu_{{ product.id }}_s">
+                                                                            <input type="radio" class="form-check-input" id="id_for_menu_{{ product.id }}_s"
                                                                                 name="product_size" value="small_{{ size.small }}">
                                                                             Small - E{{ size.small }}
                                                                         </label>
                                                                     </div>
                                                                     <div class="pl-2 form-check">
-                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_m">
-                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_m"
+                                                                        <label class="form-check-label" for="id_for_menu_{{ product.id }}_m">
+                                                                            <input type="radio" class="form-check-input" id="id_for_menu_{{ product.id }}_m"
                                                                                 name="product_size" value="medium_{{ size.medium }}" checked>
                                                                             Medium - E{{ size.medium }}
                                                                         </label>
                                                                     </div>
                                                                     <div class="pl-2 form-check">
-                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_l">
-                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_l"
+                                                                        <label class="form-check-label" for="id_for_menu_{{ product.id }}_l">
+                                                                            <input type="radio" class="form-check-input" id="id_for_menu_{{ product.id }}_l"
                                                                                 name="product_size" value="large_{{ size.large }}">
                                                                             Large - E{{ size.large }}
                                                                         </label>
@@ -234,22 +234,22 @@
                                                             {% for forsix in forsixs %}
                                                                 {% if forsix.name == product.name %}
                                                                     <div class="pl-2 form-check">
-                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_6">
-                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_6"
+                                                                        <label class="form-check-label" for="id_for_menu_{{ product.id }}_6">
+                                                                            <input type="radio" class="form-check-input" id="id_for_menu_{{ product.id }}_6"
                                                                                 name="product_forsix" value="for6_{{ forsix.for6 }}">
                                                                             For 6 - E{{ forsix.for6}}
                                                                         </label>
                                                                     </div>
                                                                     <div class="pl-2 form-check">
-                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_12">
-                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_12"
+                                                                        <label class="form-check-label" for="id_for_menu_{{ product.id }}_12">
+                                                                            <input type="radio" class="form-check-input" id="id_for_menu_{{ product.id }}_12"
                                                                                 name="product_forsix" value="for12_{{ forsix.for12 }}" checked>
                                                                             For 12 - E{{ forsix.for12 }}
                                                                         </label>
                                                                     </div>
                                                                     <div class="pl-2 form-check">
-                                                                        <label class="form-check-label" for="id_for_{{ product.id }}_24">
-                                                                            <input type="radio" class="form-check-input" id="id_for_{{ product.id }}_24"
+                                                                        <label class="form-check-label" for="id_for_menu_{{ product.id }}_24">
+                                                                            <input type="radio" class="form-check-input" id="id_for_menu_{{ product.id }}_24"
                                                                                 name="product_forsix" value="for24_{{ forsix.for24 }}">
                                                                             For 24 - E{{ forsix.for24}}
                                                                         </label>
@@ -265,7 +265,7 @@
                                                     <!--buttons-->
                                                     <div class="form-row mt-3 shop-button">
                                                         <div class="col-6 mx-0 text-center">
-                                                            <input type="submit" id="quantity_but4" class="btn btn-gold py-0 px-4"
+                                                            <input type="submit" id="quantity_but2_{{ product.id }}" class="btn btn-gold py-0 px-4"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
@@ -281,7 +281,7 @@
                                                     <!--buttons-->
                                                     <!--<div class="form-row mt-3">
                                                         <div class="col-12 mx-0 text-center ">
-                                                            <input type="submit" id="quantity_but4" class="btn btn-blue px-3 py-0"
+                                                            <input type="submit" id="quantity_but4_{{ product.id }}" class="btn btn-blue px-3 py-0"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
@@ -487,7 +487,7 @@
                                                     <!--buttons-->
                                                     <div class="form-row mt-3">
                                                         <div class="col-6 mx-0 text-center">
-                                                            <input type="submit" id="quantity_but4" class="btn btn-gold px-4 py-0"
+                                                            <input type="submit" id="quantity_but3_{{ product.id }}" class="btn btn-gold px-4 py-0"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">
