@@ -17,25 +17,6 @@ img {
     width: 100%;
   }
 
-.bag-update {
-    color: #117b8c;
-    background-color: #fff;
-}
-
-.bag-update:hover {
-    color: #b8bb14;
-    text-decoration: none;
-}
-
-.donut-logo {
-    background: url('/media/la4.jpg') no-repeat center center;
-    background-size: cover;
-    background-color: #fff;
-    width: 120px;
-    height: 30px;
-    
-}
-
 .header-container {
     padding-top: 160px;
 }
@@ -82,70 +63,6 @@ body {
     text-transform: uppercase;
 }
 
-/*--Fonts--*/
-
-.lato {
-    font-family: 'Lato', sans-serif;
-}
-
-.playball {
-    font-family: 'Playball', cursive;
-}
-
-.roboto {
-    font-family: 'Roboto', sans-serif;
-}
-
-.playfair {
-    font-family: "Playfair Display", serif; 
-}
-
-/*---------------------Nav---------------------------*/
-#banner p {
-    font-size: 1.5rem;
-    line-height: 1.2rem;
-}
-
-.navbar-light .navbar-toggler {
-    border-color: #fff;
-}
-
-#main-nav {
-    background-color: #fff;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(0,0,0,.6);
-}
-
-.topnav-link {
-    display: block;
-    padding-top: .5rem;
-}
-
-.topnav-link:hover {
-    text-decoration: none;
-    color: rgb(119, 129, 24);
-}
-
-.navbar-nav .nav-link {
-    padding-right: 50px; 
-    padding-left: 50px; 
-}
-
-.text-info {
-    color: #167f90!important;
-}
-
-.linkcol {
-    color: #167f90!important;
-}
-
-.linkcol:hover {
-    color: rgb(255,215,0);
-    text-decoration: none;
-}
-
 .icon {
     align-items: center;
     display: inline-flex;
@@ -162,8 +79,22 @@ body {
     width: 1rem;
 }
 
-#account-text {
-    font-size: 1.25rem;
+/*----------------Fonts--------------------*/
+
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.playball {
+    font-family: 'Playball', cursive;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.playfair {
+    font-family: "Playfair Display", serif; 
 }
 
 /*-----line breaks------*/
@@ -197,7 +128,78 @@ hr.grey100 {
 	width: 100%;
 }
 
-/*--buttons--*/
+/*---------------------Nav---------------------------*/
+
+.donut-logo {
+    background: url('/media/la4.jpg') no-repeat center center;
+    background-size: cover;
+    background-color: #fff;
+    width: 120px;
+    height: 30px;
+    
+}
+
+#banner p {
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: #fff;
+}
+
+#main-nav {
+    background-color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.6);
+}
+
+.topnav-link {
+    display: block;
+    padding-top: .5rem;
+}
+
+.topnav-link:hover {
+    text-decoration: none;
+    color: rgb(119, 129, 24);
+}
+
+.navbar-nav .nav-link {
+    padding-right: 50px; 
+    padding-left: 50px; 
+}
+
+#account-text {
+    font-size: 1.25rem;
+}
+
+/*return to top button*/
+
+#topbut {
+	display: none;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 99;
+	height: 26px;
+	width: 70px;
+	background-color: rgba(209, 161, 16, 0.993);
+	border: none;
+	font-weight: bold;
+	border-radius: 5px;
+	outline: none;
+	color: #fafafa;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+#topbut:hover {
+	background-color: #666666;
+}
+
+/*---------------buttons------------*/
 
 .enter-button {
     background: black;
@@ -212,11 +214,6 @@ hr.grey100 {
 .enter-button:focus {
     background: rgb(255,215,0); 
     color: #000;
-}
-
-.btn-light {
-    background: #fff;
-    color: #696666;
 }
 
 .btn-black-gold  {
@@ -246,13 +243,14 @@ hr.grey100 {
     text-decoration: none;
 }
 
-.btn-gold2 {
-    background: rgb(226, 198, 39);
+.btn-gold-black {
+    background: rgb(255,215,0);
     color: #000;
     font-weight: 700;
+    border: 1px solid #000; 
 }
 
-.btn-gold2:hover {
+.btn-gold-black:hover {
     background: rgb(71, 68, 68);
     color: rgb(232, 240, 254);
     font-weight: 700;
@@ -326,10 +324,34 @@ hr.grey100 {
     color: white;
 }
 
-/*---item select form and buttons on shop and view item pages----*/
+/*----------------links----------------*/
+
+.text-info {
+    color: #167f90!important;
+}
+
+.linkcol {
+    color: #167f90;
+}
+
+.linkcol:hover {
+    color: rgb(255,215,0);
+    text-decoration: none;
+}
+
+.linkcol a {
+    color: #167f90;
+}
+
+.linkcol a:hover {
+    color: rgb(255,215,0);
+    text-decoration: none;
+}
+
+/*---quantity buttons on view item page----*/
 
 .btn-quantity {
-    color: white;
+    color: #fff;
     height: 26px !important;
     padding: 0rem .75rem;
     background: #3e3434;
@@ -338,81 +360,8 @@ hr.grey100 {
 .btn-quantity:hover,
 .btn-quantity:active,
 .btn-quantity:focus {
-    background: #222;
-    color: white;
-}
-
-.btn-quantity-sm {
-    background: #9e9696;
-    color: #fff;
-    height: 20px !important;
-    padding: 0rem .50rem;
-    font-size: 1rem !important;
-    line-height: 1rem !important;
-}
-
-.btn-quantity-sm:hover,
-.btn-quantity-sm:active,
-.btn-quantity-sm:focus {
-    background: #996565;
-    color: rgba(255, 255, 255, 0.89);
-}
-
-.form-check-input {
+    background: rgb(255,215,0);
     color: #000;
-    background-color: black;
-    padding: 20px;
-}
-
-input[type=checkbox], input[type=radio] {
-    color: black;
-    background-color: black;
-    border-color: black;
-    padding: 20px;
-}
-
-.form-check-input[type=checkbox], input[type=radio]:checked {
-    color: black;
-    background-color: black;
-    border-color: black;
-}
-
-.form-check-input:hover,
-.form-check-input:active,
-.form-check-input:focus,
-.form-check-input:checked {
-    background: #996565;
-    color: rgba(255, 255, 255, 0.89);
-    background-color: black;
-}
-
-.form-check-input[type='radio']:checked:after {
-    color: black;
-    border: 2px solid white;
-}
-
-/*return to top button*/
-
-#topbut {
-	display: none;
-	position: fixed;
-	bottom: 60px;
-	right: 10px;
-	z-index: 99;
-	height: 34px;
-	width: 90px;
-	background-color: rgba(209, 161, 16, 0.993);
-	border: none;
-	font-weight: bold;
-	border-radius: 5px;
-	outline: none;
-	color: #fafafa;
-	cursor: pointer;
-	font-size: 24px;
-}
-
-#topbut:hover {
-	background-color: #666666;
 }
 
 /*--colors--*/
@@ -700,6 +649,18 @@ div.dataTables_wrapper div.dataTables_length label {
     overflow-y: auto;
 }
 
+/* ------------- Bag Page ----------- */
+
+.bag-update {
+    color: #117b8c;
+    background-color: #fff;
+}
+
+.bag-update:hover {
+    color: #b8bb14;
+    text-decoration: none;
+}
+
 /* ------------- Checkout Page ----------- */
 
 .gift-wrapper {
@@ -884,17 +845,18 @@ div.dataTables_wrapper div.dataTables_length label {
 /*--home page--*/ 
 
 .home-container {
-    width: 100%;
+    width: 90%;
 }
 
-/*.footer-container {
+.footer-container {
     width: 90%;
-}*/
+}
 
 .home-container-im {
-    background: url('/media/dessy-ss.jpg') no-repeat center center;
-    object-fit: contain;
-    /*background-size: contain;*/
+    /*background: url('/media/dessy-ss.jpg') no-repeat center center;*/
+    background: url('/media/home-mo.jpg') no-repeat center center;
+    /*object-fit: contain;*/
+    background-size: cover;
     background-color: #fff;
     font-family: 'Lato';
     
@@ -902,8 +864,9 @@ div.dataTables_wrapper div.dataTables_length label {
 
 @media (min-width: 400px) {
     .home-container-im {
-        background: url('/media/vvv1.jpg') no-repeat center center fixed;       
-        background-size: contain;
+        background: url('/media/home-pic.jpg') no-repeat center center fixed;  
+        /*background: url('/media/vvv1.jpg') no-repeat center center fixed;*/       
+        background-size: cover;
     }
 }
 
@@ -925,15 +888,43 @@ div.dataTables_wrapper div.dataTables_length label {
     }
 }
 
-    
-    
-/*background-size: contain;*/
-/*@media (min-width: 1000px) {
-    .home-container { 
-    background: url('/media/la-sur.jpg') no-repeat center center fixed;
-    background-size: contain;
-    background-color: #fff;
+
+.form-check-input {
+    color: #000;
+    background-color: black;
+    padding: 20px;
 }
-}*/
-/*background: url('/media/la-sur.jpg') no-repeat center center fixed;*/
-        /*background: url('/media/vvv1.jpg') no-repeat center center fixed;*/ 
+
+
+/*----------radio buttons---------------*/
+input[type=checkbox], input[type=radio] {
+    color: black;
+    background-color: black;
+    border-color: black;
+    padding: 20px;
+}
+
+.form-check-input[type=checkbox], input[type=radio]:checked {
+    color: black;
+    background-color: black;
+    border-color: black;
+}
+
+.form-check-input:hover,
+.form-check-input:active,
+.form-check-input:focus,
+.form-check-input:checked {
+    background: #996565;
+    color: rgba(255, 255, 255, 0.89);
+    background-color: black;
+}
+
+.form-check-input[type='radio']:checked:after {
+    color: black;
+    border: 2px solid white;
+}
+
+.btn-light {
+    background: #fff;
+    color: #696666;
+}

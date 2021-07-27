@@ -1100,12 +1100,7 @@ On the Chat page Lighthouse had a 'same site cookies' issue. See Issues above.
 
 
 
-
-
-
-
-
- [Back to Table of Content](#table-of-content)
+[Back to Table of Content](#table-of-content)
 
 
 ## Bugs Fixed
