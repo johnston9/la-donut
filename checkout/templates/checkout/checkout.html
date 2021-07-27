@@ -25,36 +25,36 @@
     </div>
 
         <div class="row">
-            <div class="col-12 col-lg-5 offset-lg-1 order-lg-last mb-5">
-                <h5 class="text-center mt-4 text-muted">Order Details - Items({{ product_count }})</h5>
-                <hr class="gold70 mb-1">
+            <div class="col-12 col-lg-5 offset-lg-1 order-lg-last mb-5 lato">
+                <small class="font-weight-bold mt-5 text-muted">Order Details - Items({{ product_count }})</small>
+                <hr class="gold70 my-2">
                 <div class="row">
                     <div class="col-8 offset-1">
-                        <p class="mb-1 mt-1">Item</p>
+                    <small class="font-weight-bold mb-1 mt-1">Item</small>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-1">Subtotal</p>
+                        <small class="font-weight-bold mb-1 mt-1">Subtotal</small>
                     </div>
                 </div>
                 {% for item in bag_items %}
                     <div class="row mb-4">
                         <div class="col-3 mb-0 pl-0 pr-0">
                             {% if item.product.image %}
-                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                <img class="image-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                             {% else %}
-                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                                <img class="image-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                             {% endif %}
                         </div>
                         <div class="col-7">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 playfair"><strong>{{ item.product.name }}</strong></p>
                             <!--size-->
                             {% if item.product.is_sizes %}
-                                <p class="my-0">Size: {{ item.size }}</p>
+                                <p class="my-0">Size: {{ item.size|title }}</p>
                             {% endif %}
                             {% if item.product.is_for_six %}
                                 <p class="my-0">{{ item.box }} Box</p>
                             {% endif %}
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }} &nbsp; &nbsp; Price: E{{ item.price|floatformat:2 }}</p>
+                            <p class="my-0 small">Qty: {{ item.quantity }} &nbsp; &nbsp; Price: E{{ item.price|floatformat:2 }}</p>
                         </div>
                         <div class="col-2 text-right">
                             <p class="my-0 small text-black">E{{ item.price | sum_subtotal:item.quantity|floatformat:2 }}</p>
@@ -77,9 +77,9 @@
                 <hr class="gold100 mb-4 mt-4">
             </div>
             <!--col2-->
-            <div class="col-12 col-lg-6 mb-3">
-                <h5 class="text-center ml-lg-4 mt-4 text-muted">Please complete the form below</h3>
-                <hr class="gold70 mb-1">
+            <div class="col-12 col-lg-6 mb-3 lato">
+                <small class="text-center font-weight-bold mt-5 text-muted">Please complete the form below</small>
+                <hr class="gold70 my-2">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     {% if user.is_authenticated %}
@@ -118,7 +118,7 @@
                     </fieldset>
                     {% else %}
                     <p class=""><a class="text-info" href="{% url 'account_signup' %}">Create an account</a> and get the Free Gift Presentation Extras.<br>
-                        Includes Gift-wrapping, Card and Handwritten Personal Message and Pre-Slicing.</p>
+                        Pre-Slicing, Gift-wrapping, Card and Handwritten Personal Message.</p>
                     {% endif %}
 
                     <fieldset class="px-2 mb-4">
@@ -164,7 +164,7 @@
                         </p>
                         <div class="row checkout-buttons text-center mt-5 mb-2 mx-0 px-0">
                             <div class="col-6 text-center mx-0 px-0">
-                                <a href="{% url 'get_bag' %}" class="btn btn-gold">
+                                <a href="{% url 'get_bag' %}" class="btn btn-black-gold">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>	
@@ -172,7 +172,7 @@
                                 </a>
                             </div>
                             <div class="col-6 text-center mx-0 px-0">
-                                <button id="submit-button" class="btn btn-gold">
+                                <button id="submit-button" class="btn btn-black-gold">
                                     <span class="upper lato"><strong class="">Submit <span class="d-none d-sm-inline-block"> Order</span></strong></span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>

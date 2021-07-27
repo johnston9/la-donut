@@ -12,6 +12,11 @@
 	border: 0;
 }
 
+img {
+    height: auto;
+    width: 100%;
+  }
+
 .bag-update {
     color: #117b8c;
     background-color: #fff;
@@ -20,10 +25,6 @@
 .bag-update:hover {
     color: #b8bb14;
     text-decoration: none;
-}
-
-.review-view p {
-    font-size: 1.5rem;
 }
 
 .donut-logo {
@@ -44,6 +45,20 @@ body {
     /*color: #474343;*/
 	/*color: #696666;*/
     font-family: "Playfair Display", serif;   
+}
+
+.head5 {
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.head4 {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 .center {
@@ -118,8 +133,12 @@ body {
     padding-left: 50px; 
 }
 
+.text-info {
+    color: #167f90!important;
+}
+
 .linkcol {
-    color: #131eaf;
+    color: #167f90!important;
 }
 
 .linkcol:hover {
@@ -200,6 +219,20 @@ hr.grey100 {
     color: #696666;
 }
 
+.btn-black-gold  {
+    background: black;
+    color: white;
+    border: 2px solid rgb(255,215,0); 
+    font-weight: 700;
+}
+
+.btn-black-gold:hover,
+.btn-black-gold:active,
+.btn-black-gold:focus {
+    background: rgb(255,215,0); 
+    color: #000;
+}
+
 .btn-gold {
     background: rgb(255,215,0);
     color: #000;
@@ -207,6 +240,19 @@ hr.grey100 {
 }
 
 .btn-gold:hover {
+    background: rgb(71, 68, 68);
+    color: rgb(232, 240, 254);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-gold2 {
+    background: rgb(226, 198, 39);
+    color: #000;
+    font-weight: 700;
+}
+
+.btn-gold2:hover {
     background: rgb(71, 68, 68);
     color: rgb(232, 240, 254);
     font-weight: 700;
@@ -318,12 +364,6 @@ hr.grey100 {
     padding: 20px;
 }
 
-.form-check-input[type=checkbox], input[type=radio] {
-    color: black;
-    background-color: black;
-    border-color: black;
-    padding: 20px;
-}
 input[type=checkbox], input[type=radio] {
     color: black;
     background-color: black;
@@ -879,8 +919,9 @@ div.dataTables_wrapper div.dataTables_length label {
 }
 
 @media (max-width: 576px) {
+    .btn-black-gold
     .enter-button {
-        width: 90px;
+        width: 110px;
     }
 }
 

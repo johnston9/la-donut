@@ -23,9 +23,7 @@
 
         <div class="row">
             <div class="col">
-                <h5>
-                    <a href="{% url 'recipe' %}" class="btn btn-blue">Back to Recipes</a>
-                </h5>
+                <a href="{% url 'recipe' %}" class="btn btn-blue">Back to Recipes</a>
             </div>
         </div>
         
@@ -54,8 +52,8 @@
                         <p class="text-newred font-weight-bold">PREPARATION TIME:<span class="text-grey"> {{ recipe.prep_time}}</span></p>
                         <p class="text-newred font-weight-bold">COOKING TIME:<span class="text-grey"> {{ recipe.cook_time}}</span></p>  
                         <p class="text-newred font-weight-bold">SERVES:<span class="text-grey"> {{ recipe.serves}}</span></h5>
-                        <h5 class="mt-2 playball text-center">{{ recipe.description }}</h5>
-                        <h4 class="text-newred font-weight-bold playfair text-center mt-3">Ingredients</h4>
+                        <p class="mt-2 playball head5 text-center">{{ recipe.description }}</p>
+                        <p class="text-newred head4 font-weight-bold playfair text-center mt-3">Ingredients</p>
                         <p class="py-0 my-0">{{ recipe.ingredient1 }}</p>
                         <p class="py-0 my-0">{{ recipe.ingredient2 }}</p>
                         <p class="py-0 my-0">{{ recipe.ingredient3 }}</p>
@@ -76,7 +74,7 @@
                         {% if recipe.ingredient10 %}
                             <p class="py-0 my-0">{{ recipe.ingredient10 }}</p>
                         {% endif %}
-                        <h4 class="text-newred font-weight-bold playfair text-center mt-3">Preparation</h4>
+                        <p class="text-newred head4 font-weight-bold playfair text-center mt-3">Preparation</p>
                         <p class="text-black"><strong>Step 1</strong></p>
                         <p class="text-black">{{ recipe.step1 }}</p>
                         <p class="text-black"><strong>Step 2</strong></p>

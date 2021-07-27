@@ -1,6 +1,6 @@
 <p><strong>Bag Total: E{{ total|floatformat:2 }}</strong></p>
 <p>Delivery: E{{ delivery|floatformat:2 }}</p>
-<h4 class="mt-4"><strong>Grand Total: E{{ grand_total|floatformat:2 }}</strong></h4>
+<p class="head4 mt-4"><strong>Grand Total: E{{ grand_total|floatformat:2 }}</strong></p>
 {% if free_delivery_gap > 0 %}
     <p class="mb-1 text-red">
         Free delivery if you spend <strong>E{{ free_delivery_gap|floatformat:2 }}</strong> more!

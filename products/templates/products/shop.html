@@ -129,9 +129,6 @@
                 </div>
                 <div class="row">
                     <div class="col text-center mb-3">
-                        <!--<button class="btn btn-blue px-3 mb-2 pt-1 pb-1"> 
-                            <a class="playball" href="{% url 'shop' %}">All Products <i class="fas fa-chevron-right"></i></a>
-                        </button>-->
                         <a class="playball btn-menu" href="{% url 'shop' %}">All Products <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
@@ -265,7 +262,7 @@
                                                     <!--buttons-->
                                                     <div class="form-row mt-3 shop-button">
                                                         <div class="col-6 mx-0 text-center">
-                                                            <input type="submit" id="quantity_but2_{{ product.id }}" class="btn btn-gold py-0 px-4"
+                                                            <input type="submit" id="quantity_but2_{{ product.id }}" class="btn btn-black-gold py-0 px-4"
                                                                 value="Add">
                                                             <input type="hidden" name="redirect_url"
                                                                 value="{{ request.get_full_path }}">

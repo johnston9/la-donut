@@ -11,7 +11,7 @@
 .order-input-style {
   box-sizing: border-box;
   height: 40px;
-  padding: 10px 12px;
+  padding: 8px 12px;
   border: 1px solid transparent;
   border-radius: 2px;
   background-color: white;
@@ -63,7 +63,16 @@ select option {
     color: #000000;
 }
 
+.place {
+    /*color: #b4c1ce !important;*/
+    color: #507294 !important;
+    /*color: #626262*/
+    /*color: #657482 !important;*/  
+}
+
 select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
+    /*color: #6c757d !important;*/
+    /*color: #507294 !important;*/
 }

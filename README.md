@@ -953,14 +953,165 @@ The card number for this is 4000 0000 0000 3220.
 <img src="documentation/readme-images/tstep3.png" width="90%">
 </h2>
 
-## Lighthouse Testing
+## Lighthouse
 
+Lighthouse was used to test every page in desktop and mobile screens.
+
+### Summary of Issues 
+
+#### Performance.
+
+1. In Performance a number things in Diagnostics that would not affect the score were recommended. This included third-party code and image height and width.
+
+<p align="center"><strong>Performance Diagnostics</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-diag.png" width="90%">
+</h2>
+
+2. In the Performance Diagnostics under issues that would not affect score Lighthouse gave a note that image elements do not have explicit width and height for some the mobile product images. I used img-fluid for these as this worked best when there was a single image only being displayed on the page and also have img set to height 100% width auto in css.
+
+<p align="center"><strong>Images</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-images.png" width="90%">
+</h2>
+
+3. The Performance also recommended a more efficient cache policy.
+
+<p align="center"><strong>Performance Cache Issues on Shop page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-cache.png" width="90%">
+</h2>
+
+### Best Practices
+
+The Bootatrap Data tables caused a Same site cookies dev issue on the View Item and Chat pages where they were used. I rearched this issue and and brought it the Code Institute tutor team. 
+
+<p align="center"><strong>Same site cookies issue</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-same.png" width="90%">
+</h2>
+
+<p align="center"><strong>Same site cookies issue</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-same2.png" width="90%">
+</h2>
+
+<p align="center"><strong>Same site cookies issue</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-same4.png" width="90%">
+</h2>
+
+<p align="center"><strong>Same site cookies issue</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-same1.png" width="90%">
+</h2>
+
+### Outcome of Issues
+
+These issues were brought to the attention of the Code Institute tutor team and it was concidered not to be anything to bother about. One tutor said he did not get most of those issues when he ran the app on his device and actually got a very good score all round.
+
+<p align="center"><strong>Tutor's Lighthouse Report</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-codei.png" width="90%">
+</h2>
+
+
+### Issues Resolved
+
+1. On the Bag Page Lighthouse gave a note that the ids were not unique for the quantity button and the quantity accend and decen button and the input box. I really couldn't find any issue no matter how hard I looked then I realized that there were two bags one for mobile one for decktop on the same page. I changed the ids in one but as this was an includes file it kind of made that redundant as it could only be used one on a page.
+
+2. 
+
+3. 
+
+
+### Shop Page
+
+Lighthouse gave a 'Heading elements are not in a sequentially-descending order' warning for the use of H4 for the word 'Menu' but I decided to keep it as such for styling reasons. This issue arose for a number of other bits of text but I also kept them as such for styling.
+
+<p align="center"><strong>Desktop Score</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-shop-score.png" width="90%">
+</h2>
+
+<p align="center"><strong>Menu H4 issue</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-men.png" width="90%">
+</h2>
+
+On the Shop and View Item Pages for mobile Lighthouse gave a 'Tap targets are not sized appropriately' note for the radio buttons on the item's 'size' or 'forsix' selection. I tried to add padding and extra margin to them but despite using the exact element code from dev tools css I could not change them. I had got a warning about Tap targets for the footer icons and was able to fix this with padding.
+
+<p align="center"><strong>Mobile Tap Targets</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-tap.png" width="90%">
+</h2>
+
+### View Item Page
+Lighthouse gave a 'Serves images with low resolution' note for Best Practices. The Desktop size for the image is 656 x 437 but the image is 450 x 300. All my images are this size as for best 'Owner User Experience' they shold only have to upload one image per product. I have instructed them that 450 by 300 is best. This I felt was a happy medium for all sizings and is only affecting the desktop view on the 'View Item page' slightly and still is close to the smallest view on large desktop 'Shop page'. It did not flag this on the Recipe page, ie the one for a single recipe, and the imaeg was the same size.
+
+
+<p align="center"><strong>View Item page and Image Issue</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-low.png" width="90%">
+</h2>
+
+### Recipe Page
+
+<p align="center"><strong>Recipe Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-rec.png" width="90%">
+</h2>
+
+### Checkout Page
+Lighthouse gave an Accessability note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different. It's still lighter than the actual input text. I was prepared to change the rest but the did not flag error so I let it be.
+
+<p align="center"><strong>Checkout Country Field Page</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-cont.png" width="90%">
+</h2>
+
+Lighthouse gave another Accessability note '[aria-hidden="true"] elements contain focusable descendents' for the Stripe element card box but I left that.
+
+<p align="center"><strong>Stripe element</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-stripe.png" width="90%">
+</h2>
+
+<p align="center"><strong>Checkout Page Final Result</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-chec.png" width="90%">
+</h2>
+
+
+### Chat Page
+On the Chat page Lighthouse had a 'same site cookies' issue. See Issues above.
+
+<p align="center"><strong>Desktop</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-chat.png" width="90%">
+</h2>
+
+<p align="center"><strong>Mobile</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/l-chatmo.png" width="90%">
+</h2>
+
+[Back to Table of Content](#table-of-content)
+
+
+
+
+
+
+
+
+ [Back to Table of Content](#table-of-content)
 
 
 ## Bugs Fixed
 
 ### Metadata
- - The adding of the metadata to the intent caused a few bugs which were dealt with. The process was;
+ - The adding of the metadata to the intent caused a few bugs which were dealt with. The intended process was:
  1. stripe_elements.js checks to see if the is_saved, giftwrapped, is_card checkboxes are checked or not and get the value from the message input box.
  2. stripe_elements.js sends this data, along with some other data to the extra_checkout_info view where it is added to the intent metadata. 
  3. The handle_payment_intent_succeeded function retreives this data and uses it to add to the Order.
