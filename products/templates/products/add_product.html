@@ -14,12 +14,14 @@
         <!--title-->
         <div class="row">
             <div class="col text-center mt-1">
-                <h2 class="playball">Add a Product</h2>
+                <h2 class="playball">Product Management</h2>
                 <hr class="gold50 mb-1">
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6 text-center">
+            <div class="col-12 col-lg-6">
+                <p class="text-muted font-weight-bold mb-0 mt-3">Add A product</p>
+                <hr class="goldleft mt-1 mb-3">
                 <p>Please read instructions</p>
                 <button id="show_instructions" class="btn-blue px-2 pt-1 pb-1">Instructions</button>
             </div>
@@ -45,13 +47,13 @@
                     items sold individually. <br>
                     the <em>medium</em> price on Size items.<br>
                     the <em>for-six</em> price on Box items.</p>
-                <hr>
                 </div>
             
             </div>
             <div class="col-12 col-lg-6 order-lg-1">
                 <div class="text-center mb-3">
                 <small class="text-muted text-center">Form</small>
+                <hr class="mt-1">
                 </div>
                 <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}

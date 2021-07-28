@@ -1,8 +1,6 @@
 {% if widget.is_initial %}
     <p>{{ widget.initial_text }}:</p>
-    <a href="{{ widget.value.url }}">
-        <img width="90" height="60" class="" src="{{ widget.value.url }}">
-    </a>
+        <img width="60" height="40" class="" src="{{ widget.value.url }}" alt="current image" >
 
     {% if not widget.required %}
         <div class="custom-widget-box mt-2">

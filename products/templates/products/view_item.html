@@ -293,9 +293,9 @@
                                     {% if request.user.is_superuser %}
                                         <div class="row mb-2">
                                             <div class="col-12 text-right">
-                                                <h5 class="">
-                                                    <a class="text-red font-weight-bold" a href="{% url 'cut_review' review.id %}" onclick="return confirm('Are you sure you want to delete this review?');">Delete</a>
-                                                </h5>
+                                                <p class="">
+                                                    <a class="head5 text-red font-weight-bold" a href="{% url 'cut_review' review.id %}" onclick="return confirm('Are you sure you want to delete this review?');">Delete</a>
+                                                </p>
                                             </div>
                                         </div>
                                     {% endif %} 

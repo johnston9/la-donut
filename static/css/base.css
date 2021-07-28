@@ -21,6 +21,26 @@ img {
     padding-top: 160px;
 }
 
+/*----------- home page -------*/ 
+
+.home-container {
+    width: 90%;
+}
+
+.footer-container {
+    width: 90%;
+}
+
+.home-container-im {
+    /*background: url('/media/dessy-ss.jpg') no-repeat center center;*/
+    background: url('/media/home-mo.jpg') no-repeat center center;
+    /*object-fit: contain;*/
+    background-size: cover;
+    background-color: #fff;
+    font-family: 'Lato';
+    
+}
+
 body {
     color: #333;
     /*color: #474343;*/
@@ -137,6 +157,17 @@ hr.grey100 {
     width: 120px;
     height: 30px;
     
+}
+
+/*--logo--*/
+
+.donut-logo a {
+    color: #000;
+}
+
+.donut-logo a:hover {
+    text-decoration: none;
+    color: rgb(140, 111, 25, 99%);
 }
 
 #banner p {
@@ -267,12 +298,6 @@ hr.grey100 {
     text-decoration: none;
 }
 
-.delete-button a:hover {
-    color: rgb(232, 240, 254);
-    font-weight: 700;
-    text-decoration: none;
-}
-
 .btn-blue {
     background: rgb(232, 240, 254);
     color: #000;
@@ -286,27 +311,15 @@ hr.grey100 {
     text-decoration: none;
 }
 
-.btn-blue a:hover {
-    color: rgb(232, 240, 254);
-    font-weight: 700;
-    text-decoration: none;
-}
-
 .delete-button {
     background: rgb(232, 240, 254);
-    color: red;
+    color: rgb(119, 6, 6);
     font-weight: 700;
     text-decoration: none;
 }
 
 .delete-button:hover {
     background: rgb(71, 68, 68);
-    color: rgb(232, 240, 254);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.delete-button a:hover {
     color: rgb(232, 240, 254);
     font-weight: 700;
     text-decoration: none;
@@ -346,22 +359,6 @@ hr.grey100 {
 .linkcol a:hover {
     color: rgb(255,215,0);
     text-decoration: none;
-}
-
-/*---quantity buttons on view item page----*/
-
-.btn-quantity {
-    color: #fff;
-    height: 26px !important;
-    padding: 0rem .75rem;
-    background: #3e3434;
-}
-
-.btn-quantity:hover,
-.btn-quantity:active,
-.btn-quantity:focus {
-    background: rgb(255,215,0);
-    color: #000;
 }
 
 /*--colors--*/
@@ -478,7 +475,7 @@ hr.grey100 {
     color: #696666;
 }
 
-/*--shop page--*/
+/*---------------shop page--------------*/
 
 .btn.dropdown-toggle.select-btn {
     background-color: #f8f9fa;
@@ -507,10 +504,9 @@ hr.grey100 {
     color: #353d46;
     background-color: #e8ecf0;
     border-color: #e8ecf0;
-    /*color: #007bff;*/
 }
 
-/*--search--*/
+/*--------------------search------------------*/
 
 #inner-search input[name='q'] {
     color: #000 !important;
@@ -524,7 +520,7 @@ input[name='q']::placeholder {
     border: 1px solid rgb(94, 91, 91);
 }
 
-/*-- search form --*/
+/*------------search form--------------*/
 
 .input-group>.custom-file.inner-search, 
 .input-group>.custom-select.inner-search, 
@@ -534,18 +530,23 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*--logo--*/
+/*---quantity buttons on view item page----*/
 
-.donut-logo a {
+.btn-quantity {
+    color: #fff;
+    height: 26px !important;
+    padding: 0rem .75rem;
+    background: #3e3434;
+}
+
+.btn-quantity:hover,
+.btn-quantity:active,
+.btn-quantity:focus {
+    background: rgb(255,215,0);
     color: #000;
 }
 
-.donut-logo a:hover {
-    text-decoration: none;
-    color: rgb(140, 111, 25, 99%);
-}
-
-/*---------quantity selector for view item page--------*/
+/*---------quantity input box for view item page--------*/
 
 .input-group>.custom-file.view-it, 
 .input-group>.custom-select.view-it, 
@@ -555,7 +556,7 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*---------quantity selector for bag page--------*/
+/*---------quantity input box for bag page--------*/
 .input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, 
 .input-group:not(.has-validation)>.custom-select:not(:last-child), 
 .input-group:not(.has-validation)>.form-control:not(:last-child) {
@@ -568,6 +569,8 @@ input[name='q']::placeholder {
     height: 26px;
     padding-top: 1px;
 }
+
+/*-----------radio/check buttons-------*/
 
 .add_product .form-check-label {
     font-size: 1rem;
@@ -594,6 +597,26 @@ div.dataTables_wrapper div.dataTables_length label {
     cursor: pointer;
 }
 
+/* ------------- Bag Page ----------- */
+
+.bag-update {
+    color: #117b8c;
+    background-color: #fff;
+}
+
+.bag-update:hover {
+    color: #b8bb14;
+    text-decoration: none;
+}
+
+/* ------------- Checkout Page ----------- */
+
+.gift-wrapper {
+    border: 1px solid rgb(255,215,0);
+}
+
+/* ------------- Profile Page ------------*/
+
 /* ---------------------Recipes---------- */
 
 #recipe-ed {
@@ -618,7 +641,7 @@ div.dataTables_wrapper div.dataTables_length label {
 
 /* ---------------------Chat---------- */
 
-/* ------------------------------- bootstrap toasts */
+/* ---------- bootstrap toasts -------- */
 
 .message-container {
     position: fixed;
@@ -649,28 +672,7 @@ div.dataTables_wrapper div.dataTables_length label {
     overflow-y: auto;
 }
 
-/* ------------- Bag Page ----------- */
-
-.bag-update {
-    color: #117b8c;
-    background-color: #fff;
-}
-
-.bag-update:hover {
-    color: #b8bb14;
-    text-decoration: none;
-}
-
-/* ------------- Checkout Page ----------- */
-
-.gift-wrapper {
-    border: 1px solid rgb(255,215,0);
-}
-
-/* ------------- Profile Page ------------*/
-
-
-/*-- Product Form Image Widget--*/
+/*------------ Product Form Image Widget-------------*/
 
 .btn-file {
     position: relative;
@@ -762,7 +764,13 @@ div.dataTables_wrapper div.dataTables_length label {
     color: #aab7c4;
 }
 
-/* -------------------------------- Media Queries */
+/* ---------------- Media Queries -----------------*/
+
+@media (max-width: 992px) {
+    h2.display-4.explore {
+        font-size: 2rem;
+    }
+    }
 
 @media (max-width: 768px) {
     h2 {
@@ -797,11 +805,25 @@ div.dataTables_wrapper div.dataTables_length label {
 
 @media (min-width: 576px) {
     .recipe-titles {
-        height: 50px;
+        height: 70px;
     }
 }
 
-/*---Shop Page images--*/
+@media (min-width: 576px) {
+    .donut-logo {
+        width: 200px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-black-gold
+    .enter-button {
+        width: 110px;
+    }
+}
+
+/*---Shop Page images media queries--*/
 
 @media (min-width: 576px) {
 .card-img, .card-img-top {
@@ -819,12 +841,6 @@ div.dataTables_wrapper div.dataTables_length label {
 }
 }
 
-@media (max-width: 992px) {
-    h2.display-4.explore {
-        font-size: 2rem;
-    }
-    }
-
 @media (min-width: 992px) {
 .card-img, .card-img-top {
     height: 180px;
@@ -841,27 +857,6 @@ div.dataTables_wrapper div.dataTables_length label {
 }
 }
 
-
-/*--home page--*/ 
-
-.home-container {
-    width: 90%;
-}
-
-.footer-container {
-    width: 90%;
-}
-
-.home-container-im {
-    /*background: url('/media/dessy-ss.jpg') no-repeat center center;*/
-    background: url('/media/home-mo.jpg') no-repeat center center;
-    /*object-fit: contain;*/
-    background-size: cover;
-    background-color: #fff;
-    font-family: 'Lato';
-    
-}
-
 @media (min-width: 400px) {
     .home-container-im {
         background: url('/media/home-pic.jpg') no-repeat center center fixed;  
@@ -870,33 +865,12 @@ div.dataTables_wrapper div.dataTables_length label {
     }
 }
 
-@media (min-width: 576px) {
-    .home-container {
-        width: 90%;
-    }
-
-    .donut-logo {
-        width: 200px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 576px) {
-    .btn-black-gold
-    .enter-button {
-        width: 110px;
-    }
-}
-
-
-.form-check-input {
+/*----------radio buttons---------------*/
+/*.form-check-input {
     color: #000;
     background-color: black;
     padding: 20px;
 }
-
-
-/*----------radio buttons---------------*/
 input[type=checkbox], input[type=radio] {
     color: black;
     background-color: black;
@@ -922,9 +896,4 @@ input[type=checkbox], input[type=radio] {
 .form-check-input[type='radio']:checked:after {
     color: black;
     border: 2px solid white;
-}
-
-.btn-light {
-    background: #fff;
-    color: #696666;
-}
+}*/

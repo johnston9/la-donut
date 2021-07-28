@@ -19,26 +19,18 @@
     <div class="row">
         <div class="col text-center mt-1">
             <h2 class="playball">Order Complete</h2>
-            <h4 class="playball text-center">Your Goodies are on the way.</h4>
+            <p class="head4 playball text-center">Your Goodies are on the way.</p>
             <small>A confirmation email will be sent to {{ order.email }}</small>
-            <p><small>Your order is below</small></p>
-            <ul class="list-inline">
-            {% for item in categories_selected %}                   
-                <li class="list-inline-item"> 
-                <h4 class=" playball" >{{ item.friendly_name }}</h4>
-                </li>
-            {% endfor %}
-            </ul>
-            
-            <a href="" class="btn bg-gold mt-1">
-                <span class="">Check out this week's <em>Secret Recipy</em> </span>
+            <p><small>Your order is below</small></p>          
+            <a href="{% url 'latest_recipe' %}" class="btn btn-gold mt-1">
+                <span class="">Check out our <em>Latest Recipe</em> </span>
             </a>  
         </div>
     </div>
     <hr class="gold100 mt-5 mb-5">
     <div class="row text-grey lato">
         <div class="col-12 col-lg-8 offset-lg-2">   
-            <h4 class="upper ml-3 mb-4"><strong> Order</strong></h4>
+            <p class="head4 upper ml-3 mb-4"><strong> Order</strong></p>
             <hr>
             <div class="row">
                 <div class="col-12 md-8">

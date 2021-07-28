@@ -19,9 +19,10 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row lato">
             <div class="col-12 col-lg-6">
-                <h5 class="text-muted my-3">Edit a Product's Size Prices</h5>
+                <p class="font-weight-bold text-muted mb-0 mt-3">Edit the Product's Size Prices</p>
+                <hr class="goldleft mt-1 mb-3">
                 <h3 class="mb-2" >{{ product.name}} </h3>
                 <form method="POST" action="{% url 'sizeprice_edit' product.id %}" class="lato form mb-2">
                     {% csrf_token %}
@@ -31,7 +32,7 @@
                             <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
                         </div>
                         <div class="col text-center">                   
-                            <button class="btn btn-gold" name="edit_sizeprice_form" type="submit">Update Prices</button>
+                            <button class="btn btn-gold" name="edit_sizeprice_form" type="submit">Update </button>
                         </div>
                     </div>
                 </form>

@@ -20,8 +20,9 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-4">
-                <h5 class="text-muted my-3">Add Forsix Prices</h5>
+            <div class="col-12 col-lg-4 lato">
+                <p class="text-muted font-weight-bold mb-0 mt-3">Add Forsix Prices</p>
+                <hr class="goldleft mt-1 mb-3">
                 <h3 class="my-3" >{{ product.name}} </h3>
                 <form method="POST" action="{% url 'cost_forsix' product.id %}" class="lato form mb-2">
                     {% csrf_token %}
