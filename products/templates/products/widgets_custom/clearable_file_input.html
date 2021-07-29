@@ -1,23 +1,23 @@
 {% if widget.is_initial %}
-    <p>{{ widget.initial_text }}:</p>
-        <img width="60" height="40" class="" src="{{ widget.value.url }}" alt="current image" >
-
-    {% if not widget.required %}
-        <div class="custom-widget-box mt-2">
-            <input class="custom-widget-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
-            <label class="custom-widget-label text-reddark" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
-        </div>
-    {% endif %}<br>
-    {{ widget.input_text }}
+<p>{{ widget.initial_text }}:</p>
+<img width="60" height="40" class="" src="{{ widget.value.url }}" alt="current image" >
+{% if not widget.required %}
+<div class="custom-widget-box mt-2">
+   <input class="custom-widget-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
+   <label class="custom-widget-label text-reddark" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+</div>
+{% endif %}<br>
+{{ widget.input_text }}
 {% endif %}
 <p id="image">Image - for main image, select file from your device</p>
-<span class="btn btn-blue btn-file">
-    Select Image <input aria-labelledby="image" id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+<span class="btn btn-blue btn-file">                                               
+Select Image <input aria-labelledby="image" id="new-image" type="{{ widget.type }}" name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %}>
 </span>
-<strong><p class="text-danger" id="filename"></p></strong>
-
+<strong>
+   <p class="text-danger" id="filename"></p>
+</strong>
 <script type="text/javascript">
-    $('.custom-widget-input').change(function() {
-        alert("You have choosen to remove this image.");
-    });
+   $('.custom-widget-input').change(function() {
+       alert("You have choosen to remove this image.");
+   });
 </script>

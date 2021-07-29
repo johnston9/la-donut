@@ -1,59 +1,55 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid management-container w-100 h-100">
-        <!--title-->
-        <div class="row">
-            <div class="col text-center mt-1">
-                <h2 class="playball">Product Management</h2>
-                <hr class="gold50 mb-1">
+<div class="container-fluid management-container w-100 h-100">
+   <!--title-->
+   <div class="row">
+      <div class="col text-center mt-1">
+         <h2 class="playball">Product Management</h2>
+         <hr class="gold50 mb-1">
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 col-lg-6 lato">
+         <p class="text-muted font-weight-bold mb-0 mt-3">Edit {{ product.name }}</p>
+         <hr class="goldleft mt-1 mb-3">
+         <small class="text-muted my-3">The Product's name, Is Sizes and Is For Six fields may not be edited</small>
+         <form method="POST" action="{% url 'edit_product' product.id %}" class="lato form my-3" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            {% if field.name != 'image' %}
+            {{ field | as_crispy_field }}
+            {% else %}
+            {{ field }}
+            {% endif %}
+            {% endfor %}
+            <hr class="my-3">
+            <div class="row">
+               <div class="col text-center">
+                  <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
+               </div>
+               <div class="col text-center">                   
+                  <button class="btn btn-gold" name="product_forn" type="submit">Update</button>
+               </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-lg-6 lato">
-                <p class="text-muted font-weight-bold mb-0 mt-3">Edit {{ product.name }}</p>
-                <hr class="goldleft mt-1 mb-3">
-                <small class="text-muted my-3">The Product's name, Is Sizes and Is For Six fields may not be edited</small>
-                <form method="POST" action="{% url 'edit_product' product.id %}" class="lato form my-3" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
-                    <hr class="my-3">
-                    <div class="row">
-                        <div class="col text-center">
-                            <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
-                        </div>
-                        <div class="col text-center">                   
-                            <button class="btn btn-gold" name="product_forn" type="submit">Update</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+         </form>
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
+{{ block.super }}
+<script type="text/javascript">
+   $('#new-image').change(function() {
+       var file = $('#new-image')[0].files[0];
+       $('#filename').text(`Image will be set to: ${file.name}`);
+   });
+</script>
 {% endblock %}

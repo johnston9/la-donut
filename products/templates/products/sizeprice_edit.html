@@ -1,42 +1,39 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid management-container w-100 h-100">
-        <!--title-->
-        <div class="row">
-            <div class="col text-center mt-1">
-                <h2 class="playball">Product Management</h2>
-                <hr class="gold50 mb-1">
+<div class="container-fluid management-container w-100 h-100">
+   <!--title-->
+   <div class="row">
+      <div class="col text-center mt-1">
+         <h2 class="playball">Product Management</h2>
+         <hr class="gold50 mb-1">
+      </div>
+   </div>
+   <div class="row lato">
+      <div class="col-12 col-lg-6">
+         <p class="font-weight-bold text-muted mb-0 mt-3">Edit the Product's Size Prices</p>
+         <hr class="goldleft mt-1 mb-3">
+         <h3 class="mb-2" >{{ product.name}} </h3>
+         <form method="POST" action="{% url 'sizeprice_edit' product.id %}" class="lato form mb-2">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="row">
+               <div class="col text-center">
+                  <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
+               </div>
+               <div class="col text-center">                   
+                  <button class="btn btn-gold" name="edit_sizeprice_form" type="submit">Update </button>
+               </div>
             </div>
-        </div>
-
-        <div class="row lato">
-            <div class="col-12 col-lg-6">
-                <p class="font-weight-bold text-muted mb-0 mt-3">Edit the Product's Size Prices</p>
-                <hr class="goldleft mt-1 mb-3">
-                <h3 class="mb-2" >{{ product.name}} </h3>
-                <form method="POST" action="{% url 'sizeprice_edit' product.id %}" class="lato form mb-2">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div class="row">
-                        <div class="col text-center">
-                            <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
-                        </div>
-                        <div class="col text-center">                   
-                            <button class="btn btn-gold" name="edit_sizeprice_form" type="submit">Update </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+         </form>
+      </div>
+   </div>
+</div>
 {% endblock %}

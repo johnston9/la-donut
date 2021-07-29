@@ -1,90 +1,85 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
 {% endblock %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid profiles-container mb-3">
-        <div class="row">
-            <div class="col text-center mt-1">
-                <h2 class="playball">My Profile Page</h2>
-                <hr class="gold50 mb-1">
+<div class="container-fluid profiles-container mb-3">
+   <div class="row">
+      <div class="col text-center mt-1">
+         <h2 class="playball">My Profile Page</h2>
+         <hr class="gold50 mb-1">
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 col-lg-5 offset-lg-0">
+         <h3 class="text-center ml-lg-4 mt-4 text-muted">Delivery Address</h3>
+         <hr class="gold70 mb-1">
+         <form class="mt-4 mb-2 ml-lg-5 lato" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="text-center ">
+               <button class="btn btn-gold-black">Update Address</button>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-lg-5 offset-lg-0">
-                <h3 class="text-center ml-lg-4 mt-4 text-muted">Delivery Address</h3>
-                <hr class="gold70 mb-1">
-                <form class="mt-4 mb-2 ml-lg-5 lato" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <div class="text-center ">
-                    <button class="btn btn-gold-black">Update Address</button>
-                </div>
-                </form>
-            </div>
-            <div class="col-12 col-lg-6 offset-lg-1">
-                <h3 class="text-center mt-4 text-muted">Order History</h3>
-                <hr class="gold70 mb-1">
-                <div class="order-history table-responsive lato">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a class="linkcol" href="{% url 'past_orders' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date|date:"d M Y" }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li><span class="font-weight-bold">
-                                                    {{ item.product.name }}</span><br>
-                                                    {% if item.size %}
-                                                        {{ item.size|title }}
-                                                    {% endif %}
-                                                    {% if item.forsix %}
-                                                        {{ item.forsix|title }}
-                                                    {% endif %}
-                                                     x {{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td class="font-weight-bold">E{{ order.grand_total }}</td>                               
-                                </tr>                               
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+         </form>
+      </div>
+      <div class="col-12 col-lg-6 offset-lg-1">
+         <h3 class="text-center mt-4 text-muted">Order History</h3>
+         <hr class="gold70 mb-1">
+         <div class="order-history table-responsive lato">
+            <table class="table table-sm table-borderless">
+               <thead>
+                  <tr>
+                     <th>Number</th>
+                     <th>Date</th>
+                     <th>Items</th>
+                     <th>Total</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for order in orders %}
+                  <tr>
+                     <td>
+                        <a class="linkcol" href="{% url 'past_orders' order.order_number %}"
+                           title="{{ order.order_number }}">
+                        {{ order.order_number|truncatechars:6 }}
+                        </a>
+                     </td>
+                     <td>{{ order.date|date:"d M Y" }}</td>
+                     <td>
+                        <ul class="list-unstyled">
+                           {% for item in order.lineitems.all %}
+                           <li><span class="font-weight-bold">
+                              {{ item.product.name }}</span><br>
+                              {% if item.size %}
+                              {{ item.size|title }}
+                              {% endif %}
+                              {% if item.forsix %}
+                              {{ item.forsix|title }}
+                              {% endif %}
+                              x {{ item.quantity }}
+                           </li>
+                           {% endfor %}
+                        </ul>
+                     </td>
+                     <td class="font-weight-bold">E{{ order.grand_total }}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/country_color.js' %}"></script>
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/country_color.js' %}"></script>
 {% endblock %}

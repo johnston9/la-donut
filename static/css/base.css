@@ -567,14 +567,6 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*---------quantity input box for bag page--------*
-
-
-.view {
-    height: 26px;
-    padding-top: 1px;
-}
-
 /*-----------radio/check buttons-------*/
 
 .add_product .form-check-label {

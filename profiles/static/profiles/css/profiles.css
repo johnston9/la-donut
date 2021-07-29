@@ -1,5 +1,9 @@
 /*--css for the Profiles app--*/
 
+#id_primary_country option:first-child {
+    color: #507294;
+}
+
 .profile-input-style::placeholder {
     color: #aab7c4;
 }
@@ -11,10 +15,6 @@
 #id_primary_country,
 #id_primary_country option:not(:first-child) {
     color: #000;
-}
-
-#id_primary_country option:first-child {
-    color: #aab7c4;
 }
 
 .order-history {

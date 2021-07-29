@@ -24,7 +24,6 @@ class ForsixAdmin(admin.ModelAdmin):
     readonly_fields = ('name', 'product')
 
 
-# class SizeAdminInline(admin.TabularInline):
 class SizeAdminInline(admin.StackedInline):
     """Inline admin for Size model
     """
@@ -32,7 +31,6 @@ class SizeAdminInline(admin.StackedInline):
     readonly_fields = ('name', 'product')
 
 
-# class ForsixAdminInline(admin.TabularInline):
 class ForsixAdminInline(admin.StackedInline):
     """Inline admin for Forsix model
     """

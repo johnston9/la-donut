@@ -1,118 +1,112 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid management-container w-100 h-100">
-        <!--title-->
-        <div class="row">
-            <div class="col text-center mt-1">
-                <h2 class="playball">Product Management</h2>
-                <hr class="gold50 mb-1">
+<div class="container-fluid management-container w-100 h-100">
+   <!--title-->
+   <div class="row">
+      <div class="col text-center mt-1">
+         <h2 class="playball">Product Management</h2>
+         <hr class="gold50 mb-1">
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 col-lg-6">
+         <p class="text-muted font-weight-bold mb-0 mt-3">Add A product</p>
+         <hr class="goldleft mt-1 mb-3">
+         <p>Please read instructions</p>
+         <button id="show_instructions" class="btn-blue px-2 pt-1 pb-1">Instructions</button>
+      </div>
+   </div>
+   <div class="row mt-3">
+      <div class="col-12 col-lg-6 order-lg-2">
+         <div id="instructions_box" class="d-none">
+            <div class="mb-4">
+               <small class="text-muted">Instructions</small>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <p class="text-muted font-weight-bold mb-0 mt-3">Add A product</p>
-                <hr class="goldleft mt-1 mb-3">
-                <p>Please read instructions</p>
-                <button id="show_instructions" class="btn-blue px-2 pt-1 pb-1">Instructions</button>
+            <p>For optimum results please ensure all images are of a 3:2 width/height appect ratio.
+               You can resize your images on <a class="" href="https://img-resize.com/" target="_blank" rel="noopener">img-resize</a>.
+               Find <a class="" href="{% url 'resize' %}">resize instructions</a> here.
+            </p>
+            <p class="">Select Is Sizes for items with Size prices <br>
+               Select Is For Six for items with box quantity prices.<br>
+               Only select one for each product.<br>
+               Upon submit fill in prices form.
+            </p>
+            <p>The Required Web Price is the price for<br>
+               items sold individually. <br>
+               the <em>medium</em> price on Size items.<br>
+               the <em>for-six</em> price on Box items.
+            </p>
+         </div>
+      </div>
+      <div class="col-12 col-lg-6 order-lg-1">
+         <div class="text-center mb-3">
+            <small class="text-muted text-center">Form</small>
+            <hr class="mt-1">
+         </div>
+         <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Is Sizes</p>
+            <div class="form-check add_product mb-0">
+               <label class="form-check-label" for="is_sizes">
+               <input type="checkbox" class="form-check-input lato" id="is_sizes"
+                  name="is_sizes" value="is_sizes">
+               Check if item has size prices. 
+               </label>
             </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-12 col-lg-6 order-lg-2">
-                <div id="instructions_box" class="d-none">
-                    <div class="mb-4">
-                        <small class="text-muted">Instructions</small>
-                    </div>
-                <p>For optimum results please ensure all images are of a 3:2 width/height appect ratio.
-                    You can resize your images on <a class="" href="https://img-resize.com/" target="_blank" rel="noopener">img-resize</a>.
-                    Find <a class="" href="{% url 'resize' %}">resize instructions</a> here.
-                </p>
-                
-                <p class="">Select Is Sizes for items with Size prices <br>
-                            Select Is For Six for items with box quantity prices.<br>
-                            Only select one for each product.<br>
-                            Upon submit fill in prices form.
-                </p>
-                <p>The Required Web Price is the price for<br>
-                    items sold individually. <br>
-                    the <em>medium</em> price on Size items.<br>
-                    the <em>for-six</em> price on Box items.</p>
-                </div>
-            
+            <hr>
+            <p>Is For Six</p>
+            <div class="form-check add_product mb-0">
+               <label class="form-check-label" for="is_for_six">
+               <input type="checkbox" class="form-check-input" id="is_for_six"
+                  name="is_for_six" value="is_for_six">
+               Check if item has box quantity prices. 
+               </label>
             </div>
-            <div class="col-12 col-lg-6 order-lg-1">
-                <div class="text-center mb-3">
-                <small class="text-muted text-center">Form</small>
-                <hr class="mt-1">
-                </div>
-                <form method="POST" action="{% url 'add_product' %}" class="lato form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                        <p>Is Sizes</p>
-                        <div class="form-check add_product mb-0">
-                            <label class="form-check-label" for="is_sizes">
-                                <input type="checkbox" class="form-check-input lato" id="is_sizes"
-                                    name="is_sizes" value="is_sizes">
-                                Check if item has size prices. 
-                            </label>
-                        </div>
-                        <hr>
-                        <p>Is For Six</p>
-                        <div class="form-check add_product mb-0">
-                            <label class="form-check-label" for="is_for_six">
-                                <input type="checkbox" class="form-check-input" id="is_for_six"
-                                    name="is_for_six" value="is_for_six">
-                                Check if item has box quantity prices. 
-                            </label>
-                        </div>
-                        <hr>
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
-                    <hr class="my-4">
-                    <div class="row">
-                        <div class="col mx-0 px-0 text-center">
-                            <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
-                        </div>
-                        <div class="col mx-0 px-0 text-center">                   
-                            <button class="btn btn-gold" name="product_form" type="submit">Add Product</button>
-                        </div>
-                    </div>
-                </form>
+            <hr>
+            {% for field in form %}
+            {% if field.name != 'image' %}
+            {{ field | as_crispy_field }}
+            {% else %}
+            {{ field }}
+            {% endif %}
+            {% endfor %}
+            <hr class="my-4">
+            <div class="row">
+               <div class="col mx-0 px-0 text-center">
+                  <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
+               </div>
+               <div class="col mx-0 px-0 text-center">                   
+                  <button class="btn btn-gold" name="product_form" type="submit">Add Product</button>
+               </div>
             </div>
-            </div>
-        </div>
-    </div>
+         </form>
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-    /*Function to show the name of the new image file*/
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
-    <script>
-        /*Function to show and hide the instructions box*/
-        $(document).ready(function () {
-            $("#show_instructions").click(function () {
-                $("#instructions_box").toggleClass("d-none");
-            });
-        })
-    </script>
+{{ block.super }}
+<script type="text/javascript">
+   /*Function to show the name of the new image file*/
+       $('#new-image').change(function() {
+           var file = $('#new-image')[0].files[0];
+           $('#filename').text(`Image will be set to: ${file.name}`);
+       });
+</script>
+<script>
+   /*Function to show and hide the instructions box*/
+   $(document).ready(function () {
+       $("#show_instructions").click(function () {
+           $("#instructions_box").toggleClass("d-none");
+       });
+   });
+</script>
 {% endblock %}

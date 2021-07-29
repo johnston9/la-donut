@@ -509,8 +509,11 @@ All functionality was tested as it was being built to ensure there were no error
 
 Pylint was also used in the workspace as the project was being built for Python and Django code and all errors were fixed on an ongoing process. 
 
-On completion all functionality was tested for User's Stories, Further Testing and Lighthouse again and documented here in the Readme. All errors were documented and fixed.
-W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate every page of the project.
+On completion all functionality was tested for User's Stories. The Bag, Checkout, Stripe and webhook functionality were tested more. Where necessary some functionality was tested in Further Testing. All pages were checked in Lighthouse. All errors were documented and fixed.
+
+W3C Markup Validator was used on every page and screenshots are in the documentation to cover this although they just capture the head fot the result page. Obviously they all contained errors because of the template language use but apart from that they were clear.
+
+W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS in the project, the results are in documentation.
 
 - [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut/css-w3c/html-w3)
   - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. On  validated by URL no errors were shown - documentation/w3c-by-url.
@@ -1116,7 +1119,7 @@ This issue and the same site cookies issue were the cause of the lower Beat Prac
 
 ### Checkout Page
 
-Lighthouse gave an Accessability note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different. It's still lighter than the actual input text. I was prepared to change the rest but the did not flag error so I let it be.
+Lighthouse gave an Accessability note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different. It's still lighter than the actual input text. I was prepared to change the rest but the did not flag error so I let it be. 
 
 <p align="center"><strong>Checkout Country Field Page</strong></p>
 <h2 align="center">
@@ -1150,6 +1153,20 @@ Lighthouse gave another Accessability note '[aria-hidden="true"] elements contai
 <p align="center"><strong>Mobile</strong></p>
 <h2 align="center">
 <img src="documentation/lighthouse-images/l-csmo.png" width="90%">
+</h2>
+
+### Checkout Page
+
+Lighthouse also gave an Accessability note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different.  
+
+<p align="center"><strong>Desktop</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-cont.png" width="90%">
+</h2>
+
+<p align="center"><strong>Mobile</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-cont.png" width="90%">
 </h2>
 
 ### Add Product Page
