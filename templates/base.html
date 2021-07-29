@@ -1,250 +1,236 @@
 {% load static %}
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    {% block meta %}  
+   <head>
+      {% block meta %}   
         <meta charset="utf-8">
-        <!--<meta property="og:image" content="" />
-        <meta property='og:title' content='Title of the article'/>
-        <meta property='og:image' content='//media.example.com/ 1234567.jpg'/>
-        <meta property="og:image" content="https://...image.jpg">
-        <meta property="og:image:alt" content="A picture of the cakes.">
-        <meta property='og:url' content='//www.example.com/URL of the article'/>-->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="image" property="og:image" content="https://la-donut.s3.eu-west-1.amazonaws.com/media/linkedin.png">
+        <meta property='og:description' content='Cake and Patissery Shop'/>
+        <meta property='og:title' content='Cake and Patissery Shop'/>
+        <meta property='og:url' content='https://la-donut.herokuapp.com/'/>
         <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
-        <meta name="Description" content="Online cake and patissery shop">
+        <meta name="description" content="Cake and Patissery shop">
         <meta name="author" content="David Johnston" />
         <meta name="theme-color" content="#FFFFFF"/>
-        <meta property='og:description' content='Online cake and patissery shop'/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% endblock %}
-
-    {% block extra_meta %}
-    {% endblock %}
-
-    {% block corecss %}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:ital,wght@0,400;0,700;1,400&family=Parisienne&family=Playball&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-    {% endblock %}
-
-    {% block extra_css %}
-    {% endblock %}
-
-    {% block corejs %}
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
-        </script>
-        <!--select-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-        <script src="{% static 'js/base.js' %}"></script>
-        <!-- Stripe -->
-        <script src="https://js.stripe.com/v3/"></script>
-    {% endblock %}
-
-    {% block extra_js %}
-    {% endblock %}
-
-    <title>La Donut{% block extra_title %}{% endblock %}</title>
-</head>
-
-<body>
-    <button id="topbut" title="Return to top">Top</button>
-
-    <header class="container-fluid fixed-top bg-white">
-        <!--name row-->
-        <div class="row pb-0 mb-0">
-            <div class="col-3 px-0 mx-0 pb-0 mb-0">
-                <!--search form-->
-                <div class="">
-                    <a class="text-gold font-weight-bold mt-1 float-right text-center topnav-link" href="#" id="search" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <div class="">
-                            <p class="float-left">Search</p>
-                            <span class="d-none d-sm-block icon float-right">
-                                <i class="fas fa-search"></i>
-                            </span>
+      {% endblock %}
+      {% block extra_meta %}
+      {% endblock %}
+      {% block corecss %}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:ital,wght@0,400;0,700;1,400&family=Parisienne&family=Playball&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+      {% endblock %}
+      {% block extra_css %}
+      {% endblock %}
+      {% block corejs %}
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+         crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+      <!--select-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+      <script src="{% static 'js/base.js' %}"></script>
+      <!-- Stripe -->
+      <script src="https://js.stripe.com/v3/"></script>
+      {% endblock %}
+      {% block extra_js %}
+      {% endblock %}
+      <title>La Donut{% block extra_title %}{% endblock %}</title>
+   </head>
+   <body>
+      <button id="topbut" title="Return to top">Top</button>
+      <header class="container-fluid fixed-top bg-white">
+         <!--name row-->
+         <div class="row pb-0 mb-0">
+         <div class="col-3 px-0 mx-0 pb-0 mb-0">
+            <!--search form-->
+            <div class="">
+               <a class="text-gold font-weight-bold mt-1 float-right text-center topnav-link" href="#" id="search" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <div class="">
+                     <p class="float-left">Search</p>
+                     <span class="d-none d-sm-block icon float-right">
+                     <i class="fas fa-search"></i>
+                     </span>
+                  </div>
+               </a>
+               <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-label="search-input" >
+                  <form method="GET" action="{% url 'shop' %}">
+                     <div class="input-group w-100">
+                        <input class="form-control inner-search lato" type="text" name="q"
+                           placeholder="Find">
+                        <div class="input-group-append">
+                           <button id="search-but" class="py-0 lato form-control btn btn-gold"
+                              type="submit">
+                           <span class="icon">
+                           <i class="fas fa-search"></i>
+                           </span>
+                           </button>
                         </div>
-                    </a>
-                    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-label="search-input" >
-                        <form method="GET" action="{% url 'shop' %}">
-                            <div class="input-group w-100">
-                                <input class="form-control inner-search lato" type="text" name="q"
-                                    placeholder="Find">
-                                <div class="input-group-append">
-                                    <button id="search-but" class="py-0 lato form-control btn btn-gold"
-                                        type="submit">
-                                        <span class="icon">
-                                            <i class="fas fa-search"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                     </div>
+                  </form>
+               </div>
             </div>
-            <!--name-->
-            <div class="col-6 pb-0 mb-0 text-center">
-                <div class="donut-logo mx-auto text-center">
-                <h2 class="name text-black pb-0 my-2">
-                    <a title="Back to Home" class="" href="{% url 'index' %}"><strong>La Donut</strong></a></h2>
-                </div>
+         </div>
+         <!--name-->
+         <div class="col-6 pb-0 mb-0 text-center">
+            <div class="donut-logo mx-auto text-center">
+               <h2 class="name text-black pb-0 my-2">
+                  <a title="Back to Home" class="" href="{% url 'index' %}"><strong>La Donut</strong></a>
+               </h2>
             </div>
-            <!--total-->
-            <div class="col-3 pb-0 mb-0 pr-0 pl-0">
-                <a class="pb-0 mb-0 text-gold font-weight-bold topnav-link" href="{% url 'get_bag' %}">
-                    <div class="">
-                        <span class="d-none d-sm-block icon float-left">
-                            <i class="fas fa-shopping-bag"></i>
-                            &nbsp;
-                        </span>
-                        <p class="my-1 ">
+         </div>
+         <!--total-->
+         <div class="col-3 pb-0 mb-0 pr-0 pl-0">
+            <a class="pb-0 mb-0 text-gold font-weight-bold topnav-link" href="{% url 'get_bag' %}">
+               <div class="">
+                  <span class="d-none d-sm-block icon float-left">
+                  <i class="fas fa-shopping-bag"></i>
+                  &nbsp;
+                  </span>
+                  <p class="my-1 ">
+                     {% if grand_total %}                               	
                             {% if grand_total %}                               	
-                                &#8364; {{ grand_total|floatformat:2 }}
-                            {% else %}
-                                &#8364; 0.00
-                            {% endif %}
-                        </p>
-                    </div>
-                </a>
-        </div>
-        <hr class="gold100" />
-        
-        <!--bottom row-->
-        <div class="row my-0 py-0 w-100">
+                     {% if grand_total %}                               	
+                     &#8364; {{ grand_total|floatformat:2 }}
+                     {% else %}
+                     &#8364; 0.00
+                     {% endif %}
+                  </p>
+               </div>
+            </a>
+         </div>
+         <hr class="gold100" />
+         <!--bottom row-->
+         <div class="row my-0 py-0 w-100">
             <!--products-->
-                <nav class="navbar pt-0 mt-0 lato navbar-expand-lg navbar-light w-100">
-                    <!--account-->
-                <!--<li class="list-inline-item my-0 mx-0 px-0">-->
-                    <a class="topnav-link my-0 mx-0 px-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="">
-                            <p id="account-text" class="lato text-grey mb-2 pb-1">My Account</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Add Products</a>
+            <nav class="navbar pt-0 mt-0 lato navbar-expand-lg navbar-light w-100">
+               <!--account-->
+               <!--<li class="list-inline-item my-0 mx-0 px-0">-->
+               <a class="topnav-link my-0 mx-0 px-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="">
+                     <p id="account-text" class="lato text-grey mb-2 pb-1">My Account</p>
+                  </div>
+               </a>
+               <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                  {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                  <a href="{% url 'add_product' %}" class="dropdown-item">Add Products</a>
+                  <a href="{% url 'add_recipe' %}" class="dropdown-item">Add Recipe</a>                                
                                 <a href="{% url 'add_recipe' %}" class="dropdown-item">Add Recipe</a>                                
-                            {% endif %}
-                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                  <a href="{% url 'add_recipe' %}" class="dropdown-item">Add Recipe</a>                                
+                  {% endif %}
+                  <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>                            
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>                            
-                        {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        {% endif %}
-                        <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
-                    </div>
-                    <!--</li>-->
-                
-                    <button class="text-center my-0 py-0 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="toggler text-grey">Products</span>
-                    </button>
-                    {% include 'includes/product-nav.html' %}
-                </nav>
-        </div>
-
-        <div class="row w-100 mx-0 px-0 mb-0 pb-0">
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>                            
+                  {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                  {% endif %}
+                  <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
+               </div>
+               <!--</li>-->
+               <button class="text-center my-0 py-0 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="toggler text-grey">Products</span>
+               </button>
+               {% include 'includes/product-nav.html' %}
+            </nav>
+         </div>
+         <div class="row w-100 mx-0 px-0 mb-0 pb-0">
             <div class="col-12 mx-0 px-0 mb-0 pb-0 w-100">
-                <div id="banner" class="w-100 mx-0 py-1 bg-mattblack text-center text-antiquewhite">
+               <div id="banner" class="w-100 mx-0 py-1 bg-mattblack text-center text-antiquewhite">
+                  <p class="my-0 px-2 pb-0 mb-0">Free Gift Presentation Extras <span class="d-none d-sm-inline-block"> from the Checkout</span></p>
                 <p class="my-0 px-2 pb-0 mb-0">Free Gift Presentation Extras <span class="d-none d-sm-inline-block"> from the Checkout</span></p> 
+                  <p class="my-0 px-2 pb-0 mb-0">Free Gift Presentation Extras <span class="d-none d-sm-inline-block"> from the Checkout</span></p>
+               </div>
                 </div>  
+               </div>
+               <hr class="gold100 mt-0 pt-0" />
                 <hr class="gold100 mt-0 pt-0" />             
-            </div>                   
-        </div>
-    </header>
-
-    {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div>
-    {% endif %}
-
-    {% block page_header %}
-    {% endblock %}
-
-    {% block content %}
-    {% endblock %}
-
-    <!--footer-->
-    <div class="container-fluid mt-5 footer-container px-0 bg-mattblack text-antiquewhite">
-        <div class="row pt-2 pb-0 mb-0">
+               <hr class="gold100 mt-0 pt-0" />
+            </div>
+         </div>
+      </header>
+      {% if messages %}
+      <div class="message-container">
+         {% for message in messages %}
+         {% with message.level as level %}
+         {% if level == 40 %}
+         {% include 'includes/toasts/toast_error.html' %}
+         {% elif level == 30 %}
+         {% include 'includes/toasts/toast_warning.html' %}
+         {% elif level == 25 %}
+         {% include 'includes/toasts/toast_success.html' %}
+         {% else %}
+         {% include 'includes/toasts/toast_info.html' %}
+         {% endif %}
+         {% endwith %}
+         {% endfor %}
+      </div>
+      {% endif %}
+      {% block page_header %}
+      {% endblock %}
+      {% block content %}
+      {% endblock %}
+      <!--footer-->
+      <div class="container-fluid mt-5 footer-container px-0 bg-mattblack text-antiquewhite">
+         <div class="row pt-2 pb-0 mb-0">
             <div class="col-7 col-md-4 mx-0 px-0 pb-0 mb-0">
-                <p class="footer-par text-center pb-0 mb-0">
-                    Contact <br />
-                    01 607829<br />
-                    la-donut@gmail.com<br />
-                </p>
+               <p class="footer-par text-center pb-0 mb-0">
+                  Contact <br />
+                  01 607829<br />
+                  la-donut@gmail.com<br />
+               </p>
             </div>
             <div class="col-5 col-md-4 mx-0 px-0 pb-0 mb-0">
-                <p class="footer-par text-center">
-                    Vsit our Shop <br />
-                    7 Fade Street<br />
-                    Dublin 2
-                </p>
+               <p class="footer-par text-center">
+                  Vsit our Shop <br />
+                  7 Fade Street<br />
+                  Dublin 2
+               </p>
             </div>
             <div class="col-12 col-md-4 text-center pb-0 mb-0 my-0">
-                <p class="d-none d-md-block pb-0 mb-0">Follow us</p>
-                <!--icons-->
-                <ul class="list-inline social-links text-center pb-0 mb-0">
-                    <li class="list-inline-item">
-                        <a title="facebook" href="https://www.facebook.com" target="_blank" rel="noopener">
-                            <i class="fab fa-facebook-square p-3"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a title="Twitter" href="https://www.twitter.com" target="_blank" rel="noopener">
-                            <i class="fab fa-twitter-square p-3"></i></a>
-                    </li>
-                    <li class="list-inline-item ">
-                        <a title="youtube" href="https://www.youtube.com" target="_blank" rel="noopener">
-                            <i class="fab fa-youtube-square p-3"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a title="instagram" href="https://www.instagram.com" target="_blank" rel="noopener">
-                            <i class="fab fa-instagram p-3"></i></a>
-                    </li>
-                </ul>
+               <p class="d-none d-md-block pb-0 mb-0">Follow us</p>
+               <!--icons-->
+               <ul class="list-inline social-links text-center pb-0 mb-0">
+                  <li class="list-inline-item">
+                     <a title="facebook" href="https://www.facebook.com" target="_blank" rel="noopener">
+                     <i class="fab fa-facebook-square p-3"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                     <a title="Twitter" href="https://www.twitter.com" target="_blank" rel="noopener">
+                     <i class="fab fa-twitter-square p-3"></i></a>
+                  </li>
+                  <li class="list-inline-item ">
+                     <a title="youtube" href="https://www.youtube.com" target="_blank" rel="noopener">
+                     <i class="fab fa-youtube-square p-3"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                     <a title="instagram" href="https://www.instagram.com" target="_blank" rel="noopener">
+                     <i class="fab fa-instagram p-3"></i></a>
+                  </li>
+               </ul>
             </div>
-        </div>
-    </div>
-     <!--/footer-->
-
-    {% block postloadjs %}
-    <script src="{% static 'js/top.js' %}"></script>
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
-    {% endblock %}
-
-</body>
-
+         </div>
+      </div>
+      <!--/footer-->
+      {% block postloadjs %}
+      <script src="{% static 'js/top.js' %}"></script>
+      <script type="text/javascript">
+         $('.toast').toast('show');
+      </script>
+      {% endblock %}
+   </body>
 </html>

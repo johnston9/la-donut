@@ -1,108 +1,101 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-
-    <div class="container-fluid recipies-container lato">
-        
-        <!--title-->
-        <div class="row">
-            <div class="col text-center mt-1">
-                <h2 class="playball">Recipe</h2>
-                <hr class="gold50 mb-1">
+<div class="container-fluid recipies-container lato">
+   <!--title-->
+   <div class="row">
+      <div class="col text-center mt-1">
+         <h2 class="playball">Recipe</h2>
+         <hr class="gold50 mb-1">
+      </div>
+   </div>
+   <div class="row">
+      <div class="col">
+         <a href="{% url 'recipe' %}" class="btn btn-blue">Back to Recipes</a>
+      </div>
+   </div>
+   {% if recipe %}
+   <div class="row">
+      <div class="col">
+         <h3 class="text-center text-softblack playball">
+            {{ recipe.title }}
+         </h3>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 col-md-6">
+         <div class="image-box my-4">
+            {% if recipe.image %}
+            <img class="img-fluid" src="{{ recipe.image.url }}" alt="{{ recipy.name }}">
+            {% else %}
+            <img class="img-fluid" src="{{ MEDIA_URL }}no-image2.jpg" alt="{{ recipy.name }}">
+            {% endif %}
+         </div>
+      </div>
+      <div class="col-12 col-md-6">
+         <div class="row">
+            <div class="col-12 mt-3">
+               <p class="text-newred font-weight-bold">PREPARATION TIME:<span class="text-grey"> {{ recipe.prep_time}}</span></p>
+               <p class="text-newred font-weight-bold">COOKING TIME:<span class="text-grey"> {{ recipe.cook_time}}</span></p>
+               <p class="text-newred font-weight-bold">SERVES:<span class="text-grey"> {{ recipe.serves}}</span>
+               <p class="mt-2 playball head5 text-center">{{ recipe.description }}</p>
+               <p class="text-newred head4 font-weight-bold playfair text-center mt-3">Ingredients</p>
+               <p class="py-0 my-0">{{ recipe.ingredient1 }}</p>
+               <p class="py-0 my-0">{{ recipe.ingredient2 }}</p>
+               <p class="py-0 my-0">{{ recipe.ingredient3 }}</p>
+               <p class="py-0 my-0">{{ recipe.ingredient4 }}</p>
+               <p class="py-0 my-0">{{ recipe.ingredient5 }}</p>
+               {% if recipe.ingredient6 %}
+               <p class="py-0 my-0">{{ recipe.ingredient6 }}</p>
+               {% endif %}
+               {% if recipe.ingredient7 %}
+               <p class="py-0 my-0">{{ recipe.ingredient7 }}</p>
+               {% endif %}
+               {% if recipe.ingredient8 %}
+               <p class="py-0 my-0">{{ recipe.ingredient8 }}</p>
+               {% endif %}
+               {% if recipe.ingredient9 %}
+               <p class="py-0 my-0">{{ recipe.ingredient9 }}</p>
+               {% endif %}
+               {% if recipe.ingredient10 %}
+               <p class="py-0 my-0">{{ recipe.ingredient10 }}</p>
+               {% endif %}
+               <p class="text-newred head4 font-weight-bold playfair text-center mt-3">Preparation</p>
+               <p class="text-black"><strong>Step 1</strong></p>
+               <p class="text-black">{{ recipe.step1 }}</p>
+               <p class="text-black"><strong>Step 2</strong></p>
+               <p class="text-black">{{ recipe.step2 }}</p>
+               <p class="text-black"><strong>Step 3</strong></p>
+               <p class="text-black">{{ recipe.step3 }}</p>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <a href="{% url 'recipe' %}" class="btn btn-blue">Back to Recipes</a>
-            </div>
-        </div>
-        
-        {% if recipe %}
-        <div class="row">
-            <div class="col">
-                <h3 class="text-center text-softblack playball">
-                    {{ recipe.title }}
-                </h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="image-box my-4">
-                    {% if recipe.image %}
-                        <img class="img-fluid" src="{{ recipe.image.url }}" alt="{{ recipy.name }}">
-                    {% else %}
-                        <img class="img-fluid" src="{{ MEDIA_URL }}no-image2.jpg" alt="{{ recipy.name }}">
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <p class="text-newred font-weight-bold">PREPARATION TIME:<span class="text-grey"> {{ recipe.prep_time}}</span></p>
-                        <p class="text-newred font-weight-bold">COOKING TIME:<span class="text-grey"> {{ recipe.cook_time}}</span></p>  
-                        <p class="text-newred font-weight-bold">SERVES:<span class="text-grey"> {{ recipe.serves}}</span></h5>
-                        <p class="mt-2 playball head5 text-center">{{ recipe.description }}</p>
-                        <p class="text-newred head4 font-weight-bold playfair text-center mt-3">Ingredients</p>
-                        <p class="py-0 my-0">{{ recipe.ingredient1 }}</p>
-                        <p class="py-0 my-0">{{ recipe.ingredient2 }}</p>
-                        <p class="py-0 my-0">{{ recipe.ingredient3 }}</p>
-                        <p class="py-0 my-0">{{ recipe.ingredient4 }}</p>
-                        <p class="py-0 my-0">{{ recipe.ingredient5 }}</p>
-                        {% if recipe.ingredient6 %}
-                            <p class="py-0 my-0">{{ recipe.ingredient6 }}</p>
-                        {% endif %}
-                        {% if recipe.ingredient7 %}
-                            <p class="py-0 my-0">{{ recipe.ingredient7 }}</p>
-                        {% endif %}
-                        {% if recipe.ingredient8 %}
-                            <p class="py-0 my-0">{{ recipe.ingredient8 }}</p>
-                        {% endif %}
-                        {% if recipe.ingredient9 %}
-                            <p class="py-0 my-0">{{ recipe.ingredient9 }}</p>
-                        {% endif %}
-                        {% if recipe.ingredient10 %}
-                            <p class="py-0 my-0">{{ recipe.ingredient10 }}</p>
-                        {% endif %}
-                        <p class="text-newred head4 font-weight-bold playfair text-center mt-3">Preparation</p>
-                        <p class="text-black"><strong>Step 1</strong></p>
-                        <p class="text-black">{{ recipe.step1 }}</p>
-                        <p class="text-black"><strong>Step 2</strong></p>
-                        <p class="text-black">{{ recipe.step2 }}</p>
-                        <p class="text-black"><strong>Step 3</strong></p>
-                        <p class="text-black">{{ recipe.step3 }}</p>
-                    </div>
-                </div>
-            </div>  
-            {% endif %}   
-        </div>        
-        <div class="row mt-3">
-            <div class="col-12 text-center">
-                <a class="btn btn-gold my-3 py-2 px-5" href="{% url 'chat' %}" >
-                    Comments and Questions</a>                 
-            </div>
-        </div> 
-        {% if request.user.is_superuser %}
-            <div class="row mb-2">
-                <div class="col-12 text-right">
-                    <a id="recipe-ed" class="text-forgot-blue head5 font-weight-bold" href="{% url 'edit_recipe' recipe.id %}">Edit Recipe</a>                    
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-12 text-right">
-                    <a id="recipe-del" class="text-red head5 font-weight-bold" a href="{% url 'delete_recipe' recipe.id %}" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete Recipe</a>
-                </div>
-            </div>
-        {% endif %}    
-    </div>
+         </div>
+      </div>
+      {% endif %}   
+   </div>
+   <div class="row mt-3">
+      <div class="col-12 text-center">
+         <a class="btn btn-gold my-3 py-2 px-5" href="{% url 'chat' %}" >
+         Comments and Questions</a>                 
+      </div>
+   </div>
+   {% if request.user.is_superuser %}
+   <div class="row mb-2">
+      <div class="col-12 text-right">
+         <a id="recipe-ed" class="text-forgot-blue head5 font-weight-bold" href="{% url 'edit_recipe' recipe.id %}">Edit Recipe</a>                    
+      </div>
+   </div>
+   <div class="row mb-2">
+      <div class="col-12 text-right">
+         <a id="recipe-del" class="text-red head5 font-weight-bold" href="{% url 'delete_recipe' recipe.id %}" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete Recipe</a>
+      </div>
+   </div>
+   {% endif %}    
+</div>
 {% endblock %}

@@ -1,68 +1,57 @@
 {% extends "account/base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
-
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
-
 {% block inner_content %}
 <div class="container login-container mb-4">
-  <div class="row">
-    <div class="col">
-      <h2 class="text-black text-center mt-4"><strong>{% trans "Sign In" %}</strong></h2>
-      <hr class="gold50">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col col-10 offset-1 col-md-6 offset-md-3">
-      
-      <div class="login-box lato mb-1 mt-5 px-3 py-2 text-center text-center">
-        {% get_providers as socialaccount_providers %}
-
-        {% if socialaccount_providers %}
-        <p>{% blocktrans with site.name as site_name %}Please sign in with one
-          of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-          for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-        <div class="socialaccount_ballot">
-
-          <ul class="socialaccount_providers">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-          </ul>
-
-          <div class="login-or">{% trans 'or' %}</div>
-
-        </div>
-
-        {% include "socialaccount/snippets/login_extra.html" %}
-
-        {% else %}
-        <p class="">{% blocktrans %}Don't have an account
-          <a href="{{ signup_url }}"><strong>sign up</strong></a> here.{% endblocktrans %}</p>
-        {% endif %}
-      
-        <form class="login mt-2" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          {{ form|crispy }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <div class="text-center">
-            <button class="btn btn-gold primaryAction py-1 px-3"
-              type="submit"><strong>{% trans "Sign In" %}</strong></button>
-          </div>
-        </form>
+   <div class="row">
+      <div class="col">
+         <h2 class="text-black text-center mt-4"><strong>{% trans "Sign In" %}</strong></h2>
+         <hr class="gold50">
+      </div>
+   </div>
+   <div class="row">
+      <div class="col col-10 offset-1 col-md-6 offset-md-3">
+         <div class="login-box lato mb-1 mt-5 px-3 py-2 text-center text-center">
+            {% get_providers as socialaccount_providers %}
+            {% if socialaccount_providers %}
+            <p>{% blocktrans with site.name as site_name %}Please sign in with one
+               of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+               for a {{ site_name }} account and sign in below:{% endblocktrans %}
+            </p>
+            <div class="socialaccount_ballot">
+               <ul class="socialaccount_providers">
+                  {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+               </ul>
+               <div class="login-or">{% trans 'or' %}</div>
+            </div>
+            {% include "socialaccount/snippets/login_extra.html" %}
+            {% else %}
+            <p class="">{% blocktrans %}Don't have an account
+               <a href="{{ signup_url }}"><strong>sign up</strong></a> here.{% endblocktrans %}
+            </p>
+            {% endif %}
+            <form class="login mt-2" method="POST" action="{% url 'account_login' %}">
+               {% csrf_token %}
+               {{ form|crispy }}
+               {% if redirect_field_value %}
+               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+               {% endif %}
+               <div class="text-center">
+                  <button class="btn btn-gold primaryAction py-1 px-3"
+                     type="submit"><strong>{% trans "Sign In" %}</strong></button>
+               </div>
+            </form>
+         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-4 text-center text-md-left px-0 my-2">
-          <a id="hombut" class="my-2 btn-blue py-0 px-4" href="{% url 'index' %}">Home</a>
-        </div>
-          <div class="col-12 col-md-8 text-center text-md-right pr-0 my-2">
-              <a id="hombut3" class="my-2 btn-blue py-0 px-1" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          </div>
+         <div class="col-12 col-md-4 text-center text-md-left px-0 my-2">
+            <a id="hombut" class="my-2 btn-blue py-0 px-4" href="{% url 'index' %}">Home</a>
+         </div>
+         <div class="col-12 col-md-8 text-center text-md-right pr-0 my-2">
+            <a id="hombut3" class="my-2 btn-blue py-0 px-1" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+         </div>
       </div>
-    </div>
-  </div>
-
+   </div>
+</div>
 {% endblock %}

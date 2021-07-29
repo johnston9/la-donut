@@ -13,10 +13,8 @@
 <span class="btn btn-blue btn-file">                                               
 Select Image <input aria-labelledby="image" id="new-image" type="{{ widget.type }}" name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %}>
 </span>
-<strong>
-   <p class="text-danger" id="filename"></p>
-</strong>
-<script type="text/javascript">
+   <p class="text-danger" id="filename"><strong></strong></p>
+<script>
    $('.custom-widget-input').change(function() {
        alert("You have choosen to remove this image.");
    });

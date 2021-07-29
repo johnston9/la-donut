@@ -1,60 +1,56 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid">
-        <!--title-->
-        <div class="row">
-            <div class="col text-center mt-1">
-                <h2 class="playball">Add Recipe</h2>
-                <hr class="gold50 mb-1">
+<div class="container-fluid">
+   <!--title-->
+   <div class="row">
+      <div class="col text-center mt-1">
+         <h2 class="playball">Add Recipe</h2>
+         <hr class="gold50 mb-1">
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 col-lg-6">
+         <small class="text-muted">Instructions</small>
+         <p>If more than 10 ingredients add 2 to a box 
+            seperated by a comma and a space. There are only 
+            3 steps so tailor them as you see fit.
+         </p>
+         <form method="POST" action="{% url 'add_recipe' %}" class="lato form mb-2" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            {% if field.name != 'image' %}
+            {{ field | as_crispy_field }}
+            {% else %}
+            {{ field }}
+            {% endif %}
+            {% endfor %}
+            <div class="row">
+               <div class="col text-center">
+                  <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
+               </div>
+               <div class="col text-center">                   
+                  <button class="btn btn-gold" name="recipe_form" type="submit">Add Recipe</button>
+               </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <small class="text-muted">Instructions</small>
-                <p>If more than 10 ingredients add 2 to a box 
-                    seperated by a comma and a space. There are only 
-                    3 steps so tailor them as you see fit.</p>
-                <form method="POST" action="{% url 'add_recipe' %}" class="lato form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
-                    <div class="row">
-                        <div class="col text-center">
-                            <a class="btn btn-blue" href="{% url 'shop' %}">Cancel</a>
-                        </div>
-                        <div class="col text-center">                   
-                            <button class="btn btn-gold" name="recipe_form" type="submit">Add Recipe</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div>
-    </div>
+         </form>
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
+{{ block.super }}
+<script>
+   $('#new-image').change(function() {
+       var file = $('#new-image')[0].files[0];
+       $('#filename').text(`Image will be set to: ${file.name}`);
+   });
+</script>
 {% endblock %}

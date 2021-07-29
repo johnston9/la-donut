@@ -1,83 +1,79 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto ml-auto lato">
-        <li class="nav-item dropdown">
-            <a class="nav-link mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Products
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'shop' %}?sort=web_price&direction=asc" class="dropdown-item">By Price - Low to High</a>
-                <a href="{% url 'shop' %}?sort=web_price&direction=desc" class="dropdown-item">By Price - High To Low</a>
-                <a href="{% url 'shop' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating - High to Low</a>
-                <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item ">By Category - A-Z</a>
-                <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link text-grey mr-3" href="#" id="box-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Selection Boxes
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="box-link">
-                <a href="{% url 'shop' %}?category=creamcake_box" class="dropdown-item">Creamy Treats Box</a>
-                <a href="{% url 'shop' %}?category=breakfast_box" class="dropdown-item">Breakfast Box</a>
-                <a href="{% url 'shop' %}?category=office_box" class="dropdown-item">Office Box</a>
-                <a href="{% url 'shop' %}?category=vegan_box" class="dropdown-item">Vegan</a>
-                <a href="{% url 'shop' %}?category=creamcake_box,breakfast_box,office_box,vegan_box" class="dropdown-item">All Selection Boxes</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link text-grey mr-3" href="#" id="cakes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cakes and Desserts
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="cakes-link">
-                <a href="{% url 'shop' %}?category=cakes" class="dropdown-item">Cakes</a>
-                <a href="{% url 'shop' %}?category=cheese_cakes" class="dropdown-item">Cheesecakes</a>
-                <a href="{% url 'shop' %}?category=desserts" class="dropdown-item">Desserts</a>
-                <a href="{% url 'shop' %}?category=occasion_cakes" class="dropdown-item">Occasion Cakes</a>
-                <a href="{% url 'shop' %}?category=vegan_cakes" class="dropdown-item">Vegan Cakes/Desserts</a>
-                <a href="{% url 'shop' %}?category=cheese_cakes,cakes,deserts,occasion_cakes,vegan_cakes" class="dropdown-item">All Cakes and Desserts</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link text-grey mr-3" href="#" id="buns-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Buns, Creamy Treats
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="buns-link">
-                <a href="{% url 'shop' %}?category=creamy_treats" class="dropdown-item">Creamy Treats</a>
-                <a href="{% url 'shop' %}?category=donuts" class="dropdown-item">Donuts</a>
-                <a href="{% url 'shop' %}?category=cookies" class="dropdown-item">Cookies</a>
-                <a href="{% url 'shop' %}?category=muffins" class="dropdown-item">Muffins</a>
-                <a href="{% url 'shop' %}?category=vegan_treats" class="dropdown-item">Vegan Treats</a>
-                <a href="{% url 'shop' %}?category=creamytreats,muffins,donuts,cookies,vegan_treats" class="dropdown-item">All Buns and Creamy Treats</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link text-grey mr-3" href="#" id="services-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Services
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="services-link">
-                <a href="{% url 'delivery' %}" class="dropdown-item">Delivery/Catering</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link text-grey mr-3" href="#" id="recipes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Recipes
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="recipes-link">
-                <a href="{% url 'recipe' %}" class="dropdown-item">Recipes</a>
-                <a href="{% url 'latest_recipe' %}" class="dropdown-item">Latest Recipe</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link text-grey" href="#" id="chat-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Chat
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="chat-link">
-                <a href="{% url 'chat' %}" class="dropdown-item">Chat</a>
-            </div>
-        </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          All Products
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+             <a href="{% url 'shop' %}?sort=web_price&direction=asc" class="dropdown-item">By Price - Low to High</a>
+             <a href="{% url 'shop' %}?sort=web_price&direction=desc" class="dropdown-item">By Price - High To Low</a>
+             <a href="{% url 'shop' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating - High to Low</a>
+             <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item ">By Category - A-Z</a>
+             <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
+          </div>
+       </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link text-grey mr-3" href="#" id="box-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Selection Boxes
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="box-link">
+             <a href="{% url 'shop' %}?category=creamcake_box" class="dropdown-item">Creamy Treats Box</a>
+             <a href="{% url 'shop' %}?category=breakfast_box" class="dropdown-item">Breakfast Box</a>
+             <a href="{% url 'shop' %}?category=office_box" class="dropdown-item">Office Box</a>
+             <a href="{% url 'shop' %}?category=vegan_box" class="dropdown-item">Vegan</a>
+             <a href="{% url 'shop' %}?category=creamcake_box,breakfast_box,office_box,vegan_box" class="dropdown-item">All Selection Boxes</a>
+          </div>
+       </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link text-grey mr-3" href="#" id="cakes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cakes and Desserts
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="cakes-link">
+             <a href="{% url 'shop' %}?category=cakes" class="dropdown-item">Cakes</a>
+             <a href="{% url 'shop' %}?category=cheese_cakes" class="dropdown-item">Cheesecakes</a>
+             <a href="{% url 'shop' %}?category=desserts" class="dropdown-item">Desserts</a>
+             <a href="{% url 'shop' %}?category=occasion_cakes" class="dropdown-item">Occasion Cakes</a>
+             <a href="{% url 'shop' %}?category=vegan_cakes" class="dropdown-item">Vegan Cakes/Desserts</a>
+             <a href="{% url 'shop' %}?category=cheese_cakes,cakes,deserts,occasion_cakes,vegan_cakes" class="dropdown-item">All Cakes and Desserts</a>
+          </div>
+       </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link text-grey mr-3" href="#" id="buns-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Buns, Creamy Treats
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="buns-link">
+             <a href="{% url 'shop' %}?category=creamy_treats" class="dropdown-item">Creamy Treats</a>
+             <a href="{% url 'shop' %}?category=donuts" class="dropdown-item">Donuts</a>
+             <a href="{% url 'shop' %}?category=cookies" class="dropdown-item">Cookies</a>
+             <a href="{% url 'shop' %}?category=muffins" class="dropdown-item">Muffins</a>
+             <a href="{% url 'shop' %}?category=vegan_treats" class="dropdown-item">Vegan Treats</a>
+             <a href="{% url 'shop' %}?category=creamytreats,muffins,donuts,cookies,vegan_treats" class="dropdown-item">All Buns and Creamy Treats</a>
+          </div>
+       </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link text-grey mr-3" href="#" id="services-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Services
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="services-link">
+             <a href="{% url 'delivery' %}" class="dropdown-item">Delivery/Catering</a>
+          </div>
+       </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link text-grey mr-3" href="#" id="recipes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recipes
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="recipes-link">
+             <a href="{% url 'recipe' %}" class="dropdown-item">Recipes</a>
+             <a href="{% url 'latest_recipe' %}" class="dropdown-item">Latest Recipe</a>
+          </div>
+       </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link text-grey" href="#" id="chat-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Chat
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="chat-link">
+             <a href="{% url 'chat' %}" class="dropdown-item">Chat</a>
+          </div>
+       </li>
     </ul>
-</div>
+ </div>

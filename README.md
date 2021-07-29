@@ -10,6 +10,7 @@ The user is offered the option to open an account throughout the site and on com
 <br>
 The shop owner can easily manage the site through the admin and manage site pages where they can upload, edit and remove goods. They are given instructions as to how to make the most of the visual promoting of goods in terms of image display. Allauth is used for site security and user authentication.<br>
 <br>
+The main Django app is called silverDollar.
 
 <h2 align="center"><img src="documentation/readme-images/x.png"></h2>
 
@@ -182,6 +183,11 @@ making the user feel both at home here and part of an interesting journey. Detai
 <h2 align="center">
 <img src="documentation/readme-images/shop-page.png" width="90%">
 </h2>
+
+### Landing page
+ - The landing page image is intended to display a classy elegance. It is silghtly coloured and soft focus which becomes softer at larger screens which is suited to it's purpose.
+
+ - A subtle image is used in the logo to add a touch of colour.
 
 ### Colour Scheme
  - The site aims to be elegant, upmarket, clean, sharp, bright and sophisticated using a white background with gold lines and some gold text/icons along with the odd blue buttons and links for some more perfunctory actions. The actual images themselves supply the main bulk of the content and in doing so will greatly influence the overall colour scheme so I wanted a sophisticated sharp white and gold containment background. I gave the login and other Allauth pages a warm friendly look with a background image of a pink whipped cream.
@@ -504,6 +510,7 @@ A number of imports were used in Django and an inventory of these can be found i
 [Back to Table of Content](#table-of-content)
 
 ## Testing
+In case there may be any confusion the main Django app for the site is called silverDollar.
 
 All functionality was tested as it was being built to ensure there were no errors, that it did what it was meant to do and that all database errors were handled corrrectly. 
 
@@ -1155,18 +1162,18 @@ Lighthouse gave another Accessability note '[aria-hidden="true"] elements contai
 <img src="documentation/lighthouse-images/l-csmo.png" width="90%">
 </h2>
 
-### Checkout Page
+### Profile Page
 
 Lighthouse also gave an Accessability note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different.  
 
 <p align="center"><strong>Desktop</strong></p>
 <h2 align="center">
-<img src="documentation/lighthouse-images/l-cont.png" width="90%">
+<img src="documentation/lighthouse-images/l-prof.png" width="90%">
 </h2>
 
 <p align="center"><strong>Mobile</strong></p>
 <h2 align="center">
-<img src="documentation/lighthouse-images/l-cont.png" width="90%">
+<img src="documentation/lighthouse-images/l-prof-mo.png" width="90%">
 </h2>
 
 ### Add Product Page

@@ -26,11 +26,11 @@ img {
 }
 
 .home-container {
-    width: 90%;
+    width: 92%;
 }
 
 .footer-container {
-    width: 90%;
+    width: 97%;
 }
 
 /*----------- home page -------*/ 
@@ -42,6 +42,7 @@ img {
     background-size: cover;
     background-color: #fff;
     font-family: 'Lato';
+    height: 480px;
     
 }
 
@@ -856,43 +857,14 @@ div.dataTables_wrapper div.dataTables_length label {
 }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 576px) {
+    .home-container {
+        width: 90%;
+    }
+
     .home-container-im {
-        background: url('/media/home-pic.jpg') no-repeat center center fixed;  
-        /*background: url('/media/vvv1.jpg') no-repeat center center fixed;*/       
+        background: url('/media/home-pic.jpg') no-repeat center center fixed;       
         background-size: cover;
+        height: 540px;
     }
 }
-
-/*----------radio buttons---------------*/
-/*.form-check-input {
-    color: #000;
-    background-color: black;
-    padding: 20px;
-}
-input[type=checkbox], input[type=radio] {
-    color: black;
-    background-color: black;
-    border-color: black;
-    padding: 20px;
-}
-
-.form-check-input[type=checkbox], input[type=radio]:checked {
-    color: black;
-    background-color: black;
-    border-color: black;
-}
-
-.form-check-input:hover,
-.form-check-input:active,
-.form-check-input:focus,
-.form-check-input:checked {
-    background: #996565;
-    color: rgba(255, 255, 255, 0.89);
-    background-color: black;
-}
-
-.form-check-input[type='radio']:checked:after {
-    color: black;
-    border: 2px solid white;
-}*/
