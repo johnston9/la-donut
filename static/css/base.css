@@ -21,7 +21,9 @@ img {
     padding-top: 160px;
 }
 
-/*----------- home page -------*/ 
+.delivery-container {
+    width: 90%;
+}
 
 .home-container {
     width: 90%;
@@ -30,6 +32,8 @@ img {
 .footer-container {
     width: 90%;
 }
+
+/*----------- home page -------*/ 
 
 .home-container-im {
     /*background: url('/media/dessy-ss.jpg') no-repeat center center;*/
@@ -216,18 +220,18 @@ hr.grey100 {
 	z-index: 99;
 	height: 26px;
 	width: 70px;
-	background-color: rgba(209, 161, 16, 0.993);
+	background-color: rgb(140, 111, 25, 99%);
 	border: none;
 	font-weight: bold;
 	border-radius: 5px;
 	outline: none;
-	color: #fafafa;
+	color: #fff;
 	cursor: pointer;
 	font-size: 16px;
 }
 
 #topbut:hover {
-	background-color: #666666;
+	background-color: #000;
 }
 
 /*---------------buttons------------*/
@@ -508,6 +512,13 @@ hr.grey100 {
 
 /*--------------------search------------------*/
 
+.input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, 
+.input-group:not(.has-validation)>.custom-select:not(:last-child), 
+.input-group:not(.has-validation)>.form-control:not(:last-child) {
+    height: 26px !important;
+    color: #000 !important;
+}
+
 #inner-search input[name='q'] {
     color: #000 !important;
 }
@@ -518,9 +529,9 @@ input[name='q']::placeholder {
 
 #search-but {
     border: 1px solid rgb(94, 91, 91);
+    height: 26px;
 }
 
-/*------------search form--------------*/
 
 .input-group>.custom-file.inner-search, 
 .input-group>.custom-select.inner-search, 
@@ -556,13 +567,7 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*---------quantity input box for bag page--------*/
-.input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, 
-.input-group:not(.has-validation)>.custom-select:not(:last-child), 
-.input-group:not(.has-validation)>.form-control:not(:last-child) {
-    height: 26px !important;
-    color: #000 !important;
-}
+/*---------quantity input box for bag page--------*
 
 
 .view {
@@ -804,15 +809,17 @@ div.dataTables_wrapper div.dataTables_length label {
   }
 
 @media (min-width: 576px) {
-    .recipe-titles {
-        height: 70px;
-    }
-}
-
-@media (min-width: 576px) {
     .donut-logo {
         width: 200px;
         height: 40px;
+    }
+
+    .delivery-container {
+        width: 80%;
+    }
+
+    .recipe-titles {
+        height: 70px;
     }
 }
 

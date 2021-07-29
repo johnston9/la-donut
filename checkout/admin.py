@@ -4,8 +4,7 @@ from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
-# class OrderLineItemAdminInline(admin.StackedInline):
-class OrderLineItemAdminInline(admin.TabularInline):
+class OrderLineItemAdminInline(admin.StackedInline):
     """Set the OrderLineItem model inside the Order model
     """
     model = OrderLineItem

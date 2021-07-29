@@ -1,7 +1,7 @@
 {% if item.product.is_sizes %}                                    
-    <span class="my-0">{{ item.size|title }}</span>
+<span class="my-0">{{ item.size|title }}</span>
 {% elif item.product.is_for_six %}
-    <span class="my-0">{{ item.box|title }}</span>
+<span class="my-0">{{ item.box|title }}</span>
 {% else %}
-    <span class="my-0"></span>
+<span class="my-0"></span>
 {% endif %}

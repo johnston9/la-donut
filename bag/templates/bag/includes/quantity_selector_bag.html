@@ -1,24 +1,10 @@
+<!--Shopping Bag functions primarily to increase and decrease the 
+quantity selector. This is a different method to the Boutique Ado code-->
+
 <script type="text/javascript">
 
-    /*--Function to show an alert if the user has accidentally 
-        deleted the input number. This works with a value of 1 
-        being added as a default in the view to prevent an error--*/ 
-        
-    $('#quantity_butbag').click(function() {
-          var itemId = $(this).data('item_id');
-          var currentValue = parseInt($(closestInput).val());
-          if(isNaN(currentValue)) {
-            alert("You accidentally deleted the quantity number and a \
-            quantity of 1 has been automatically added")
-          }            
-      });
-
-      $('#quantity_butbag_{{ item.item_id }}').click(function() {
-            alert("You accidentally deleted the quantity number and a quantity of 1 has been automatically added")          
-      });
-
     /*--Function to increment quantity selector only if value
-    is less than 98--*/ 
+    is less than 98--*/
 
     $('.increment-qty').click(function(e) {
     e.preventDefault();
@@ -26,8 +12,7 @@
     var currentValue = parseInt($(closestInput).val());
     if (currentValue <= 98) {
       $(closestInput).val(currentValue + 1);
-    }
-        
+    }        
     });
 
     /*--Function to decrement quantity selector only if value
@@ -41,4 +26,5 @@
       $(closestInput).val(currentValue - 1);
     }
     });
+
 </script>

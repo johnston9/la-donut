@@ -57,6 +57,7 @@ form.addEventListener('submit', function(ev) {
     var giftWrapped = Boolean($('#gift_wrapped').is(":checked"));
     var isCard = Boolean($('#is_card').is(":checked"));
     var sliced = Boolean($('#sliced').is(":checked"));
+    var message = 'No message';
     if($('#message').val()) {
         message = $('#message').val();
       } else {
@@ -127,5 +128,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function () {
         // reload the page which will display the error in django messages
         location.reload();
-    })
+    });
 });

@@ -1,16 +1,5 @@
 <script type="text/javascript">
 
-/*--Functions to show an alert if the user has accidentally 
-    deleted the input number. This works with a value of 1 
-    being added as a default in the view to prevent an error--*/ 
-$('#quantity_but').click(function() {
-      /*var currentValue = parseInt($(closestInput).val());*/
-      var currentValue = parseInt($(`#input_box`).val());
-      if(isNaN(currentValue)) {
-        alert("You accidentally deleted the quantity number and a quantity of 1 has been automatically added to your bag")
-      }            
-  });
-
 /*--Function to increment quantity selector only if value
     is less than 98--*/ 
 $('.increment-qty').click(function(e) {
@@ -33,5 +22,16 @@ $('.decrement-qty').click(function(e) {
    $(closestInput).val(currentValue - 1);
  }
 });
+
+/*--Functions to show an alert if the user has accidentally 
+    deleted the input number. This works with a value of 1 
+    being added as a default in the view to prevent an error--*/ 
+
+  $('#quantity_but').click(function() {
+      var currentValue = parseInt($(`#input_box`).val());
+      if(isNaN(currentValue)) {
+        alert("You accidentally deleted the quantity number and a quantity of 1 has been automatically added to your bag");
+      }            
+  });
 
 </script>

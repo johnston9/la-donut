@@ -1,7 +1,7 @@
 {% if item.product.image %}
-    <img class="img-fluid mx-0" src="{{ item.product.image.url }}"
-            alt="{{ product.name }}">
+<img class="img-fluid mx-0" src="{{ item.product.image.url }}"
+   alt="{{ product.name }}">
 {% else %}
-    <img class="img-fluid mx-0" src="{{ MEDIA_URL }}no-image2.jpg"
-        alt="{{ product.name }}">
+<img class="img-fluid mx-0" src="{{ MEDIA_URL }}no-image2.jpg"
+   alt="{{ product.name }}">
 {% endif %}

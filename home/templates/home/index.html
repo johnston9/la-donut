@@ -1,38 +1,36 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container mb-4">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container mb-4">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid home-container mt-sm-3 px-0">
-        <div class="home-container-im w-100">
-        <div class="row">
-            <div class="col-12 col-md-10 offset-md-2 mt-5">
-                <h2 class="display-4 explore upper text-gold">
-                    Explore our Delights
-                </h2>
-                <p class="font-weight-bold px-1">Free delivery on orders over E{{ free_delivery_total }} <span class="d-none d-sm-inline-block"> or Flat rate E10</span>  </p>
-                <div class="my-3">
-                    <a href="{% url 'shop' %}" class="btn enter-button upper py-0 py-sm-2">enter</a>
-                </div>
-                <div>    
-                    <p class="font-weight-bold px-1">Sign Up to get Free Gift Presentation <span class="d-none d-sm-inline-block"> Extras 
-                        and chat to our Master pastry chefs</span>  </p>                
-                    <div class="mb-5">
-                        <a href="{% url 'account_signup' %}" class="btn enter-button upper py-0 py-sm-2">Sign Up</a>
-                    </div>
-                </div>
+<div class="container-fluid home-container mt-sm-3 px-0">
+   <div class="home-container-im w-100">
+      <div class="row">
+         <div class="col-12 col-md-10 offset-md-2 mt-5">
+            <h2 class="display-4 explore upper text-gold">
+               Explore our Delights
+            </h2>
+            <p class="font-weight-bold px-1">Free delivery on orders over E{{ free_delivery_total }} <span class="d-none d-sm-inline-block"> or Flat rate E10</span>  </p>
+            <div class="my-3">
+               <a href="{% url 'shop' %}" class="btn enter-button upper py-0 py-sm-2">enter</a>
             </div>
-        </div>
-        </div>
-    </div>
+            <div>
+               <p class="font-weight-bold px-1">Sign Up to get Free Gift Presentation <span class="d-none d-sm-inline-block"> Extras 
+                  and chat to our Master pastry chefs</span>  
+               </p>
+               <div class="mb-5">
+                  <a href="{% url 'account_signup' %}" class="btn enter-button upper py-0 py-sm-2">Sign Up</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block postloadjs %}
 {% endblock %}

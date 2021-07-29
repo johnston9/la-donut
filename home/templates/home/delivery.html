@@ -1,36 +1,53 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div> 
-        </div>
-    </div>
+<div class="container header-container">
+   <div class="row">
+      <div class="col"></div>
+   </div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-6">
-                <div id="delivery">
-                    <div class="row">
-                        <div class="col-6 offset-6 text-center">
-                            <h1 class="playball mt-5 ml-1 pt-4">
-                                <strong>
-                                Sorry!<br>
-                                No Image<br>
-                                Available</strong></h1>
-                        </div>                       
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+<div class="container-fluid delivery-container mt-5">
+   <!--title-->
+   <div class="row">
+      <div class="col text-center mt-1">
+         <h2 class="playball">Delivery Catering and Office Supply Details</h2>
+         <hr class="gold50 mb-1">
+      </div>
+   </div>
+   <div class="row">
+      <div class="col lato">
+         <p class="text-muted font-weight-bold mb-0 mt-3">Delivery Details</p>
+         <hr class="goldleft mt-1 mb-3">
+         <p>All deliveries within the 'Greater Dublin Area' are at a flat rate of E10.<br>
+            All deliveries within the 'Greater Dublin Area' over E50 are FREE. <br>
+            All deliveries outside Dublin will be priced at the time of order.
+         </p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col lato">
+         <p class="text-muted font-weight-bold mb-0 mt-3">Catering Details</p>
+         <hr class="goldleft mt-1 mb-3">
+         <p>We specialize in catering for large formal events like Weddings and conferences inside and
+            outside Dublin.<br>
+            Please call us for more details. <br>
+         </p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col lato">
+         <p class="text-muted font-weight-bold mb-0 mt-3">Office Supply Details</p>
+         <hr class="goldleft mt-1 mb-3">
+         <p>Our office suppy facility is second to none and completely reliable.<br>
+            We currently cater for some of Dublin's biggest businesses and of course we offer special rates.<br>
+            Call us now and let us set up an "Office Package" to suit you and let us do all the work.<br>
+         </p>
+      </div>
+   </div>
+</div>
 {% endblock %}
-
 {% block postloadjs %}
 {{ block.super }}
-
 {% endblock %}

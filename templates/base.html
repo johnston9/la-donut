@@ -6,6 +6,7 @@
 <head>
 
     {% block meta %}  
+        <meta charset="utf-8">
         <!--<meta property="og:image" content="" />
         <meta http-equiv="Cache-control" content="public">
         <meta http-equiv="Cache-Control" max-age="31536000">
@@ -78,19 +79,19 @@
                     <a class="text-gold font-weight-bold mt-1 float-right text-center topnav-link" href="#" id="search" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <div class="">
-                            <p class="float-left ">Search</p>
+                            <p class="float-left">Search</p>
                             <span class="d-none d-sm-block icon float-right">
                                 <i class="fas fa-search"></i>
                             </span>
                         </div>
                     </a>
-                    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="">
+                    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-label="search-input" >
                         <form method="GET" action="{% url 'shop' %}">
                             <div class="input-group w-100">
                                 <input class="form-control inner-search lato" type="text" name="q"
                                     placeholder="Find">
                                 <div class="input-group-append">
-                                    <button id="search-but" class="lato form-control btn btn-gold"
+                                    <button id="search-but" class="py-0 lato form-control btn btn-gold"
                                         type="submit">
                                         <span class="icon">
                                             <i class="fas fa-search"></i>
@@ -106,7 +107,7 @@
             <div class="col-6 pb-0 mb-0 text-center">
                 <div class="donut-logo mx-auto text-center">
                 <h2 class="name text-black pb-0 my-2">
-                    <a title="Back to Home" class="" a href="{% url 'index' %}"><strong>La Donut</strong></a></h2>
+                    <a title="Back to Home" class="" href="{% url 'index' %}"><strong>La Donut</strong></a></h2>
                 </div>
             </div>
             <!--total-->
@@ -151,8 +152,8 @@
                         {% else %}
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
                         {% endif %}
+                        <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
                     </div>
                     <!--</li>-->
                 

@@ -505,25 +505,50 @@ A number of imports were used in Django and an inventory of these can be found i
 
 ## Testing
 
+All functionality was tested as it was being built to ensure there were no errors, that it did what it was meant to do and that all database errors were handled corrrectly. 
+
+Pylint was also used in the workspace as the project was being built for Python and Django code and all errors were fixed on an ongoing process. 
+
+On completion all functionality was tested for User's Stories, Further Testing and Lighthouse again and documented here in the Readme. All errors were documented and fixed.
 W3C Markup Validator, W3C CSS Validator. PEP8 and JSHint were used to validate every page of the project.
 
-- [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut)
-  - W3C "Direct Input" option was used on each html page where errors displayed due to template ...but on validated by URL no errors were shown - documentation/w3c-by-url.
-
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnston9/la-donut)
-  - W3C showed no errors and only one warning for the hr rule's background color
-    being the same as it's color, but this was intentional.
-  
-- [JSHint](https://jshint.com/) - [Results](https://github.com/johnston9/la-donut)
-  - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu.
+- [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut/css-w3c/html-w3)
+  - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. On  validated by URL no errors were shown - documentation/w3c-by-url.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnston9/la-donut/css-w3c/css-w3c)
+  -   
+- [JSHint](https://jshint.com/) - [Results](https://github.com/johnston9/la-donut/documentation/JSHint/)
+  - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu. The only warning was that the Stripe variable was not defined before it was used but this code is in keeping with the Stripe Docs.
     
-- [PEP8 online check](http://pep8online.com/) - [Results](https://github.com/johnston9/la-donut)
-  - PEP8 approved all pyhton pages. It gave a "no newline at end of file"
-    but I researched this and found it was a common result and could be ignored. I explored the matter more and found that if
-    the curser was at the start of the new line, I got an "All Right" result.
+- [PEP8 online check](http://pep8online.com/) - [Results](https://github.com/johnston9/la-donut/documentation/PEP8/)
+  - PEP8 approved all python pages appart from a few too long lines in the webhook_handler, webhook.py which I decided to leave.
 
-- [PythonChecker](https://www.pythonchecker.com/) - [Results](https://github.com/johnston9/la-donut)
-  - PythonChecker gave 100% result.
+<!--- [PythonChecker](https://www.pythonchecker.com/) - [Results](https://github.com/johnston9/la-donut)
+
+  - PythonChecker gave a warning about needing two line before defining a function when I used @register.filter just before the function but I ignored this as the @register is for the function and this is how it was done in Boutique Ado.
+
+<p align="center"><strong>Two Lines Warning</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/lines.png" width="100%">
+</h2>
+
+  - PythonChecker gave a warning about needing space around operators but I researched this and found that this did not apply to key word arguments and this is how it was done in Boutique Ado. This is the only cause of the lower than 100% score.
+
+<p align="center"><strong>Whitespace Warning</strong></p>
+
+<h2 align="center">
+<img src="documentation/readme-images/space.png" width="100%">
+</h2>
+
+<p align="center"><strong>Whitespace Python Docs</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/space1.png" width="100%">
+</h2>
+
+<p align="center"><strong>Space Warning</strong></p>
+<h2 align="center">
+<img src="documentation/readme-images/space.png" width="100%">
+</h2>-->
 
 [Back to Table of Content](#table-of-content)
 
@@ -1152,8 +1177,6 @@ Lighthouse gave another Accessability note '[aria-hidden="true"] elements contai
 </h2>
 
 
-
-
 ### Add Forsix Prices Page
 
 <p align="center"><strong>Desktop</strong></p>
@@ -1239,6 +1262,48 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 
 [Back to Table of Content](#table-of-content)
 
+### Resize Page
+
+<p align="center"><strong>Desktop</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-rez.png" width="90%">
+</h2>
+
+<p align="center"><strong>Mobile</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-rezmo-momo.png" width="90%">
+</h2>
+
+### Sign Up Page
+
+<p align="center"><strong>Desktop</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-areg.png" width="90%">
+</h2>
+
+<p align="center"><strong>Mobile</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-areg-momo.png" width="90%">
+</h2>
+
+### Login Page
+
+<p align="center"><strong>Desktop</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-alogin.png" width="90%">
+</h2>
+
+<p align="center"><strong>Mobile</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-alogmo.png" width="90%">
+</h2>
+
+### Logout Page
+
+<p align="center"><strong>Desktop</strong></p>
+<h2 align="center">
+<img src="documentation/lighthouse-images/l-alo.png" width="90%">
+</h2>
 
 ## Bugs Fixed
 
@@ -1248,15 +1313,15 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
  2. stripe_elements.js sends this data, along with some other data to the extra_checkout_info view where it is added to the intent metadata. 
  3. The handle_payment_intent_succeeded function retreives this data and uses it to add to the Order.
  
- Bug 1;<br>
+ Metadata Bug 1;<br>
 
  I had used Boolean...ischecked() to check the boxes and it had in fact returned strings "true" or "false" not Boolean values which threw errors and caused the payment intent succeeded to fail.
  
- Bug 2;<br>
+ Metadata Bug 2;<br>
 
  If there was no message the message key was not added to the intent so that threw another error and caused the same problem.
 
- Solution for bug 1;<br>
+ Solution for Metadata Bug 1;<br>
 
  I just checked the values in the handle_payment_intent_succeeded function and set the variables to either true or false depending on what the string value was.
 
@@ -1265,7 +1330,7 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 <img src="documentation/readme-images/meta.png" width="50%">
 </h2>
 
-Solution for bug 2;<br>
+Solution for Metadata Bug 2;<br>
 
  I checked to see if a value existed in message in stripe_elements.js and if so set message to that, if no value set to a default value. function and set the variables to either true or false depending on what the string value was.
 
@@ -1294,7 +1359,8 @@ I noticed an "Invalid block token" warning sometimes in Heroku logs for somethin
 <img src="documentation/readme-images/heroku-logs.png" width="90%">
 </h2>
 
-## Bugs Fixed
+### Shopping Bag ids
+If there is a product which has a nunber of sizes of forsixes in the bag Lighthouse shows an error for there being items with similar ids for the increment and decrement buttons and the imput box. The ids sre set using a specific word related to the element and the item id. I could have added the items size as well but then I would have had to do an if statement foe size, forsiz or on size and it just was a bit to much for this issue as this value is never used.
 
 ### Migrations to Heroku
 I redid the recipe model and migrated it to Postgres on Heroku but it threw errors when I went to load the Recipe page. After numerous unsuccessful efforts to fix this I decided to do another migration and the problem was fixed.
@@ -1750,13 +1816,15 @@ Gmail's SMTP server was used to handle the emails.
 ### Code
 
 - [Code Institue](https://codeinstitute.net/)
-  The basic set up and Django configuration for the app is based on The Boutique Ado project from the course material. The instructions for the AWS set up are included in this.
+  I learnt how to build the app from the Code Institue course material.
+- [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/)
+  The basic set up and Django configuration for the app is based on The Boutique Ado project from the Code Institute course material.
 - [Django Docs](https://docs.djangoproject.com/en/3.2/)
   I refered to these throughout the project.
 - [Data Tables](https://datatables.net/examples/styling/bootstrap4)
   Here I followed the docs on how to set up datatables for the Chat page and for Recepes which included pagination.
 - [Slack](code-institute-room.slack.com)
-  Here I found the Get Average Rating function, thanks to ck....
+  Here I found the Get Average Rating function, thanks to ckz8780.
 - [stackoverflow.com]()
   Here I learnt how to use.
 - [w3schools.com]()

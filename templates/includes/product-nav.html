@@ -1,5 +1,5 @@
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav lato w-auto mx-auto">
+    <ul class="navbar-nav w-auto ml-auto lato">
         <li class="nav-item dropdown">
             <a class="nav-link mr-3" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
@@ -53,6 +53,14 @@
                 <a href="{% url 'shop' %}?category=creamytreats,muffins,donuts,cookies,vegan_treats" class="dropdown-item">All Buns and Creamy Treats</a>
             </div>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link text-grey mr-3" href="#" id="services-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Services
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="services-link">
+                <a href="{% url 'delivery' %}" class="dropdown-item">Delivery/Catering</a>
+            </div>
+        </li>
 
         <li class="nav-item dropdown">
             <a class="nav-link text-grey mr-3" href="#" id="recipes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +76,7 @@
                 Chat
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="chat-link">
-                <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
+                <a href="{% url 'chat' %}" class="dropdown-item">Chat</a>
             </div>
         </li>
     </ul>
