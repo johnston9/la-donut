@@ -55,10 +55,10 @@
          <div class="row pb-0 mb-0">
          <div class="col-3 px-0 mx-0 pb-0 mb-0">
             <!--search form-->
-            <div class="">
+            <div>
                <a class="text-gold font-weight-bold mt-1 float-right text-center topnav-link" href="#" id="search" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-                  <div class="">
+                  <div>
                      <p class="float-left ">Search</p>
                      <span class="d-none d-sm-block icon float-right">
                      <i class="fas fa-search"></i>
@@ -87,14 +87,14 @@
          <div class="col-6 pb-0 mb-0 text-center">
             <div class="donut-logo mx-auto text-center">
                <h2 class="name text-black pb-0 my-2">
-                  <a title="Back to Home" class="" href="{% url 'index' %}"><strong>La Donut</strong></a>
+                  <a title="Back to Home" href="{% url 'index' %}"><strong>La Donut</strong></a>
                </h2>
             </div>
          </div>
          <!--total-->
          <div class="col-3 pb-0 mb-0 pr-0 pl-0">
             <a class="pb-0 mb-0 text-gold font-weight-bold topnav-link" href="{% url 'get_bag' %}">
-               <div class="">
+               <div>
                   <span class="d-none d-sm-block icon float-left">
                   <i class="fas fa-shopping-bag"></i>
                   &nbsp;
@@ -133,8 +133,8 @@
                   {% else %}
                   <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                   <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                  <a href="{% url 'chat' %}" class="dropdown-item">Chat - Q & A</a>
                   {% endif %}
+                  <a href="{% url 'chat' %}" class="dropdown-item">Chat</a>
                </div>
                <!--</li>-->
                <button class="text-center my-0 py-0 navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">

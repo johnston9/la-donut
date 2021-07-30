@@ -249,15 +249,10 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 <p align="center"><strong>Recipes Page</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
+<img src="documentation/readme-images/recip1.png" width="90%">
 </h2>
 
-<p align="center"><strong></strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/x.png" width="90%">
-</h2>
 
-[Back to Table of Content](#table-of-content)
 
 ### ChatPage
 
@@ -265,7 +260,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 <p align="center"><strong>Chat</strong></p>
 <h2 align="center">
-<img src="documentation/readme-images/.png" width="90%">
+<img src="documentation/readme-images/chat1.png" width="90%">
 </h2>
 
 [Back to Table of Content](#table-of-content)
@@ -327,6 +322,7 @@ The owner is given the option to add size or box quantity prices to an item when
 <img src="documentation/readme-images/bag-code.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
 
 ### Checkout and Stripe
 ##### Stripe is used to process the order. 
@@ -523,42 +519,15 @@ W3C Markup Validator was used on every page and screenshots are in the documenta
 W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS in the project, the results are in documentation.
 
 - [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut/css-w3c/html-w3)
-  - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. On  validated by URL no errors were shown - documentation/w3c-by-url.
+  - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. On validated by URL no errors were shown - documentation/w3c-by-url.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnston9/la-donut/css-w3c/css-w3c)
   -   
 - [JSHint](https://jshint.com/) - [Results](https://github.com/johnston9/la-donut/documentation/JSHint/)
   - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu. The only warning was that the Stripe variable was not defined before it was used but this code is in keeping with the Stripe Docs.
     
 - [PEP8 online check](http://pep8online.com/) - [Results](https://github.com/johnston9/la-donut/documentation/PEP8/)
-  - PEP8 approved all python pages appart from a few too long lines in the webhook_handler, webhook.py which I decided to leave.
+  - PEP8 approved all python pages apart from a few too long lines in the webhook_handler, webhook.py which I decided to leave.
 
-<!--- [PythonChecker](https://www.pythonchecker.com/) - [Results](https://github.com/johnston9/la-donut)
-
-  - PythonChecker gave a warning about needing two line before defining a function when I used @register.filter just before the function but I ignored this as the @register is for the function and this is how it was done in Boutique Ado.
-
-<p align="center"><strong>Two Lines Warning</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/lines.png" width="100%">
-</h2>
-
-  - PythonChecker gave a warning about needing space around operators but I researched this and found that this did not apply to key word arguments and this is how it was done in Boutique Ado. This is the only cause of the lower than 100% score.
-
-<p align="center"><strong>Whitespace Warning</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/space.png" width="100%">
-</h2>
-
-<p align="center"><strong>Whitespace Python Docs</strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/space1.png" width="100%">
-</h2>
-
-<p align="center"><strong>Space Warning</strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/space.png" width="100%">
-</h2>-->
 
 [Back to Table of Content](#table-of-content)
 
@@ -602,6 +571,8 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <h2 align="center">
 <img src="documentation/readme-images/search2.png" width="90%">
 </h2>
+
+[Back to Table of Content](#table-of-content)
 
 4. #### As a First Time User, I want to sort products by price, rating and category.
 
@@ -650,7 +621,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <img src="documentation/readme-images/del-mes32.png" width="90%">
 </h2>
 
-
+[Back to Table of Content](#table-of-content)
 
 7. #### As a First Time User, I want to purchase specific products quickly without having to sign up.
 
@@ -700,6 +671,8 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <img src="documentation/readme-images/pro2.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 3. #### As a Returning User, I want to see products ratings and reviews.
 
     - The product average customer rating is displayed for each item on the shop and view item pages. On the view item page the user will see a link to the item's reviews and another link to add a review if the user is authenticated or sign up to add a review if not. On the add review page the user can rate the product and this is displayed in stars on their review and also used to calculate the average rating. A customised Bootstrap paginated table is used to hold the reviews which includes a search function which I figured out from the Bootstrap4 docs.<br>
@@ -721,6 +694,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <img src="documentation/readme-images/rev5.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
 
 ### Frequent User Goals
 
@@ -748,24 +722,16 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <img src="documentation/readme-images/password_reset.png" width="90%">
 </h2>
 
-6. #### As a Frequent User, I want to view the latest recipe and all recipes.
+3. #### As a Frequent User, I want to view the latest recipe and all recipes.
 
    1. When the user clicks Recipes in the nav they will be taken to the Recipe Page where they can select a Recipe and be taken to a page for it. Also, to entice the user to sign up, upon completing an order a large button displays on the checkout complete page to take them to the Latest Recipe. Below the recipe they are prompted with another button to view comments and question on the Chat page. There they have to register to post a question.
   
-<p align="center"><strong>Recipe page</strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/.png" width="90%">
 
-</h2>
-
-6. #### As a Frequent User, I want to view and add comments and questions.
+4. #### As a Frequent User, I want to view and add comments and questions.
 
    1. The user can click the chat link in the nav to go directly to the Chat page or, as mentioned directly above, click on the link below each recipe and sign up to add messages or just read them without doing that. If there post a question directed to the pastry chefs it will be replied to by a shop superuser.
-  
-<p align="center"><strong>Chat Page</strong></p>
-<h2 align="center">
-<img src="documentation/readme-images/.png" width="90%">
-</h2>
+
+[Back to Table of Content](#table-of-content)
 
 
 ### Owner/Admin User Goals
@@ -804,6 +770,8 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <img src="documentation/readme-images/pro-com.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 2. #### As the Owner/Admin User I want to edit product details.
 
    - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can update a product or it's image. On doing so a success message will display.
@@ -817,6 +785,8 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <h2 align="center">
 <img src="documentation/readme-images/ed-pro2.png" width="90%">
 </h2>
+
+[Back to Table of Content](#table-of-content)
 
 3. #### As the Owner/Admin User I want to edit product prices.
 
@@ -832,6 +802,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <img src="documentation/readme-images/ed-pr2.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
 
 4. #### As the Owner/Admin User I want to edit images.
 
@@ -850,6 +821,8 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <h2 align="center">
 <img src="documentation/readme-images/del-al33.png" width="90%">
 </h2>
+
+[Back to Table of Content](#table-of-content)
 
 6. #### As the Owner/Admin User I want to upload new recipes.
 
@@ -873,6 +846,8 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <h2 align="center">
 <img src="documentation/readme-images/recipe-edit3.png" width="90%">
 </h2>
+
+[Back to Table of Content](#table-of-content)
 
 8. #### As the Owner/Admin User I want to post or respond on chat to users questions.
 
@@ -907,6 +882,8 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS i
 <img src="documentation/readme-images/del4a.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ## Further Testing
 
 ### Testing Webhooks
@@ -928,11 +905,7 @@ Tested successfully for order with the gift boxes checked and a message in the m
 <img src="documentation/readme-images/web-with.png" width="90%">
 </h2>
 
-<p align="center"><strong>Response confirming the webhook did create the order</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/web-res1.png" width="90%">
-</h2>
+[Back to Table of Content](#table-of-content)
 
 Tested successfully for order with the gift boxes unchecked and the message box empty.
 
@@ -988,6 +961,8 @@ The card number for this is 4000 0000 0000 3220.
 <img src="documentation/readme-images/tstep3.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ## Lighthouse
 
 Lighthouse was used to test every page on desktop and mobile screens.
@@ -1016,6 +991,8 @@ Lighthouse was used to test every page on desktop and mobile screens.
 <h2 align="center">
 <img src="documentation/lighthouse-images/l-cache.png" width="90%">
 </h2>
+
+[Back to Table of Content](#table-of-content)
 
 ### Best Practices
 
@@ -1050,6 +1027,7 @@ These issues were brought to the attention of the Code Institute tutor team and 
 <img src="documentation/lighthouse-images/l-codei.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
 
 ### Issues Resolved
 
@@ -1068,6 +1046,7 @@ These issues were brought to the attention of the Code Institute tutor team and 
 <img src="documentation/lighthouse-images/l-homemo.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
 
 ### Shop Page
 
@@ -1090,6 +1069,8 @@ On the Shop and View Item Pages for mobile Lighthouse gave a 'Tap targets are no
 <img src="documentation/lighthouse-images/l-shop-score.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ### View Item Page
 
 Lighthouse gave a 'Serves images with low resolution' note for Best Practices. The Desktop size for the image is 656 x 437 but the image is 450 x 300. All my images are this size as for best 'Owner User Experience' they shold only have to upload one image per product. I have instructed them that 450 by 300 is best. This I felt was a happy medium for all sizings and is only affecting the desktop view on the 'View Item page' slightly and still is close to the smallest view on large desktop 'Shop page'.
@@ -1111,6 +1092,8 @@ This issue and the same site cookies issue were the cause of the lower Beat Prac
 <h2 align="center">
 <img src="documentation/lighthouse-images/l-vimo.png" width="90%">
 </h2>
+
+[Back to Table of Content](#table-of-content)
 
 ### Shopping Bag Page
 
@@ -1150,6 +1133,8 @@ Lighthouse gave another Accessability note '[aria-hidden="true"] elements contai
 <img src="documentation/lighthouse-images/l-checmo.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ### Checkout Complete Page
 
 <p align="center"><strong>Desktop</strong></p>
@@ -1176,6 +1161,8 @@ Lighthouse also gave an Accessability note 'Background and foreground colors do 
 <img src="documentation/lighthouse-images/l-prof-mo.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ### Add Product Page
 
 <p align="center"><strong>Desktop</strong></p>
@@ -1200,6 +1187,7 @@ Lighthouse also gave an Accessability note 'Background and foreground colors do 
 <img src="documentation/lighthouse-images/l-edpmo.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
 
 ### Add Forsix Prices Page
 
@@ -1222,6 +1210,8 @@ Lighthouse also gave an Accessability note 'Background and foreground colors do 
 <img src="documentation/lighthouse-images/l-eds-d.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ### Edit Forsix Prices Page
 
 <p align="center"><strong>Mobile</strong></p>
@@ -1236,6 +1226,7 @@ Lighthouse also gave an Accessability note 'Background and foreground colors do 
 <img src="documentation/lighthouse-images/l-arev.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
 
 ### Chat Page
 On the Chat page Lighthouse had a 'same site cookies' issue. See Issues above.
@@ -1271,6 +1262,8 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 <h2 align="center">
 <img src="documentation/lighthouse-images/l-srepmo.png" width="90%">
 </h2>
+
+[Back to Table of Content](#table-of-content)
 
 ### Add Recipe Page
 
@@ -1329,6 +1322,8 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 <img src="documentation/lighthouse-images/l-alo.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ## Bugs Fixed
 
 ### Metadata
@@ -1373,6 +1368,8 @@ Solution for Metadata Bug 2;<br>
 <img src="documentation/readme-images/met4.png" width="50%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ## Bugs Ongoing
 
 ### Heroku Logs
@@ -1394,6 +1391,8 @@ I redid the recipe model and migrated it to Postgres on Heroku but it threw erro
 <img src="documentation/readme-images/recipe-er1.png" width="90%">
 </h2>
 
+[Back to Table of Content](#table-of-content)
+
 ## Deployment
 
 ### Development platform
@@ -1412,6 +1411,8 @@ By forking we make a copy of the GitHub Repository in our Github account.
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/johnston9/la-donut)
 2. At the top of the Repository just above the "Settings" button on the menu, click the "Fork" Button.
 3. This will create a copy of the original repository in your GitHub account.
+
+[Back to Table of Content](#table-of-content)
 
 ### Making a Local Clone
 
@@ -1436,6 +1437,7 @@ Here you will get the following keys.
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for more details.
 
+[Back to Table of Content](#table-of-content)
 
 ### Terminal
 
@@ -1477,6 +1479,7 @@ os.environ.setdefault("STRIPE_SECRET_KEY", "")
 os.environ.setdefault("STRIPE_WH_SECRET", "")
 os.environ["DEVELOPMENT"] = "True"
 ```
+[Back to Table of Content](#table-of-content)
 
 ### Create a Superuser
 1. python3 manage.py createsuperuser 
@@ -1502,6 +1505,8 @@ In the terminal type,
 5. python3 manage.py migrate 
 
         - to migrate
+
+[Back to Table of Content](#table-of-content)
 
 ## Deploy to Heroku
 Heroku was used to deploy the project.
@@ -1537,6 +1542,8 @@ Install [dj_database_url](https://pypi.org/project/dj-database-url/) which allow
 2. $ pip3 install gunicorn
 4. $ pip3 freeze > requirements.txt
 
+[Back to Table of Content](#table-of-content)
+
 ### Procfile
 If it isn't already created create a Procfile to tell Heroku to create a web dyno which will run unicorn and serve our django app. In it put
 
@@ -1562,6 +1569,8 @@ Use this command to load the data from the db.json file into Postgres:
 ./manage.py loaddata db.json.
 
 Or upload your own data.
+
+[Back to Table of Content](#table-of-content)
 
 ### Settings.py
 Delete the the recently add call to Postgres with the URL.
@@ -1598,6 +1607,8 @@ In setting.py (replace xxx with your Heroku app name)
 ALLOWED_HOSTS = ['xxx.herokuapp.com', 'localhost']
 ```
 
+[Back to Table of Content](#table-of-content)
+
 ### Stripe
 In Stripe, add the Heroku app URL as a new webhook endpoint.
 
@@ -1619,7 +1630,7 @@ So every time we push to github our code will automatically be deployed to Herok
 3. click connect.
 4. click enable automatic deploys.
 
-
+[Back to Table of Content](#table-of-content)
 
 ### settings.py
 1. Replace the secret key setting with call to get it from the environment and use an empty string as a default. 
@@ -1674,6 +1685,7 @@ In the email setting section they currently are.
 
 DEFAULT_FROM_EMAIL = 'la-donut@gmail.com'
 
+[Back to Table of Content](#table-of-content)
 
 ## Amazon Web Service 
 
@@ -1730,6 +1742,8 @@ Amazon Web Service was used to host the static and media files for the project.
 ### On the access control list tab
 1.  Set the list objects permission for everyone under the Public Access.
 
+[Back to Table of Content](#table-of-content)
+
 ### Create AWS Group, Policies and Users
 
 Go to IAM
@@ -1774,6 +1788,8 @@ Go to IAM
 5. Click create user. You will see two AWS keys which we will put in Heroku.
 6. Download the CSV file or note both keys down.
 
+[Back to Table of Content](#table-of-content)
+
 ### Connecting Django to S3
 ### In the terminal type
 1. pip3 install boto3
@@ -1817,6 +1833,8 @@ if 'USE_AWS' in os.environ:
 1. Now go to Heroku and add the AWS keys to the config variables.
 2. Remove the disable collectstatic variable.
 
+[Back to Table of Content](#table-of-content)
+
 ### Media
 All images uploaded to the app through the Add Product, Edit Product, Add Recipe or Edit Recipe will automatically got to the Media Folder in The Static folder in AWS.
 
@@ -1850,7 +1868,7 @@ Gmail's SMTP server was used to handle the emails.
 - [Slack](code-institute-room.slack.com)
   Here I found the Get Average Rating function, thanks to ckz8780.
 - [stackoverflow.com]()
-  Here I learnt how to use.
+  I used stackoverflow to check out solutions for problems I encountered.
 - [w3schools.com]()
   I refered to W3 often for code examples like the toggleClass function used a number of times in the site.
 - [developer.snapappointments](https://developer.snapappointments.com/bootstrap-select/methods/) 
