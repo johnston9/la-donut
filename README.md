@@ -2,11 +2,11 @@
 
 [View the project live here.](https://la-donut.herokuapp.com/)
 
-A web application for an online cake shop and patisserie. Primarily, the site allows the shop to display their goods and allows users to browse the goods and purchase them. Users are initally taken to a products page with a side menu from which they can select categories. They are given the option to close this and browse from the navbar where they will find a search option and another product menu.<br>
+A web application for an online cake shop and patisserie. Primarily, the site allows the shop to display their goods and allows users to browse the goods and purchase them. Users are initially taken to a products page with a side menu from which they can select categories. They are given the option to close this and browse from the navbar where they will find a search option and another product menu.<br>
 <br>
-The user can select an item directly from the page or on viewing the item on it's own page. On doing so it is added to their bag which they can view at any time giving them the option to update or remove products. From the bag they can simply click to be taken to the checkout page where through Stripe they can complete their transaction.
+The user can select an item directly from the main Shop page or on viewing the item on it's own page. On doing so it is added to their bag which they can view at any time giving them the option to update or remove products. From the bag they can simply click to be taken to the checkout page where through Stripe they can complete their transaction.
 <br>
-The user is offered the option to open an account throughout the site and on completion of they purchase order with the incentive of free delivery, free gift presentation and the opportunity to participate in the online chat feature. There is also a recipes page with a latest recipe feature which is displayed apon completing an order and this in turn encourages user to go to the chat page.<br>
+The user is offered the option to open an account throughout the site and on completion of they purchase order with the incentive of free delivery, free gift presentation and the opportunity to participate in the online chat feature. There is also a recipes page with a latest recipe feature which is displayed upon completing an order and this in turn encourages user to go to the chat page.<br>
 <br>
 The shop owner can easily manage the site through the admin and manage site pages where they can upload, edit and remove goods. They are given instructions as to how to make the most of the visual promoting of goods in terms of image display. Allauth is used for site security and user authentication.<br>
 <br>
@@ -79,7 +79,7 @@ The main Django app is called silverDollar.
 
 ## User Experience (UX)
 
-The business goals are to establish the online shop as a reputable purveyor of cakes and pastries of a top of the range quality, to create an online presence and establish it as a brand. It's primary purpose is to entice new customer to purchase goods and secure regular returning customers. It aims to inspire trust, familiarity and build a loyal cumstomer base.
+The business goals are to establish the online shop as a reputable purveyor of cakes and pastries of a top of the range quality, to create an online presence and establish it as a brand. It's primary purpose is to entice new customer to purchase goods and secure regular returning customers. It aims to inspire trust, familiarity and build a loyal customer base.
 
 For the user, the goal of the site is to easily browse goods or find particular items or categories and purchase them in an simple enjoyable manner. It is to find new and interesting items to try or specific item for a specific occasion. For businesses it is to have a high quality reliable supplier of pastries.
 
@@ -102,7 +102,7 @@ The features included in the app at present reflect choices made around the foll
 
 What is absolutely necessary for the app to deliver it’s basic marketed functionality?<br>  
 
-What is the most enticing user frendly way of doing building these?<br>
+What is the most enticing user friendly way of doing building these?<br>
 
 What types of design would further these and become great user experience in themselves?<br>
 
@@ -118,7 +118,7 @@ The buildable and time frame aspect was vital for the scope of the app and sever
 
 The site is structured so the user can navigate in an intuitive way through the different features and categories of products, all pages keeping a uniformed consistency.<br>
 
-The user is taken on a journey into the site, all elements being discoverable as they proceed along. From finding the different categories of cakes and pastries available to adding them to the shopping bag to checking out. To discovering the advantage of ceating an account and the chat other extras availabe on doing so. The site aims to, through it's freindly structure, build a relationship with the user.<br>
+The user is taken on a journey into the site, all elements being discoverable as they proceed along. From finding the different categories of cakes and pastries available to adding them to the shopping bag to checking out. To discovering the advantage of creating  an account and the chat other extras available on doing so. The site aims to, through it's friendly structure, build a relationship with the user.<br>
 
 The Menu is a key element to the structure. Here the user can feel like they are in a real shop and have a more personal user experience and ease and control over their shopping experience.<br>
 
@@ -185,7 +185,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 </h2>
 
 ### Landing page
- - The landing page image is intended to display a classy elegance. It is silghtly coloured and soft focus which becomes softer at larger screens which is suited to it's purpose.
+ - The landing page image is intended to display a classy elegance. It is slightly coloured and soft focus which becomes softer at larger screens which is suited to it's purpose.
 
  - A subtle image is used in the logo to add a touch of colour.
 
@@ -194,7 +194,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 
   
 ### Typography
- - Playfair Display, a serif non-formal friendly font was used as the main font for the site. It has a sophisticated slightly old fashioned classy feel. Lato was used along side it for more matter of fact details. And Playball, a very stylish, flamboyent romantic feeling font was used for the main titles and in some other places to give the shop a classy romantic feel.
+ - Playfair Display, a serif non-formal friendly font was used as the main font for the site. It has a sophisticated slightly old fashioned classy feel. Lato was used alongside it for more matter of fact details. And Playball, a very stylish, flamboyant romantic feeling font was used for the main titles and in some other places to give the shop a classy romantic feel.
 
 
 ### Imagery
@@ -975,7 +975,7 @@ Lighthouse was used to test every page on desktop and mobile screens.
 
 <p align="center"><strong>Performance Diagnostics</strong></p>
 <h2 align="center">
-<img src="documentation/lighthouse-images/l-diag.png" width="90%">
+<img src="documentation/lighthouse-images/l-l.png" width="90%">
 </h2>
 
 2. In the Performance Diagnostics under issues that would not affect score Lighthouse gave a note that image elements do not have explicit width and height for some the mobile product images. I used img-fluid for these as this worked best when there was a single image only being displayed on the page and also have img set to height 100% width auto in css.
@@ -1288,7 +1288,7 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 
 <p align="center"><strong>Mobile</strong></p>
 <h2 align="center">
-<img src="documentation/lighthouse-images/l-rezmo-momo.png" width="90%">
+<img src="documentation/lighthouse-images/l-rezmo.png" width="90%">
 </h2>
 
 ### Sign Up Page
@@ -1312,7 +1312,7 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 
 <p align="center"><strong>Mobile</strong></p>
 <h2 align="center">
-<img src="documentation/lighthouse-images/l-alogmo.png" width="90%">
+<img src="documentation/lighthouse-images/l-alog-mo.png" width="90%">
 </h2>
 
 ### Logout Page
@@ -1370,6 +1370,23 @@ Solution for Metadata Bug 2;<br>
 
 [Back to Table of Content](#table-of-content)
 
+### Migrations to Heroku
+At a later stage in the project I altered the recipe model and migrated it to Postgres on Heroku. When I reloaded and went to the page it threw errors. After numerous unsuccessful efforts to fix it and countless searches on the web one answer on stackoverflow advised doing another migration. So I did this and the problem was fixed.
+
+<p align="center"><strong>Bad Migration</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/recipe-er1.png" width="90%">
+</h2>
+
+[Back to Table of Content](#table-of-content)
+
+### Shopping Bag ids
+I ran into a Lighthouse error for similar ids for bag items on the increment and decrement buttons and the imput box. I couldn't see it at first then I realised there were two as there were to bags, one for mobile and one for desktop. The ids are set using a specific word related to the element and the item id. I just changed one set of ids and all was good.
+
+Until..there was an item in the bag more that once as it had different sizes and Lighthouse showed another similar ids error. I could have added the items size as well to the id but then I would have had to do an if/elif/else statement for size and it just was a bit to much for this issue as this value is never used. 
+
+I had needed the ids for the deleted input by accident alert I was so proud of making but I was not working properly in the bad unlike the View Item page.....so I just removed the ids.
+
 ## Bugs Ongoing
 
 ### Heroku Logs
@@ -1379,19 +1396,6 @@ I noticed an "Invalid block token" warning sometimes in Heroku logs for somethin
 <h2 align="center">
 <img src="documentation/readme-images/heroku-logs.png" width="90%">
 </h2>
-
-### Shopping Bag ids
-If there is a product which has a nunber of sizes of forsixes in the bag Lighthouse shows an error for there being items with similar ids for the increment and decrement buttons and the imput box. The ids sre set using a specific word related to the element and the item id. I could have added the items size as well but then I would have had to do an if statement foe size, forsiz or on size and it just was a bit to much for this issue as this value is never used.
-
-### Migrations to Heroku
-I redid the recipe model and migrated it to Postgres on Heroku but it threw errors when I went to load the Recipe page. After numerous unsuccessful efforts to fix this I decided to do another migration and the problem was fixed.
-
-<p align="center"><strong>Bad Migration</strong></p>      
-<h2 align="center">
-<img src="documentation/readme-images/recipe-er1.png" width="90%">
-</h2>
-
-[Back to Table of Content](#table-of-content)
 
 ## Deployment
 
@@ -1868,7 +1872,7 @@ Gmail's SMTP server was used to handle the emails.
 - [Slack](code-institute-room.slack.com)
   Here I found the Get Average Rating function, thanks to ckz8780.
 - [stackoverflow.com]()
-  I used stackoverflow to check out solutions for problems I encountered.
+  I refered to stackoverflow to check out different approaches to different issues. It was here I also found the solution to my migrate to Postres solution mentioned in Bugs Fixed.
 - [w3schools.com]()
   I refered to W3 often for code examples like the toggleClass function used a number of times in the site.
 - [developer.snapappointments](https://developer.snapappointments.com/bootstrap-select/methods/) 

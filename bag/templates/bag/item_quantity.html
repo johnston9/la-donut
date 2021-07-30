@@ -6,25 +6,24 @@
              <div class="input-group pl-0">
                 <div class="input-group-prepend">
                    <button class="pr-1 decrement-qty btn btn-quantity rounded-0" 
-                      data-item_id="{{ item.item_id }}" id="bag_decrement-qty_mobile_{{ item.item_id }}">
+                      data-item_id="{{ item.item_id }}">
                    <span class="icon-sm plus font-weight-bold mx-auto my-auto">-</span>
                    </button>
                 </div>
                 <input class="form-control qty_input bag-quantity text-gold " type="number"
                    name="quantity" value="{{ item.quantity }}" min="1" max="99"
                    data-item_id="{{ item.item_id }}"
-                   aria-label="bag input update"
-                   id="bag_id_qty_mobile_{{ item.item_id }}">
+                   aria-label="bag input update">
                 <div class="input-group-append">
                    <button class="increment-qty btn btn-quantity rounded-0"
-                      data-item_id="{{ item.item_id }}" id="bag_increment-qty_mobile_{{ item.item_id }}">
+                      data-item_id="{{ item.item_id }}">
                    <span class="icon-sm plus font-weight-bold mx-auto my-auto">+</span>
                    </button>
                 </div>
              </div>
              <div class="row">
                 <div class="col mx-0 px-0">
-                   <input data-item_id="{{ item.item_id }}" id="quantity_butbag_mo_{{ item.item_id }}" 
+                   <input data-item_id="{{ item.item_id }}"
                       aria-label="Update bag input" type="submit" class="upper font-weight-bold bag-update mt-2" value="Update">                                                        
                    {% if item.product.is_sizes %}
                    <input type="hidden" name="product_size" value="{{ item.sizeprice }}">
