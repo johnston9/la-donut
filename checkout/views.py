@@ -61,7 +61,6 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'county': request.POST['county'],
             'country': request.POST['country'],
-            'message': request.POST['message'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -71,6 +70,9 @@ def checkout(request):
             order.stripe_pid = pay_intent_id
             order.shopping_bag = json.dumps(bag)
             order.stripe_pid = pay_intent_id
+            if 'message' in request.POST:
+                message1 = request.POST['message']
+                order.message = message1
             if 'is_card' in request.POST:
                 order.is_card = True
             if 'gift_wrapped' in request.POST:

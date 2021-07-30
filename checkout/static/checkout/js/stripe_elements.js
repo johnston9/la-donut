@@ -53,11 +53,11 @@ form.addEventListener('submit', function(ev) {
     $('#submit-button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
+    var message;
     var saveInfo = Boolean($('#id-save-info').is(":checked"));
     var giftWrapped = Boolean($('#gift_wrapped').is(":checked"));
     var isCard = Boolean($('#is_card').is(":checked"));
     var sliced = Boolean($('#sliced').is(":checked"));
-    var message = 'No message';
     if($('#message').val()) {
         message = $('#message').val();
       } else {
