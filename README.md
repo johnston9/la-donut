@@ -4,7 +4,7 @@
 
 A web application for an online cake shop and patisserie. Primarily, the site allows the shop to display their goods and allows users to browse the goods and purchase them. Users are initially taken to a products page with a side menu from which they can select categories. They are given the option to close this and browse from the navbar where they will find a search option and another product menu.<br>
 <br>
-The user can select an item directly from the main Shop page or on viewing the item on it's own page. On doing so it is added to their bag which they can view at any time giving them the option to update or remove products. From the bag they can simply click to be taken to the checkout page where through Stripe they can complete their transaction.
+The user can select an item directly from the main Shop page or on viewing the item on its own page. On doing so it is added to their bag which they can view at any time giving them the option to update or remove products. From the bag they can simply click to be taken to the checkout page where through Stripe they can complete their transaction.
 <br>
 The user is offered the option to open an account throughout the site and on completion of they purchase order with the incentive of free delivery, free gift presentation and the opportunity to participate in the online chat feature. There is also a recipes page with a latest recipe feature which is displayed upon completing an order and this in turn encourages user to go to the chat page.<br>
 <br>
@@ -100,7 +100,7 @@ For the user, the goal of the site is to easily browse goods or find particular 
 
 The aim of the site is to create an app that establishes the online shop as a reputable purveyor of cakes and pastries of a top of the range quality, to create an online presence and establish it as a brand. It aims to be an enjoyable and simple shopping experience enticing new customers and building a regular, especially business client base.
 
-It aims to create a brand to establish an image in the public eye for the shop, to show it's quality and professionalism. It aims to allow the owner full control over their content and promote their items in the best way. It's elegant bright sophisticate but simple design aims to encourage users to explore it. It's clear navigation and shopping experience encourage retuning customer and it's features, gift presentation and chat encourage user to create an account an become a loyal customer.
+It aims to create a brand to establish an image in the public eye for the shop, to show its quality and professionalism. It aims to allow the owner full control over their content and promote their items in the best way. Its elegant bright sophisticate but simple design aims to encourage users to explore it. It's clear navigation and shopping experience encourage retuning customer and it's features, gift presentation and chat encourage user to create an account an become a loyal customer.
 
 #### Brand Identity
 - Brand promise: Highest quality and most luxurious pastries and desserts available.
@@ -113,7 +113,7 @@ It aims to create a brand to establish an image in the public eye for the shop, 
 The features included in the app at present reflect choices made around the following reflections.
 <br>
 
-What is absolutely necessary for the app to deliver it’s basic marketed functionality?<br>  
+What is absolutely necessary for the app to deliver its basic marketed functionality?<br>  
 
 What is the most enticing user friendly way of doing building these?<br>
 
@@ -131,7 +131,7 @@ The buildable and time frame aspect was vital for the scope of the app and sever
 
 The site is structured so the user can navigate in an intuitive way through the different features and categories of products, all pages keeping a uniformed consistency.<br>
 
-The user is taken on a journey into the site, all elements being discoverable as they proceed along. From finding the different categories of cakes and pastries available to adding them to the shopping bag to checking out. To discovering the advantage of creating  an account and the chat other extras available on doing so. The site aims to, through it's friendly structure, build a relationship with the user.<br>
+The user is taken on a journey into the site, all elements being discoverable as they proceed along. From finding the different categories of cakes and pastries available to adding them to the shopping bag to checking out. To discovering the advantage of creating  an account and the chat other extras available on doing so. The site aims to, through its friendly structure, build a relationship with the user.<br>
 
 The Menu is a key element to the structure. Here the user can feel like they are in a real shop and have a more personal user experience and ease and control over their shopping experience.<br>
 
@@ -198,7 +198,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 </h2>
 
 ### Landing page
- - The landing page image is intended to display a classy elegance. It is slightly coloured and soft focus which becomes softer at larger screens which is suited to it's purpose.
+ - The landing page image is intended to display a classy elegance. It is slightly coloured and soft focus which becomes softer at larger screens which is suited to its purpose.
 
  - A subtle image is used in the logo to add a touch of colour.
 
@@ -243,7 +243,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 ### Allauth Login/Register/Logout Pages and Security
 
-  The user can browse and purchase items on the site but they are encouraged to create an account. They can do this or login or logout easili From My Account in the navbar. There are also a number of other links to register, one being on the Home page, and on doing so the user is brought to the Allauth Register page. Like all other Allauth pages I customised it to give to a personal easy to use friendly feel. Allauth is used throughout the site to look after all security issues concerning users and deals with all other issues like forgetting passwords and email confirmations.<br>
+  The user can browse and purchase items on the site but they are encouraged to create an account. They can do this or login or logout easily from My Account in the navbar. There are also a number of other links to register, one being on the Home page, and on doing so the user is brought to the Allauth Register page. Like all other Allauth pages I customised it to give to a personal easy to use friendly feel. Allauth is used throughout the site to look after all security issues concerning users and deals with all other issues like forgetting passwords and email confirmations.<br>
   See [Allauth](documentation/allauth) for all Allauth images and testing images.
 
   The site has a number of other security measures firstly the use of front end measures to allow admin access only to admin. Then in the backend the use of @login_required for pages only for authenticated users and a redirect if the user is not a superuser for admin only functions.
@@ -280,8 +280,8 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 ### Superuser Features
 
-  As discussed above in "Security Measures" defensive programming will only allow access to the admin features if user is a superuser user and this is implemented both in the front-end and back-end. The superuser/owner can upload products and recipes and edit and delete them as well. They can delete a user from admin also. When they go to the chat page a check box displays for them only and on checking it will add is_shop to the chat object which is interpretted in the template to render a certain style to let the users know that message is from the shop.<br>
-  See [Owner/Admin User Goals](#owner/Admin-user-goals) for more.
+  As discussed above in "Security Measures" defensive programming will only allow access to the admin features if user is a superuser user and this is implemented both in the front-end and back-end. The superuser/owner can upload products and recipes and edit and delete them as well. They can delete a user from admin also. When they go to the chat page a check box displays for them only and on checking it will add is_shop to the chat object which is interpreted in the template to render a certain style to let the users know that message is from the shop.<br>
+  See [Owner/Admin User Goals](#owner-admin-user-goals-1) for more.
 
 <p align="center"><strong>Admin Features on the Shop Page</strong></p>
 <h2 align="center">
@@ -290,13 +290,13 @@ making the user feel both at home here and part of an interesting journey. Detai
 
 
 ### Optimum Image Showcase
-The site is designed for the owner to show their products and I believed it good practice to give then a little instruction to help then intuititively learn how it is best to do this. The site uses responsive design to display the products and this is ideal however it does need a little management on the owners behalf for them to make best use of the feature. <br>
+The site is designed for the owner to show their products and I believed it good practice to give then a little instruction to help then intuitively learn how it is best to do this. The site uses responsive design to display the products and this is ideal however it does need a little management on the owners behalf for them to make best use of the feature. <br>
 
 If the owner was to upload all images at the same aspect ratio this would not be an issue but even so they would still need to understand this and arrange for all images to be of that size and that no one ever upload one of a different size. So to safeguard against different size images I set specific heights for the images at different screen sizes. This would keep the rows uniformed.<br>
 
-I also gave instructions to the owner when they first arrive on the upload product page. They inform the user that a aspect ratio of 3:2 to best for all images and there is then a link to img-resize where they can resize an image if necessary. There is a further link to instructions on how best to actually do this. <br>
+I also gave instructions to the owner when they first arrive on the upload product page. They inform the user that an aspect ratio of 3:2 to best for all images and there is then a link to img-resize where they can resize an image if necessary. There is a further link to instructions on how best to actually do this. <br>
 
-These instructions along with the practice of uploading the images should help the owner intuitivly learn how to manage the site and give them a good feeling of their capabilities over it and how to best showcase their products. 
+These instructions along with the practice of uploading the images should help the owner intuitively learn how to manage the site and give them a good feeling of their capabilities over it and how to best showcase their products. 
 
 <p align="center"><strong>Resize Instructions</strong></p>
 
@@ -308,11 +308,11 @@ These instructions along with the practice of uploading the images should help t
 
 ### Size and Box Quantity Prices
 
-The owner is given the option to add size or box quantity prices to an item when they upload it. They simply check the box for which one they want. Upon submit they are automatically taken to the size or box quantity (which I have called the "Forsix" ) form to add the prices for that product. On the shop page and also on the view item page these price are displayed in radio boxes so that specif size or forsix and it's coinciding price can be added to the bag. This process called for a lot for precise code throughout the site as the boolean is_sizes or is_for_six and the particular size or forsix and it's price were needed at a number of places.
+The owner is given the option to add size or box quantity prices to an item when they upload it. They simply check the box for which one they want. Upon submit they are automatically taken to the size or box quantity (which I have called the "Forsix" ) form to add the prices for that product. On the shop page and also on the view item page these price are displayed in radio boxes so that specific size or forsix and its coinciding price can be added to the bag. This process called for a lot for precise code throughout the site as the Boolean is_sizes or is_for_six and the particular size or forsix and its price were needed at a number of places.
 
 ##### The forsix/size journey
 
- 1. The owner selects is_sizes or is_for_six when uploading a product. A check is in place in the view to prevent a user selecting both. On submit a signal creates a Size and Forsix model object for that product. This is a safety measure to ensure products have a Size or Forsix model related to it or it would cause problems when Django goes to find the prices for that product were it not there. Further saftey measures are in the template if for some reason the Size or Forsix model was not found in the view.
+ 1. The owner selects is_sizes or is_for_six when uploading a product. A check is in place in the view to prevent a user selecting both. On submit a signal creates a Size and Forsix model object for that product. This is a safety measure to ensure products have a Size or Forsix model related to it or it would cause problems when Django goes to find the prices for that product were it not there. Further safety measures are in the template if for some reason the Size or Forsix model was not found in the view.
 
  <p align="center"><strong>Safety Check Against Both Being Checked</strong></p>
 
@@ -322,8 +322,8 @@ The owner is given the option to add size or box quantity prices to an item when
 
  2. The owner inputs the size of forsix prices.
 
- 3. The user selects a product and it's id is added to the bag with either<br>
-    'items_with_size' or 'items_with_forsix' as a key in it's value<br>
+ 3. The user selects a product and its id is added to the bag with either<br>
+    'items_with_size' or 'items_with_forsix' as a key in its value<br>
     which has in turn as a value the items size or forsix attached to it's price<br>
     and it's quantity.
   
@@ -393,19 +393,19 @@ See Further Testing [Testing Webhook Create Order](#testing-webhook-create-order
 ## Future Features
 
 ### Social Account Login
-This Allauth function allows users to sign up and log in using an existing third party account such as Google and Facebook. This would make encouraging users to sign up easier as they are just a click away and don't have to do any more. For the site owners apart from having more user sign ups this opens up hugh areas in terms of information and marketing.
+This Allauth function allows users to sign up and log in using an existing third party account such as Google and Facebook. This would make encouraging users to sign up easier as they are just a click away and don't have to do any more. For the site owners apart from having more users sign ups this opens up huge areas in terms of information and marketing.
 
 ### Social Media Share Icons
-In terms of brand awareness through social media social media share icons would be most advantagous.
+In terms of brand awareness through social media social media share icons would be most advantageous.
 
 
 ## Information Architecture
 
 - Development 
-**SQLight** was used during development and comes with Django. 
+**SQLite3** was used during development and comes with Django. 
 
 - Deployment 
-**PostgreSQL** is used for deployment, and was added as an add-on with Heroku.
+**Postgres** is used for deployment, and was added as an add-on with Heroku.
 
 ### Database structure - Model Tables by App
 
@@ -475,10 +475,10 @@ In terms of brand awareness through social media social media share icons would 
      the "Navbar", and "DataTables" were used in the site.
 1. [Django:](https://www.djangoproject.com/)
    - Django the high-level Python Web framework was used to build the app.
-1. [SQLight:](https://www.sqlite.org/index.html)
+1. [SQLite3:](https://www.sqlite.org/index.html)
    - SQLight came with Django and was used as the database for development.
-1. [PostgreSQL:](https://www.postgresql.org/)
-   - PostgreSQL was added with Heroku and was used as the database for production.
+1. [Postgres:](https://www.heroku.com/postgres)
+   - Postgres was added with Heroku and was used as the database for production.
 1. [AWS S3:](https://aws.amazon.com/)
    - AWS was used to hold the static and media files.
 1. [PIP3](https://pip.pypa.io/en/stable/installing/)
@@ -500,7 +500,7 @@ In terms of brand awareness through social media social media share icons would 
 1. [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
    - Django Crispy Forms were uses throughout the site to style the forms.
 1. [Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
-   - Django Allauth was used for all user functions, eg. login.
+   - Django Allauth was used for all user functions, e.g. login.
 1. [Gauger](https://gauger.io/fonticon/)
    - Gauger was used to create the favicon icon.
 1. [Am-I-Responsive](http://ami.responsivedesign.is/):
@@ -511,8 +511,8 @@ In terms of brand awareness through social media social media share icons would 
    - dbdiagram.io was used to create the Entity-Relationship Diagram.
 1. [Stripe](https://stripe.com/en-ie)
    - Stripe was used to handle the payments.
-1. [gmail](https://www.google.com/gmail/)
-   - gmail was used for the email backend.
+1. [Gmail](https://www.google.com/gmail/)
+   - Gmail was used for the email backend.
 
 A number of imports were used in Django and an inventory of these can be found in the Deployment section.
 
@@ -521,27 +521,29 @@ A number of imports were used in Django and an inventory of these can be found i
 ## Testing
 In case there may be any confusion the main Django app for the site is called silverDollar.
 
-All functionality was tested as it was being built to ensure there were no errors, that it did what it was meant to do and that all database errors were handled corrrectly. 
+All functionality was tested as it was being built to ensure there were no errors, that it did what it was meant to do and that all database errors were handled correctly. 
 
 Pylint was also used in the workspace as the project was being built for Python and Django code and all errors were fixed on an ongoing process. 
 
 On completion all functionality was tested for User's Stories. The Bag, Checkout, Stripe and webhook functionality were tested more. Where necessary some functionality was tested in Further Testing. All pages were checked in Lighthouse. All errors were documented and fixed.
 
-W3C Markup Validator was used on every page and screenshots are in the documentation to cover this although they just capture the head fot the result page. Obviously they all contained errors because of the template language use but apart from that they were clear.
+W3C Markup Validator was used on every page and screenshots are in the documentation to cover this although they just capture the top the result page. Obviously they all contained errors because of the template language use but apart from that they were clear.
 
 W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in the project, the results are in documentation.
 
-- [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut/documentation/html-w3)
-  - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. On validated by URL no errors were shown - documentation/w3c-by-url.
+- [W3C Markup Validator](https://validator.w3.org/) 
+  - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. [Results](documentation/html-w3)
+  
+  - On validated by URL no errors were shown - [Result](documentation/w3-by-url)
 
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnston9/la-donut/documentation/css-w3c/)
-  - W3C CSS Validator gave no errors and only a warning in checkout.css for the webkit-transition an unknown vendor extension but I left it as it was part of Stripe and 3 warnings in base.css for background color being the same as color but this was intentional.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
+  - W3C CSS Validator gave no errors and only a warning in checkout.css for the webkit-transition an unknown vendor extension but I left it as it was part of Stripe and 3 warnings in base.css for background color being the same as color but this was intentional. [Results](documentation/css-w3c)
 
-- [JSHint](https://jshint.com/) - [Results](https://github.com/johnston9/la-donut/documentation/JSHint/)
-  - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu. The only warning was that the Stripe variable was not defined before it was used but this code is in keeping with the Stripe Docs.
+- [JSHint](https://jshint.com/) 
+  - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu. The only warning was that the Stripe variable was not defined before it was used but this code is in keeping with the Stripe Docs. [Results](documentation/JSHint)
     
-- [PEP8 online check](http://pep8online.com/) - [Results](https://github.com/johnston9/la-donut/documentation/PEP8/)
-  - PEP8 approved all python pages apart from a few too long lines in the webhook_handler, webhook.py which I decided to leave.
+- [PEP8 online check](http://pep8online.com/) 
+  - PEP8 approved all python pages apart from a few too long lines in the webhook_handler, webhook.py which I decided to leave. [Results](documentation/PEP8/)
 
 
 [Back to Table of Content](#table-of-content)
@@ -575,7 +577,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 3. #### As a First Time User, I want to search for a specific product, know if it's available or not and see how many results there are for the search.
 
-    - At the top of all pages is a search bar where the user can search for specific items. The number of results is displayed above the results or a message sating there were no results if that is the case.
+    - At the top of all pages is a search bar where the user can search for specific items. The number of results is displayed above the results or a message saying there were no results if that is the case.
 
 <p align="center"><strong>Search Input</strong></p>   
 <h2 align="center">
@@ -614,7 +616,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 6. #### As a First Time User, I want to know what I have added to my shopping bag, make updates or remove items and see the total.
 
-    - Upon the adding of an item to the shopping bad a success message shows with a preview of all bag items and total and a link to the actual bag. The users total, updated on every transaction is displayed at the top of every page with a link to the bag. on going to the bag the user can see all their items and total and update select item quantities or remove the item entirely. A confirm alert displays if a user clicks Remove.
+    - Upon the adding of an item to the shopping bad a success message shows with a preview of all bag items and total and a link to the actual bag. The users total, updated on every transaction is displayed at the top of every page with a link to the bag. On going to the bag the user can see all their items and total and update select item quantities or remove the item entirely. A confirm alert displays if a user clicks Remove.
 
 <p align="center"><strong>Add item Success Message</p>   
 <h2 align="center">
@@ -640,11 +642,11 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 7. #### As a First Time User, I want to purchase specific products quickly without having to sign up.
 
-    - All users can purchase items without having to sign up. The user can make a quick selection of any item and the size or box quantity they want right from the shop page without having to go to the view item page. This is also intended for regular users who know what the want and want to select items quickly. See prices image above.
+    - All users can purchase items without having to sign up. The user can make a quick selection of any item and the size or box quantity they want right from the shop page without having to go to the view item page. This is also intended for regular users who know what they want and want to select items quickly. See prices image above.
 
 8. #### As a First Time User, I want to register easily.
 
-    - The user will be given the option to sign up from the landing page, when they go to checkout and anytime in the My Account nav link. On clicking they will be take to the Register Page and only have to enter a username, email and password to sign up. The Registration page as with all Allauth page has been customised for greater user experience.<br>
+    - The user will be given the option to sign up from the landing page, when they go to checkout and anytime in the My Account nav link. On clicking they will be taken to the Register Page and only have to enter a username, email and password to sign up. The Registration page as with all Allauth page has been customised for greater user experience.<br>
     See [Allauth](documentation/allauth) for all Allauth images.
 
 <p align="center"><strong>My Account Nav Link</strong></p>   
@@ -674,7 +676,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 2. #### As a Returning User, I want to view or update my profile.
 
-    - On clicking on the profile nav link in My Account the user is taken to their Profile Page where they can update their Primary Delivery Address and recieve a success message on doing so. This info is preset as the Delivery address when they checkout.
+    - On clicking on the profile nav link in My Account the user is taken to their Profile Page where they can update their Primary Delivery Address and receive a success message on doing so. This info is preset as the Delivery address when they checkout.
 
 <p align="center"><strong>Profile Page</strong></p>
 <h2 align="center">
@@ -690,9 +692,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 3. #### As a Returning User, I want to see products ratings and reviews.
 
-    - The product average customer rating is displayed for each item on the shop and view item pages. On the view item page the user will see a link to the item's reviews and another link to add a review if the user is authenticated or sign up to add a review if not. On the add review page the user can rate the product and this is displayed in stars on their review and also used to calculate the average rating. A customised Bootstrap paginated table is used to hold the reviews which includes a search function which I figured out from the Bootstrap4 docs.<br>
-    
-    [DataTables](https://datatables.net/examples/styling/bootstrap4)
+    - The product average customer rating is displayed for each item on the shop and view item pages. On the view item page the user will see a link to the item's reviews and another link to add a review if the user is authenticated or sign up to add a review if not. On the add review page the user can rate the product and this is displayed in stars on their review and also used to calculate the average rating. A customised Bootstrap paginated table is used to hold the reviews which includes a search function which I figured out from the Bootstrap4 docs. [DataTables](https://datatables.net/examples/styling/bootstrap4)
 
 <p align="center"><strong>Review Page</strong></p>
 <h2 align="center">
@@ -715,7 +715,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 1. #### As a Frequent User, I want to view my order history and payment details.
 
-   - When the user goes to their Profile they will find their order history there. On clicking on an order they will be taken to the checkout complete message recieved for that order.
+   - When the user goes to their Profile they will find their order history there. On clicking on an order they will be taken to the checkout complete message received  for that order.
   
 <p align="center"><strong>Order History</strong></p>
 <h2 align="center">
@@ -754,7 +754,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 1. #### As the Owner/Admin User I want to upload new products.
 
-   - As a superuser the owner can easily click on the Add Product link in their My Account link in the nav which will take them to the Add Product page. There they will first see an instructions button and be asked to read them. Upon clicking it the instructions will open. They can keep it closed or refer to it as thet familiarize themselves with the upload process. The instructions go into great detail about the uploading images process as this is paramont to the site being used to it's greatest advantage. <br>
+   - As a superuser the owner can easily click on the Add Product link in their My Account link in the nav which will take them to the Add Product page. There they will first see an instructions button and be asked to read them. Upon clicking it the instructions will open. They can keep it closed or refer to it as they familiarize themselves with the upload process. The instructions go into great detail about the uploading images process as this is paramount to the site being used to its greatest advantage. <br>
    See [Existing Features - Optimum Image Showcase](#optimum-image-showcase) above for more on this.
    The instructions also inform the user about how to add size or box quantity prices to each product.<br>
    See [Existing Features - Size and Box Quantity Prices](#size-and-box-quantity-prices) above for more on this.
@@ -805,7 +805,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 3. #### As the Owner/Admin User I want to edit product prices.
 
-   - As a superuser the owner can easily update a product's webprice in the Edit product page if that item does not have size or forsix prices. If it does thet can click on the Edit Prices link under each Product in the View Item page which will take them to the Edit Size Prices or Edit Forsix Prices pages. On doing so a success message will display.
+   - As a superuser the owner can easily update a product's webprice in the Edit product page if that item does not have size or forsix prices. If it does they can click on the Edit Prices link under each Product in the View Item page which will take them to the Edit Size Prices or Edit Forsix Prices pages. On doing so a success message will display.
 
 <p align="center"><strong>Edit Prices Info message</strong></p>       
 <h2 align="center">
@@ -821,7 +821,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 4. #### As the Owner/Admin User I want to edit images.
 
-   - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can update a product image. The same applies for Recipe images. On doing so a success message will display. The image field was customize using the code from Boutique Ado which I just tweeked a bit and add a second widgets.py and clearable_file_input.html to the Recipe app.
+   - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can update a product image. The same applies for Recipe images. On doing so a success message will display. The image field was customize using the code from Boutique Ado which I just tweaked a bit and add a second widgets.py and clearable_file_input.html to the Recipe app.
 
 <p align="center"><strong>Delete Image Alert</strong></p>      
 <h2 align="center">
@@ -830,7 +830,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 5. #### As the Owner/Admin User I want to delete images and products.
 
-   - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can delete a product image. The same applies for Recipe images. On doing so a success message will display. If a user checks the delete image box a js alert displays to warn them. To delete a product the owner can easily click on the Delete link under each Product in the Shop and View Item pages. This time a confirm alert will display to ask if they are sure they want to delet it.
+   - As a superuser the owner can easily click on the Edit Product link under each Product in the View Item page which will take them to the Edit Product page where they can delete a product image. The same applies for Recipe images. On doing so a success message will display. If a user checks the delete image box a JavaScript alert displays to warn them. To delete a product the owner can easily click on the Delete link under each Product in the Shop and View Item pages. This time a confirm alert will display to ask if they are sure they want to delet it.
 
 <p align="center"><strong>Delete Product Alert</strong></p>      
 <h2 align="center">
@@ -866,7 +866,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 8. #### As the Owner/Admin User I want to post or respond on chat to users questions.
 
-   - The superuser can click on Chat as a normal user and check messages then add replies.On the Chat page an is_shop checkbox will display for them. When they check it their message will be styled differently to that of normal users and be given "La Donut Reply" in from of the name.
+   - The superuser can click on Chat as a normal user and check messages then add replies. On the Chat page an is_shop checkbox will display for them. When they check it their message will be styled differently to that of normal users and have "La Donut Reply" in front of their name.
 
 <p align="center"><strong>Superuser's Chat Page</strong></p>      
 <h2 align="center">
@@ -875,7 +875,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 
 9. #### As the Owner/Admin User I want control over material posted on the site for legal and other purposes.
 
-   - The user has the ability to delete any comment or review as a "Delete" link will display for each message for them. On clicking it they will first recieve a confirm alert. After clicking OK they will recieve a success info message.
+   - The user has the ability to delete any comment or review as a "Delete" link will display for each message for them. On clicking it they will first receive a confirm alert. After clicking OK they will receive a success info message.
 
 <p align="center"><strong>Chat Page Admin Delete Buttons</strong></p>      
 <h2 align="center">
@@ -930,12 +930,6 @@ Tested successfully for order with the gift boxes unchecked and the message box 
 <img src="documentation/readme-images/met22.png" width="90%">
 </h2>
 
-<p align="center"><strong>Response confirming the webhook did create the order</strong></p>
-
-<h2 align="center">
-<img src="documentation/readme-images/web-res2.png" width="90%">
-</h2>
-
 ### Testing Stripe Card and Details Input Errors
 
 If incorrect details or there are required boxes not filled in an error message will display.
@@ -958,7 +952,7 @@ If incorrect details or there are required boxes not filled in an error message 
 The testing method for Two-step authentication was used and it proved successfully.<br>
 The card number for this is 4000 0000 0000 3220.
 
-<p align="center"><strong>First Fail was Selected then Complet</strong></p>
+<p align="center"><strong>First Fail was Selected then Complete</strong></p>
 
 <h2 align="center">
 <img src="documentation/readme-images/tstep1.png" width="90%">
@@ -1011,7 +1005,7 @@ Lighthouse was used to test every page on desktop and mobile screens.
 
 ### Best Practices
 
-The Bootatrap Data tables caused a Same site cookies dev issue on the View Item and Chat pages where they were used. I rearched this issue and and brought it the Code Institute tutor team. 
+The Bootstrap Data tables caused a Same site cookies dev issue on the View Item and Chat pages where they were used. I researched this issue and brought it the Code Institute tutor team. 
 
 <p align="center"><strong>Same site cookies issue</strong></p>
 <h2 align="center">
@@ -1035,7 +1029,7 @@ The Bootatrap Data tables caused a Same site cookies dev issue on the View Item 
 
 ### Outcome of Issues
 
-These issues were brought to the attention of the Code Institute tutor team and it was concidered not to be anything to bother about. One tutor said he did not get most of those issues when he ran the app on his device and actually got a very good score all round.
+These issues were brought to the attention of the Code Institute tutor team and it was considered not to be anything to bother about. One tutor said he did not get most of those issues when he ran the app on his device and actually got a very good score all round.
 
 <p align="center"><strong>Tutor's Lighthouse Report</strong></p>
 <h2 align="center">
@@ -1046,7 +1040,7 @@ These issues were brought to the attention of the Code Institute tutor team and 
 
 ### Issues Resolved
 
-1. On the Bag Page Lighthouse gave a note that the ids were not unique for the quantity button and the quantity accend and decen button and the input box. I really couldn't find any issue no matter how hard I looked then I realized that there were two bags one for mobile one for decktop on the same page. I changed the ids in one but as this was an includes file it kind of made that redundant as it could only be used one on a page.
+1. On the Bag Page Lighthouse gave a note that the ids were not unique for the quantity button and the decrement-qty and increment-qty buttons and the input box. I really couldn't find any issue no matter how hard I looked then I realized that there were two bags one for mobile one for desktop on the same page. I changed the ids in one but as this was an includes file it kind of made that redundant as it could only be used one on a page.
 
 
 ### Home Page
@@ -1072,7 +1066,7 @@ Lighthouse gave a 'Heading elements are not in a sequentially-descending order' 
 <img src="documentation/lighthouse-images/l-men.png" width="90%">
 </h2>
 
-On the Shop and View Item Pages for mobile Lighthouse gave a 'Tap targets are not sized appropriately' note for the radio buttons on the item's 'size' or 'forsix' selection. I tried to add padding and extra margin to them but despite using the exact element code from dev tools css I could not change them. I had got a warning about Tap targets for the footer icons and was able to fix this with padding.
+On the Shop and View Item Pages for mobile Lighthouse gave a 'Tap targets are not sized appropriately' note for the radio buttons on the item's 'size' or 'forsix' selection. I tried to add padding and extra margin to them but despite using the exact element code from dev tools CSS I could not change them. I had got a warning about Tap targets for the footer icons and was able to fix this with padding.
 
 <p align="center"><strong>Mobile Tap Targets</strong></p>
 <h2 align="center">
@@ -1088,7 +1082,7 @@ On the Shop and View Item Pages for mobile Lighthouse gave a 'Tap targets are no
 
 ### View Item Page
 
-Lighthouse gave a 'Serves images with low resolution' note for Best Practices. The Desktop size for the image is 656 x 437 but the image is 450 x 300. All my images are this size as for best 'Owner User Experience' they shold only have to upload one image per product. I have instructed them that 450 by 300 is best. This I felt was a happy medium for all sizings and is only affecting the desktop view on the 'View Item page' slightly and still is close to the smallest view on large desktop 'Shop page'.
+Lighthouse gave a 'Serves images with low resolution' note for Best Practices. The Desktop size for the image is 656 x 437 but the image is 450 x 300. All my images are this size as for best 'Owner User Experience' they should only have to upload one image per product. I have instructed them that 450 by 300 is best. This I felt was a happy medium for all sizings and is only affecting the desktop view on the 'View Item page' slightly and still is close to the smallest view on large desktop 'Shop page'.
 
 This issue and the same site cookies issue were the cause of the lower Beat Practices score.
 
@@ -1124,14 +1118,14 @@ This issue and the same site cookies issue were the cause of the lower Beat Prac
 
 ### Checkout Page
 
-Lighthouse gave an Accessability note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different. It's still lighter than the actual input text. I was prepared to change the rest but the did not flag error so I let it be. 
+Lighthouse gave an Accessibility note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different. It's still lighter than the actual input text. I was prepared to change the rest but they did not flag error so I let it be. 
 
 <p align="center"><strong>Checkout Country Field Page</strong></p>
 <h2 align="center">
 <img src="documentation/lighthouse-images/l-cont.png" width="90%">
 </h2>
 
-Lighthouse gave another Accessability note '[aria-hidden="true"] elements contain focusable descendents' for the Stripe element card box but I left that.
+Lighthouse gave another Accessibility note '[aria-hidden="true"] elements contain focusable descendents' for the Stripe element card box but I left that.
 
 <p align="center"><strong>Stripe element</strong></p>
 <h2 align="center">
@@ -1164,7 +1158,7 @@ Lighthouse gave another Accessability note '[aria-hidden="true"] elements contai
 
 ### Profile Page
 
-Lighthouse also gave an Accessability note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different.  
+Lighthouse also gave an Accessibility note 'Background and foreground colors do not have a sufficient contrast ratio' for the Country input field placeholder. It did not give one for any of the other placeholders which were the same light colour. I changed the Country placeholder to an acceptable one even though it is slightly darker than the others but as it's a select box as opposed to the others it can get away with being different.  
 
 <p align="center"><strong>Desktop</strong></p>
 <h2 align="center">
@@ -1275,7 +1269,7 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 
 <p align="center"><strong>Mobile</strong></p>
 <h2 align="center">
-<img src="documentation/lighthouse-images/l-srepmo.png" width="90%">
+<img src="documentation/lighthouse-images/l-srep-mo.png" width="90%">
 </h2>
 
 [Back to Table of Content](#table-of-content)
@@ -1339,13 +1333,31 @@ Lighthouse gave a 'Serves images with low resolution' note for Best Practices on
 
 [Back to Table of Content](#table-of-content)
 
+## Bugs 
+
+### Nav links
+The only major issue with the site is with the recipe and chat links in the nav. Sometimes when a user first opens the site they are unresponsive but after any action, hitting enter or any other link they work.
+
+I researched the problem on the web and redid they code a number of times but could not find a solution. I brought the issue to the tutors but they were equally at a loss. It does not happen every time which makes it even more curious.
+
+I will try to figure out the problem if the site is to go further.
+
+
+### Heroku Logs
+I noticed an "Invalid block token" warning sometimes in Heroku logs for something in Django templates base.py line 531 but there were no actual problems with the site always deploying and behaving successfully.
+
+<p align="center"><strong>Heroku Logs</strong></p>      
+<h2 align="center">
+<img src="documentation/readme-images/heroku-logs.png" width="90%">
+</h2>
+
 ## Bugs Fixed
 
 ### Metadata
  - The adding of the metadata to the intent caused a few bugs which were dealt with. The intended process was:
  1. stripe_elements.js checks to see if the is_saved, giftwrapped, is_card checkboxes are checked or not and get the value from the message input box.
  2. stripe_elements.js sends this data, along with some other data to the extra_checkout_info view where it is added to the intent metadata. 
- 3. The handle_payment_intent_succeeded function retreives this data and uses it to add to the Order.
+ 3. The handle_payment_intent_succeeded function retrieves this data and uses it to add to the Order.
  
  Metadata Bug 1;<br>
 
@@ -1398,19 +1410,7 @@ At a later stage in the project I altered the recipe model and migrated it to Po
 ### Shopping Bag ids
 I ran into a Lighthouse error for similar ids for bag items on the increment and decrement buttons and the imput box. I couldn't see it at first then I realised there were two as there were to bags, one for mobile and one for desktop. The ids are set using a specific word related to the element and the item id. I just changed one set of ids and all was good.
 
-Until..there was an item in the bag more that once as it had different sizes and Lighthouse showed another similar ids error. I could have added the items size as well to the id but then I would have had to do an if/elif/else statement for size and it just was a bit to much for this issue as this value is never used. 
-
-I had needed the ids for the deleted input by accident alert I was so proud of making but I was not working properly in the bad unlike the View Item page.....so I just removed the ids.
-
-## Bugs Ongoing
-
-### Heroku Logs
-I noticed an "Invalid block token" warning sometimes in Heroku logs for something in Django templates base.py line 531 but there were no actual problems with the site always deploying and behaving successfully.
-
-<p align="center"><strong>Heroku Logs</strong></p>      
-<h2 align="center">
-<img src="documentation/readme-images/heroku-logs.png" width="90%">
-</h2>
+Until..there was an item in the bag more that once as it had different sizes and Lighthouse showed another similar ids error. I could have added the items size as well to the id but then I would have had to do an if/elif/else statement for size but I just removed the ids.
 
 ## Deployment
 
@@ -1484,7 +1484,7 @@ Some files containing sensitive variables will not have been pushed to Github so
 ### Create a env.py file 
 - Type touch env.py in the terminal.
   Generate a SECRET_KEY for Django, [Djecrety](https://djecrety.ir/) is one option of where to do this.
-  In env.py set the Djanog and Stripe environment variables and keys needed during development.
+  In env.py set the Django and Stripe environment variables and keys needed during development.
   These will later be set in Heroku.
 
 
@@ -1502,7 +1502,7 @@ os.environ["DEVELOPMENT"] = "True"
 
 ### Create a Superuser
 1. python3 manage.py createsuperuser 
-2. Create and confirm email manually. Login as superuser and click the email model. Click add email address on the right. Click search. Click and select the username. Enter an email. And select both verified and primary to convince allauth that we verified the email.
+2. Create and confirm email manually. Login as superuser and click the email model. Click add email address on the right. Click search. Click and select the username. Enter an email. And select both verified and primary to convince Allauth that we verified the email.
 
 ### Change Name
 In admin click sites and change the domain and display name of the site to one of you own.
@@ -1550,7 +1550,7 @@ Heroku was used to deploy the project.
    Just use the free plan if you want.
 
 ### In yourTerminal 
-Install [gnicorn](https://gunicorn.org/) a Python WSGI HTTP Server for UNIX. 
+Install [Gunicorn](https://gunicorn.org/) a Python WSGI HTTP Server for UNIX. 
 
 Install [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) a popular PostgreSQL database adapter for the Python programming language.
 
@@ -1564,7 +1564,7 @@ Install [dj_database_url](https://pypi.org/project/dj-database-url/) which allow
 [Back to Table of Content](#table-of-content)
 
 ### Procfile
-If it isn't already created create a Procfile to tell Heroku to create a web dyno which will run unicorn and serve our django app. In it put
+If it isn't already created create a Procfile to tell Heroku to create a web dyno which will run unicorn and serve our Django app. In it put
 
 web: gunicorn silverDollar.wsgi:application 
 
@@ -1574,7 +1574,7 @@ web: gunicorn silverDollar.wsgi:application
 In settings temporarily comment out the default configuration and replace with a call to dj_database_url.parse with your Postrgres URL, which you can get from your config variables on Heroku, to migrate the datbase on Heroku.
 ```
   DATABASES = {     
-        'default': dj_database_url.parse("<Your Postrgres Database URL>")     
+        'default': dj_database_url.parse("<Your Postgres Database URL>")     
    }
 ```
 
@@ -1592,7 +1592,7 @@ Or upload your own data.
 [Back to Table of Content](#table-of-content)
 
 ### Settings.py
-Delete the the recently add call to Postgres with the URL.
+Delete the recently add call to Postgres with the URL.
 ! Important. Never reveal this or push it to Github.
 
 Replace the database setting with an if statement to tell Django which database to use depending on whether in development or in deployment.
@@ -1638,13 +1638,13 @@ Update the settings.py with the new Stripe environment variables and email setti
 ### Terminal
 1. Git add, commit and push.
 2. heroku git:remote -a xxx<br>
-   Create a Heroku remote. (xxx) being your heroku app name.
+   Create a Heroku remote. (xxx) being your Heroku app name.
 3. git push heroku master<br>
    Push to your Heroku remote.
 
-### Heroku - set automatic deploy when push to github
-So every time we push to github our code will automatically be deployed to Heroku.
-1. click deploy tab set it to connect to github.
+### Heroku - set automatic deploy when push to Github
+So every time we push to Github our code will automatically be deployed to Heroku.
+1. click deploy tab set it to connect to Github.
 2. Search for my repository.
 3. click connect.
 4. click enable automatic deploys.
@@ -1670,11 +1670,11 @@ os.environ["DEVELOPMENT"] = "True"
 
 
 ### Heroku
-In the heroku dashboard  
+In the Heroku dashboard  
 click Setting 
 click Reveal Config Vars and set the values as follows:
 Generate a new Django SECRET_KEY for Heroku.
-(set the AWS and emaail values after you have generated them in the next steps)
+(set the AWS and email values after you have generated them in the next steps)
 
 | Key | Value |
 | ----------- | ----------- |
@@ -1712,7 +1712,7 @@ Amazon Web Service was used to host the static and media files for the project.
 
 1. Create an AWS account.
 2. Go to AWS management console.
-3. Go to s3 s3 and create a new bucket which will be used to store our files.
+3. Go to s3 and create a new bucket which will be used to store our files.
 4. You can call it to match your Heroku app name.
 5. select a region select the one closest to you.
 6. Uncheck block all public access.
@@ -1747,7 +1747,7 @@ Amazon Web Service was used to host the static and media files for the project.
 5. click generate policy.
 6. copy this policy into the bucket policy editor.
 7. Replace the xxx in Resource with your ARN
-9. Add a slash star at end of the Arm in "Resourse" and click Save.
+9. Add a slash star at end of the Arm in "Resource" and click Save.
 
 
 ```
@@ -1857,7 +1857,7 @@ if 'USE_AWS' in os.environ:
 ### Media
 All images uploaded to the app through the Add Product, Edit Product, Add Recipe or Edit Recipe will automatically got to the Media Folder in The Static folder in AWS.
 
-If you used load db.json to add data to your app you will need to remove the now unavailabe images and add new images.
+If you used load db.json to add data to your app you will need to remove the now unavailable images and add new images.
 
 ### Emails
 Gmail's SMTP server was used to handle the emails. 
@@ -1867,7 +1867,7 @@ Gmail's SMTP server was used to handle the emails.
 4. Select device click other and type in a name. 
 5. You'll get a 16 character password'
 7. Put that in Heroku config vars - EMAIL_HOST_PASS. 
-8. Add your gmail account to EMAIL_HOST_USER.
+8. Add your Gmail account to EMAIL_HOST_USER.
  
 
 [Back to Table of Content](#table-of-content)
@@ -1876,33 +1876,33 @@ Gmail's SMTP server was used to handle the emails.
 
 ### Code
 
-- [Code Institue](https://codeinstitute.net/)
-  I learnt how to build the app from the Code Institue course material.
+- [Code Institute](https://codeinstitute.net/)
+  I learnt how to build the app from the Code Institute course material.
 - [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/)
-  The basic set up and Django configuration for the app is based on The Boutique Ado project from the Code Institute course material. In particular the Products, Bag, Checkout, Stripe and Webhooks functionality are customised or adapted or in segments.taken straight from the project. But for the most part every one of these has been adapted for this project and also in many places very much customised.
+  The basic set up and Django configuration for the app is based on The Boutique Ado project from the Code Institute course material. In particular the Products, Bag, Checkout, Stripe and Webhooks functionality are customised from the project and some segments have been taken straight from it. But for the most part every one of these has been adapted for this project and also in many places very much customised.
 - [Django Docs](https://docs.djangoproject.com/en/3.2/)
-  I refered to these throughout the project.
+  I referred to these throughout the project.
 - [Data Tables](https://datatables.net/examples/styling/bootstrap4)
-  Here I followed the docs on how to set up datatables for the Chat page and for Recepes which included pagination.
+  Here I followed the docs on how to set up datatables for the Chat and for Recipe pages which included pagination.
 - [Slack](code-institute-room.slack.com)
   Here I found the Get Average Rating function, thanks to ckz8780.
 - [stackoverflow.com]()
-  I refered to stackoverflow to check out different approaches to different issues. It was here I also found the solution to my migrate to Postres solution mentioned in Bugs Fixed.
+  I referred to stackoverflow to check out different approaches to different issues. It was here I also found the solution to my migrate to Postgres solution mentioned in Bugs Fixed.
 - [w3schools.com]()
-  I refered to W3 often for code examples like the toggleClass function used a number of times in the site.
+  I referred to W3 often for code examples like the toggleClass function used a number of times in the site.
 - [developer.snapappointments](https://developer.snapappointments.com/bootstrap-select/methods/) 
   Here I learnt how to refresh a select menu but I experimented around and figured out a different one.
 ### Content
 
-All content was written by the developer apart from the recipes which were obtained from [Supervalue](https://supervalu.ie/real-food/recipes/tiramisu?ref=meal_planner).
+All content was written by the developer apart from the recipes which were obtained from [Supervalu](https://supervalu.ie/real-food/recipes/tiramisu?ref=meal_planner).
 
 ### Media
 
-The photos used for the products for site were obtained from.
+The photos used for the products and recipes for site were obtained from,
 
-  1.  [FreeImages.com](https://www.freeimages.com/)
+  1. [FreeImages.com](https://www.freeimages.com/)
 
-  2.  [pexels.com](https://www.pexels.com)
+  2. [pexels.com](https://www.pexels.com)
 
   3. [Unsplash.com](https://unsplash.com/photos/irRhPKPqP9Y)
 
