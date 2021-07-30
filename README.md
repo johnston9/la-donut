@@ -12,7 +12,7 @@ The shop owner can easily manage the site through the admin and manage site page
 <br>
 The main Django app is called silverDollar.
 
-<h2 align="center"><img src="documentation/readme-images/x.png"></h2>
+<h2 align="center"><img src="documentation/readme-images/l-hero-im.png"></h2>
 
 # Table of Content
 
@@ -27,49 +27,62 @@ The main Django app is called silverDollar.
 
 - [Existing Features](#existing-features)
   * [Responsive Design](#responsive-design)
-  * [Login/Register Pages and Security Measures](#login-register-pages-and-security-measures)
-  * [User Base Page](#user-base-page)
-  * [Departments Page](#departments-page)
-  * [Images Page](#images-page)
-  * [Admin Page](#admin-page)
+  * [Allauth Login/Register/Logout Pages and Security](#allauth-login-register-logout-pages-and-security)
+  * [Recipes Page](#recipes-page)
+  * [ChatPage](#chatpage)
+  * [Superuser Features](#superuser-features)
+  * [Optimum Image Showcase](#optimum-image-showcase)
+  * [Size and Box Quantity Prices](#size-and-box-quantity-prices)
+  * [Checkout and Stripe](#checkout-and-stripe)
 
-- [Database structure](#database-structure)
+- [Information Architecture](#information-architecture)
+  * [Database structure - Model Tables by App](#database-structure---model-tables-by-app)
 
 - [Languages Used](#languages-used)
-
 - [Frameworks, Databases, Libraries & Programs Used](#frameworks--databases--libraries---programs-used)
 
 - [Testing](#testing)
 
-- [Lighthouse](#lighthouse)
-  * [Summary of Issues](#summary-of-issues)
-  * [Login page](#login-page)
-  * [Register page](#register-page)
-  * [User Base page](#user-base-page)
-  * [Image page](#image-page)
-  * [Departments page](#departments-page)
-
 - [Testing User Stories from User Experience (UX)](#testing-user-stories-from-user-experience--ux-)
-  * [First Time User Goals](#first-time-user-goals-1)
+  * [First Time User Goals](#first-time-user-goals-1)   
   * [Returning User Goals](#returning-user-goals-1)
   * [Frequent User Goals](#frequent-user-goals-1)
-  * [Admin User Goals](#admin-user-goals-1)
+  * [Owner/Admin User Goals](#owner-admin-user-goals-1)
 
 - [Further Testing](#further-testing)
-  * [Brute-Forcing Attacks](#brute-forcing-attacks)
-  * [404 Error Handling](#404-error-handling)
-  * [Login Page](#login-page)
-  * [Register Page](#register-page)
-  * [Logout](#logout)
+  * [Testing Webhooks](#testing-webhooks)
+  * [Testing Stripe Card and Details Input Errors](#testing-stripe-card-and-details-input-errors)
+
+- [Lighthouse](#lighthouse)
+  * [Summary of Issues](#summary-of-issues)
+  * [Home Page](#home-page)
+  * [Checkout Page](#checkout-page)
+  * [Add Product Page](#add-product-page)
+  * [Chat Page](#chat-page)
+  * [Resize Page](#resize-page)
+  * [Sign Up Page](#sign-up-page)
+
+- [Bugs](#bugs-fixed)
 
 - [Deployment](#deployment)
   * [Repository](#repository)
-    + [Forking the GitHub Repository](#forking-the-github-repository)
-    + [Making a Local Clone](#making-a-local-clone)
-    + [Terminal](#terminal)
-    + [Further steps required](#further-steps-required)
+  * [Making a Local Clone](#making-a-local-clone)
+  * [Further steps required](#further-steps-required)
 
-  * [Deploy to Heroku](#deploy-to-heroku)
+- [Deploy to Heroku](#deploy-to-heroku)
+  * [Set-Up Database on Heroku](#set-up-database-on-heroku)
+  * [Stripe](#stripe)
+  * [Settings.py](#settingspy-2)
+  * [Terminal](#terminal-3)
+  * [Heroku - set automatic deploy when push to github](#heroku---set-automatic-deploy-when-push-to-github)
+
+- [Amazon Web Service](#amazon-web-service)
+  * [Permissions](#on-the-permissions-tab-paste-in-a-cors-configuration)
+  * [Bucket Policy](#on-the-bucket-policy-tab-click-edit)
+  * [Access Control](#on-the-access-control-list-tab)
+  * [Create AWS Group, Policies and Users](#create-aws-group--policies-and-users)
+  * [Connecting Django to S3](#connecting-django-to-s3)
+  * [Emails](#emails)
 
 - [Credits](#credits)
 
@@ -516,12 +529,14 @@ On completion all functionality was tested for User's Stories. The Bag, Checkout
 
 W3C Markup Validator was used on every page and screenshots are in the documentation to cover this although they just capture the head fot the result page. Obviously they all contained errors because of the template language use but apart from that they were clear.
 
-W3C CSS Validator,PEP8 and JSHint were used to validate all css. Python ans JS in the project, the results are in documentation.
+W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in the project, the results are in documentation.
 
-- [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut/css-w3c/html-w3)
+- [W3C Markup Validator](https://validator.w3.org/) - [Results](https://github.com/johnston9/la-donut/documentation/html-w3)
   - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. On validated by URL no errors were shown - documentation/w3c-by-url.
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnston9/la-donut/css-w3c/css-w3c)
-  -   
+
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/johnston9/la-donut/documentation/css-w3c/)
+  - W3C CSS Validator gave no errors and only a warning in checkout.css for the webkit-transition an unknown vendor extension but I left it as it was part of Stripe and 3 warnings in base.css for background color being the same as color but this was intentional.
+
 - [JSHint](https://jshint.com/) - [Results](https://github.com/johnston9/la-donut/documentation/JSHint/)
   - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu. The only warning was that the Stripe variable was not defined before it was used but this code is in keeping with the Stripe Docs.
     
@@ -1864,7 +1879,7 @@ Gmail's SMTP server was used to handle the emails.
 - [Code Institue](https://codeinstitute.net/)
   I learnt how to build the app from the Code Institue course material.
 - [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/)
-  The basic set up and Django configuration for the app is based on The Boutique Ado project from the Code Institute course material.
+  The basic set up and Django configuration for the app is based on The Boutique Ado project from the Code Institute course material. In particular the Products, Bag, Checkout, Stripe and Webhooks functionality are customised or adapted or in segments.taken straight from the project. But for the most part every one of these has been adapted for this project and also in many places very much customised.
 - [Django Docs](https://docs.djangoproject.com/en/3.2/)
   I refered to these throughout the project.
 - [Data Tables](https://datatables.net/examples/styling/bootstrap4)

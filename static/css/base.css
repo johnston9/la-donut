@@ -36,9 +36,7 @@ img {
 /*----------- home page -------*/ 
 
 .home-container-im {
-    /*background: url('/media/dessy-ss.jpg') no-repeat center center;*/
     background: url('/media/home-mo.jpg') no-repeat center center;
-    /*object-fit: contain;*/
     background-size: cover;
     background-color: #fff;
     font-family: 'Lato';
@@ -48,8 +46,6 @@ img {
 
 body {
     color: #333;
-    /*color: #474343;*/
-	/*color: #696666;*/
     font-family: "Playfair Display", serif;   
 }
 
@@ -155,6 +151,8 @@ hr.grey100 {
 
 /*---------------------Nav---------------------------*/
 
+/*--logo--*/
+
 .donut-logo {
     background: url('/media/la4.jpg') no-repeat center center;
     background-size: cover;
@@ -163,8 +161,6 @@ hr.grey100 {
     height: 30px;
     
 }
-
-/*--logo--*/
 
 .donut-logo a {
     color: #000;
@@ -211,7 +207,9 @@ hr.grey100 {
     font-size: 1.25rem;
 }
 
-/*return to top button*/
+/*---------------buttons------------*/
+
+/*--return to top button--*/
 
 #topbut {
 	display: none;
@@ -234,8 +232,6 @@ hr.grey100 {
 #topbut:hover {
 	background-color: #000;
 }
-
-/*---------------buttons------------*/
 
 .enter-button {
     background: black;
@@ -366,7 +362,7 @@ hr.grey100 {
     text-decoration: none;
 }
 
-/*--colors--*/
+/*----------------colors------------------------*/
 
 .text-white {
     color: #fff;
@@ -480,7 +476,7 @@ hr.grey100 {
     color: #696666;
 }
 
-/*---------------shop page--------------*/
+/*---------------Shop page--------------*/
 
 .btn.dropdown-toggle.select-btn {
     background-color: #f8f9fa;
@@ -511,7 +507,7 @@ hr.grey100 {
     border-color: #e8ecf0;
 }
 
-/*--------------------search------------------*/
+/*--------------------Search Bar in Header------------------*/
 
 .input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, 
 .input-group:not(.has-validation)>.custom-select:not(:last-child), 
@@ -542,7 +538,17 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*---quantity buttons on view item page----*/
+/* ---------------------View Item page---------- */
+
+div.dataTables_wrapper div.dataTables_length label {
+    display: none; 
+}
+
+#reviews_button {
+    cursor: pointer;
+}
+
+/*-----quantity buttons on view item page--------------*/
 
 .btn-quantity {
     color: #fff;
@@ -558,7 +564,7 @@ input[name='q']::placeholder {
     color: #000;
 }
 
-/*---------quantity input box for view item page--------*/
+/*---quantity input box for view item page---*/
 
 .input-group>.custom-file.view-it, 
 .input-group>.custom-select.view-it, 
@@ -568,7 +574,7 @@ input[name='q']::placeholder {
     color: #000 !important;
 }
 
-/*-----------radio/check buttons-------*/
+/*-----------radio/check buttons for the view item page-------*/
 
 .add_product .form-check-label {
     font-size: 1rem;
@@ -585,15 +591,6 @@ input[name='q']::placeholder {
     font-family: Playball;
 }
 
-/* ---------------------View Item page---------- */
-
-div.dataTables_wrapper div.dataTables_length label {
-    display: none; 
-}
-
-#reviews_button {
-    cursor: pointer;
-}
 
 /* ------------- Bag Page ----------- */
 
@@ -613,8 +610,6 @@ div.dataTables_wrapper div.dataTables_length label {
     border: 1px solid rgb(255,215,0);
 }
 
-/* ------------- Profile Page ------------*/
-
 /* ---------------------Recipes---------- */
 
 #recipe-ed {
@@ -630,14 +625,13 @@ div.dataTables_wrapper div.dataTables_length label {
     color: rgb(140, 111, 25, 99%);
     text-decoration: none;
 }
+
 /* ---------------------Resize Instructions page---------- */
 
 .instruction-img {
     border: 2px dotted red;
     padding: 5px;
 }
-
-/* ---------------------Chat---------- */
 
 /* ---------- bootstrap toasts -------- */
 
@@ -768,7 +762,7 @@ div.dataTables_wrapper div.dataTables_length label {
     h2.display-4.explore {
         font-size: 2rem;
     }
-    }
+}
 
 @media (max-width: 768px) {
     h2 {
@@ -799,7 +793,14 @@ div.dataTables_wrapper div.dataTables_length label {
     .cake-select-label {
         height: 92px;;
         }
-  }
+}
+
+  @media (max-width: 576px) {
+    .btn-black-gold
+    .enter-button {
+        width: 110px;
+        }
+}
 
 @media (min-width: 576px) {
     .donut-logo {
@@ -816,13 +817,6 @@ div.dataTables_wrapper div.dataTables_length label {
     }
 }
 
-@media (max-width: 576px) {
-    .btn-black-gold
-    .enter-button {
-        width: 110px;
-    }
-}
-
 /*---Shop Page images media queries--*/
 
 @media (min-width: 576px) {
@@ -830,7 +824,7 @@ div.dataTables_wrapper div.dataTables_length label {
     height: 240px;
     object-fit: contain;
 
-}
+    }
 }
 
 @media (min-width: 768px) {
@@ -838,7 +832,7 @@ div.dataTables_wrapper div.dataTables_length label {
     height: 210px;
     object-fit: contain;
 
-}
+    }
 }
 
 @media (min-width: 992px) {
@@ -846,7 +840,7 @@ div.dataTables_wrapper div.dataTables_length label {
     height: 180px;
     object-fit: contain;
 
-}
+    }
 }
 
 @media (min-width: 1200px) {
@@ -854,8 +848,10 @@ div.dataTables_wrapper div.dataTables_length label {
     height: 160px;
     object-fit: contain;
 
+    }
 }
-}
+
+/*--home image--*/
 
 @media (min-width: 576px) {
     .home-container {
