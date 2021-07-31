@@ -538,7 +538,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 - [W3C Markup Validator](https://validator.w3.org/) 
   - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. [Results](documentation/html-w3-images)
   
-  - On validated by URL no errors were shown - [Result](documentation)
+  - On validated by URL no errors were shown - [Result](documentation/w3-by-url.png)
 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
   - W3C CSS Validator gave no errors and only a warning in checkout.css for the webkit-transition an unknown vendor extension but I left it as it was part of Stripe and 3 warnings in base.css for background color being the same as color but this was intentional. [Results](documentation/css-w3c-images)
@@ -1344,7 +1344,7 @@ The only major issue with the site is with the recipe and chat links in the nav.
 
 I researched the problem on the web and redid they code a number of times but could not find a solution. I brought the issue to the tutors but they were equally at a loss. It does not happen every time which makes it even more curious.
 
-I will try to figure out the problem if the site is to go further.
+I will try to figure out the problem if the site is to go further but I have found that the function is in fact there if you move the curser round a bit or bring the curser down on the link not up.
 
 
 ### Heroku Logs
