@@ -109,7 +109,7 @@ It aims to create a brand to establish an image in the public eye for the shop, 
 - Values: Class and quality
 
 <h2 align="center">
-<img src="documentation/readme-images/do.png" width="25%">
+<img src="documentation/readme-images/do.png" width="90%">
 </h2>
 
 ### Scope Plane
@@ -536,18 +536,18 @@ W3C Markup Validator was used on every page and screenshots are in the documenta
 W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in the project, the results are in documentation.
 
 - [W3C Markup Validator](https://validator.w3.org/) 
-  - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. [Results](documentation/html-w3)
+  - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. [Results](documentation/html-w3-images)
   
   - On validated by URL no errors were shown - [Result](documentation/w3-by-url)
 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
-  - W3C CSS Validator gave no errors and only a warning in checkout.css for the webkit-transition an unknown vendor extension but I left it as it was part of Stripe and 3 warnings in base.css for background color being the same as color but this was intentional. [Results](documentation/css-w3c)
+  - W3C CSS Validator gave no errors and only a warning in checkout.css for the webkit-transition an unknown vendor extension but I left it as it was part of Stripe and 3 warnings in base.css for background color being the same as color but this was intentional. [Results](documentation/css-w3c-images)
 
 - [JSHint](https://jshint.com/) 
-  - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu. The only warning was that the Stripe variable was not defined before it was used but this code is in keeping with the Stripe Docs. [Results](documentation/JSHint)
+  - JSHint was used with "New JavaScript features (ES6)" and "jQuery" checked in the configuration menu. The only warning was that the Stripe variable was not defined before it was used but this code is in keeping with the Stripe Docs. [Results](documentation/JSHint-images)
     
 - [PEP8 online check](http://pep8online.com/) 
-  - PEP8 approved all python pages apart from a few too long lines in the webhook_handler, webhook.py which I decided to leave. [Results](documentation/PEP8/)
+  - PEP8 approved all python pages apart from a few too long lines in the webhook_handler, webhook.py which I decided to leave. [Results](documentation/PEP8-images)
 
 
 [Back to Table of Content](#table-of-content)
