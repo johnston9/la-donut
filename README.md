@@ -538,7 +538,7 @@ W3C CSS Validator,PEP8 and JSHint were used to validate all CSS Python and JS in
 - [W3C Markup Validator](https://validator.w3.org/) 
   - W3C "Direct Input" option was used on each html page where the only errors were due to template inheritance. [Results](documentation/html-w3-images)
   
-  - On validated by URL no errors were shown - [Result](documentation/w3-by-url)
+  - On validated by URL no errors were shown - [Result](documentation)
 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
   - W3C CSS Validator gave no errors and only a warning in checkout.css for the webkit-transition an unknown vendor extension but I left it as it was part of Stripe and 3 warnings in base.css for background color being the same as color but this was intentional. [Results](documentation/css-w3c-images)
