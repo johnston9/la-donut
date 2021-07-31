@@ -108,6 +108,10 @@ It aims to create a brand to establish an image in the public eye for the shop, 
 - Mission: To cater to your most luxurious culinary desires
 - Values: Class and quality
 
+<h2 align="center">
+<img src="documentation/readme-images/do.png" width="25%">
+</h2>
+
 ### Scope Plane
 
 The features included in the app at present reflect choices made around the following reflections.
@@ -194,7 +198,7 @@ making the user feel both at home here and part of an interesting journey. Detai
 ## Design
 
 <h2 align="center">
-<img src="documentation/readme-images/shop-page.png" width="90%">
+<img src="documentation/readme-images/domo.png" width="30%">
 </h2>
 
 ### Landing page
